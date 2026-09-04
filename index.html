@@ -1,64 +1,2028 @@
-<div id="snowyy-lock" class="hidden" style="
-  position:fixed;
-  inset:0;
-  z-index:9999;
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❄️ Snowy Hub</title>
+
+<style>
+:root{
+  --blue:#147cff;
+  --purple:#a855f7;
+  --dark:#07070c;
+  --card:#11131b;
+  --text:#f7f8ff;
+  --muted:#a9afc1;
+  --red:#ff294d;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Inter,system-ui,Arial,sans-serif;
+  min-height:100vh;
+  background:#fff;
+  color:#111;
+  overflow-x:hidden;
+}
+
+button,input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+#login{
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(10px);
   padding:20px;
-">
-  <div style="
-    width:min(420px,100%);
-    background:#11131b;
-    color:white;
-    border:1px solid #ffffff20;
-    border-radius:24px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 30px 100px #000;
-  ">
+  background:
+    radial-gradient(circle at top left,#dbeafe,transparent 35%),
+    radial-gradient(circle at bottom right,#ede9fe,transparent 35%),
+    #fff;
+}
 
-    <div style="font-size:45px">🔐</div>
+.login-card{
+  width:min(460px,100%);
+  background:white;
+  padding:35px;
+  border-radius:28px;
+  box-shadow:0 20px 70px rgba(0,0,0,.12);
+  text-align:center;
+}
 
-    <h2 style="margin:10px 0">
-      Vérification Snowyy
+.logo{
+  font-size:32px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#667085;
+  margin-bottom:25px;
+}
+
+.field{
+  display:flex;
+  gap:10px;
+}
+
+.field input{
+  flex:1;
+  min-width:0;
+  padding:14px 16px;
+  border:1px solid #d0d5dd;
+  border-radius:14px;
+  outline:none;
+}
+
+.field input:focus{
+  border-color:var(--blue);
+}
+
+.primary{
+  border:0;
+  border-radius:14px;
+  padding:14px 18px;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  color:white;
+  font-weight:800;
+}
+
+/* =========================
+   APP
+========================= */
+
+#app{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(20,124,255,.12),transparent 30%),
+    radial-gradient(circle at 90% 100%,rgba(168,85,247,.12),transparent 30%),
+    #f8f9fc;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 25px;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #eaecf0;
+}
+
+.header-logo{
+  font-size:22px;
+  font-weight:900;
+}
+
+.user-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.user-label{
+  font-weight:800;
+  color:#344054;
+}
+
+.admin-button{
+  border:0;
+  border-radius:12px;
+  padding:9px 14px;
+  background:#111827;
+  color:white;
+  font-weight:800;
+}
+
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px 80px;
+}
+
+.hero{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.hero h1{
+  font-size:42px;
+  font-weight:950;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#667085;
+}
+
+/* =========================
+   LEVEL
+========================= */
+
+.level-box{
+  max-width:650px;
+  margin:0 auto 35px;
+  background:white;
+  padding:20px;
+  border-radius:22px;
+  box-shadow:0 10px 35px rgba(0,0,0,.07);
+}
+
+.level-top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+  font-weight:900;
+}
+
+.progress-bg{
+  height:12px;
+  background:#eaecf0;
+  border-radius:99px;
+  overflow:hidden;
+}
+
+#progress{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  border-radius:99px;
+  transition:width .3s;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:25px;
+}
+
+.category{
+  position:relative;
+  height:330px;
+  border-radius:28px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 15px 45px rgba(0,0,0,.15);
+  background:#111;
+  transition:.25s;
+}
+
+.category:hover{
+  transform:translateY(-6px) scale(1.01);
+}
+
+.category img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.category .overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px;
+  background:linear-gradient(
+    transparent 35%,
+    rgba(0,0,0,.9)
+  );
+  color:white;
+}
+
+.category h2{
+  font-size:29px;
+  font-weight:950;
+}
+
+.category p{
+  margin-top:5px;
+  color:#ddd;
+}
+
+/* =========================
+   PAGES
+========================= */
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.back{
+  border:0;
+  background:#e4e7ec;
+  padding:10px 16px;
+  border-radius:12px;
+  font-weight:800;
+  margin-bottom:25px;
+}
+
+.page-title{
+  font-size:38px;
+  font-weight:950;
+  margin-bottom:10px;
+}
+
+.page-desc{
+  color:#667085;
+  margin-bottom:25px;
+}
+
+.panel{
+  background:white;
+  padding:25px;
+  border-radius:22px;
+  box-shadow:0 10px 35px rgba(0,0,0,.07);
+  margin-bottom:20px;
+}
+
+.panel h3{
+  margin-bottom:12px;
+}
+
+.panel p{
+  line-height:1.6;
+  color:#475467;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.tab{
+  border:0;
+  padding:11px 16px;
+  border-radius:12px;
+  background:#eaecf0;
+  font-weight:800;
+}
+
+.tab.active{
+  background:#111827;
+  color:white;
+}
+
+/* =========================
+   PROMO
+========================= */
+
+.promo-list{
+  display:grid;
+  gap:15px;
+}
+
+.promo{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:18px;
+  border:1px solid #eaecf0;
+  border-radius:17px;
+}
+
+.promo-code{
+  font-size:20px;
+  font-weight:950;
+  letter-spacing:1px;
+}
+
+.redeem{
+  border:0;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  color:white;
+  padding:10px 16px;
+  border-radius:11px;
+  font-weight:900;
+}
+
+.redeem:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+/* =========================
+   MODALS
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-card{
+  width:min(440px,100%);
+  background:white;
+  border-radius:25px;
+  padding:30px;
+  box-shadow:0 30px 100px rgba(0,0,0,.35);
+  text-align:center;
+}
+
+.modal-card h2{
+  margin-bottom:10px;
+}
+
+.modal-card p{
+  color:#667085;
+  margin-bottom:20px;
+}
+
+.modal-card input{
+  width:100%;
+  padding:14px;
+  border:1px solid #d0d5dd;
+  border-radius:13px;
+  outline:none;
+  margin-bottom:12px;
+}
+
+.modal-card button{
+  width:100%;
+}
+
+.error{
+  color:#d92d20;
+  font-weight:700;
+  min-height:22px;
+  margin-top:10px;
+}
+
+/* =========================
+   SNOWYY LOCK
+========================= */
+
+#snowyy-lock{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(14px);
+  padding:20px;
+}
+
+#snowyy-lock:not(.hidden){
+  display:flex;
+}
+
+.lock-card{
+  width:min(440px,100%);
+  background:white;
+  border-radius:28px;
+  padding:32px;
+  text-align:center;
+  box-shadow:0 30px 100px rgba(0,0,0,.5);
+}
+
+.lock-icon{
+  font-size:55px;
+  margin-bottom:10px;
+}
+
+.lock-card h2{
+  font-size:28px;
+  font-weight:950;
+  margin-bottom:8px;
+}
+
+.lock-card p{
+  color:#667085;
+  margin-bottom:20px;
+}
+
+.lock-card input{
+  width:100%;
+  padding:15px;
+  border:1px solid #d0d5dd;
+  border-radius:14px;
+  outline:none;
+  margin-bottom:12px;
+}
+
+.unlock-btn{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  color:white;
+  font-weight:900;
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+#admin-panel{
+  display:none;
+}
+
+.admin-form{
+  display:flex;
+  gap:10px;
+}
+
+.admin-form input{
+  flex:1;
+  padding:13px;
+  border:1px solid #d0d5dd;
+  border-radius:12px;
+}
+
+.admin-form button{
+  border:0;
+  background:#111827;
+  color:white;
+  padding:13px 18px;
+  border-radius:12px;
+  font-weight:800;
+}
+
+@media(max-width:700px){
+  .categories{
+    grid-template-columns:1fr;
+  }
+
+  .field{
+    flex-direction:column;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .category{
+    height:260px;
+  }
+
+  header{
+    padding:14px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<section id="login">
+
+  <div class="login-card">
+
+    <div class="logo">❄️ Snowy Hub</div>
+
+    <p class="subtitle">
+      Entre ton pseudo pour commencer
+    </p>
+
+    <div class="field">
+      <input
+        id="username"
+        maxlength="24"
+        placeholder="Ex : lenoob89"
+      >
+
+      <button
+        id="login-button"
+        class="primary"
+        onclick="register()"
+      >
+        S'enregistrer
+      </button>
+    </div>
+
+    <p
+      id="login-error"
+      style="color:#d92d20;margin-top:12px"
+    ></p>
+
+    <div
+      id="code-box"
+      class="hidden"
+      style="
+        margin-top:18px;
+        text-align:left;
+        padding:16px;
+        border:1px solid #c4b5fd;
+        background:#f5f3ff;
+        border-radius:16px
+      "
+    >
+      <b>🔐 Ton code de connexion</b>
+
+      <p
+        style="
+          color:#667085;
+          margin:6px 0 10px
+        "
+      >
+        Ce code est demandé quand ce pseudo existe déjà.
+        Note-le précieusement.
+      </p>
+
+      <div
+        id="generated-code"
+        style="
+          font-size:25px;
+          font-weight:900;
+          letter-spacing:4px;
+          text-align:center;
+          padding:12px;
+          background:#111;
+          color:#fff;
+          border-radius:12px;
+          user-select:all
+        "
+      ></div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     APP
+========================= -->
+
+<section id="app" class="hidden">
+
+  <header>
+
+    <div class="header-logo">
+      ❄️ Snowy Hub
+    </div>
+
+    <div class="user-area">
+
+      <span
+        id="user-label"
+        class="user-label"
+      ></span>
+
+      <button
+        id="admin-btn"
+        class="admin-button hidden"
+        onclick="openAdmin()"
+      >
+        🛠️ Admin
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- HOME -->
+
+    <section
+      id="home-page"
+      class="page active"
+    >
+
+      <div class="hero">
+
+        <h1>
+          Bienvenue sur Snowy Hub ❄️
+        </h1>
+
+        <p>
+          Choisis une catégorie pour continuer.
+        </p>
+
+      </div>
+
+
+      <div class="level-box">
+
+        <div class="level-top">
+
+          <span id="level-text">
+            Niveau 1
+          </span>
+
+          <span id="time-text">
+            10:00
+          </span>
+
+        </div>
+
+        <div class="progress-bg">
+          <div id="progress"></div>
+        </div>
+
+      </div>
+
+
+      <div class="categories">
+
+        <article
+          class="category mm2"
+          onclick="showPage('mm2')"
+        >
+
+          <img
+            src="https://static.wikia.nocookie.net/murdermystery/images/3/30/MM2logo.png/revision/latest?cb=20141230012338"
+            alt="Murder Mystery 2"
+          >
+
+          <div class="overlay">
+
+            <h2>
+              Murder Mystery 2
+            </h2>
+
+            <p>
+              Histoire, informations et codes
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="category snowy"
+          onclick="showPage('snowy')"
+        >
+
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1247/1247131.png"
+            alt="Snowy Page"
+          >
+
+          <div class="overlay">
+
+            <h2>
+              Snowy Page
+            </h2>
+
+            <p>
+              Réseaux sociaux & communauté
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- MM2 -->
+
+    <section
+      id="mm2-page"
+      class="page"
+    >
+
+      <button
+        class="back"
+        onclick="goHome()"
+      >
+        ← Retour
+      </button>
+
+      <h1 class="page-title">
+        🔪 Murder Mystery 2
+      </h1>
+
+      <p class="page-desc">
+        Tout ce qu'il faut savoir sur Murder Mystery 2.
+      </p>
+
+
+      <div class="tabs">
+
+        <button
+          class="tab active"
+          onclick="mm2Tab('history',this)"
+        >
+          📖 Histoire
+        </button>
+
+        <button
+          class="tab"
+          onclick="mm2Tab('roles',this)"
+        >
+          🎭 Rôles
+        </button>
+
+        <button
+          class="tab"
+          onclick="mm2Tab('promo',this)"
+        >
+          🎁 Codes promo
+        </button>
+
+      </div>
+
+
+      <div
+        id="mm2-history"
+        class="panel"
+      >
+
+        <h3>
+          📖 Histoire
+        </h3>
+
+        <p>
+          Murder Mystery 2 est un jeu Roblox dans lequel
+          les joueurs doivent découvrir le meurtrier tout
+          en essayant de survivre.
+        </p>
+
+      </div>
+
+
+      <div
+        id="mm2-roles"
+        class="panel hidden"
+      >
+
+        <h3>
+          🎭 Les rôles
+        </h3>
+
+        <p>
+          🔪 Le meurtrier doit éliminer les autres joueurs.
+          <br><br>
+          🕵️ Le shérif doit retrouver et arrêter le meurtrier.
+          <br><br>
+          👤 Les innocents doivent survivre et aider à trouver
+          le meurtrier.
+        </p>
+
+      </div>
+
+
+      <div
+        id="mm2-promo"
+        class="panel hidden"
+      >
+
+        <h3>
+          🎁 Codes promo
+        </h3>
+
+        <p style="margin-bottom:18px">
+          Utilise les codes disponibles ci-dessous.
+        </p>
+
+        <div class="promo-list">
+
+          <div class="promo">
+
+            <div>
+              <div class="promo-code">
+                STRAWBERRIES
+              </div>
+
+              <small>
+                Code promotionnel
+              </small>
+            </div>
+
+            <button
+              class="redeem"
+              onclick="redeem('STRAWBERRIES')"
+            >
+              Claim
+            </button>
+
+          </div>
+
+
+          <div class="promo">
+
+            <div>
+              <div class="promo-code">
+                LEMON
+              </div>
+
+              <small>
+                Code promotionnel
+              </small>
+            </div>
+
+            <button
+              class="redeem"
+              onclick="redeem('LEMON')"
+            >
+              Claim
+            </button>
+
+          </div>
+
+
+          <div class="promo">
+
+            <div>
+              <div class="promo-code">
+                ORANGE
+              </div>
+
+              <small>
+                Code promotionnel
+              </small>
+            </div>
+
+            <button
+              class="redeem"
+              onclick="redeem('ORANGE')"
+            >
+              Claim
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SNOWY PAGE -->
+
+    <section
+      id="snowy-page"
+      class="page"
+    >
+
+      <button
+        class="back"
+        onclick="goHome()"
+      >
+        ← Retour
+      </button>
+
+      <h1 class="page-title">
+        ❄️ Snowy Page
+      </h1>
+
+      <p class="page-desc">
+        Rejoins la communauté Snowy !
+      </p>
+
+
+      <div class="panel">
+
+        <h3>
+          🎵 TikTok
+        </h3>
+
+        <p>
+          Retrouve Snowy sur TikTok pour découvrir
+          les nouveautés et les contenus de la communauté.
+        </p>
+
+        <br>
+
+        <button
+          class="primary"
+          onclick="window.open('https://www.tiktok.com/','_blank')"
+        >
+          Ouvrir TikTok
+        </button>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h3>
+          💬 Discord
+        </h3>
+
+        <p>
+          Rejoins le serveur Discord de la communauté Snowy.
+        </p>
+
+        <br>
+
+        <button
+          class="primary"
+          onclick="window.open('https://discord.com/','_blank')"
+        >
+          Ouvrir Discord
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ADMIN -->
+
+    <section
+      id="admin-page"
+      class="page"
+    >
+
+      <button
+        class="back"
+        onclick="goHome()"
+      >
+        ← Retour
+      </button>
+
+      <h1 class="page-title">
+        🛠️ Panneau Admin
+      </h1>
+
+      <p class="page-desc">
+        Commandes administrateur Snowy Hub.
+      </p>
+
+
+      <div class="panel">
+
+        <h3>
+          Commande
+        </h3>
+
+        <div class="admin-form">
+
+          <input
+            id="admin-command"
+            placeholder="/level 50"
+          >
+
+          <button onclick="runAdminCommand()">
+            Exécuter
+          </button>
+
+        </div>
+
+        <p
+          id="admin-result"
+          style="margin-top:15px"
+        ></p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</section>
+
+
+<!-- =========================
+     SNOWYY PASSWORD LOCK
+========================= -->
+
+<div
+  id="snowyy-lock"
+  class="hidden"
+>
+
+  <div class="lock-card">
+
+    <div class="lock-icon">
+      🔐
+    </div>
+
+    <h2>
+      Compte Snowyy
     </h2>
 
-    <p style="color:#aeb4c4;margin-bottom:20px">
-      Entre le mot de passe supplémentaire pour continuer.
+    <p>
+      Cette page est protégée.<br>
+      Entre le mot de passe pour continuer.
     </p>
 
     <input
       id="snowyy-password"
       type="password"
       placeholder="Mot de passe"
-      style="
-        width:100%;
-        padding:14px;
-        border-radius:12px;
-        border:1px solid #ffffff20;
-        background:#080a10;
-        color:white;
-        outline:none;
-        margin-bottom:10px;
-      "
+      autocomplete="off"
     >
 
     <button
-      class="primary"
+      class="unlock-btn"
       onclick="unlockSnowyy()"
-      style="width:100%"
     >
-      🔓 Continuer
+      🔓 Débloquer
     </button>
 
-    <p id="snowyy-error" style="
-      color:#ff6b81;
-      margin-top:12px;
-      min-height:20px;
-    "></p>
+    <div
+      id="snowyy-error"
+      class="error"
+    ></div>
 
   </div>
+
 </div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+const KEY='snowyHubUsers_v2';
+
+const SNOWYY_PASSWORD='Celia@tom2';
+
+let state=null;
+let timer=null;
+
+
+/* =========================
+   USERS
+========================= */
+
+function getUsers(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(KEY)||'{}'
+    );
+
+  }catch(e){
+
+    return {};
+
+  }
+
+}
+
+
+function saveUsers(users){
+
+  localStorage.setItem(
+    KEY,
+    JSON.stringify(users)
+  );
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function persist(){
+
+  if(!state)return;
+
+  const now=Date.now();
+
+  state.elapsed=Math.min(
+    state.elapsed+(now-state.sessionStart),
+    (100-1)*600000+599999
+  );
+
+  state.sessionStart=now;
+
+  const users=getUsers();
+
+  users[state.name]={
+    level:state.level,
+    elapsed:state.elapsed,
+    code:state.code,
+    claimedCodes:Array.isArray(state.claimedCodes)
+      ? state.claimedCodes
+      : []
+  };
+
+  saveUsers(users);
+
+}
+
+
+/* =========================
+   CODE
+========================= */
+
+function makeCode(){
+
+  const chars=
+    'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+
+  const bytes=
+    new Uint32Array(10);
+
+  crypto.getRandomValues(bytes);
+
+  let out='';
+
+  for(let i=0;i<10;i++){
+
+    out+=chars[
+      bytes[i]%chars.length
+    ];
+
+  }
+
+  return out.slice(0,5)+'-'+out.slice(5);
+
+}
+
+
+/* =========================
+   REGISTER / LOGIN
+========================= */
+
+function register(){
+
+  const name=
+    document.getElementById('username')
+      .value
+      .trim();
+
+  const error=
+    document.getElementById('login-error');
+
+  const box=
+    document.getElementById('code-box');
+
+  error.textContent='';
+  box.classList.add('hidden');
+
+  if(!name){
+
+    error.textContent=
+      'Entre un pseudo.';
+
+    return;
+
+  }
+
+  if(name.length<3){
+
+    error.textContent=
+      'Le pseudo doit contenir au moins 3 caractères.';
+
+    return;
+
+  }
+
+  const users=getUsers();
+
+  const saved=users[name];
+
+
+  /* NOUVEAU COMPTE */
+
+  if(!saved){
+
+    const code=makeCode();
+
+    state={
+
+      name:name,
+      level:1,
+      elapsed:0,
+      sessionStart:Date.now(),
+      code:code,
+      claimedCodes:[]
+
+    };
+
+
+    users[name]={
+
+      level:1,
+      elapsed:0,
+      code:code,
+      claimedCodes:[]
+
+    };
+
+    saveUsers(users);
+
+
+    document.getElementById(
+      'generated-code'
+    ).textContent=code;
+
+
+    box.classList.remove('hidden');
+
+    error.style.color='#027a48';
+
+    error.textContent=
+      'Compte créé ! Garde bien ton code avant de continuer.';
+
+
+    const button=
+      document.getElementById('login-button');
+
+    button.textContent='Continuer';
+
+    button.onclick=function(){
+
+      start();
+
+    };
+
+    return;
+
+  }
+
+
+  /* COMPTE EXISTANT */
+
+  const entered=prompt(
+    'Ce pseudo existe déjà. Entre le code de connexion fourni à la création du compte :'
+  );
+
+  if(entered===null)return;
+
+
+  if(
+    entered.trim().toUpperCase()
+    !==
+    saved.code
+  ){
+
+    error.style.color='#d92d20';
+
+    error.textContent=
+      'Code incorrect. Impossible de se connecter à ce compte.';
+
+    return;
+
+  }
+
+
+  state={
+
+    name:name,
+
+    level:saved.level||1,
+
+    elapsed:saved.elapsed||0,
+
+    sessionStart:Date.now(),
+
+    code:saved.code,
+
+    claimedCodes:
+      Array.isArray(saved.claimedCodes)
+      ? saved.claimedCodes
+      : []
+
+  };
+
+
+  saveUsers(users);
+
+  start();
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+function start(){
+
+  document
+    .getElementById('login')
+    .classList.add('hidden');
+
+
+  document
+    .getElementById('app')
+    .classList.remove('hidden');
+
+
+  document
+    .getElementById('user-label')
+    .textContent=state.name;
+
+
+  const isSnowyy=
+    state.name.toLowerCase()==='snowyy';
+
+
+  document
+    .getElementById('admin-btn')
+    .classList.toggle(
+      'hidden',
+      !isSnowyy
+    );
+
+
+  updateLevel();
+
+
+  clearInterval(timer);
+
+  timer=setInterval(
+    updateLevel,
+    1000
+  );
+
+
+  /*
+    IMPORTANT :
+
+    Le verrou n'est activé QU'ICI,
+    après que la connexion soit réussie
+    et que la page d'accueil soit affichée.
+  */
+
+  if(isSnowyy){
+
+    requestAnimationFrame(()=>{
+
+      setTimeout(()=>{
+
+        const lock=
+          document.getElementById(
+            'snowyy-lock'
+          );
+
+        lock.classList.remove('hidden');
+
+        document.body.style.overflow='hidden';
+
+        const password=
+          document.getElementById(
+            'snowyy-password'
+          );
+
+        password.value='';
+
+        password.focus();
+
+      },400);
+
+    });
+
+  }
+
+}
+
+
+/* =========================
+   SNOWYY PASSWORD
+========================= */
+
+function unlockSnowyy(){
+
+  const password=
+    document.getElementById(
+      'snowyy-password'
+    ).value;
+
+  const error=
+    document.getElementById(
+      'snowyy-error'
+    );
+
+
+  if(password!==SNOWYY_PASSWORD){
+
+    error.textContent=
+      '❌ Mot de passe incorrect.';
+
+    return;
+
+  }
+
+
+  document
+    .getElementById('snowyy-lock')
+    .classList.add('hidden');
+
+
+  document.body.style.overflow='';
+
+
+  document.getElementById(
+    'snowyy-password'
+  ).value='';
+
+
+  error.textContent='';
+
+}
+
+
+/* Entrée = débloquer */
+
+document
+  .getElementById('snowyy-password')
+  .addEventListener(
+    'keydown',
+    function(e){
+
+      if(e.key==='Enter'){
+
+        unlockSnowyy();
+
+      }
+
+    }
+  );
+
+
+/* =========================
+   LEVEL
+========================= */
+
+function updateLevel(){
+
+  if(!state)return;
+
+  const now=Date.now();
+
+  const total=Math.min(
+
+    state.elapsed+
+    (now-state.sessionStart),
+
+    (100-1)*600000+599999
+
+  );
+
+
+  const level=Math.min(
+
+    100,
+
+    1+Math.floor(
+      total/600000
+    )
+
+  );
+
+
+  const remainder=
+    total%600000;
+
+
+  const left=
+    600000-remainder;
+
+
+  const mins=
+    Math.floor(left/60000);
+
+
+  const secs=
+    Math.floor(left/1000)%60;
+
+
+  document
+    .getElementById('level-text')
+    .textContent=
+      'Niveau '+level;
+
+
+  document
+    .getElementById('time-text')
+    .textContent=
+
+      level>=100
+
+      ? 'MAX'
+
+      : `${mins}:${String(secs).padStart(2,'0')}`;
+
+
+  document
+    .getElementById('progress')
+    .style.width=
+
+      (
+        level>=100
+        ? 100
+        : remainder/600000*100
+      )+'%';
+
+
+  if(level!==state.level){
+
+    state.level=level;
+
+    persist();
+
+  }
+
+}
+
+
+/* =========================
+   PAGES
+========================= */
+
+function showPage(page){
+
+  document
+    .querySelectorAll('.page')
+    .forEach(p=>{
+      p.classList.remove('active');
+    });
+
+
+  if(page==='mm2'){
+
+    document
+      .getElementById('mm2-page')
+      .classList.add('active');
+
+  }
+
+
+  if(page==='snowy'){
+
+    document
+      .getElementById('snowy-page')
+      .classList.add('active');
+
+  }
+
+  window.scrollTo(0,0);
+
+}
+
+
+function goHome(){
+
+  document
+    .querySelectorAll('.page')
+    .forEach(p=>{
+      p.classList.remove('active');
+    });
+
+
+  document
+    .getElementById('home-page')
+    .classList.add('active');
+
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   MM2 TABS
+========================= */
+
+function mm2Tab(tab,button){
+
+  document
+    .getElementById('mm2-history')
+    .classList.toggle(
+      'hidden',
+      tab!=='history'
+    );
+
+
+  document
+    .getElementById('mm2-roles')
+    .classList.toggle(
+      'hidden',
+      tab!=='roles'
+    );
+
+
+  document
+    .getElementById('mm2-promo')
+    .classList.toggle(
+      'hidden',
+      tab!=='promo'
+    );
+
+
+  document
+    .querySelectorAll('.tab')
+    .forEach(t=>{
+      t.classList.remove('active');
+    });
+
+
+  button.classList.add('active');
+
+}
+
+
+/* =========================
+   PROMO CODES
+========================= */
+
+function redeem(code){
+
+  if(!state)return;
+
+
+  if(!Array.isArray(state.claimedCodes)){
+
+    state.claimedCodes=[];
+
+  }
+
+
+  if(
+    state.claimedCodes.includes(code)
+  ){
+
+    alert(
+      '❌ Tu as déjà utilisé ce code sur ce compte.'
+    );
+
+    return;
+
+  }
+
+
+  state.claimedCodes.push(code);
+
+  persist();
+
+
+  alert(
+    '✅ Code '+code+' utilisé avec succès !'
+  );
+
+}
+
+
+/* =========================
+   ADMIN
+========================= */
+
+function openAdmin(){
+
+  if(
+    !state ||
+    state.name.toLowerCase()!=='snowyy'
+  ){
+
+    return;
+
+  }
+
+
+  document
+    .querySelectorAll('.page')
+    .forEach(p=>{
+      p.classList.remove('active');
+    });
+
+
+  document
+    .getElementById('admin-page')
+    .classList.add('active');
+
+}
+
+
+function runAdminCommand(){
+
+  if(
+    !state ||
+    state.name.toLowerCase()!=='snowyy'
+  ){
+
+    return;
+
+  }
+
+
+  const input=
+    document.getElementById(
+      'admin-command'
+    );
+
+  const result=
+    document.getElementById(
+      'admin-result'
+    );
+
+
+  const command=
+    input.value.trim();
+
+
+  if(!command){
+
+    result.textContent=
+      '❌ Entre une commande.';
+
+    return;
+
+  }
+
+
+  const parts=
+    command.split(/\s+/);
+
+
+  const cmd=
+    parts[0].toLowerCase();
+
+
+  if(cmd==='/level'){
+
+    const level=
+      parseInt(parts[1]);
+
+
+    if(
+      Number.isNaN(level) ||
+      level<1 ||
+      level>100
+    ){
+
+      result.textContent=
+        '❌ Niveau invalide.';
+
+      return;
+
+    }
+
+
+    state.level=level;
+
+    state.elapsed=
+      (level-1)*600000;
+
+
+    state.sessionStart=
+      Date.now();
+
+
+    persist();
+
+    updateLevel();
+
+
+    result.textContent=
+      '✅ Niveau réglé sur '+level+'.';
+
+    return;
+
+  }
+
+
+  if(cmd==='/bg'){
+
+    document.body.style.background=
+      parts.slice(1).join(' ')||'#fff';
+
+
+    result.textContent=
+      '✅ Background modifié.';
+
+    return;
+
+  }
+
+
+  if(cmd==='/text'){
+
+    const text=
+      parts.slice(1).join(' ');
+
+
+    if(!text){
+
+      result.textContent=
+        '❌ Texte manquant.';
+
+      return;
+
+    }
+
+
+    document
+      .querySelector('.hero h1')
+      .textContent=text;
+
+
+    result.textContent=
+      '✅ Texte modifié.';
+
+    return;
+
+  }
+
+
+  if(cmd==='/modifytitle'){
+
+    const text=
+      parts.slice(1).join(' ');
+
+
+    if(!text){
+
+      result.textContent=
+        '❌ Titre manquant.';
+
+      return;
+
+    }
+
+
+    document.title=text;
+
+    result.textContent=
+      '✅ Titre modifié.';
+
+    return;
+
+  }
+
+
+  if(cmd==='/hide'){
+
+    document
+      .querySelector('.categories')
+      .classList.add('hidden');
+
+
+    result.textContent=
+      '✅ Catégories cachées.';
+
+    return;
+
+  }
+
+
+  if(cmd==='/show'){
+
+    document
+      .querySelector('.categories')
+      .classList.remove('hidden');
+
+
+    result.textContent=
+      '✅ Catégories affichées.';
+
+    return;
+
+  }
+
+
+  if(cmd==='/resetvisuals'){
+
+    document.body.style.background='#fff';
+
+    document
+      .querySelector('.hero h1')
+      .textContent=
+        'Bienvenue sur Snowy Hub ❄️';
+
+
+    document.title=
+      '❄️ Snowy Hub';
+
+
+    document
+      .querySelector('.categories')
+      .classList.remove('hidden');
+
+
+    result.textContent=
+      '✅ Visuels réinitialisés.';
+
+    return;
+
+  }
+
+
+  result.textContent=
+    '❌ Commande inconnue.';
+
+}
+
+
+/* =========================
+   AUTO SAVE
+========================= */
+
+window.addEventListener(
+  'beforeunload',
+  ()=>{
+    persist();
+  }
+);
+
+
+document.addEventListener(
+  'visibilitychange',
+  ()=>{
+    if(document.hidden){
+      persist();
+    }
+  }
+);
+
+
+setInterval(
+  ()=>{
+    persist();
+  },
+  5000
+);
+
+</script>
+
+</body>
+</html>
