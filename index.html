@@ -1,9 +1,9 @@
+```javascript
 function register(){
 
   const name=document.getElementById('username').value.trim();
 
   const error=document.getElementById('login-error');
-
   const box=document.getElementById('code-box');
 
   error.textContent='';
@@ -19,8 +19,11 @@ function register(){
     return;
   }
 
+  const users=getUsers();
+  const saved=users[name];
+
   /*
-    🔐 Protection spéciale du compte Snowyy
+   🔐 PROTECTION DU COMPTE SNOWYY
   */
   if(name.toLowerCase()==='snowyy'){
 
@@ -35,20 +38,57 @@ function register(){
     if(password!=='Celia@tom2'){
 
       error.style.color='#d92d20';
-      error.textContent='❌ Mot de passe incorrect. Accès refusé.';
+      error.textContent='❌ Mot de passe supplémentaire incorrect.';
 
       return;
     }
 
     error.style.color='#027a48';
-    error.textContent='✅ Mot de passe correct.';
+    error.textContent='✅ Mot de passe supplémentaire correct.';
 
+    /*
+      Si Snowyy existe déjà :
+      demande ensuite le code de connexion
+    */
+    if(saved){
+
+      const entered=prompt(
+        '🔑 Deuxième vérification\n\nEntre maintenant le code de connexion du compte Snowyy :'
+      );
+
+      if(entered===null){
+        return;
+      }
+
+      if(entered.trim().toUpperCase()!==saved.code){
+
+        error.style.color='#d92d20';
+        error.textContent='❌ Code de connexion incorrect.';
+
+        return;
+      }
+
+      state={
+        name,
+        level:saved.level||1,
+        elapsed:saved.elapsed||0,
+        sessionStart:Date.now(),
+        code:saved.code,
+        claimedCodes:Array.isArray(saved.claimedCodes)
+          ? saved.claimedCodes
+          : []
+      };
+
+      saveUsers(users);
+      start();
+
+      return;
+    }
   }
 
-  const users=getUsers();
-
-  const saved=users[name];
-
+  /*
+   👤 CRÉATION D'UN NOUVEAU COMPTE
+  */
   if(!saved){
 
     const code=makeCode();
@@ -76,7 +116,6 @@ function register(){
     box.classList.remove('hidden');
 
     error.style.color='#027a48';
-
     error.textContent=
       'Compte créé ! Garde bien ton code avant de continuer.';
 
@@ -89,6 +128,9 @@ function register(){
     return;
   }
 
+  /*
+   🔑 CONNEXION NORMALE POUR LES AUTRES COMPTES
+  */
   const entered=prompt(
     'Ce pseudo existe déjà. Entre le code de connexion fourni à la création du compte :'
   );
@@ -120,3 +162,4 @@ function register(){
 
   start();
 }
+```
