@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,304 +7,1499 @@
 <title>Snowy Hub ❄️</title>
 <style>
 :root{--blue:#147cff;--purple:#a855f7;--dark:#07070c;--card:#11131b;--text:#f7f8ff;--muted:#a9afc1;--red:#ff294d}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,system-ui,Arial,sans-serif;min-height:100vh;background:#fff;color:#111;overflow-x:hidden}
-button,input{font:inherit}.hidden{display:none!important}
-#login{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 20%,#edf4ff,transparent 35%),#fff;padding:24px}
-.login-card{width:min(460px,100%);padding:38px;border:1px solid #e5e7eb;border-radius:28px;box-shadow:0 25px 70px #00000012;text-align:center}.logo{font-size:42px;font-weight:900;letter-spacing:-2px}.subtitle{color:#667085;margin:8px 0 28px}.field{display:flex;gap:10px}.field input{flex:1;padding:15px 16px;border:1px solid #d8dce5;border-radius:14px;outline:none}.primary{border:0;border-radius:14px;padding:14px 20px;background:#111;color:#fff;font-weight:800;cursor:pointer}.primary:hover{transform:translateY(-1px)}
-#app{min-height:100vh}.topbar{position:sticky;top:0;z-index:10;height:72px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;background:#ffffffdd;backdrop-filter:blur(14px);border-bottom:1px solid #e8e9ee}.brand{font-size:23px;font-weight:900}.profile{display:flex;align-items:center;gap:12px}.level-box{background:#111;color:#fff;border-radius:14px;padding:8px 13px;text-align:right;min-width:145px}.level-box small{color:#aeb4c4}.progress{height:5px;background:#30333d;border-radius:99px;margin-top:6px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6d5dfc,#00aaff)}
-.home{min-height:calc(100vh - 72px);padding:65px 6%;background:#fff;position:relative;isolation:isolate;overflow:hidden}.home:before{content:"🔪   🛡️   🔪   🛡️   🔪   🛡️   🔪";position:absolute;inset:20px 0 auto;white-space:pre;font-size:28px;letter-spacing:30px;opacity:.07;transform:rotate(-7deg);pointer-events:none;z-index:-1}.home:after{content:"🛡️   🔪   🛡️   🔪   🛡️   🔪";position:absolute;right:-50px;bottom:50px;white-space:pre;font-size:34px;letter-spacing:22px;opacity:.06;transform:rotate(8deg);pointer-events:none;z-index:-1}.mm2-decor{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}.mm2-decor .d{position:absolute;font-size:26px;opacity:.09;filter:grayscale(.15);user-select:none}.mm2-decor .d:nth-child(even){font-size:24px}.d1{left:4%;top:15%;transform:rotate(-28deg)}.d2{left:12%;top:37%;transform:rotate(18deg)}.d3{left:22%;top:8%;transform:rotate(42deg)}.d4{left:31%;top:28%;transform:rotate(-18deg)}.d5{left:43%;top:10%;transform:rotate(25deg)}.d6{left:54%;top:24%;transform:rotate(-32deg)}.d7{left:66%;top:9%;transform:rotate(18deg)}.d8{left:77%;top:31%;transform:rotate(-20deg)}.d9{left:90%;top:13%;transform:rotate(35deg)}.d10{left:6%;top:72%;transform:rotate(20deg)}.d11{left:18%;top:84%;transform:rotate(-35deg)}.d12{left:35%;top:72%;transform:rotate(15deg)}.d13{left:57%;top:84%;transform:rotate(-28deg)}.d14{left:70%;top:68%;transform:rotate(22deg)}.d15{left:83%;top:84%;transform:rotate(-18deg)}.d16{left:94%;top:60%;transform:rotate(28deg)}
-.home h1{text-align:center;font-size:clamp(38px,6vw,72px);letter-spacing:-4px}.home>p{text-align:center;color:#697386;margin:12px 0 50px}.cards{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px}.category{position:relative;min-height:420px;border-radius:30px;overflow:hidden;border:1px solid #e6e7eb;box-shadow:0 25px 70px #00000012;cursor:pointer;transition:.25s}.category:hover{transform:translateY(-7px);box-shadow:0 35px 80px #0000001b}.category img{display:block;width:100%;height:100%;object-fit:cover}.category.mm2{background:#07070b}.category.mm2 img{object-fit:contain;padding:70px;background:radial-gradient(circle,#24242d,#050508)}.category.snowy{background:#071a45}.category.snowy img{object-fit:cover}.overlay{position:absolute;inset:auto 0 0;padding:35px;color:#fff;background:linear-gradient(transparent,#000d)}.overlay h2{font-size:34px}.overlay p{margin-top:6px;color:#d9dded}
-.page{min-height:calc(100vh - 72px);padding:45px 6%;color:var(--text)}.mm2-page{background:radial-gradient(circle at 80% 10%,#102d62 0,transparent 28%),radial-gradient(circle at 20% 80%,#4a0715 0,transparent 25%),#06070b}.snowy-page{background:radial-gradient(circle at 10% 20%,#2364d5 0,transparent 30%),radial-gradient(circle at 90% 70%,#8a2be2 0,transparent 25%),#061942}.page-head{max-width:1100px;margin:auto}.back{background:#ffffff16;color:#fff;border:1px solid #ffffff22;border-radius:12px;padding:10px 14px;cursor:pointer;margin-bottom:25px}.page h1{font-size:clamp(38px,6vw,68px);letter-spacing:-3px}.page-desc{color:#b8bfd1;margin:8px 0 28px}.section-grid{max-width:1100px;margin:28px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.panel{background:#ffffff0c;border:1px solid #ffffff16;border-radius:24px;padding:26px;backdrop-filter:blur(10px)}.panel h2{margin-bottom:14px}.panel p,.panel li{color:#c9cede;line-height:1.65}.panel ul{padding-left:20px}.wide{grid-column:1/-1}
-.mm2-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.tab{border:1px solid #ffffff20;background:#ffffff0a;color:#fff;padding:11px 16px;border-radius:12px;cursor:pointer}.tab.active{background:#fff;color:#08090d}.search{width:100%;padding:14px 16px;margin:10px 0 18px;border-radius:13px;border:1px solid #ffffff1c;background:#080a10;color:#fff;outline:none}.locked{opacity:.55}.notice{padding:15px;border-radius:14px;background:#ff294d14;border:1px solid #ff294d44;color:#ffd7de}.promo-row{display:flex;gap:10px}.promo-row input{flex:1;padding:14px;border-radius:12px;border:1px solid #ffffff1c;background:#080a10;color:#fff}.promo-result{margin-top:15px;padding:14px;border-radius:12px;background:#22c55e15;border:1px solid #22c55e44;color:#bff7d0}.socials{display:grid;gap:14px}.social{display:block;padding:18px;border-radius:16px;background:#ffffff10;border:1px solid #ffffff18;color:#fff;text-decoration:none}.social:hover{background:#ffffff18}.snowy-page .panel{background:#071f4d77;border-color:#7aa7ff33;box-shadow:0 20px 60px #0004}
-.promo-win{position:fixed;inset:0;z-index:100;min-height:100vh;height:100vh;overflow:auto;display:grid;place-items:center;background:radial-gradient(circle at 20% 20%,#6d28d9 0,transparent 25%),radial-gradient(circle at 80% 80%,#2563eb 0,transparent 25%),#080914}.promo-win-card{width:min(760px,92vw);text-align:center;padding:50px 30px;border:1px solid #ffffff25;border-radius:32px;background:#ffffff12;backdrop-filter:blur(16px);box-shadow:0 30px 100px #0008}.promo-win-card h1{font-size:72px;margin:10px 0}.promo-win-card h2{font-size:30px;margin-bottom:16px}.promo-win-card p{color:#dce1ef;font-size:18px;line-height:1.7;margin-bottom:28px}.party{font-size:25px;line-height:2;word-spacing:12px}.reward-icon{font-size:70px}@media(max-width:600px){.promo-win-card h1{font-size:52px}.promo-win-card h2{font-size:23px}.party{font-size:18px}}
-@media(max-width:800px){.cards,.section-grid{grid-template-columns:1fr}.category{min-height:350px}.profile .level-box{min-width:120px}.topbar{padding:0 12px}.brand{font-size:18px}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,Arial,sans-serif;min-height:100vh;background:#fff;color:#111;overflow-x:hidden}
+button,input{font:inherit}
+.hidden{display:none!important}
 
-    .code-display{margin-top:12px;padding:12px 14px;border-radius:12px;background:#111;color:#fff;font-weight:900;letter-spacing:2px;text-align:center}.role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.role-card{padding:18px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:linear-gradient(145deg,rgba(18,20,29,.95),rgba(10,12,18,.9));box-shadow:0 8px 30px rgba(0,0,0,.2)}.role-card h3{margin:4px 0 8px;font-size:20px}.role-card p{margin:0;color:#b9bfcc;line-height:1.5}.role-icon{font-size:30px}@media(max-width:700px){.role-grid{grid-template-columns:1fr}}
+#login{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle at 20% 20%,#edf4ff,transparent 35%),#fff;
+  padding:24px
+}
+.login-card{
+  width:min(460px,100%);
+  padding:38px;
+  border:1px solid #e5e7eb;
+  border-radius:28px;
+  box-shadow:0 25px 70px #00000012;
+  text-align:center
+}
+.logo{font-size:42px;font-weight:900;letter-spacing:-2px}
+.subtitle{color:#667085;margin:8px 0 28px}
+.field{display:flex;gap:10px}
+.field input{
+  flex:1;
+  padding:15px 16px;
+  border:1px solid #d8dce5;
+  border-radius:14px;
+  outline:none
+}
+.primary{
+  border:0;
+  border-radius:14px;
+  padding:14px 20px;
+  background:#111;
+  color:#fff;
+  font-weight:800;
+  cursor:pointer
+}
+.primary:hover{transform:translateY(-1px)}
 
-.admin-btn{border:1px solid #7c3aed55;background:#f5f3ff;color:#5b21b6;border-radius:11px;padding:9px 12px;font-weight:800;cursor:pointer}.admin-panel{position:fixed;top:82px;right:18px;z-index:30;width:min(620px,calc(100vw - 36px));background:#0b0c12f5;color:#fff;border:1px solid #ffffff1c;border-radius:20px;box-shadow:0 25px 80px #0007;backdrop-filter:blur(16px)}.admin-inner{padding:20px}.admin-title{font-size:21px;font-weight:900}.admin-help{color:#aeb4c4;margin:5px 0 15px}.admin-row{display:flex;gap:8px}.admin-row input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #ffffff1c;background:#080a10;color:#fff;outline:none}.admin-commands{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.admin-commands span{font-family:monospace;font-size:12px;background:#ffffff0d;border:1px solid #ffffff12;border-radius:8px;padding:6px 8px;color:#d8dcE8}.admin-ok{margin-top:12px;padding:10px;border-radius:10px;background:#22c55e18;color:#bff7d0}.admin-error{margin-top:12px;padding:10px;border-radius:10px;background:#ff294d18;color:#ffd7de}@media(max-width:700px){.profile{gap:6px}.admin-btn{padding:7px 8px}.admin-row{flex-direction:column}}
+#app{min-height:100vh}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  height:72px;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#ffffffdd;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e8e9ee
+}
+.brand{font-size:23px;font-weight:900}
+.profile{display:flex;align-items:center;gap:12px}
+.level-box{
+  background:#111;
+  color:#fff;
+  border-radius:14px;
+  padding:8px 13px;
+  text-align:right;
+  min-width:145px
+}
+.level-box small{color:#aeb4c4}
+.progress{
+  height:5px;
+  background:#30333d;
+  border-radius:99px;
+  margin-top:6px;
+  overflow:hidden
+}
+.progress i{
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#6d5dfc,#00aaff)
+}
+
+.home{
+  min-height:calc(100vh - 72px);
+  padding:65px 6%;
+  background:#fff;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden
+}
+.home:before{
+  content:"🔪   🛡️   🔪   🛡️   🔪   🛡️   🔪";
+  position:absolute;
+  inset:20px 0 auto;
+  white-space:pre;
+  font-size:28px;
+  letter-spacing:30px;
+  opacity:.07;
+  transform:rotate(-7deg);
+  pointer-events:none;
+  z-index:-1
+}
+.home:after{
+  content:"🛡️   🔪   🛡️   🔪   🛡️   🔪";
+  position:absolute;
+  right:-50px;
+  bottom:50px;
+  white-space:pre;
+  font-size:34px;
+  letter-spacing:22px;
+  opacity:.06;
+  transform:rotate(8deg);
+  pointer-events:none;
+  z-index:-1
+}
+.mm2-decor{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  overflow:hidden
+}
+.mm2-decor .d{
+  position:absolute;
+  font-size:26px;
+  opacity:.09;
+  filter:grayscale(.15);
+  user-select:none
+}
+.mm2-decor .d:nth-child(even){font-size:24px}
+.d1{left:4%;top:15%;transform:rotate(-28deg)}
+.d2{left:12%;top:37%;transform:rotate(18deg)}
+.d3{left:22%;top:8%;transform:rotate(42deg)}
+.d4{left:31%;top:28%;transform:rotate(-18deg)}
+.d5{left:43%;top:10%;transform:rotate(25deg)}
+.d6{left:54%;top:24%;transform:rotate(-32deg)}
+.d7{left:66%;top:9%;transform:rotate(18deg)}
+.d8{left:77%;top:31%;transform:rotate(-20deg)}
+.d9{left:90%;top:13%;transform:rotate(35deg)}
+.d10{left:6%;top:72%;transform:rotate(20deg)}
+.d11{left:18%;top:84%;transform:rotate(-35deg)}
+.d12{left:35%;top:72%;transform:rotate(15deg)}
+.d13{left:57%;top:84%;transform:rotate(-28deg)}
+.d14{left:70%;top:68%;transform:rotate(22deg)}
+.d15{left:83%;top:84%;transform:rotate(-18deg)}
+.d16{left:94%;top:60%;transform:rotate(28deg)}
+
+.home h1{
+  text-align:center;
+  font-size:clamp(38px,6vw,72px);
+  letter-spacing:-4px
+}
+.home>p{
+  text-align:center;
+  color:#697386;
+  margin:12px 0 50px
+}
+.cards{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:28px
+}
+.category{
+  position:relative;
+  min-height:420px;
+  border-radius:30px;
+  overflow:hidden;
+  border:1px solid #e6e7eb;
+  box-shadow:0 25px 70px #00000012;
+  cursor:pointer;
+  transition:.25s
+}
+.category:hover{
+  transform:translateY(-7px);
+  box-shadow:0 35px 80px #0000001b
+}
+.category img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+.category.mm2{background:#07070b}
+.category.mm2 img{
+  object-fit:contain;
+  padding:70px;
+  background:radial-gradient(circle,#24242d,#050508)
+}
+.category.snowy{background:#071a45}
+.category.snowy img{
+  object-fit:contain;
+  padding:70px;
+  background:radial-gradient(circle,#2364d5,#071a45)
+}
+.overlay{
+  position:absolute;
+  inset:auto 0 0;
+  padding:35px;
+  color:#fff;
+  background:linear-gradient(transparent,#000d)
+}
+.overlay h2{font-size:34px}
+.overlay p{
+  margin-top:6px;
+  color:#d9dded
+}
+
+.page{
+  min-height:calc(100vh - 72px);
+  padding:45px 6%;
+  color:var(--text)
+}
+.mm2-page{
+  background:
+    radial-gradient(circle at 80% 10%,#102d62 0,transparent 28%),
+    radial-gradient(circle at 20% 80%,#4a0715 0,transparent 25%),
+    #06070b
+}
+.snowy-page{
+  background:
+    radial-gradient(circle at 10% 20%,#2364d5 0,transparent 30%),
+    radial-gradient(circle at 90% 70%,#8a2be2 0,transparent 25%),
+    #061942
+}
+.page-head{max-width:1100px;margin:auto}
+.back{
+  background:#ffffff16;
+  color:#fff;
+  border:1px solid #ffffff22;
+  border-radius:12px;
+  padding:10px 14px;
+  cursor:pointer;
+  margin-bottom:25px
+}
+.page h1{
+  font-size:clamp(38px,6vw,68px);
+  letter-spacing:-3px
+}
+.page-desc{
+  color:#b8bfd1;
+  margin:8px 0 28px
+}
+.section-grid{
+  max-width:1100px;
+  margin:28px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px
+}
+.panel{
+  background:#ffffff0c;
+  border:1px solid #ffffff16;
+  border-radius:24px;
+  padding:26px;
+  backdrop-filter:blur(10px)
+}
+.panel h2{margin-bottom:14px}
+.panel p,.panel li{
+  color:#c9cede;
+  line-height:1.65
+}
+.panel ul{padding-left:20px}
+.wide{grid-column:1/-1}
+
+.mm2-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px
+}
+.tab{
+  border:1px solid #ffffff20;
+  background:#ffffff0a;
+  color:#fff;
+  padding:11px 16px;
+  border-radius:12px;
+  cursor:pointer
+}
+.tab.active{
+  background:#fff;
+  color:#08090d
+}
+.search{
+  width:100%;
+  padding:14px 16px;
+  margin:10px 0 18px;
+  border-radius:13px;
+  border:1px solid #ffffff1c;
+  background:#080a10;
+  color:#fff;
+  outline:none
+}
+.locked{opacity:.55}
+.notice{
+  padding:15px;
+  border-radius:14px;
+  background:#ff294d14;
+  border:1px solid #ff294d44;
+  color:#ffd7de
+}
+.promo-row{display:flex;gap:10px}
+.promo-row input{
+  flex:1;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #ffffff1c;
+  background:#080a10;
+  color:#fff
+}
+.promo-result{
+  margin-top:15px;
+  padding:14px;
+  border-radius:12px;
+  background:#22c55e15;
+  border:1px solid #22c55e44;
+  color:#bff7d0
+}
+.socials{display:grid;gap:14px}
+.social{
+  display:block;
+  padding:18px;
+  border-radius:16px;
+  background:#ffffff10;
+  border:1px solid #ffffff18;
+  color:#fff;
+  text-decoration:none
+}
+.social:hover{background:#ffffff18}
+.snowy-page .panel{
+  background:#071f4d77;
+  border-color:#7aa7ff33;
+  box-shadow:0 20px 60px #0004
+}
+
+.promo-win{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  min-height:100vh;
+  height:100vh;
+  overflow:auto;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 20% 20%,#6d28d9 0,transparent 25%),
+    radial-gradient(circle at 80% 80%,#2563eb 0,transparent 25%),
+    #080914
+}
+.promo-win-card{
+  width:min(760px,92vw);
+  text-align:center;
+  padding:50px 30px;
+  border:1px solid #ffffff25;
+  border-radius:32px;
+  background:#ffffff12;
+  backdrop-filter:blur(16px);
+  box-shadow:0 30px 100px #0008
+}
+.promo-win-card h1{
+  font-size:72px;
+  margin:10px 0
+}
+.promo-win-card h2{
+  font-size:30px;
+  margin-bottom:16px
+}
+.promo-win-card p{
+  color:#dce1ef;
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:28px
+}
+.party{
+  font-size:25px;
+  line-height:2;
+  word-spacing:12px
+}
+.reward-icon{font-size:70px}
+
+.code-display{
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:12px;
+  background:#111;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:2px;
+  text-align:center
+}
+.role-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:18px
+}
+.role-card{
+  padding:18px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(18,20,29,.95),rgba(10,12,18,.9));
+  box-shadow:0 8px 30px rgba(0,0,0,.2)
+}
+.role-card h3{
+  margin:4px 0 8px;
+  font-size:20px
+}
+.role-card p{
+  margin:0;
+  color:#b9bfcc;
+  line-height:1.5
+}
+.role-icon{font-size:30px}
+
+.admin-btn{
+  border:1px solid #7c3aed55;
+  background:#f5f3ff;
+  color:#5b21b6;
+  border-radius:11px;
+  padding:9px 12px;
+  font-weight:800;
+  cursor:pointer
+}
+.admin-panel{
+  position:fixed;
+  top:82px;
+  right:18px;
+  z-index:30;
+  width:min(620px,calc(100vw - 36px));
+  background:#0b0c12f5;
+  color:#fff;
+  border:1px solid #ffffff1c;
+  border-radius:20px;
+  box-shadow:0 25px 80px #0007;
+  backdrop-filter:blur(16px)
+}
+.admin-inner{padding:20px}
+.admin-title{
+  font-size:21px;
+  font-weight:900
+}
+.admin-help{
+  color:#aeb4c4;
+  margin:5px 0 15px
+}
+.admin-row{
+  display:flex;
+  gap:8px
+}
+.admin-row input{
+  flex:1;
+  min-width:0;
+  padding:13px 14px;
+  border-radius:12px;
+  border:1px solid #ffffff1c;
+  background:#080a10;
+  color:#fff;
+  outline:none
+}
+.admin-commands{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:12px
+}
+.admin-commands span{
+  font-family:monospace;
+  font-size:12px;
+  background:#ffffff0d;
+  border:1px solid #ffffff12;
+  border-radius:8px;
+  padding:6px 8px;
+  color:#d8dce8
+}
+.admin-ok{
+  margin-top:12px;
+  padding:10px;
+  border-radius:10px;
+  background:#22c55e18;
+  color:#bff7d0
+}
+.admin-error{
+  margin-top:12px;
+  padding:10px;
+  border-radius:10px;
+  background:#ff294d18;
+  color:#ffd7de
+}
+
+@media(max-width:800px){
+  .cards,.section-grid{grid-template-columns:1fr}
+  .category{min-height:350px}
+  .profile .level-box{min-width:120px}
+  .topbar{padding:0 12px}
+  .brand{font-size:18px}
+}
+
+@media(max-width:700px){
+  .role-grid{grid-template-columns:1fr}
+  .promo-win-card h1{font-size:52px}
+  .promo-win-card h2{font-size:23px}
+  .party{font-size:18px}
+  .profile{gap:6px}
+  .admin-btn{padding:7px 8px}
+  .admin-row{flex-direction:column}
+}
 </style>
 </head>
+
 <body>
+
 <section id="login">
   <div class="login-card">
     <div class="logo">❄️ Snowy Hub</div>
     <p class="subtitle">Entre ton pseudo pour commencer</p>
-    <div class="field"><input id="username" maxlength="24" placeholder="Ex : lenoob89"><button class="primary" onclick="register()">S'enregistrer</button></div>
+
+    <div class="field">
+      <input id="username" maxlength="24" placeholder="Ex : lenoob89">
+      <button class="primary" onclick="register()">S'enregistrer</button>
+    </div>
+
     <p id="login-error" style="color:#d92d20;margin-top:12px"></p>
+
     <div id="code-box" class="hidden" style="margin-top:18px;text-align:left;padding:16px;border:1px solid #c4b5fd;background:#f5f3ff;border-radius:16px">
       <b>🔐 Ton code de connexion</b>
-      <p style="color:#667085;margin:6px 0 10px">Ce code est demandé quand ce pseudo existe déjà. Note-le précieusement : il n'est affiché qu'à la création du compte.</p>
+      <p style="color:#667085;margin:6px 0 10px">
+        Ce code est demandé quand ce pseudo existe déjà. Note-le précieusement : il n'est affiché qu'à la création du compte.
+      </p>
       <div id="generated-code" style="font-size:25px;font-weight:900;letter-spacing:4px;text-align:center;padding:12px;background:#111;color:#fff;border-radius:12px;user-select:all"></div>
     </div>
   </div>
 </section>
 
 <section id="app" class="hidden">
+
 <header class="topbar">
   <div class="brand">❄️ Snowy Hub</div>
-  <div class="profile"><button id="admin-btn" class="admin-btn hidden" onclick="toggleAdmin()">⚙️ Admin</button><span id="user-label"></span><div class="level-box"><b id="level-text">Niveau 1</b><br><small id="time-text">10:00</small><div class="progress"><i id="progress"></i></div></div></div>
+
+  <div class="profile">
+    <button id="admin-btn" class="admin-btn hidden" onclick="toggleAdmin()">⚙️ Admin</button>
+    <span id="user-label"></span>
+
+    <div class="level-box">
+      <b id="level-text">Niveau 1</b><br>
+      <small id="time-text">10:00</small>
+      <div class="progress">
+        <i id="progress"></i>
+      </div>
+    </div>
+  </div>
 </header>
-<div id="admin-panel" class="admin-panel hidden"><div class="admin-inner"><div class="admin-title">⚙️ Snowy Admin</div><p class="admin-help">Commandes temporaires : elles disparaissent après actualisation.</p><div class="admin-row"><input id="admin-command" placeholder="/level 25   /bg #111827   /text home h1 Bonjour"><button class="primary" onclick="runAdminCommand()">Exécuter</button></div><div class="admin-commands"><span>/level 25</span><span>/bg #123456</span><span>/bg https://...</span><span>/modifysnowyhubtext Ton texte</span><span>/modifytitle Ton titre</span><span>/modifydesc Ton texte</span><span>/text home h1 Ton texte</span><span>/hide mm2</span><span>/show mm2</span><span>/resetvisuals</span></div><div id="admin-msg"></div></div></div>
+
+<div id="admin-panel" class="admin-panel hidden">
+  <div class="admin-inner">
+    <div class="admin-title">⚙️ Snowy Admin</div>
+    <p class="admin-help">Commandes temporaires : elles disparaissent après actualisation.</p>
+
+    <div class="admin-row">
+      <input id="admin-command" placeholder="/level 25   /bg #111827   /text home h1 Bonjour">
+      <button class="primary" onclick="runAdminCommand()">Exécuter</button>
+    </div>
+
+    <div class="admin-commands">
+      <span>/level 25</span>
+      <span>/bg #123456</span>
+      <span>/bg https://...</span>
+      <span>/modifysnowyhubtext Ton texte</span>
+      <span>/modifytitle Ton titre</span>
+      <span>/modifydesc Ton texte</span>
+      <span>/text home h1 Ton texte</span>
+      <span>/hide mm2</span>
+      <span>/show mm2</span>
+      <span>/resetvisuals</span>
+    </div>
+
+    <div id="admin-msg"></div>
+  </div>
+</div>
 
 <main id="home" class="home">
+
   <div class="mm2-decor" aria-hidden="true">
-    <span class="d d1">🔪</span><span class="d d2">🔫</span><span class="d d3">🔪</span><span class="d d4">🔫</span>
-    <span class="d d5">🔪</span><span class="d d6">🔫</span><span class="d d7">🔪</span><span class="d d8">🔫</span>
-    <span class="d d9">🔫</span><span class="d d10">🔪</span><span class="d d11">🔫</span><span class="d d12">🔪</span>
-    <span class="d d13">🔪</span><span class="d d14">🔫</span><span class="d d15">🔪</span><span class="d d16">🔫</span>
+    <span class="d d1">🔪</span>
+    <span class="d d2">🔫</span>
+    <span class="d d3">🔪</span>
+    <span class="d d4">🔫</span>
+    <span class="d d5">🔪</span>
+    <span class="d d6">🔫</span>
+    <span class="d d7">🔪</span>
+    <span class="d d8">🔫</span>
+    <span class="d d9">🔫</span>
+    <span class="d d10">🔪</span>
+    <span class="d d11">🔫</span>
+    <span class="d d12">🔪</span>
+    <span class="d d13">🔪</span>
+    <span class="d d14">🔫</span>
+    <span class="d d15">🔪</span>
+    <span class="d d16">🔫</span>
   </div>
-  <h1>Bienvenue sur Snowy Hub</h1><p>Choisis ton univers 👇</p><div style="max-width:900px;margin:-25px auto 35px;text-align:center;color:#667085;line-height:1.7">Bienvenue sur <b>Snowy Hub</b> ❄️ — découvre l’univers de Murder Mystery 2, les rôles, le gameplay et l’histoire du jeu, puis retrouve la communauté Snowy sur ses réseaux.</div>
+
+  <h1>Bienvenue sur Snowy Hub</h1>
+  <p>Choisis ton univers 👇</p>
+
+  <div style="max-width:900px;margin:-25px auto 35px;text-align:center;color:#667085;line-height:1.7">
+    Bienvenue sur <b>Snowy Hub</b> ❄️ — découvre l’univers de Murder Mystery 2, les rôles, le gameplay et l’histoire du jeu, puis retrouve la communauté Snowy sur ses réseaux.
+  </div>
+
   <div class="cards">
-    <article class="category mm2" onclick="showPage('mm2')"><img src="https://static.wikia.nocookie.net/murdermystery/images/3/30/MM2logo.png/revision/latest?cb=20141230012338"><div class="overlay"><h2>Murder Mystery 2</h2><p>Histoire, informations et codes</p></div></article>
-    <article class="category snowy" onclick="showPage('snowy')"><img src="assets/snowyhub.png"><div class="overlay"><h2>Snowy Page</h2><p>Réseaux sociaux & communauté</p></div></article>
+
+    <article class="category mm2" onclick="showPage('mm2')">
+      <img src="https://static.wikia.nocookie.net/murdermystery/images/3/30/MM2logo.png/revision/latest?cb=20141230012338">
+      <div class="overlay">
+        <h2>Murder Mystery 2</h2>
+        <p>Histoire, informations et codes</p>
+      </div>
+    </article>
+
+    <article class="category snowy" onclick="showPage('snowy')">
+      <img src="https://cdn-icons-png.flaticon.com/512/1247/1247131.png">
+      <div class="overlay">
+        <h2>Snowy Page</h2>
+        <p>Réseaux sociaux & communauté</p>
+      </div>
+    </article>
+
   </div>
 </main>
 
 <main id="mm2" class="page mm2-page hidden">
-  <div class="page-head"><button class="back" onclick="goHome()">← Accueil</button><h1>🔪 Murder Mystery 2</h1><p class="page-desc">Le hub communautaire Snowy dédié à MM2.</p>
-    <div class="mm2-nav"><button class="tab active" onclick="mm2Tab('history',this)">Histoire</button><button class="tab" onclick="mm2Tab('roles',this)">Rôles & Gameplay</button><button class="tab" onclick="mm2Tab('promo',this)">Code Promo</button></div>
+
+  <div class="page-head">
+    <button class="back" onclick="goHome()">← Accueil</button>
+
+    <h1>🔪 Murder Mystery 2</h1>
+    <p class="page-desc">Le hub communautaire Snowy dédié à MM2.</p>
+
+    <div class="mm2-nav">
+      <button class="tab active" onclick="mm2Tab('history',this)">Histoire</button>
+      <button class="tab" onclick="mm2Tab('roles',this)">Rôles & Gameplay</button>
+      <button class="tab" onclick="mm2Tab('promo',this)">Code Promo</button>
+    </div>
   </div>
+
   <div class="section-grid">
-    <section id="history" class="panel wide"><h2>📖 Histoire</h2>
-      <p><b>Créateur :</b> Nikilis</p><p><b>Début du projet :</b> janvier 2014</p>
-      <p style="margin-top:12px">Murder Mystery est une expérience Roblox développée par Nikilis. Le concept reprend le principe du « murder mystery » : plusieurs joueurs partagent une manche, certains reçoivent un rôle spécial et les autres doivent découvrir ce qui se passe avant la fin du temps imparti.</p>
-      <p style="margin-top:12px">Le projet a évolué au fil des mises à jour. Une importante refonte a donné naissance à <b>Murder Mystery 2</b> à la fin de 2014, avec une nouvelle présentation, de nouveaux systèmes et davantage de contenu. Le jeu s'est ensuite construit autour de ses manches rapides, de ses cartes, de ses objets à collectionner et de sa communauté Roblox.</p>
-      <p style="margin-top:12px"><b>Comment fonctionne une manche ?</b> Au début, les joueurs reçoivent secrètement leur rôle. Le Murderer cherche à éliminer les autres, le Sheriff tente de l'arrêter et les Innocents doivent survivre et aider à identifier le danger. Le principe repose donc beaucoup sur l'observation, la discrétion et la déduction.</p>
-      <p style="margin-top:12px"><b>Une expérience basée sur la déduction :</b> MM2 mélange une ambiance de mystère avec des parties accessibles. Les joueurs doivent interpréter les déplacements, écouter les événements autour d’eux et comprendre rapidement la situation.</p><p style="margin-top:12px"><b>Au fil du temps :</b> les mises à jour ont enrichi l’expérience avec de nouvelles cartes, objets, événements et fonctionnalités communautaires. Cela a contribué à installer MM2 comme l’une des expériences de mystère les plus reconnaissables de Roblox.</p><p style="margin-top:12px"><b>Pourquoi le jeu est populaire ?</b> Les parties sont courtes et faciles à comprendre, tandis que les différentes cartes, rôles et objets donnent envie de rejouer. Le côté social permet aussi de jouer entre amis et de développer des stratégies différentes à chaque manche.</p>
+
+    <section id="history" class="panel wide">
+      <h2>📖 Histoire</h2>
+
+      <p><b>Créateur :</b> Nikilis</p>
+      <p><b>Début du projet :</b> janvier 2014</p>
+
+      <p style="margin-top:12px">
+        Murder Mystery est une expérience Roblox développée par Nikilis. Le concept reprend le principe du « murder mystery » : plusieurs joueurs partagent une manche, certains reçoivent un rôle spécial et les autres doivent découvrir ce qui se passe avant la fin du temps imparti.
+      </p>
+
+      <p style="margin-top:12px">
+        Le projet a évolué au fil des mises à jour. Une importante refonte a donné naissance à <b>Murder Mystery 2</b> à la fin de 2014, avec une nouvelle présentation, de nouveaux systèmes et davantage de contenu.
+      </p>
+
+      <p style="margin-top:12px">
+        Le Murderer cherche à éliminer les autres, le Sheriff tente de l'arrêter et les Innocents doivent survivre et aider à identifier le danger.
+      </p>
+
+      <p style="margin-top:12px">
+        <b>Une expérience basée sur la déduction :</b> MM2 mélange une ambiance de mystère avec des parties accessibles.
+      </p>
+
+      <p style="margin-top:12px">
+        <b>Pourquoi le jeu est populaire ?</b> Les parties sont courtes et faciles à comprendre, tandis que les différentes cartes, rôles et objets donnent envie de rejouer.
+      </p>
     </section>
-    <section id="roles" class="panel wide hidden"><h2>🎭 Rôles & Gameplay</h2><p style="color:#c7cbd6;margin-top:-4px">Les rôles, les objectifs et les petits réflexes utiles pour comprendre une partie.</p><div class="role-grid">
-      <div class="role-card"><div class="role-icon">🔪</div><h3>Murderer</h3><p><b>Mission :</b> éliminer les autres joueurs tout en restant discret. Il doit profiter des moments où les joueurs sont séparés et éviter d'attirer l'attention.</p><p style="margin-top:8px"><b>À retenir :</b> observation, discrétion et gestion du timing.</p></div>
-      <div class="role-card"><div class="role-icon">🛡️</div><h3>Sheriff</h3><p><b>Mission :</b> identifier le Murderer et l'arrêter. Le Sheriff est le principal contrepoids au Murderer et doit éviter de tirer sur un joueur innocent.</p><p style="margin-top:8px"><b>À retenir :</b> observer les comportements et prendre une décision au bon moment.</p></div>
-      <div class="role-card"><div class="role-icon">👤</div><h3>Innocent</h3><p><b>Mission :</b> survivre, observer et aider à repérer le Murderer. Les Innocents peuvent aussi récupérer des pièces pendant la manche.</p><p style="margin-top:8px"><b>À retenir :</b> rester mobile, communiquer et garder un œil sur les événements suspects.</p></div>
-      <div class="role-card"><div class="role-icon">⏱️</div><h3>Déroulement</h3><p>Une manche commence avec une distribution secrète des rôles. Le temps s'écoule pendant que chacun essaie d'accomplir son objectif. La manche se termine lorsqu'une condition de victoire est remplie ou que le temps arrive à son terme.</p></div>
-      <div class="role-card"><div class="role-icon">🗺️</div><h3>Les cartes</h3><p>Chaque map possède ses propres couloirs, pièces et zones ouvertes. Connaître les passages permet de mieux se déplacer, de repérer les joueurs et de réagir plus vite.</p></div>
-      <div class="role-card"><div class="role-icon">🪙</div><h3>Pièces & progression</h3><p>Les pièces trouvées pendant les manches servent à la progression et à différents systèmes du jeu. Elles ajoutent un objectif secondaire aux joueurs qui doivent aussi rester attentifs au danger.</p></div>
-    <div class="role-card"><div class="role-icon">🔎</div><h3>Déduction</h3><p>Regarde les déplacements et les regroupements. Un comportement inhabituel peut donner un indice, mais évite de conclure trop vite.</p></div><div class="role-card"><div class="role-icon">🤝</div><h3>Communication</h3><p>Avec tes amis ou les autres joueurs, partage les informations utiles : où tu étais, ce que tu as vu et quand un événement s’est produit.</p></div></div><div class="panel" style="margin-top:20px;background:#ffffff08"><h3>💡 Conseils pour débuter</h3><ul style="margin-top:10px"><li>Observe qui se déplace avec qui.</li><li>Évite de rester isolé trop longtemps si tu es Innocent.</li><li>En Sheriff, ne prends pas une décision précipitée.</li><li>Apprends progressivement les différentes cartes.</li></ul></div></section>
-    <section id="promo" class="panel wide hidden"><h2>🎟️ Code Promo</h2><p>Débloqué au <b>niveau 10</b>.</p><div id="promo-lock" class="notice" style="margin-top:14px">🔒 Cette catégorie est verrouillée. Continue à rester sur Snowy Hub pour atteindre le niveau 10.</div><div id="promo-content" class="hidden"><div class="promo-row" style="margin-top:14px"><input id="promo-input" placeholder="Entre ton code"><button class="primary" onclick="redeem()">Valider</button></div><div id="promo-result"></div></div></section>
+
+    <section id="roles" class="panel wide hidden">
+      <h2>🎭 Rôles & Gameplay</h2>
+
+      <p style="color:#c7cbd6;margin-top:-4px">
+        Les rôles, les objectifs et les petits réflexes utiles pour comprendre une partie.
+      </p>
+
+      <div class="role-grid">
+
+        <div class="role-card">
+          <div class="role-icon">🔪</div>
+          <h3>Murderer</h3>
+          <p><b>Mission :</b> éliminer les autres joueurs tout en restant discret.</p>
+          <p style="margin-top:8px"><b>À retenir :</b> observation, discrétion et gestion du timing.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">🛡️</div>
+          <h3>Sheriff</h3>
+          <p><b>Mission :</b> identifier le Murderer et l'arrêter.</p>
+          <p style="margin-top:8px"><b>À retenir :</b> observer les comportements et prendre une décision au bon moment.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">👤</div>
+          <h3>Innocent</h3>
+          <p><b>Mission :</b> survivre, observer et aider à repérer le Murderer.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">⏱️</div>
+          <h3>Déroulement</h3>
+          <p>Une manche commence avec une distribution secrète des rôles. Le temps s'écoule pendant que chacun essaie d'accomplir son objectif.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">🗺️</div>
+          <h3>Les cartes</h3>
+          <p>Chaque map possède ses propres couloirs, pièces et zones ouvertes.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">🪙</div>
+          <h3>Pièces & progression</h3>
+          <p>Les pièces trouvées pendant les manches servent à la progression et à différents systèmes du jeu.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">🔎</div>
+          <h3>Déduction</h3>
+          <p>Regarde les déplacements et les regroupements. Un comportement inhabituel peut donner un indice.</p>
+        </div>
+
+        <div class="role-card">
+          <div class="role-icon">🤝</div>
+          <h3>Communication</h3>
+          <p>Partage les informations utiles : où tu étais, ce que tu as vu et quand un événement s’est produit.</p>
+        </div>
+
+      </div>
+
+      <div class="panel" style="margin-top:20px;background:#ffffff08">
+        <h3>💡 Conseils pour débuter</h3>
+        <ul style="margin-top:10px">
+          <li>Observe qui se déplace avec qui.</li>
+          <li>Évite de rester isolé trop longtemps si tu es Innocent.</li>
+          <li>En Sheriff, ne prends pas une décision précipitée.</li>
+          <li>Apprends progressivement les différentes cartes.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="promo" class="panel wide hidden">
+
+      <h2>🎟️ Code Promo</h2>
+      <p>Débloqué au <b>niveau 10</b>.</p>
+
+      <div id="promo-lock" class="notice" style="margin-top:14px">
+        🔒 Cette catégorie est verrouillée. Continue à rester sur Snowy Hub pour atteindre le niveau 10.
+      </div>
+
+      <div id="promo-content" class="hidden">
+        <div class="promo-row" style="margin-top:14px">
+          <input id="promo-input" placeholder="Entre ton code">
+          <button class="primary" onclick="redeem()">Valider</button>
+        </div>
+
+        <div id="promo-result"></div>
+      </div>
+
+    </section>
+
   </div>
 </main>
 
 <main id="snowy" class="page snowy-page hidden">
-  <div class="page-head"><button class="back" onclick="goHome()">← Accueil</button><h1>⚡ Snowy Page</h1><p class="page-desc">Retrouve Snowy sur ses réseaux et rejoins la communauté.</p></div>
-  <div class="section-grid"><section class="panel wide"><h2>🌐 Réseaux Sociaux</h2><div class="socials"><a class="social" target="_blank" rel="noopener" href="https://www.tiktok.com/@the_snowy22?is_from_webapp=1&sender_device=pc">🎵 TikTok : @the_snowy22</a><div class="social">💬 Discord : snowyrbx280</div><a class="social" target="_blank" rel="noopener" href="https://discord.gg/SZfFeYYNa">⚡ Serveur Discord : Rejoindre le serveur</a></div></section></div>
+
+  <div class="page-head">
+    <button class="back" onclick="goHome()">← Accueil</button>
+    <h1>⚡ Snowy Page</h1>
+    <p class="page-desc">Retrouve Snowy sur ses réseaux et rejoins la communauté.</p>
+  </div>
+
+  <div class="section-grid">
+
+    <section class="panel wide">
+      <h2>🌐 Réseaux Sociaux</h2>
+
+      <div class="socials">
+
+        <a class="social" target="_blank" rel="noopener"
+           href="https://www.tiktok.com/@the_snowy22?is_from_webapp=1&sender_device=pc">
+          🎵 TikTok : @the_snowy22
+        </a>
+
+        <div class="social">
+          💬 Discord : snowyrbx280
+        </div>
+
+        <a class="social" target="_blank" rel="noopener"
+           href="https://discord.gg/SZfFeYYNa">
+          ⚡ Serveur Discord : Rejoindre le serveur
+        </a>
+
+      </div>
+    </section>
+
+  </div>
 </main>
+
 </section>
 
 <main id="promo-win" class="page promo-win hidden">
+
   <div class="promo-win-card">
-    <div class="party">🎉 ✨ 🥳 🎊 ⭐ 🎈 🎉 ✨ 🥳 🎊 ⭐ 🎈 🎉</div>
+
+    <div class="party">
+      🎉 ✨ 🥳 🎊 ⭐ 🎈 🎉 ✨ 🥳 🎊 ⭐ 🎈 🎉
+    </div>
+
     <div class="reward-icon">🎁</div>
+
     <h1>Bravo !</h1>
+
     <h2>Tu as remporté une récompense secrète !</h2>
-    <p>Envoie ce screen à <b>snowyrbx280</b> sur Discord pour récupérer ta récompense !</p>
-    <div class="party">🎈 🎊 ✨ 🎉 🥳 ⭐ 🎁 ⭐ 🥳 🎉 ✨ 🎊</div>
-    <button class="primary" onclick="closePromoWin()">← Retour à Snowy Hub</button>
+
+    <p>
+      Envoie ce screen à <b>snowyrbx280</b> sur Discord pour récupérer ta récompense !
+    </p>
+
+    <div class="party">
+      🎈 🎊 ✨ 🎉 🥳 ⭐ 🎁 ⭐ 🥳 🎉 ✨ 🎊
+    </div>
+
+    <button class="primary" onclick="closePromoWin()">
+      ← Retour à Snowy Hub
+    </button>
+
   </div>
 </main>
 
 <script>
+
 const KEY='snowyHubUsers_v2';
 let state=null,timer=null;
 
-function getUsers(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
-function saveUsers(users){localStorage.setItem(KEY,JSON.stringify(users))}
+function getUsers(){
+  try{
+    return JSON.parse(localStorage.getItem(KEY)||'{}')
+  }catch(e){
+    return {}
+  }
+}
 
-// Sauvegarde le temps réellement passé sur le site. Le compteur ne tourne
-// que lorsque la page est ouverte, et la progression survit aux actualisations.
+function saveUsers(users){
+  localStorage.setItem(KEY,JSON.stringify(users))
+}
+
 function persist(){
+
   if(!state)return;
+
   const now=Date.now();
-  state.elapsed=Math.min(state.elapsed+(now-state.sessionStart), (100-1)*600000+599999);
+
+  state.elapsed=Math.min(
+    state.elapsed+(now-state.sessionStart),
+    (100-1)*600000+599999
+  );
+
   state.sessionStart=now;
+
   const users=getUsers();
-  users[state.name]={level:state.level,elapsed:state.elapsed,code:state.code,claimedCodes:Array.isArray(state.claimedCodes)?state.claimedCodes:[]};
-  saveUsers(users);
+
+  users[state.name]={
+    level:state.level,
+    elapsed:state.elapsed,
+    code:state.code,
+    claimedCodes:Array.isArray(state.claimedCodes)
+      ? state.claimedCodes
+      : []
+  };
+
+  saveUsers(users)
 }
 
 function makeCode(){
+
   const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+
   const bytes=new Uint32Array(10);
+
   crypto.getRandomValues(bytes);
+
   let out='';
-  for(let i=0;i<10;i++) out+=chars[bytes[i]%chars.length];
-  return out.slice(0,5)+'-'+out.slice(5);
+
+  for(let i=0;i<10;i++){
+    out+=chars[bytes[i]%chars.length]
+  }
+
+  return out.slice(0,5)+'-'+out.slice(5)
 }
 
 function register(){
+
   const name=document.getElementById('username').value.trim();
+
   const error=document.getElementById('login-error');
+
   const box=document.getElementById('code-box');
+
   error.textContent='';
+
   box.classList.add('hidden');
-  if(!name){error.textContent='Entre un pseudo.';return}
-  if(name.length<3){error.textContent='Le pseudo doit contenir au moins 3 caractères.';return}
+
+  if(!name){
+    error.textContent='Entre un pseudo.';
+    return
+  }
+
+  if(name.length<3){
+    error.textContent='Le pseudo doit contenir au moins 3 caractères.';
+    return
+  }
+
   const users=getUsers();
+
   const saved=users[name];
 
-  // Première inscription : création d'un code secret aléatoire.
   if(!saved){
+
     const code=makeCode();
-    state={name,level:1,elapsed:0,sessionStart:Date.now(),code,claimedCodes:[]};
-    users[name]={level:1,elapsed:0,code,claimedCodes:[]};
+
+    state={
+      name,
+      level:1,
+      elapsed:0,
+      sessionStart:Date.now(),
+      code,
+      claimedCodes:[]
+    };
+
+    users[name]={
+      level:1,
+      elapsed:0,
+      code,
+      claimedCodes:[]
+    };
+
     saveUsers(users);
+
     document.getElementById('generated-code').textContent=code;
+
     box.classList.remove('hidden');
+
     error.style.color='#027a48';
+
     error.textContent='Compte créé ! Garde bien ton code avant de continuer.';
-    // Le bouton doit être recliqué après lecture du code.
+
     document.querySelector('#login .primary').textContent='Continuer';
-    document.querySelector('#login .primary').onclick=function(){start()};
-    return;
+
+    document.querySelector('#login .primary').onclick=function(){
+      start()
+    };
+
+    return
   }
 
-  // Pseudo déjà existant : le code est obligatoire.
-  const entered=prompt('Ce pseudo existe déjà. Entre le code de connexion fourni à la création du compte :');
+  const entered=prompt(
+    'Ce pseudo existe déjà. Entre le code de connexion fourni à la création du compte :'
+  );
+
   if(entered===null)return;
+
   if(entered.trim().toUpperCase()!==saved.code){
+
     error.style.color='#d92d20';
+
     error.textContent='Code incorrect. Impossible de se connecter à ce compte.';
-    return;
+
+    return
   }
-  state={name,level:saved.level||1,elapsed:saved.elapsed||0,sessionStart:Date.now(),code:saved.code,claimedCodes:Array.isArray(saved.claimedCodes)?saved.claimedCodes:[]};
+
+  state={
+    name,
+    level:saved.level||1,
+    elapsed:saved.elapsed||0,
+    sessionStart:Date.now(),
+    code:saved.code,
+    claimedCodes:Array.isArray(saved.claimedCodes)
+      ? saved.claimedCodes
+      : []
+  };
+
   saveUsers(users);
-  start();
+
+  start()
 }
 
 function start(){
+
   document.getElementById('login').classList.add('hidden');
+
   document.getElementById('app').classList.remove('hidden');
+
   document.getElementById('user-label').textContent=state.name;
-  document.getElementById('admin-btn').classList.toggle('hidden',state.name.toLowerCase()!=='snowyy');
+
+  document.getElementById('admin-btn').classList.toggle(
+    'hidden',
+    state.name.toLowerCase()!=='snowyy'
+  );
+
   updateLevel();
+
   clearInterval(timer);
-  timer=setInterval(updateLevel,1000);
+
+  timer=setInterval(updateLevel,1000)
 }
 
 function updateLevel(){
+
   if(!state)return;
+
   const now=Date.now();
-  const total=Math.min(state.elapsed+(now-state.sessionStart), (100-1)*600000+599999);
-  const level=Math.min(100,1+Math.floor(total/600000));
+
+  const total=Math.min(
+    state.elapsed+(now-state.sessionStart),
+    (100-1)*600000+599999
+  );
+
+  const level=Math.min(
+    100,
+    1+Math.floor(total/600000)
+  );
+
   const remainder=total%600000;
+
   const left=600000-remainder;
+
   const mins=Math.floor(left/60000);
+
   const secs=Math.floor(left/1000)%60;
 
   document.getElementById('level-text').textContent='Niveau '+level;
-  document.getElementById('time-text').textContent=level>=100?'MAX':`${mins}:${String(secs).padStart(2,'0')}`;
-  document.getElementById('progress').style.width=(level>=100?100:(remainder/600000*100))+'%';
+
+  document.getElementById('time-text').textContent=
+    level>=100
+      ? 'MAX'
+      : `${mins}:${String(secs).padStart(2,'0')}`;
+
+  document.getElementById('progress').style.width=
+    (level>=100
+      ? 100
+      : (remainder/600000*100)
+    )+'%';
 
   if(level!==state.level){
+
     state.level=level;
-    persist();
+
+    persist()
   }
-  unlockPromo(level);
+
+  unlockPromo(level)
 }
 
-// Sauvegarde aussi quand on actualise, ferme l'onglet ou quitte la page.
 window.addEventListener('beforeunload',persist);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)persist();else if(state)state.sessionStart=Date.now()});
-setInterval(()=>{if(state)persist()},5000);
+
+document.addEventListener(
+  'visibilitychange',
+  ()=>{
+    if(document.hidden){
+      persist()
+    }else if(state){
+      state.sessionStart=Date.now()
+    }
+  }
+);
+
+setInterval(()=>{
+  if(state)persist()
+},5000);
 
 function unlockPromo(level){
-  document.getElementById('promo-lock').classList.toggle('hidden',level>=10);
-  document.getElementById('promo-content').classList.toggle('hidden',level<10);
+
+  document.getElementById('promo-lock')
+    .classList.toggle('hidden',level>=10);
+
+  document.getElementById('promo-content')
+    .classList.toggle('hidden',level<10)
 }
+
 function showPage(id){
-  ['home','mm2','snowy'].forEach(x=>document.getElementById(x).classList.add('hidden'));
+
+  ['home','mm2','snowy'].forEach(
+    x=>document.getElementById(x).classList.add('hidden')
+  );
+
   document.getElementById(id).classList.remove('hidden');
-  window.scrollTo(0,0);
+
+  window.scrollTo(0,0)
 }
-function goHome(){showPage('home')}
+
+function goHome(){
+  showPage('home')
+}
+
 function mm2Tab(id,btn){
-  ['history','roles','promo'].forEach(x=>document.getElementById(x).classList.add('hidden'));
+
+  ['history','roles','promo'].forEach(
+    x=>document.getElementById(x).classList.add('hidden')
+  );
+
   document.getElementById(id).classList.remove('hidden');
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-  btn.classList.add('active');
+
+  document.querySelectorAll('.tab').forEach(
+    x=>x.classList.remove('active')
+  );
+
+  btn.classList.add('active')
 }
+
 function redeem(){
-  const code=document.getElementById('promo-input').value.trim().toUpperCase();
-  const valid=['STRAWBERRIES','LEMON','ORANGE'];
+
+  const code=document.getElementById('promo-input')
+    .value
+    .trim()
+    .toUpperCase();
+
+  const valid=[
+    'STRAWBERRIES',
+    'LEMON',
+    'ORANGE'
+  ];
+
   const result=document.getElementById('promo-result');
+
   if(!valid.includes(code)){
+
     result.className='notice';
+
     result.textContent='Code invalide.';
-    return;
+
+    return
   }
-  if(!Array.isArray(state.claimedCodes)) state.claimedCodes=[];
+
+  if(!Array.isArray(state.claimedCodes)){
+    state.claimedCodes=[]
+  }
+
   if(state.claimedCodes.includes(code)){
+
     result.className='notice';
+
     result.textContent='⚠️ Tu as déjà utilisé ce code sur ce compte.';
-    return;
+
+    return
   }
+
   state.claimedCodes.push(code);
+
   persist();
-  showPromoWin();
+
+  showPromoWin()
 }
+
 function showPromoWin(){
-  document.querySelectorAll('main.page, main.home').forEach(el=>el.classList.add('hidden'));
-  document.getElementById('promo-win').classList.remove('hidden');
+
+  document.querySelectorAll(
+    'main.page, main.home'
+  ).forEach(
+    el=>el.classList.add('hidden')
+  );
+
+  document.getElementById('promo-win')
+    .classList.remove('hidden');
+
   document.body.style.overflow='hidden';
-  window.scrollTo(0,0);
+
+  window.scrollTo(0,0)
 }
+
 function closePromoWin(){
-  document.getElementById('promo-win').classList.add('hidden');
+
+  document.getElementById('promo-win')
+    .classList.add('hidden');
+
   document.body.style.overflow='';
+
   goHome();
-  window.scrollTo(0,0);
+
+  window.scrollTo(0,0)
 }
 
 function toggleAdmin(){
-  if(!state || state.name.toLowerCase()!=='snowyy') return;
-  document.getElementById('admin-panel').classList.toggle('hidden');
+
+  if(
+    !state ||
+    state.name.toLowerCase()!=='snowyy'
+  )return;
+
+  document.getElementById('admin-panel')
+    .classList.toggle('hidden')
 }
+
 function runAdminCommand(){
+
   const input=document.getElementById('admin-command');
+
   const msg=document.getElementById('admin-msg');
-  const raw=input.value.trim(); msg.className=''; msg.textContent='';
-  if(!state || state.name.toLowerCase()!=='snowyy'){msg.className='admin-error';msg.textContent='Accès refusé.';return}
-  if(!raw.startsWith('/')){msg.className='admin-error';msg.textContent='Une commande doit commencer par /. Exemple : /level 10';return}
+
+  const raw=input.value.trim();
+
+  msg.className='';
+
+  msg.textContent='';
+
+  if(
+    !state ||
+    state.name.toLowerCase()!=='snowyy'
+  ){
+
+    msg.className='admin-error';
+
+    msg.textContent='Accès refusé.';
+
+    return
+  }
+
+  if(!raw.startsWith('/')){
+
+    msg.className='admin-error';
+
+    msg.textContent=
+      'Une commande doit commencer par /. Exemple : /level 10';
+
+    return
+  }
+
   const parts=raw.match(/^\/(\S+)\s*(.*)$/);
+
   if(!parts)return;
-  const cmd=parts[1].toLowerCase(), args=parts[2].trim();
+
+  const cmd=parts[1].toLowerCase();
+
+  const args=parts[2].trim();
+
   if(cmd==='level'){
+
     const n=Number(args);
-    if(!Number.isInteger(n)||n<1||n>100){msg.className='admin-error';msg.textContent='Niveau invalide (1 à 100).';return}
-    state.level=n; state.elapsed=(n-1)*600000; state.sessionStart=Date.now(); updateLevel();
-    msg.className='admin-ok';msg.textContent='✅ Niveau réglé sur '+n+' (temporaire).';
-  } else if(cmd==='bg'){
-    if(!args){msg.className='admin-error';msg.textContent='Utilise /bg #123456 ou /bg https://...';return}
+
+    if(
+      !Number.isInteger(n) ||
+      n<1 ||
+      n>100
+    ){
+
+      msg.className='admin-error';
+
+      msg.textContent='Niveau invalide (1 à 100).';
+
+      return
+    }
+
+    state.level=n;
+
+    state.elapsed=(n-1)*600000;
+
+    state.sessionStart=Date.now();
+
+    updateLevel();
+
+    msg.className='admin-ok';
+
+    msg.textContent=
+      '✅ Niveau réglé sur '+n+' (temporaire).';
+
+  }
+
+  else if(cmd==='bg'){
+
+    if(!args){
+
+      msg.className='admin-error';
+
+      msg.textContent=
+        'Utilise /bg #123456 ou /bg https://...';
+
+      return
+    }
+
     const home=document.getElementById('home');
-    if(/^https?:\/\//i.test(args)){home.style.backgroundImage=`url("${args.replace(/"/g,'')}"),linear-gradient(#fff,#fff)`;home.style.backgroundColor='#fff';}
-    else {home.style.backgroundImage='none';home.style.background=args;}
-    msg.className='admin-ok';msg.textContent='✅ Fond modifié temporairement.';
-  } else if(cmd==='text'){
-    const m=args.match(/^(home|mm2|snowy)\s+(h1|p)\s+([\s\S]+)$/i);
-    if(!m){msg.className='admin-error';msg.textContent='Exemple : /text home h1 Bienvenue Snowy';return}
-    const page=document.getElementById(m[1].toLowerCase()); const el=page.querySelector(m[2].toLowerCase());
-    if(!el){msg.className='admin-error';msg.textContent='Élément introuvable.';return}
-    el.textContent=m[3]; msg.className='admin-ok';msg.textContent='✅ Texte modifié temporairement.';
-  } else if(cmd==='modifysnowyhubtext') {
-    if(!args){msg.className='admin-error';msg.textContent='Utilise /modifysnowyhubtext Ton texte';return}
-    document.querySelector('#home h1').textContent=args; msg.className='admin-ok';msg.textContent='✅ Texte Snowy Hub modifié temporairement.';
-  } else if(cmd==='modifytitle') {
-    if(!args){msg.className='admin-error';msg.textContent='Utilise /modifytitle Ton titre';return}
-    const page=document.querySelector('.page:not(.hidden) h1'); if(!page){msg.className='admin-error';msg.textContent='Aucune page ouverte.';return}
-    page.textContent=args; msg.className='admin-ok';msg.textContent='✅ Titre modifié temporairement.';
-  } else if(cmd==='modifydesc') {
-    if(!args){msg.className='admin-error';msg.textContent='Utilise /modifydesc Ton texte';return}
-    const page=document.querySelector('.page:not(.hidden) .page-desc'); if(!page){msg.className='admin-error';msg.textContent='Aucune page ouverte.';return}
-    page.textContent=args; msg.className='admin-ok';msg.textContent='✅ Description modifiée temporairement.';
-  } else if(cmd==='hide' || cmd==='show') {
-    const target=document.getElementById(args); if(!target){msg.className='admin-error';msg.textContent='Élément introuvable : '+args;return}
-    target.classList.toggle('hidden',cmd==='hide'); msg.className='admin-ok';msg.textContent='✅ '+(cmd==='hide'?'Élément masqué.':'Élément affiché.');
-  } else if(cmd==='resetvisuals') {
-    document.body.style.background=''; document.body.style.backgroundImage='';
-    document.querySelectorAll('[style]').forEach(el=>{ if(el.dataset.snowyOriginalBg) el.style.background=el.dataset.snowyOriginalBg; });
-    location.reload();
-  } else {msg.className='admin-error';msg.textContent='Commande inconnue. Utilise /level, /bg, /text, /modifysnowyhubtext, /modifytitle, /modifydesc, /hide, /show ou /resetvisuals.'}
-  input.value='';
+
+    if(/^https?:\/\//i.test(args)){
+
+      home.style.backgroundImage=
+        `url("${args.replace(/"/g,'')}"),linear-gradient(#fff,#fff)`;
+
+      home.style.backgroundColor='#fff';
+
+    }else{
+
+      home.style.backgroundImage='none';
+
+      home.style.background=args
+    }
+
+    msg.className='admin-ok';
+
+    msg.textContent=
+      '✅ Fond modifié temporairement.'
+  }
+
+  else if(cmd==='text'){
+
+    const m=args.match(
+      /^(home|mm2|snowy)\s+(h1|p)\s+([\s\S]+)$/i
+    );
+
+    if(!m){
+
+      msg.className='admin-error';
+
+      msg.textContent=
+        'Exemple : /text home h1 Bienvenue Snowy';
+
+      return
+    }
+
+    const page=document.getElementById(
+      m[1].toLowerCase()
+    );
+
+    const el=page.querySelector(
+      m[2].toLowerCase()
+    );
+
+    if(!el){
+
+      msg.className='admin-error';
+
+      msg.textContent='Élément introuvable.';
+
+      return
+    }
+
+    el.textContent=m[3];
+
+    msg.className='admin-ok';
+
+    msg.textContent=
+      '✅ Texte modifié temporairement.'
+  }
+
+  else if(cmd==='modifysnowyhubtext'){
+
+    if(!args){
+
+      msg.className='admin-error';
+
+      msg.textContent=
+        'Utilise /modifysnowyhubtext Ton texte';
+
+      return
+    }
+
+    document.querySelector('#home h1')
+      .textContent=args;
+
+    msg.className='admin-ok';
+
+    msg.textContent=
+      '✅ Texte Snowy Hub modifié temporairement.'
+  }
+
+  else if(cmd==='modifytitle'){
+
+    if(!args){
+
+      msg.className='admin-error';
+
+      msg.textContent=
+        'Utilise /modifytitle Ton titre';
+
+      return
+    }
+
+    const page=document.querySelector(
+      '.page:not(.hidden) h1'
+    );
+
+    if(!page){
+
+      msg.className='admin-error';
+
+      msg.textContent='Aucune page ouverte.';
+
+      return
+    }
+
+    page.textContent=args;
+
+    msg.className='admin-ok';
+
+    msg.textContent=
+      '✅ Titre modifié temporairement.'
+  }
+
+  else if(cmd==='modifydesc'){
+
+    if(!args){
+
+      msg.className='admin-error';
+
+      msg.textContent=
+        'Utilise /modifydesc Ton texte';
+
+      return
+    }
+
+    const page=document.querySelector(
+      '.page:not(.hidden) .page-desc'
+    );
+
+    if(!page){
+
+      msg.className='admin-error';
+
+      msg.textContent='Aucune page ouverte.';
+
+      return
+    }
+
+    page.textContent=args;
+
+    msg.className='admin-ok';
+
+    msg.textContent=
+      '✅ Description modifiée temporairement.'
+  }
+
+  else if(cmd==='hide' || cmd==='show'){
+
+    const target=document.getElementById(args);
+
+    if(!target){
+
+      msg.className='admin-error';
+
+      msg.textContent=
+        'Élément introuvable : '+args;
+
+      return
+    }
+
+    target.classList.toggle(
+      'hidden',
+      cmd==='hide'
+    );
+
+    msg.className='admin-ok';
+
+    msg.textContent=
+      '✅ '+(
+        cmd==='hide'
+          ? 'Élément masqué.'
+          : 'Élément affiché.'
+      )
+  }
+
+  else if(cmd==='resetvisuals'){
+
+    document.body.style.background='';
+
+    document.body.style.backgroundImage='';
+
+    document.querySelectorAll('[style]')
+      .forEach(el=>{
+
+        if(el.dataset.snowyOriginalBg){
+          el.style.background=
+            el.dataset.snowyOriginalBg
+        }
+
+      });
+
+    location.reload()
+  }
+
+  else{
+
+    msg.className='admin-error';
+
+    msg.textContent=
+      'Commande inconnue. Utilise /level, /bg, /text, /modifysnowyhubtext, /modifytitle, /modifydesc, /hide, /show ou /resetvisuals.'
+  }
+
+  input.value=''
 }
+
 </script>
+
 </body>
 </html>
+```
