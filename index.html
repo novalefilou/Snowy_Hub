@@ -1,5 +1,3 @@
-```html
-<!-- 🔐 VERROUILLAGE SUPPLÉMENTAIRE SNOWYY -->
 <div id="snowyy-lock" class="hidden" style="
   position:fixed;
   inset:0;
@@ -8,14 +6,13 @@
   align-items:center;
   justify-content:center;
   background:rgba(0,0,0,.75);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
   padding:20px;
 ">
-
   <div style="
-    width:min(430px,100%);
+    width:min(420px,100%);
     background:#11131b;
-    color:#fff;
+    color:white;
     border:1px solid #ffffff20;
     border-radius:24px;
     padding:30px;
@@ -25,31 +22,25 @@
 
     <div style="font-size:45px">🔐</div>
 
-    <h2 style="margin:10px 0 8px">
-      Compte Snowyy protégé
+    <h2 style="margin:10px 0">
+      Vérification Snowyy
     </h2>
 
-    <p style="
-      color:#aeb4c4;
-      margin-bottom:20px;
-      line-height:1.5;
-    ">
-      Le code de vérification est correct.<br>
-      Entre maintenant le mot de passe supplémentaire pour continuer.
+    <p style="color:#aeb4c4;margin-bottom:20px">
+      Entre le mot de passe supplémentaire pour continuer.
     </p>
 
     <input
       id="snowyy-password"
       type="password"
-      placeholder="Mot de passe supplémentaire"
-      autocomplete="off"
+      placeholder="Mot de passe"
       style="
         width:100%;
         padding:14px;
         border-radius:12px;
         border:1px solid #ffffff20;
         background:#080a10;
-        color:#fff;
+        color:white;
         outline:none;
         margin-bottom:10px;
       "
@@ -60,18 +51,14 @@
       onclick="unlockSnowyy()"
       style="width:100%"
     >
-      🔓 Débloquer
+      🔓 Continuer
     </button>
 
-    <p
-      id="snowyy-error"
-      style="
-        color:#ff6b81;
-        margin-top:12px;
-        min-height:20px;
-      "
-    ></p>
+    <p id="snowyy-error" style="
+      color:#ff6b81;
+      margin-top:12px;
+      min-height:20px;
+    "></p>
 
   </div>
 </div>
-```
