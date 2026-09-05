@@ -351,8 +351,6 @@ button,input{font:inherit}
   grid-column:1/-1
 }
 
-/* MM2 ONGLET */
-
 .mm2-nav{
   display:flex;
   flex-wrap:wrap;
@@ -532,8 +530,6 @@ button,input{font:inherit}
   margin-top:10px
 }
 
-/* PROMO */
-
 .notice{
   padding:15px;
   border-radius:14px;
@@ -580,8 +576,6 @@ button,input{font:inherit}
   border-color:#7aa7ff33;
   box-shadow:0 20px 60px #0004
 }
-
-/* ADMIN */
 
 .admin-btn{
   border:1px solid #7c3aed55;
@@ -669,8 +663,6 @@ button,input{font:inherit}
   background:#ff294d18;
   color:#ffd7de
 }
-
-/* FUN */
 
 .fun-unlock{
   margin-top:15px;
@@ -896,8 +888,6 @@ button,input{font:inherit}
   color:#dce1ef
 }
 
-/* PROMO WIN */
-
 .promo-win{
   position:fixed;
   inset:0;
@@ -950,8 +940,6 @@ button,input{font:inherit}
 .reward-icon{
   font-size:70px
 }
-
-/* DOUBLE VERIFICATION */
 
 #snowyy-lock{
   position:fixed;
@@ -1108,7 +1096,7 @@ button,input{font:inherit}
       <button
         id="login-button"
         class="primary"
-        onclick="register()"
+        type="button"
       >
         S'enregistrer
       </button>
@@ -1174,7 +1162,7 @@ button,input{font:inherit}
     <button
       id="admin-btn"
       class="admin-btn hidden"
-      onclick="toggleAdmin()"
+      type="button"
     >
       ⚙️ Admin
     </button>
@@ -1223,8 +1211,9 @@ button,input{font:inherit}
       >
 
       <button
+        id="admin-execute"
         class="primary"
-        onclick="runAdminCommand()"
+        type="button"
       >
         Exécuter
       </button>
@@ -1356,7 +1345,7 @@ button,input{font:inherit}
 
   <div class="page-head">
 
-    <button class="back" onclick="goHome()">
+    <button class="back" onclick="goHome()" type="button">
       ← Accueil
     </button>
 
@@ -1374,6 +1363,7 @@ button,input{font:inherit}
         class="tab active"
         aria-selected="true"
         onclick="mm2Tab('history',this)"
+        type="button"
       >
         📖 Histoire
       </button>
@@ -1382,6 +1372,7 @@ button,input{font:inherit}
         class="tab"
         aria-selected="false"
         onclick="mm2Tab('roles',this)"
+        type="button"
       >
         🎭 Rôle & Gameplay
       </button>
@@ -1390,6 +1381,7 @@ button,input{font:inherit}
         class="tab"
         aria-selected="false"
         onclick="mm2Tab('promo',this)"
+        type="button"
       >
         🎟️ Code Promo
       </button>
@@ -1409,9 +1401,7 @@ button,input{font:inherit}
       <div class="mm2-history-box">
 
         <div class="mm2-story-card">
-
           <h3>🕵️ Les débuts</h3>
-
           <p>
             Murder Mystery est un concept Roblox imaginé autour
             d'une idée simple : plusieurs joueurs se retrouvent
@@ -1419,13 +1409,10 @@ button,input{font:inherit}
             Le but est de comprendre rapidement ce qui se passe
             tout en essayant de survivre à la manche.
           </p>
-
         </div>
 
         <div class="mm2-story-card">
-
           <h3>🔪 L'arrivée de Murder Mystery 2</h3>
-
           <p>
             <b>Murder Mystery 2</b>, développé par
             <b>Nikilis</b>, reprend cette formule et construit
@@ -1438,13 +1425,10 @@ button,input{font:inherit}
             très connue de Roblox grâce à ses parties rapides,
             son aspect imprévisible et son système de collection.
           </p>
-
         </div>
 
         <div class="mm2-story-card">
-
           <h3>🎭 Un concept basé sur la déduction</h3>
-
           <p>
             Chaque manche transforme les joueurs en enquêteurs,
             survivants ou responsables du danger. Les rôles ne sont
@@ -1456,13 +1440,10 @@ button,input{font:inherit}
             Observer les déplacements et les événements de la manche
             devient donc essentiel.
           </p>
-
         </div>
 
         <div class="mm2-story-card">
-
           <h3>🗺️ L'importance des cartes</h3>
-
           <p>
             Les maps jouent un rôle important dans les parties.
             Couloirs, pièces, passages et zones ouvertes changent
@@ -1474,13 +1455,10 @@ button,input{font:inherit}
             déplacements et de comprendre plus rapidement ce qui
             s'est passé.
           </p>
-
         </div>
 
         <div class="mm2-story-card">
-
           <h3>🪙 Collection et progression</h3>
-
           <p>
             Au-delà des manches, MM2 possède également un aspect
             collection. Les joueurs peuvent s'intéresser aux armes,
@@ -1491,7 +1469,6 @@ button,input{font:inherit}
             Cette dimension collection ajoute une autre façon de
             jouer au jeu.
           </p>
-
         </div>
 
       </div>
@@ -1503,57 +1480,39 @@ button,input{font:inherit}
       <div class="mm2-timeline">
 
         <div class="mm2-timeline-item">
-
-          <div class="mm2-year">
-            2014
-          </div>
-
+          <div class="mm2-year">2014</div>
           <p>
             Les premières bases du concept Murder Mystery
             apparaissent sur Roblox.
           </p>
-
         </div>
 
         <div class="mm2-timeline-item">
-
-          <div class="mm2-year">
-            2014+
-          </div>
-
+          <div class="mm2-year">2014+</div>
           <p>
             Murder Mystery 2 développe sa propre identité
             avec ses cartes, ses rôles et son système d'objets.
           </p>
-
         </div>
 
         <div class="mm2-timeline-item">
-
-          <div class="mm2-year">
-            Au fil du temps
-          </div>
-
+          <div class="mm2-year">Au fil du temps</div>
           <p>
             La communauté grandit et le jeu développe un important
             aspect autour de la collection et des échanges entre joueurs.
           </p>
-
         </div>
 
       </div>
 
       <div class="mm2-highlight">
-
         ⭐ <b>À retenir :</b>
-
         <p style="margin-top:6px">
           MM2 mélange enquête, stratégie, observation et
           collection. Chaque manche peut être différente,
           car les rôles et les décisions des joueurs changent
           complètement le déroulement de la partie.
         </p>
-
       </div>
 
     </section>
@@ -1572,108 +1531,76 @@ button,input{font:inherit}
       <div class="role-grid">
 
         <div class="role-card">
-
           <div class="role-icon">🔪</div>
-
           <h3>Murderer</h3>
-
           <p>
             Le Murderer doit éliminer les autres joueurs tout en
             essayant de ne pas révéler son identité.
           </p>
-
         </div>
 
         <div class="role-card">
-
           <div class="role-icon">🔫</div>
-
           <h3>Sheriff</h3>
-
           <p>
             Le Sheriff possède une arme permettant de stopper
             le Murderer. Il doit identifier correctement la menace.
           </p>
-
         </div>
 
         <div class="role-card">
-
           <div class="role-icon">👤</div>
-
           <h3>Innocent</h3>
-
           <p>
             Les Innocents doivent principalement survivre et
             comprendre qui est le Murderer.
           </p>
-
         </div>
 
         <div class="role-card">
-
           <div class="role-icon">⏱️</div>
-
           <h3>Une manche</h3>
-
           <p>
             Une partie commence avec une attribution secrète des
             rôles. Les joueurs se déplacent ensuite sur la carte
             jusqu'à ce qu'un camp atteigne son objectif.
           </p>
-
         </div>
 
         <div class="role-card">
-
           <div class="role-icon">🗺️</div>
-
           <h3>Les cartes</h3>
-
           <p>
             Chaque map possède sa propre disposition. Les endroits
             ouverts et les couloirs influencent les déplacements.
           </p>
-
         </div>
 
         <div class="role-card">
-
           <div class="role-icon">🪙</div>
-
           <h3>Pièces & progression</h3>
-
           <p>
             Les manches permettent également de récupérer des
             pièces et de progresser dans l'expérience MM2.
           </p>
-
         </div>
 
         <div class="role-card">
-
           <div class="role-icon">👀</div>
-
           <h3>Observation</h3>
-
           <p>
             Observer les joueurs est essentiel. Les déplacements
             et comportements peuvent donner des indices.
           </p>
-
         </div>
 
         <div class="role-card">
-
           <div class="role-icon">🧠</div>
-
           <h3>Déduction</h3>
-
           <p>
             Comparer plusieurs indices permet de prendre de
             meilleures décisions plutôt que d'accuser au hasard.
           </p>
-
         </div>
 
       </div>
@@ -1685,36 +1612,27 @@ button,input{font:inherit}
       <div class="mm2-tips">
 
         <div class="mm2-tip">
-
           <h3>🔪 Conseil Murderer</h3>
-
           <p>
             Évite d'attirer immédiatement l'attention sur toi
             et observe les déplacements.
           </p>
-
         </div>
 
         <div class="mm2-tip">
-
           <h3>🔫 Conseil Sheriff</h3>
-
           <p>
             Prends ton temps avant de tirer. Un indice solide
             vaut mieux qu'une décision précipitée.
           </p>
-
         </div>
 
         <div class="mm2-tip">
-
           <h3>👤 Conseil Innocent</h3>
-
           <p>
             Reste attentif aux événements et communique les
             informations utiles aux autres.
           </p>
-
         </div>
 
       </div>
@@ -1726,7 +1644,6 @@ button,input{font:inherit}
         </h3>
 
         <ul>
-
           <li>
             🔪 <b>Murderer :</b>
             éliminer les joueurs adverses.
@@ -1746,7 +1663,6 @@ button,input{font:inherit}
             🧠 <b>Tous les joueurs :</b>
             utiliser les informations disponibles.
           </li>
-
         </ul>
 
       </div>
@@ -1786,6 +1702,7 @@ button,input{font:inherit}
 
           <button
             class="primary"
+            type="button"
             onclick="redeem()"
           >
             Valider
@@ -1807,7 +1724,7 @@ button,input{font:inherit}
 
   <div class="page-head">
 
-    <button class="back" onclick="goHome()">
+    <button class="back" onclick="goHome()" type="button">
       ← Accueil
     </button>
 
@@ -1865,7 +1782,7 @@ button,input{font:inherit}
 
   <div class="page-head">
 
-    <button class="back" onclick="goHome()">
+    <button class="back" onclick="goHome()" type="button">
       ← Accueil
     </button>
 
@@ -1897,22 +1814,22 @@ button,input{font:inherit}
 
       <div class="fun-controls">
 
-        <button class="fun-btn" onclick="spawnNoob()">🤖 Faire apparaître</button>
-        <button class="fun-btn" onclick="funTiny()">🔬 Tiny</button>
-        <button class="fun-btn" onclick="funGiant()">🗿 Géant</button>
-        <button class="fun-btn" onclick="funDino()">🦖 Transformer en dinosaure</button>
-        <button class="fun-btn" onclick="funRainbow()">🌈 Arc-en-ciel</button>
-        <button class="fun-btn" onclick="funJail()">🔒 Mettre en prison</button>
-        <button class="fun-btn" onclick="funExplode()">💥 Explosion</button>
-        <button class="fun-btn" onclick="funSpin()">🌀 Faire tourner</button>
-        <button class="fun-btn" onclick="funJump()">🦘 Faire sauter</button>
-        <button class="fun-btn" onclick="funGhost()">👻 Fantôme</button>
-        <button class="fun-btn" onclick="funFire()">🔥 Mode feu</button>
-        <button class="fun-btn" onclick="funIce()">🧊 Mode glace</button>
-        <button class="fun-btn" onclick="funMetal()">🤖 Métallique</button>
-        <button class="fun-btn" onclick="funBlue()">🔵 Bleu</button>
-        <button class="fun-btn" onclick="funPink()">🩷 Rose</button>
-        <button class="fun-btn" onclick="resetNoob()">♻️ Reset</button>
+        <button class="fun-btn" type="button" onclick="spawnNoob()">🤖 Faire apparaître</button>
+        <button class="fun-btn" type="button" onclick="funTiny()">🔬 Tiny</button>
+        <button class="fun-btn" type="button" onclick="funGiant()">🗿 Géant</button>
+        <button class="fun-btn" type="button" onclick="funDino()">🦖 Transformer en dinosaure</button>
+        <button class="fun-btn" type="button" onclick="funRainbow()">🌈 Arc-en-ciel</button>
+        <button class="fun-btn" type="button" onclick="funJail()">🔒 Mettre en prison</button>
+        <button class="fun-btn" type="button" onclick="funExplode()">💥 Explosion</button>
+        <button class="fun-btn" type="button" onclick="funSpin()">🌀 Faire tourner</button>
+        <button class="fun-btn" type="button" onclick="funJump()">🦘 Faire sauter</button>
+        <button class="fun-btn" type="button" onclick="funGhost()">👻 Fantôme</button>
+        <button class="fun-btn" type="button" onclick="funFire()">🔥 Mode feu</button>
+        <button class="fun-btn" type="button" onclick="funIce()">🧊 Mode glace</button>
+        <button class="fun-btn" type="button" onclick="funMetal()">🤖 Métallique</button>
+        <button class="fun-btn" type="button" onclick="funBlue()">🔵 Bleu</button>
+        <button class="fun-btn" type="button" onclick="funPink()">🩷 Rose</button>
+        <button class="fun-btn" type="button" onclick="resetNoob()">♻️ Reset</button>
 
       </div>
 
@@ -1986,6 +1903,7 @@ button,input{font:inherit}
 
     <button
       class="primary"
+      type="button"
       onclick="closePromoWin()"
     >
       ← Retour à Snowy Hub
@@ -2021,6 +1939,7 @@ button,input{font:inherit}
 
     <button
       class="primary"
+      type="button"
       onclick="unlockSnowyy()"
     >
       🔓 Débloquer
@@ -2034,387 +1953,525 @@ button,input{font:inherit}
 
 <script>
 
-/* =========================
+/* =========================================================
    CONFIGURATION
-========================= */
+========================================================= */
 
-const KEY='snowyHubUsers_v2';
+const KEY = 'snowyHubUsers_v2';
 
-let state=null;
-let timer=null;
+let state = null;
+let timer = null;
 
-const ADMIN_PASSWORD='adminaccount@243';
+const ADMIN_PASSWORD = 'adminaccount@243';
 
-const ADMIN_ACCOUNTS=[
+const ADMIN_ACCOUNTS = [
   'snowyy',
   'eneroxx'
 ];
 
-/* =========================
-   STOCKAGE CORRIGÉ
-========================= */
+
+/* =========================================================
+   STOCKAGE
+========================================================= */
+
+let memoryUsers = {};
 
 function getUsers(){
 
   try{
 
-    const raw=localStorage.getItem(KEY);
-
-    if(!raw){
-      return {};
-    }
-
-    const users=JSON.parse(raw);
-
     if(
-      typeof users!=='object' ||
-      users===null ||
-      Array.isArray(users)
+      typeof window.localStorage !== 'undefined'
     ){
-      return {};
-    }
 
-    return users;
+      const raw = window.localStorage.getItem(KEY);
 
-  }catch(error){
+      if(raw){
 
-    console.error(
-      'Erreur lors de la lecture des comptes :',
-      error
-    );
+        const parsed = JSON.parse(raw);
 
-    return {};
+        if(
+          parsed &&
+          typeof parsed === 'object' &&
+          !Array.isArray(parsed)
+        ){
 
-  }
+          memoryUsers = parsed;
 
-}
+          return parsed;
 
-function saveUsers(users){
+        }
 
-  try{
-
-    localStorage.setItem(
-      KEY,
-      JSON.stringify(users)
-    );
-
-    return true;
-
-  }catch(error){
-
-    console.error(
-      'Erreur lors de la sauvegarde :',
-      error
-    );
-
-    return false;
-
-  }
-
-}
-
-/* =========================
-   ADMIN
-========================= */
-
-function isAdmin(){
-
-  return state &&
-    ADMIN_ACCOUNTS.includes(
-      state.name.toLowerCase()
-    );
-
-}
-
-/* =========================
-   SAUVEGARDE
-========================= */
-
-function persist(){
-
-  if(!state)return;
-
-  const now=Date.now();
-
-  state.elapsed=Math.min(
-    state.elapsed+(now-state.sessionStart),
-    (100-1)*600000+599999
-  );
-
-  state.sessionStart=now;
-
-  const users=getUsers();
-
-  users[state.name]={
-    level:state.level,
-    elapsed:state.elapsed,
-    code:state.code,
-    claimedCodes:Array.isArray(state.claimedCodes)
-      ?state.claimedCodes
-      :[]
-  };
-
-  saveUsers(users);
-
-}
-
-/* =========================
-   CODE DE COMPTE
-========================= */
-
-function makeCode(){
-
-  const chars=
-    'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-
-  let out='';
-
-  try{
-
-    const bytes=
-      new Uint32Array(10);
-
-    crypto.getRandomValues(bytes);
-
-    for(let i=0;i<10;i++){
-
-      out+=chars[
-        bytes[i]%chars.length
-      ];
+      }
 
     }
 
   }catch(error){
 
     console.warn(
-      'Crypto indisponible, génération de secours utilisée.'
+      'localStorage indisponible :',
+      error
     );
-
-    for(let i=0;i<10;i++){
-
-      out+=chars[
-        Math.floor(
-          Math.random()*chars.length
-        )
-      ];
-
-    }
 
   }
 
-  return out.slice(0,5)+'-'+out.slice(5);
+  return memoryUsers;
 
 }
 
-/* =========================
-   INSCRIPTION CORRIGÉE
-========================= */
+
+function saveUsers(users){
+
+  memoryUsers = users;
+
+  try{
+
+    if(
+      typeof window.localStorage !== 'undefined'
+    ){
+
+      window.localStorage.setItem(
+        KEY,
+        JSON.stringify(users)
+      );
+
+      return true;
+
+    }
+
+  }catch(error){
+
+    console.warn(
+      'Impossible de sauvegarder dans localStorage :',
+      error
+    );
+
+  }
+
+  return false;
+
+}
+
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
+function isAdmin(){
+
+  return !!(
+    state &&
+    ADMIN_ACCOUNTS.includes(
+      String(state.name).toLowerCase()
+    )
+  );
+
+}
+
+
+/* =========================================================
+   SAUVEGARDE
+========================================================= */
+
+function persist(){
+
+  if(!state)return;
+
+  try{
+
+    const now = Date.now();
+
+    state.elapsed = Math.min(
+      Number(state.elapsed || 0) +
+      (now - state.sessionStart),
+      (100 - 1) * 600000 + 599999
+    );
+
+    state.sessionStart = now;
+
+    const users = getUsers();
+
+    users[state.name] = {
+
+      level: state.level,
+
+      elapsed: state.elapsed,
+
+      code: state.code,
+
+      claimedCodes:
+        Array.isArray(state.claimedCodes)
+          ? state.claimedCodes
+          : []
+
+    };
+
+    saveUsers(users);
+
+  }catch(error){
+
+    console.error(
+      'Erreur de sauvegarde :',
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   GENERATION DU CODE
+========================================================= */
+
+function makeCode(){
+
+  const chars =
+    'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+
+  let out = '';
+
+  for(let i = 0; i < 10; i++){
+
+    out += chars[
+      Math.floor(
+        Math.random() * chars.length
+      )
+    ];
+
+  }
+
+  return (
+    out.slice(0,5) +
+    '-' +
+    out.slice(5)
+  );
+
+}
+
+
+/* =========================================================
+   INSCRIPTION / CONNEXION
+========================================================= */
 
 function register(){
 
-  const input=
+  const input =
     document.getElementById('username');
 
-  const error=
+  const error =
     document.getElementById('login-error');
 
-  const box=
+  const box =
     document.getElementById('code-box');
 
-  const button=
+  const button =
     document.getElementById('login-button');
 
-  const name=
-    input.value.trim();
+  try{
 
-  error.textContent='';
-  error.style.color='#d92d20';
+    if(!input || !error || !box || !button){
 
-  box.classList.add('hidden');
-
-  if(!name){
-
-    error.textContent=
-      'Entre un pseudo.';
-
-    input.focus();
-
-    return;
-
-  }
-
-  if(name.length<3){
-
-    error.textContent=
-      'Le pseudo doit contenir au moins 3 caractères.';
-
-    input.focus();
-
-    return;
-
-  }
-
-  if(name.length>24){
-
-    error.textContent=
-      'Le pseudo est trop long.';
-
-    input.focus();
-
-    return;
-
-  }
-
-  /*
-    On interdit certains caractères problématiques
-    pour éviter les problèmes de sauvegarde.
-  */
-
-  if(!/^[a-zA-Z0-9_ -]+$/.test(name)){
-
-    error.textContent=
-      'Utilise uniquement des lettres, chiffres, espaces, tirets ou _.';
-
-    input.focus();
-
-    return;
-
-  }
-
-  let users=getUsers();
-
-  /*
-    Recherche insensible à la casse.
-    Exemple : Snowy et snowy sont considérés
-    comme le même compte.
-  */
-
-  let existingKey=
-    Object.keys(users).find(
-      key=>key.toLowerCase()===name.toLowerCase()
-    );
-
-  if(!existingKey){
-
-    const code=makeCode();
-
-    state={
-      name:name,
-      level:1,
-      elapsed:0,
-      sessionStart:Date.now(),
-      code:code,
-      claimedCodes:[]
-    };
-
-    users[name]={
-      level:1,
-      elapsed:0,
-      code:code,
-      claimedCodes:[]
-    };
-
-    const saved=saveUsers(users);
-
-    /*
-      Même si le stockage est bloqué,
-      on permet quand même de continuer
-      pendant cette session.
-    */
-
-    document.getElementById(
-      'generated-code'
-    ).textContent=code;
-
-    box.classList.remove('hidden');
-
-    error.style.color='#027a48';
-
-    if(saved){
-
-      error.textContent=
-        '✅ Compte créé ! Garde bien ton code avant de continuer.';
-
-    }else{
-
-      error.textContent=
-        '⚠️ Compte créé pour cette session. Le navigateur bloque peut-être la sauvegarde locale.';
+      throw new Error(
+        'Éléments de connexion introuvables.'
+      );
 
     }
 
-    button.textContent='Continuer';
+    const name =
+      input.value.trim();
 
-    button.onclick=function(){
-      start();
+    error.textContent = '';
+
+    error.style.color = '#d92d20';
+
+    box.classList.add('hidden');
+
+
+    /* PSEUDO VIDE */
+
+    if(!name){
+
+      error.textContent =
+        '❌ Entre un pseudo.';
+
+      input.focus();
+
+      return;
+
+    }
+
+
+    /* PSEUDO TROP COURT */
+
+    if(name.length < 3){
+
+      error.textContent =
+        '❌ Le pseudo doit contenir au moins 3 caractères.';
+
+      input.focus();
+
+      return;
+
+    }
+
+
+    /* PSEUDO TROP LONG */
+
+    if(name.length > 24){
+
+      error.textContent =
+        '❌ Le pseudo est trop long.';
+
+      input.focus();
+
+      return;
+
+    }
+
+
+    /* CARACTÈRES AUTORISÉS */
+
+    if(!/^[a-zA-Z0-9_ -]+$/.test(name)){
+
+      error.textContent =
+        '❌ Utilise uniquement des lettres, chiffres, espaces, tirets ou _.';
+
+      input.focus();
+
+      return;
+
+    }
+
+
+    const users = getUsers();
+
+
+    /* =====================================================
+       RECHERCHE D'UN COMPTE EXISTANT
+    ===================================================== */
+
+    const existingKey =
+      Object.keys(users).find(
+        key =>
+          String(key).toLowerCase() ===
+          name.toLowerCase()
+      );
+
+
+    /* =====================================================
+       NOUVEAU COMPTE
+    ===================================================== */
+
+    if(!existingKey){
+
+      const code = makeCode();
+
+      state = {
+
+        name: name,
+
+        level: 1,
+
+        elapsed: 0,
+
+        sessionStart: Date.now(),
+
+        code: code,
+
+        claimedCodes: []
+
+      };
+
+
+      users[name] = {
+
+        level: 1,
+
+        elapsed: 0,
+
+        code: code,
+
+        claimedCodes: []
+
+      };
+
+
+      const saved = saveUsers(users);
+
+
+      document.getElementById(
+        'generated-code'
+      ).textContent = code;
+
+
+      box.classList.remove('hidden');
+
+
+      if(saved){
+
+        error.style.color = '#027a48';
+
+        error.textContent =
+          '✅ Compte créé ! Garde bien ton code avant de continuer.';
+
+      }else{
+
+        error.style.color = '#b54708';
+
+        error.textContent =
+          '⚠️ Compte créé pour cette session. La sauvegarde locale est bloquée par ton navigateur.';
+
+      }
+
+
+      button.textContent =
+        'Continuer';
+
+
+      /*
+        IMPORTANT :
+        On remplace complètement l'action
+        du bouton après la création.
+      */
+
+      button.onclick = function(){
+
+        start();
+
+      };
+
+
+      return;
+
+    }
+
+
+    /* =====================================================
+       COMPTE EXISTANT
+    ===================================================== */
+
+    const saved =
+      users[existingKey];
+
+
+    if(
+      !saved ||
+      !saved.code
+    ){
+
+      error.textContent =
+        '❌ Ce compte est invalide ou corrompu.';
+
+      return;
+
+    }
+
+
+    const entered =
+      prompt(
+        '🔐 Ce pseudo existe déjà.\n\nEntre ton code de connexion :'
+      );
+
+
+    if(entered === null){
+
+      return;
+
+    }
+
+
+    if(
+      entered.trim().toUpperCase() !==
+      String(saved.code).trim().toUpperCase()
+    ){
+
+      error.style.color =
+        '#d92d20';
+
+      error.textContent =
+        '❌ Code incorrect. Impossible de se connecter à ce compte.';
+
+      return;
+
+    }
+
+
+    state = {
+
+      name: existingKey,
+
+      level:
+        Number(saved.level) || 1,
+
+      elapsed:
+        Number(saved.elapsed) || 0,
+
+      sessionStart:
+        Date.now(),
+
+      code:
+        saved.code,
+
+      claimedCodes:
+        Array.isArray(saved.claimedCodes)
+          ? saved.claimedCodes
+          : []
+
     };
 
-    return;
+
+    start();
+
+  }catch(errorObject){
+
+    console.error(
+      'ERREUR REGISTER :',
+      errorObject
+    );
+
+    error.style.color =
+      '#d92d20';
+
+    error.textContent =
+      '❌ Erreur : ' +
+      (
+        errorObject.message ||
+        String(errorObject)
+      );
 
   }
-
-  /*
-    Compte existant
-  */
-
-  const saved=users[existingKey];
-
-  const entered=prompt(
-    'Ce pseudo existe déjà. Entre le code de connexion fourni à la création du compte :'
-  );
-
-  if(entered===null){
-
-    return;
-
-  }
-
-  if(
-    entered.trim().toUpperCase()!==
-    String(saved.code||'').toUpperCase()
-  ){
-
-    error.style.color='#d92d20';
-
-    error.textContent=
-      '❌ Code incorrect. Impossible de se connecter à ce compte.';
-
-    return;
-
-  }
-
-  state={
-    name:existingKey,
-    level:Number(saved.level)||1,
-    elapsed:Number(saved.elapsed)||0,
-    sessionStart:Date.now(),
-    code:saved.code,
-    claimedCodes:
-      Array.isArray(saved.claimedCodes)
-        ?saved.claimedCodes
-        :[]
-  };
-
-  start();
 
 }
 
-/* =========================
+
+/* =========================================================
    DEMARRAGE
-========================= */
+========================================================= */
 
 function start(){
+
+  if(!state){
+
+    return;
+
+  }
 
   document.getElementById(
     'login'
   ).classList.add('hidden');
 
+
   document.getElementById(
     'app'
   ).classList.remove('hidden');
 
+
   document.getElementById(
     'user-label'
-  ).textContent=state.name;
+  ).textContent =
+    state.name;
+
 
   document.getElementById(
     'admin-btn'
@@ -2423,57 +2480,68 @@ function start(){
     !isAdmin()
   );
 
+
   updateLevel();
+
 
   clearInterval(timer);
 
-  timer=setInterval(
+
+  timer = setInterval(
     updateLevel,
     1000
   );
 
+
   if(isAdmin()){
 
-    setTimeout(()=>{
+    setTimeout(
+      function(){
 
-      const lock=
-        document.getElementById(
-          'snowyy-lock'
+        const lock =
+          document.getElementById(
+            'snowyy-lock'
+          );
+
+        lock.classList.remove(
+          'hidden'
         );
 
-      lock.classList.remove('hidden');
+        document.body.style.overflow =
+          'hidden';
 
-      document.body.style.overflow='hidden';
+        document.getElementById(
+          'snowyy-password'
+        ).focus();
 
-      document.getElementById(
-        'snowyy-password'
-      ).focus();
-
-    },400);
+      },
+      400
+    );
 
   }
 
 }
 
-/* =========================
-   DOUBLE VERIFICATION
-========================= */
+
+/* =========================================================
+   DOUBLE VERIFICATION ADMIN
+========================================================= */
 
 function unlockSnowyy(){
 
-  const password=
+  const password =
     document.getElementById(
       'snowyy-password'
     ).value;
 
-  const error=
+  const error =
     document.getElementById(
       'snowyy-error'
     );
 
-  if(password!==ADMIN_PASSWORD){
+  if(password !== ADMIN_PASSWORD){
 
-    error.textContent=
+    error.textContent =
       '❌ Mot de passe incorrect.';
 
     return;
@@ -2482,109 +2550,119 @@ function unlockSnowyy(){
 
   document.getElementById(
     'snowyy-lock'
-  ).classList.add('hidden');
+  ).classList.add(
+    'hidden'
+  );
 
-  document.body.style.overflow='';
+  document.body.style.overflow =
+    '';
 
   document.getElementById(
     'snowyy-password'
-  ).value='';
+  ).value = '';
 
-  error.textContent='';
+  error.textContent = '';
 
 }
 
-document.getElementById(
-  'snowyy-password'
-).addEventListener(
-  'keydown',
-  function(e){
 
-    if(e.key==='Enter'){
-      unlockSnowyy();
-    }
-
-  }
-);
-
-/* =========================
+/* =========================================================
    NIVEAUX
-========================= */
+========================================================= */
 
 function updateLevel(){
 
   if(!state)return;
 
-  const now=Date.now();
+  const now = Date.now();
 
-  const total=Math.min(
-    state.elapsed+
-    (now-state.sessionStart),
-    (100-1)*600000+599999
-  );
+  const total =
+    Math.min(
+      state.elapsed +
+      (now - state.sessionStart),
+      (100 - 1) * 600000 + 599999
+    );
 
-  const level=Math.min(
-    100,
-    1+Math.floor(total/600000)
-  );
 
-  const remainder=
-    total%600000;
+  const level =
+    Math.min(
+      100,
+      1 + Math.floor(total / 600000)
+    );
 
-  const left=
-    600000-remainder;
 
-  const mins=
-    Math.floor(left/60000);
+  const remainder =
+    total % 600000;
 
-  const secs=
-    Math.floor(left/1000)%60;
+
+  const left =
+    600000 - remainder;
+
+
+  const mins =
+    Math.floor(
+      left / 60000
+    );
+
+
+  const secs =
+    Math.floor(
+      left / 1000
+    ) % 60;
+
 
   document.getElementById(
     'level-text'
-  ).textContent=
-    'Niveau '+level;
+  ).textContent =
+    'Niveau ' + level;
+
 
   document.getElementById(
     'time-text'
-  ).textContent=
-    level>=100
-      ?'MAX'
-      :`${mins}:${String(secs).padStart(2,'0')}`;
+  ).textContent =
+    level >= 100
+      ? 'MAX'
+      : `${mins}:${String(secs).padStart(2,'0')}`;
+
 
   document.getElementById(
     'progress'
-  ).style.width=
+  ).style.width =
     (
-      level>=100
-        ?100
-        :(remainder/600000*100)
-    )+'%';
+      level >= 100
+        ? 100
+        : remainder / 600000 * 100
+    ) + '%';
 
-  if(level!==state.level){
 
-    state.level=level;
+  if(level !== state.level){
+
+    state.level =
+      level;
 
     persist();
 
   }
 
+
   unlockPromo(level);
 
 }
 
-/* =========================
+
+/* =========================================================
    SAUVEGARDE AUTO
-========================= */
+========================================================= */
 
 window.addEventListener(
   'beforeunload',
   persist
 );
 
+
 document.addEventListener(
   'visibilitychange',
-  ()=>{
+  function(){
 
     if(document.hidden){
 
@@ -2592,92 +2670,131 @@ document.addEventListener(
 
     }else if(state){
 
-      state.sessionStart=Date.now();
+      state.sessionStart =
+        Date.now();
 
     }
 
   }
 );
 
+
 setInterval(
-  ()=>{
-    if(state)persist();
+  function(){
+
+    if(state){
+
+      persist();
+
+    }
+
   },
   5000
 );
 
-/* =========================
+
+/* =========================================================
    PROMO
-========================= */
+========================================================= */
 
 function unlockPromo(level){
 
-  document.getElementById(
-    'promo-lock'
-  ).classList.toggle(
+  const lock =
+    document.getElementById(
+      'promo-lock'
+    );
+
+  const content =
+    document.getElementById(
+      'promo-content'
+    );
+
+  if(!lock || !content)return;
+
+  lock.classList.toggle(
     'hidden',
-    level>=10
+    level >= 10
   );
 
-  document.getElementById(
-    'promo-content'
-  ).classList.toggle(
+  content.classList.toggle(
     'hidden',
-    level<10
+    level < 10
   );
 
 }
+
 
 function redeem(){
 
   if(!state)return;
 
-  const code=
+  const input =
     document.getElementById(
       'promo-input'
-    )
-    .value
-    .trim()
-    .toUpperCase();
+    );
 
-  const valid=[
-    'STRAWBERRIES',
-    'LEMON',
-    'ORANGE'
-  ];
-
-  const result=
+  const result =
     document.getElementById(
       'promo-result'
     );
 
+  const code =
+    input.value
+      .trim()
+      .toUpperCase();
+
+
+  const valid = [
+
+    'STRAWBERRIES',
+
+    'LEMON',
+
+    'ORANGE'
+
+  ];
+
+
   if(!valid.includes(code)){
 
-    result.className='notice';
+    result.className =
+      'notice';
 
-    result.textContent=
+    result.textContent =
       'Code invalide.';
 
     return;
 
   }
 
-  if(!Array.isArray(state.claimedCodes)){
-    state.claimedCodes=[];
+
+  if(!Array.isArray(
+    state.claimedCodes
+  )){
+
+    state.claimedCodes = [];
+
   }
 
-  if(state.claimedCodes.includes(code)){
 
-    result.className='notice';
+  if(
+    state.claimedCodes.includes(code)
+  ){
 
-    result.textContent=
+    result.className =
+      'notice';
+
+    result.textContent =
       '⚠️ Tu as déjà utilisé ce code sur ce compte.';
 
     return;
 
   }
 
-  state.claimedCodes.push(code);
+
+  state.claimedCodes.push(
+    code
+  );
 
   persist();
 
@@ -2685,9 +2802,10 @@ function redeem(){
 
 }
 
-/* =========================
+
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 function showPage(id){
 
@@ -2697,18 +2815,38 @@ function showPage(id){
     'snowy',
     'fun'
   ].forEach(
-    x=>{
-      document.getElementById(x)
-        .classList.add('hidden');
+    function(x){
+
+      const element =
+        document.getElementById(x);
+
+      if(element){
+
+        element.classList.add(
+          'hidden'
+        );
+
+      }
+
     }
   );
 
-  document.getElementById(id)
-    .classList.remove('hidden');
 
-  if(id==='mm2'){
+  const target =
+    document.getElementById(id);
 
-    const historyBtn=
+
+  if(!target)return;
+
+
+  target.classList.remove(
+    'hidden'
+  );
+
+
+  if(id === 'mm2'){
+
+    const historyBtn =
       document.querySelector(
         '.mm2-nav .tab'
       );
@@ -2720,37 +2858,52 @@ function showPage(id){
 
   }
 
-  window.scrollTo(0,0);
+
+  window.scrollTo(
+    0,
+    0
+  );
 
 }
+
 
 function goHome(){
-  showPage('home');
+
+  showPage(
+    'home'
+  );
+
 }
 
-/* =========================
-   ONGLES MM2
-========================= */
+
+/* =========================================================
+   ONGLETS MM2
+========================================================= */
 
 function mm2Tab(id,btn){
 
-  const tabs=[
+  const tabs = [
+
     'history',
+
     'roles',
+
     'promo'
+
   ];
 
-  tabs.forEach(
-    x=>{
 
-      const section=
+  tabs.forEach(
+    function(x){
+
+      const section =
         document.getElementById(x);
 
       if(section){
 
         section.classList.toggle(
           'hidden',
-          x!==id
+          x !== id
         );
 
       }
@@ -2758,12 +2911,15 @@ function mm2Tab(id,btn){
     }
   );
 
+
   document.querySelectorAll(
     '.mm2-nav .tab'
   ).forEach(
-    x=>{
+    function(x){
 
-      x.classList.remove('active');
+      x.classList.remove(
+        'active'
+      );
 
       x.setAttribute(
         'aria-selected',
@@ -2773,9 +2929,12 @@ function mm2Tab(id,btn){
     }
   );
 
+
   if(btn){
 
-    btn.classList.add('active');
+    btn.classList.add(
+      'active'
+    );
 
     btn.setAttribute(
       'aria-selected',
@@ -2784,55 +2943,86 @@ function mm2Tab(id,btn){
 
   }
 
+
   if(state){
-    unlockPromo(state.level);
+
+    unlockPromo(
+      state.level
+    );
+
   }
 
 }
 
-/* =========================
+
+/* =========================================================
    PROMO WIN
-========================= */
+========================================================= */
 
 function showPromoWin(){
 
   document.querySelectorAll(
     'main.page, main.home'
   ).forEach(
-    el=>el.classList.add('hidden')
+    function(el){
+
+      el.classList.add(
+        'hidden'
+      );
+
+    }
   );
+
 
   document.getElementById(
     'promo-win'
-  ).classList.remove('hidden');
+  ).classList.remove(
+    'hidden'
+  );
 
-  document.body.style.overflow='hidden';
 
-  window.scrollTo(0,0);
+  document.body.style.overflow =
+    'hidden';
+
+
+  window.scrollTo(
+    0,
+    0
+  );
 
 }
+
 
 function closePromoWin(){
 
   document.getElementById(
     'promo-win'
-  ).classList.add('hidden');
+  ).classList.add(
+    'hidden'
+  );
 
-  document.body.style.overflow='';
+  document.body.style.overflow =
+    '';
 
   goHome();
 
 }
 
-/* =========================
+
+/* =========================================================
    FUN PANEL
-========================= */
+========================================================= */
 
 function funAllowed(){
 
-  if(!state)return false;
+  if(!state){
 
-  if(state.level<25){
+    return false;
+
+  }
+
+
+  if(state.level < 25){
 
     alert(
       '🔒 Le Fun Panel est disponible à partir du niveau 25.'
@@ -2842,17 +3032,28 @@ function funAllowed(){
 
   }
 
+
   return true;
 
 }
 
+
 function funStatus(text){
 
-  document.getElementById(
-    'fun-status'
-  ).textContent=text;
+  const element =
+    document.getElementById(
+      'fun-status'
+    );
+
+  if(element){
+
+    element.textContent =
+      text;
+
+  }
 
 }
+
 
 function noob(){
 
@@ -2862,19 +3063,28 @@ function noob(){
 
 }
 
+
 function spawnNoob(){
 
   if(!funAllowed())return;
 
-  const n=noob();
+  const n =
+    noob();
 
-  n.className='noob';
+  n.className =
+    'noob';
 
-  n.classList.remove('hidden');
+  n.classList.remove(
+    'hidden'
+  );
+
 
   document.getElementById(
     'jail'
-  ).classList.remove('active');
+  ).classList.remove(
+    'active'
+  );
+
 
   funStatus(
     '🤖 Un Noob est apparu !'
@@ -2882,33 +3092,49 @@ function spawnNoob(){
 
 }
 
+
 function resetNoob(){
 
   if(!funAllowed())return;
 
-  const n=noob();
+  const n =
+    noob();
 
-  n.className='noob hidden';
+
+  n.className =
+    'noob hidden';
+
 
   document.getElementById(
     'jail'
-  ).classList.remove('active');
+  ).classList.remove(
+    'active'
+  );
 
-  n.style='';
+
+  n.style = '';
+
 
   n.querySelector(
     '.noob-head'
-  ).style.background='';
+  ).style.background = '';
+
 
   n.querySelector(
     '.noob-body'
-  ).style.background='';
+  ).style.background = '';
+
 
   n.querySelectorAll(
     '.noob-leg'
   ).forEach(
-    x=>x.style.background=''
+    function(x){
+
+      x.style.background = '';
+
+    }
   );
+
 
   funStatus(
     '♻️ Le Noob est revenu à zéro.'
@@ -2916,13 +3142,16 @@ function resetNoob(){
 
 }
 
+
 function funTiny(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('tiny');
+  noob().classList.add(
+    'tiny'
+  );
 
   funStatus(
     '🔬 Le Noob est devenu minuscule !'
@@ -2930,13 +3159,16 @@ function funTiny(){
 
 }
 
+
 function funGiant(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('giant');
+  noob().classList.add(
+    'giant'
+  );
 
   funStatus(
     '🗿 Le Noob est maintenant GÉANT !'
@@ -2944,13 +3176,16 @@ function funGiant(){
 
 }
 
+
 function funDino(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('dino');
+  noob().classList.add(
+    'dino'
+  );
 
   funStatus(
     '🦖 Le Noob vient de devenir un DINOSAURE !'
@@ -2958,19 +3193,23 @@ function funDino(){
 
 }
 
+
 function funRainbow(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('rainbow');
+  noob().classList.add(
+    'rainbow'
+  );
 
   funStatus(
     '🌈 Mode arc-en-ciel activé !'
   );
 
 }
+
 
 function funJail(){
 
@@ -2980,7 +3219,9 @@ function funJail(){
 
   document.getElementById(
     'jail'
-  ).classList.add('active');
+  ).classList.add(
+    'active'
+  );
 
   funStatus(
     '🔒 Le Noob est en prison !'
@@ -2988,13 +3229,16 @@ function funJail(){
 
 }
 
+
 function funExplode(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  const n=noob();
+  const n =
+    noob();
+
 
   n.animate(
     [
@@ -3017,17 +3261,23 @@ function funExplode(){
     }
   );
 
+
   funStatus(
     '💥 BOUM ! Le Noob a explosé !'
   );
 
+
   setTimeout(
-    ()=>{
-      n.className='noob hidden';
+    function(){
+
+      n.className =
+        'noob hidden';
 
       document.getElementById(
         'jail'
-      ).classList.remove('active');
+      ).classList.remove(
+        'active'
+      );
 
     },
     700
@@ -3035,19 +3285,23 @@ function funExplode(){
 
 }
 
+
 function funSpin(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('spin');
+  noob().classList.add(
+    'spin'
+  );
 
   funStatus(
-    '🌀 Le Noob tourne sans s'arrêter !'
+    '🌀 Le Noob tourne sans s’arrêter !'
   );
 
 }
+
 
 function funJump(){
 
@@ -3055,7 +3309,9 @@ function funJump(){
 
   spawnNoob();
 
-  noob().classList.add('jumpy');
+  noob().classList.add(
+    'jumpy'
+  );
 
   funStatus(
     '🦘 Le Noob saute partout !'
@@ -3063,13 +3319,16 @@ function funJump(){
 
 }
 
+
 function funGhost(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('ghost');
+  noob().classList.add(
+    'ghost'
+  );
 
   funStatus(
     '👻 Le Noob est devenu un fantôme !'
@@ -3077,13 +3336,16 @@ function funGhost(){
 
 }
 
+
 function funFire(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('fire');
+  noob().classList.add(
+    'fire'
+  );
 
   funStatus(
     '🔥 Le Noob est en feu !'
@@ -3091,13 +3353,16 @@ function funFire(){
 
 }
 
+
 function funIce(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('ice');
+  noob().classList.add(
+    'ice'
+  );
 
   funStatus(
     '🧊 Le Noob est congelé !'
@@ -3105,13 +3370,16 @@ function funIce(){
 
 }
 
+
 function funMetal(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
-  noob().classList.add('metal');
+  noob().classList.add(
+    'metal'
+  );
 
   funStatus(
     '🤖 Le Noob est devenu métallique !'
@@ -3119,21 +3387,31 @@ function funMetal(){
 
 }
 
+
 function funBlue(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
+
   noob().querySelector(
     '.noob-body'
-  ).style.background='#06b6d4';
+  ).style.background =
+    '#06b6d4';
+
 
   noob().querySelectorAll(
     '.noob-leg'
   ).forEach(
-    x=>x.style.background='#2563eb'
+    function(x){
+
+      x.style.background =
+        '#2563eb';
+
+    }
   );
+
 
   funStatus(
     '🔵 Le Noob est devenu bleu !'
@@ -3141,21 +3419,31 @@ function funBlue(){
 
 }
 
+
 function funPink(){
 
   if(!funAllowed())return;
 
   spawnNoob();
 
+
   noob().querySelector(
     '.noob-body'
-  ).style.background='#ec4899';
+  ).style.background =
+    '#ec4899';
+
 
   noob().querySelectorAll(
     '.noob-leg'
   ).forEach(
-    x=>x.style.background='#f472b6'
+    function(x){
+
+      x.style.background =
+        '#f472b6';
+
+    }
   );
+
 
   funStatus(
     '🩷 Le Noob est devenu rose !'
@@ -3163,593 +3451,879 @@ function funPink(){
 
 }
 
-/* =========================
+
+/* =========================================================
    ADMIN PANEL
-========================= */
+========================================================= */
 
 function toggleAdmin(){
 
   if(!isAdmin())return;
 
+
   document.getElementById(
     'admin-panel'
-  ).classList.toggle('hidden');
+  ).classList.toggle(
+    'hidden'
+  );
 
 }
 
+
 function runAdminCommand(){
 
-  const input=
+  const input =
     document.getElementById(
       'admin-command'
     );
 
-  const msg=
+  const msg =
     document.getElementById(
       'admin-msg'
     );
 
-  const raw=input.value.trim();
+  const raw =
+    input.value.trim();
 
-  msg.className='';
-  msg.textContent='';
+
+  msg.className = '';
+
+  msg.textContent = '';
+
 
   if(!isAdmin()){
 
-    msg.className='admin-error';
-    msg.textContent='Accès refusé.';
+    msg.className =
+      'admin-error';
+
+    msg.textContent =
+      'Accès refusé.';
 
     return;
 
   }
 
+
   if(!raw.startsWith('/')){
 
-    msg.className='admin-error';
+    msg.className =
+      'admin-error';
 
-    msg.textContent=
+    msg.textContent =
       'Une commande doit commencer par /.';
 
     return;
 
   }
 
-  const parts=
-    raw.match(/^\/(\S+)\s*(.*)$/);
+
+  const parts =
+    raw.match(
+      /^\/(\S+)\s*(.*)$/
+    );
+
 
   if(!parts)return;
 
-  const cmd=
+
+  const cmd =
     parts[1].toLowerCase();
 
-  const args=
+
+  const args =
     parts[2].trim();
 
-  if(cmd==='level'){
 
-    const n=Number(args);
+  if(cmd === 'level'){
+
+    const n =
+      Number(args);
+
 
     if(
-      !Number.isInteger(n)||
-      n<1||
-      n>100
+      !Number.isInteger(n) ||
+      n < 1 ||
+      n > 100
     ){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Niveau invalide (1 à 100).';
 
       return;
 
     }
 
-    state.level=n;
 
-    state.elapsed=(n-1)*600000;
+    state.level =
+      n;
 
-    state.sessionStart=Date.now();
+    state.elapsed =
+      (n - 1) * 600000;
+
+    state.sessionStart =
+      Date.now();
+
 
     updateLevel();
 
-    msg.className='admin-ok';
 
-    msg.textContent=
-      '✅ Niveau réglé sur '+n+'.';
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
+      '✅ Niveau réglé sur ' +
+      n +
+      '.';
 
   }
 
-  else if(cmd==='bg'){
+  else if(cmd === 'bg'){
 
     if(!args){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Utilise /bg #123456 ou /bg https://...';
 
       return;
 
     }
 
-    const home=
-      document.getElementById('home');
+
+    const home =
+      document.getElementById(
+        'home'
+      );
+
 
     if(
       /^https?:\/\//i.test(args)
     ){
 
-      home.style.backgroundImage=
-        `url("${args.replace(/"/g,'')}"),
-        linear-gradient(#fff,#fff)`;
+      home.style.backgroundImage =
+        `url("${args.replace(/"/g,'')}"), linear-gradient(#fff,#fff)`;
 
-      home.style.backgroundColor='#fff';
+      home.style.backgroundColor =
+        '#fff';
 
     }else{
 
-      home.style.backgroundImage='none';
+      home.style.backgroundImage =
+        'none';
 
-      home.style.background=args;
+      home.style.background =
+        args;
 
     }
 
-    msg.className='admin-ok';
 
-    msg.textContent=
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
       '✅ Fond modifié temporairement.';
 
   }
 
-  else if(cmd==='text'){
+  else if(cmd === 'text'){
 
-    const m=args.match(
-      /^(home|mm2|snowy|fun)\s+(h1|p)\s+([\s\S]+)$/i
-    );
+    const m =
+      args.match(
+        /^(home|mm2|snowy|fun)\s+(h1|p)\s+([\s\S]+)$/i
+      );
+
 
     if(!m){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Exemple : /text home h1 Bonjour';
 
       return;
 
     }
 
-    const page=
+
+    const page =
       document.getElementById(
         m[1].toLowerCase()
       );
 
-    const el=
+
+    const el =
       page.querySelector(
         m[2].toLowerCase()
       );
 
+
     if(!el){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Élément introuvable.';
 
       return;
 
     }
 
-    el.textContent=m[3];
 
-    msg.className='admin-ok';
+    el.textContent =
+      m[3];
 
-    msg.textContent=
+
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
       '✅ Texte modifié temporairement.';
 
   }
 
-  else if(cmd==='modifysnowyhubtext'){
+  else if(cmd === 'modifysnowyhubtext'){
 
     if(!args){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Utilise /modifysnowyhubtext Ton texte';
 
       return;
 
     }
 
+
     document.querySelector(
       '#home h1'
-    ).textContent=args;
+    ).textContent =
+      args;
 
-    msg.className='admin-ok';
 
-    msg.textContent=
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
       '✅ Texte Snowy Hub modifié.';
 
   }
 
-  else if(cmd==='modifytitle'){
+  else if(cmd === 'modifytitle'){
 
     if(!args){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Utilise /modifytitle Ton titre';
 
       return;
 
     }
 
-    const page=
+
+    const page =
       document.querySelector(
         '.page:not(.hidden) h1'
       );
 
+
     if(!page){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Aucune page ouverte.';
 
       return;
 
     }
 
-    page.textContent=args;
 
-    msg.className='admin-ok';
+    page.textContent =
+      args;
 
-    msg.textContent=
+
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
       '✅ Titre modifié temporairement.';
 
   }
 
-  else if(cmd==='modifydesc'){
+  else if(cmd === 'modifydesc'){
 
     if(!args){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Utilise /modifydesc Ton texte';
 
       return;
 
     }
 
-    const page=
+
+    const page =
       document.querySelector(
         '.page:not(.hidden) .page-desc'
       );
 
+
     if(!page){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         'Aucune page ouverte.';
 
       return;
 
     }
 
-    page.textContent=args;
 
-    msg.className='admin-ok';
+    page.textContent =
+      args;
 
-    msg.textContent=
+
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
       '✅ Description modifiée temporairement.';
 
   }
 
   else if(
-    cmd==='hide'||
-    cmd==='show'
+    cmd === 'hide' ||
+    cmd === 'show'
   ){
 
-    const target=
-      document.getElementById(args);
+    const target =
+      document.getElementById(
+        args
+      );
+
 
     if(!target){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
-        'Élément introuvable : '+args;
+      msg.textContent =
+        'Élément introuvable : ' +
+        args;
 
       return;
 
     }
 
+
     target.classList.toggle(
       'hidden',
-      cmd==='hide'
+      cmd === 'hide'
     );
 
-    msg.className='admin-ok';
 
-    msg.textContent=
-      '✅ Élément '+
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
+      '✅ Élément ' +
       (
-        cmd==='hide'
-          ?'masqué.'
-          :'affiché.'
+        cmd === 'hide'
+          ? 'masqué.'
+          : 'affiché.'
       );
 
   }
 
-  else if(cmd==='fun'){
+  else if(cmd === 'fun'){
 
-    if(state.level<25){
+    if(state.level < 25){
 
-      msg.className='admin-error';
+      msg.className =
+        'admin-error';
 
-      msg.textContent=
+      msg.textContent =
         '🔒 Fun Panel disponible au niveau 25.';
 
       return;
 
     }
 
-    showPage('fun');
 
-    msg.className='admin-ok';
+    showPage(
+      'fun'
+    );
 
-    msg.textContent=
+
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
       '🎉 Fun Panel ouvert.';
 
   }
 
-  else if(cmd==='spawn'){
+  else if(cmd === 'spawn'){
 
-    showPage('fun');
+    if(state.level < 25){
+
+      msg.className =
+        'admin-error';
+
+      msg.textContent =
+        '🔒 Fun Panel disponible au niveau 25.';
+
+      return;
+
+    }
+
+
+    showPage(
+      'fun'
+    );
+
 
     setTimeout(
       spawnNoob,
       50
     );
 
-    msg.className='admin-ok';
 
-    msg.textContent=
+    msg.className =
+      'admin-ok';
+
+    msg.textContent =
       '🤖 Noob apparu.';
 
   }
 
-  else if(cmd==='dino'){
+  else if(cmd === 'dino'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funDino,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🦖 Mode dinosaure activé.';
 
   }
 
-  else if(cmd==='tiny'){
+  else if(cmd === 'tiny'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funTiny,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🔬 Mode Tiny activé.';
 
   }
 
-  else if(cmd==='giant'){
+  else if(cmd === 'giant'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funGiant,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🗿 Mode Géant activé.';
 
   }
 
-  else if(cmd==='rainbow'){
+  else if(cmd === 'rainbow'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funRainbow,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🌈 Mode Rainbow activé.';
 
   }
 
-  else if(cmd==='jail'){
+  else if(cmd === 'jail'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funJail,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🔒 Noob mis en prison.';
 
   }
 
-  else if(cmd==='explode'){
+  else if(cmd === 'explode'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funExplode,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '💥 Explosion lancée.';
 
   }
 
-  else if(cmd==='spin'){
+  else if(cmd === 'spin'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funSpin,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🌀 Noob en rotation.';
 
   }
 
-  else if(cmd==='jump'){
+  else if(cmd === 'jump'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funJump,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🦘 Noob en mode saut.';
 
   }
 
-  else if(cmd==='ghost'){
+  else if(cmd === 'ghost'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funGhost,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '👻 Mode fantôme activé.';
 
   }
 
-  else if(cmd==='fire'){
+  else if(cmd === 'fire'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funFire,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🔥 Mode feu activé.';
 
   }
 
-  else if(cmd==='ice'){
+  else if(cmd === 'ice'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       funIce,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '🧊 Mode glace activé.';
 
   }
 
-  else if(cmd==='resetnoob'){
+  else if(cmd === 'resetnoob'){
 
-    showPage('fun');
+    showPage(
+      'fun'
+    );
 
     setTimeout(
       resetNoob,
       50
     );
 
-    msg.className='admin-ok';
+    msg.className =
+      'admin-ok';
 
-    msg.textContent=
+    msg.textContent =
       '♻️ Noob réinitialisé.';
 
   }
 
-  else if(cmd==='resetvisuals'){
+  else if(cmd === 'resetvisuals'){
 
     location.reload();
+
+    return;
 
   }
 
   else{
 
-    msg.className='admin-error';
+    msg.className =
+      'admin-error';
 
-    msg.textContent=
+    msg.textContent =
       'Commande inconnue.';
 
   }
 
-  input.value='';
+
+  input.value = '';
 
 }
 
-/* =========================
-   ENTRÉE CLAVIER
-========================= */
 
-document.getElementById(
-  'username'
-).addEventListener(
-  'keydown',
-  function(e){
+/* =========================================================
+   INITIALISATION DES BOUTONS
+========================================================= */
 
-    if(e.key==='Enter'){
+document.addEventListener(
+  'DOMContentLoaded',
+  function(){
 
-      const button=
-        document.getElementById(
-          'login-button'
-        );
+    /* BOUTON D'INSCRIPTION */
 
-      button.click();
+    const loginButton =
+      document.getElementById(
+        'login-button'
+      );
+
+
+    if(loginButton){
+
+      loginButton.addEventListener(
+        'click',
+        function(){
+
+          register();
+
+        }
+      );
+
+    }
+
+
+    /* TOUCHE ENTRÉE */
+
+    const username =
+      document.getElementById(
+        'username'
+      );
+
+
+    if(username){
+
+      username.addEventListener(
+        'keydown',
+        function(e){
+
+          if(e.key === 'Enter'){
+
+            register();
+
+          }
+
+        }
+      );
+
+    }
+
+
+    /* BOUTON ADMIN */
+
+    const adminButton =
+      document.getElementById(
+        'admin-btn'
+      );
+
+
+    if(adminButton){
+
+      adminButton.addEventListener(
+        'click',
+        toggleAdmin
+      );
+
+    }
+
+
+    /* BOUTON EXECUTER ADMIN */
+
+    const adminExecute =
+      document.getElementById(
+        'admin-execute'
+      );
+
+
+    if(adminExecute){
+
+      adminExecute.addEventListener(
+        'click',
+        runAdminCommand
+      );
+
+    }
+
+
+    /* MOT DE PASSE ADMIN */
+
+    const adminPassword =
+      document.getElementById(
+        'snowyy-password'
+      );
+
+
+    if(adminPassword){
+
+      adminPassword.addEventListener(
+        'keydown',
+        function(e){
+
+          if(e.key === 'Enter'){
+
+            unlockSnowyy();
+
+          }
+
+        }
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   DETECTION D'ERREUR JAVASCRIPT
+========================================================= */
+
+window.addEventListener(
+  'error',
+  function(event){
+
+    console.error(
+      'Erreur JavaScript détectée :',
+      event.error || event.message
+    );
+
+    const error =
+      document.getElementById(
+        'login-error'
+      );
+
+    /*
+      On affiche uniquement l'erreur
+      si on est encore sur l'écran de connexion.
+    */
+
+    if(
+      error &&
+      !document.getElementById(
+        'login'
+      ).classList.contains('hidden')
+    ){
+
+      error.style.color =
+        '#d92d20';
+
+      error.textContent =
+        '❌ Erreur JavaScript : ' +
+        event.message;
 
     }
 
