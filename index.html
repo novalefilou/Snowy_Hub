@@ -351,9 +351,7 @@ button,input{font:inherit}
   grid-column:1/-1
 }
 
-/* =========================
-   MM2 ONGLET
-========================= */
+/* MM2 ONGLET */
 
 .mm2-nav{
   display:flex;
@@ -384,8 +382,6 @@ button,input{font:inherit}
   color:#08090d;
   box-shadow:0 8px 25px #0004
 }
-
-/* CONTENU HISTOIRE */
 
 .mm2-history-box{
   margin-top:18px;
@@ -454,8 +450,6 @@ button,input{font:inherit}
 .mm2-highlight b{
   color:#fff
 }
-
-/* GAMEPLAY */
 
 .role-grid{
   display:grid;
@@ -676,7 +670,7 @@ button,input{font:inherit}
   color:#ffd7de
 }
 
-/* FUN PANEL */
+/* FUN */
 
 .fun-unlock{
   margin-top:15px;
@@ -734,8 +728,6 @@ button,input{font:inherit}
   background-size:35px 35px,35px 35px,auto
 }
 
-/* NOOB */
-
 .noob{
   position:relative;
   width:150px;
@@ -781,13 +773,8 @@ button,input{font:inherit}
   border-radius:4px
 }
 
-.noob-arm.left{
-  left:0
-}
-
-.noob-arm.right{
-  right:0
-}
+.noob-arm.left{left:0}
+.noob-arm.right{right:0}
 
 .noob-leg{
   position:absolute;
@@ -799,13 +786,8 @@ button,input{font:inherit}
   border-radius:4px
 }
 
-.noob-leg.left{
-  left:27px
-}
-
-.noob-leg.right{
-  right:27px
-}
+.noob-leg.left{left:27px}
+.noob-leg.right{right:27px}
 
 .noob-name{
   position:absolute;
@@ -818,15 +800,8 @@ button,input{font:inherit}
   text-shadow:0 2px 6px #000
 }
 
-/* FUN EFFECTS */
-
-.noob.tiny{
-  transform:scale(.35)
-}
-
-.noob.giant{
-  transform:scale(1.7)
-}
+.noob.tiny{transform:scale(.35)}
+.noob.giant{transform:scale(1.7)}
 
 .noob.spin{
   animation:noobSpin 1s linear infinite
@@ -855,9 +830,7 @@ button,input{font:inherit}
   100%{filter:hue-rotate(360deg)}
 }
 
-.noob.ghost{
-  opacity:.35
-}
+.noob.ghost{opacity:.35}
 
 .noob.ice{
   filter:
@@ -911,9 +884,7 @@ button,input{font:inherit}
     );
 }
 
-.jail.active{
-  display:block
-}
+.jail.active{display:block}
 
 .fun-status{
   margin-top:15px;
@@ -980,7 +951,7 @@ button,input{font:inherit}
   font-size:70px
 }
 
-/* DOUBLE PASSWORD */
+/* DOUBLE VERIFICATION */
 
 #snowyy-lock{
   position:fixed;
@@ -1039,7 +1010,9 @@ button,input{font:inherit}
 }
 
 @media(max-width:800px){
-  .cards,.section-grid{
+
+  .cards,
+  .section-grid{
     grid-template-columns:1fr
   }
 
@@ -1065,6 +1038,7 @@ button,input{font:inherit}
 }
 
 @media(max-width:700px){
+
   .role-grid,
   .fun-controls{
     grid-template-columns:1fr
@@ -1113,6 +1087,7 @@ button,input{font:inherit}
 <body>
 
 <section id="login">
+
   <div class="login-card">
 
     <div class="logo">❄️ Snowy Hub</div>
@@ -1122,10 +1097,12 @@ button,input{font:inherit}
     </p>
 
     <div class="field">
+
       <input
         id="username"
         maxlength="24"
         placeholder="Ex : lenoob89"
+        autocomplete="off"
       >
 
       <button
@@ -1135,6 +1112,7 @@ button,input{font:inherit}
       >
         S'enregistrer
       </button>
+
     </div>
 
     <p
@@ -1180,6 +1158,7 @@ button,input{font:inherit}
     </div>
 
   </div>
+
 </section>
 
 <section id="app" class="hidden">
@@ -1224,12 +1203,7 @@ button,input{font:inherit}
 
 </header>
 
-<!-- ADMIN PANEL -->
-
-<div
-  id="admin-panel"
-  class="admin-panel hidden"
->
+<div id="admin-panel" class="admin-panel hidden">
 
   <div class="admin-inner">
 
@@ -1278,17 +1252,9 @@ button,input{font:inherit}
 
 </div>
 
-<!-- ACCUEIL -->
+<main id="home" class="home">
 
-<main
-  id="home"
-  class="home"
->
-
-  <div
-    class="mm2-decor"
-    aria-hidden="true"
-  >
+  <div class="mm2-decor" aria-hidden="true">
 
     <span class="d d1">🔪</span>
     <span class="d d2">🔫</span>
@@ -1341,6 +1307,7 @@ button,input{font:inherit}
 
       <img
         src="https://static.wikia.nocookie.net/murdermystery/images/3/30/MM2logo.png/revision/latest?cb=20141230012338"
+        alt="Murder Mystery 2"
       >
 
       <div class="overlay">
@@ -1364,6 +1331,7 @@ button,input{font:inherit}
 
       <img
         src="https://cdn-icons-png.flaticon.com/512/1247/1247131.png"
+        alt="Snowy Page"
       >
 
       <div class="overlay">
@@ -1384,21 +1352,11 @@ button,input{font:inherit}
 
 </main>
 
-<!-- =========================
-     MM2
-========================= -->
-
-<main
-  id="mm2"
-  class="page mm2-page hidden"
->
+<main id="mm2" class="page mm2-page hidden">
 
   <div class="page-head">
 
-    <button
-      class="back"
-      onclick="goHome()"
-    >
+    <button class="back" onclick="goHome()">
       ← Accueil
     </button>
 
@@ -1409,8 +1367,6 @@ button,input{font:inherit}
     <p class="page-desc">
       Le hub communautaire Snowy dédié à MM2.
     </p>
-
-    <!-- ONGLES MM2 -->
 
     <div class="mm2-nav">
 
@@ -1444,14 +1400,7 @@ button,input{font:inherit}
 
   <div class="section-grid">
 
-    <!-- =========================
-         HISTOIRE
-    ========================== -->
-
-    <section
-      id="history"
-      class="panel wide"
-    >
+    <section id="history" class="panel wide">
 
       <h2>
         📖 L'histoire de Murder Mystery 2
@@ -1504,8 +1453,6 @@ button,input{font:inherit}
           </p>
 
           <p style="margin-top:10px">
-            Un joueur peut sembler suspect sans être le Murderer,
-            tandis qu'un joueur discret peut cacher son véritable rôle.
             Observer les déplacements et les événements de la manche
             devient donc essentiel.
           </p>
@@ -1524,8 +1471,8 @@ button,input{font:inherit}
 
           <p style="margin-top:10px">
             Connaître une carte permet de mieux anticiper les
-            déplacements, de trouver des endroits intéressants
-            et de comprendre plus rapidement ce qui s'est passé.
+            déplacements et de comprendre plus rapidement ce qui
+            s'est passé.
           </p>
 
         </div>
@@ -1542,9 +1489,7 @@ button,input{font:inherit}
 
           <p style="margin-top:10px">
             Cette dimension collection ajoute une autre façon de
-            jouer au jeu : certains recherchent surtout la victoire,
-            tandis que d'autres aiment construire un inventaire
-            qu'ils trouvent intéressant.
+            jouer au jeu.
           </p>
 
         </div>
@@ -1591,8 +1536,7 @@ button,input{font:inherit}
 
           <p>
             La communauté grandit et le jeu développe un important
-            aspect autour de la collection, des événements et
-            des échanges entre joueurs.
+            aspect autour de la collection et des échanges entre joueurs.
           </p>
 
         </div>
@@ -1614,14 +1558,7 @@ button,input{font:inherit}
 
     </section>
 
-    <!-- =========================
-         ROLES & GAMEPLAY
-    ========================== -->
-
-    <section
-      id="roles"
-      class="panel wide hidden"
-    >
+    <section id="roles" class="panel wide hidden">
 
       <h2>
         🎭 Rôle & Gameplay
@@ -1638,15 +1575,11 @@ button,input{font:inherit}
 
           <div class="role-icon">🔪</div>
 
-          <h3>
-            Murderer
-          </h3>
+          <h3>Murderer</h3>
 
           <p>
             Le Murderer doit éliminer les autres joueurs tout en
-            essayant de ne pas révéler son identité. Il doit
-            profiter de la carte, observer les déplacements et
-            choisir le bon moment pour agir.
+            essayant de ne pas révéler son identité.
           </p>
 
         </div>
@@ -1655,15 +1588,11 @@ button,input{font:inherit}
 
           <div class="role-icon">🔫</div>
 
-          <h3>
-            Sheriff
-          </h3>
+          <h3>Sheriff</h3>
 
           <p>
             Le Sheriff possède une arme permettant de stopper
-            le Murderer. Son rôle demande de rester attentif :
-            tirer sur le mauvais joueur peut coûter très cher
-            à la partie.
+            le Murderer. Il doit identifier correctement la menace.
           </p>
 
         </div>
@@ -1672,15 +1601,11 @@ button,input{font:inherit}
 
           <div class="role-icon">👤</div>
 
-          <h3>
-            Innocent
-          </h3>
+          <h3>Innocent</h3>
 
           <p>
             Les Innocents doivent principalement survivre et
-            comprendre qui est le Murderer. Ils peuvent observer
-            les comportements, communiquer avec les autres et
-            aider le Sheriff à identifier la menace.
+            comprendre qui est le Murderer.
           </p>
 
         </div>
@@ -1689,9 +1614,7 @@ button,input{font:inherit}
 
           <div class="role-icon">⏱️</div>
 
-          <h3>
-            Une manche
-          </h3>
+          <h3>Une manche</h3>
 
           <p>
             Une partie commence avec une attribution secrète des
@@ -1705,15 +1628,11 @@ button,input{font:inherit}
 
           <div class="role-icon">🗺️</div>
 
-          <h3>
-            Les cartes
-          </h3>
+          <h3>Les cartes</h3>
 
           <p>
             Chaque map possède sa propre disposition. Les endroits
-            ouverts facilitent les déplacements tandis que les
-            couloirs et les pièces peuvent créer des situations
-            beaucoup plus difficiles à lire.
+            ouverts et les couloirs influencent les déplacements.
           </p>
 
         </div>
@@ -1722,14 +1641,11 @@ button,input{font:inherit}
 
           <div class="role-icon">🪙</div>
 
-          <h3>
-            Pièces & progression
-          </h3>
+          <h3>Pièces & progression</h3>
 
           <p>
             Les manches permettent également de récupérer des
-            pièces et de progresser. La collection et l'inventaire
-            font partie intégrante de l'expérience MM2.
+            pièces et de progresser dans l'expérience MM2.
           </p>
 
         </div>
@@ -1738,14 +1654,11 @@ button,input{font:inherit}
 
           <div class="role-icon">👀</div>
 
-          <h3>
-            Observation
-          </h3>
+          <h3>Observation</h3>
 
           <p>
-            Observer les joueurs est essentiel. Un changement
-            soudain de direction, un comportement étrange ou
-            un joueur qui disparaît peut donner un indice.
+            Observer les joueurs est essentiel. Les déplacements
+            et comportements peuvent donner des indices.
           </p>
 
         </div>
@@ -1754,14 +1667,11 @@ button,input{font:inherit}
 
           <div class="role-icon">🧠</div>
 
-          <h3>
-            Déduction
-          </h3>
+          <h3>Déduction</h3>
 
           <p>
-            Il ne faut pas accuser quelqu'un uniquement parce
-            qu'il paraît suspect. Comparer plusieurs indices
-            permet de prendre de meilleures décisions.
+            Comparer plusieurs indices permet de prendre de
+            meilleures décisions plutôt que d'accuser au hasard.
           </p>
 
         </div>
@@ -1779,9 +1689,8 @@ button,input{font:inherit}
           <h3>🔪 Conseil Murderer</h3>
 
           <p>
-            Évite d'attirer immédiatement l'attention sur toi.
-            Observe les déplacements et profite des moments où
-            les joueurs sont séparés.
+            Évite d'attirer immédiatement l'attention sur toi
+            et observe les déplacements.
           </p>
 
         </div>
@@ -1802,8 +1711,8 @@ button,input{font:inherit}
           <h3>👤 Conseil Innocent</h3>
 
           <p>
-            Reste attentif aux événements de la manche et
-            communique les informations utiles aux autres.
+            Reste attentif aux événements et communique les
+            informations utiles aux autres.
           </p>
 
         </div>
@@ -1835,8 +1744,7 @@ button,input{font:inherit}
 
           <li>
             🧠 <b>Tous les joueurs :</b>
-            utiliser les informations disponibles pour prendre
-            les meilleures décisions possibles.
+            utiliser les informations disponibles.
           </li>
 
         </ul>
@@ -1845,14 +1753,7 @@ button,input{font:inherit}
 
     </section>
 
-    <!-- =========================
-         CODE PROMO
-    ========================== -->
-
-    <section
-      id="promo"
-      class="panel wide hidden"
-    >
+    <section id="promo" class="panel wide hidden">
 
       <h2>
         🎟️ Code Promo
@@ -1871,10 +1772,7 @@ button,input{font:inherit}
         🔒 Cette catégorie est verrouillée.
       </div>
 
-      <div
-        id="promo-content"
-        class="hidden"
-      >
+      <div id="promo-content" class="hidden">
 
         <div
           class="promo-row"
@@ -1905,19 +1803,11 @@ button,input{font:inherit}
 
 </main>
 
-<!-- SNOWY PAGE -->
-
-<main
-  id="snowy"
-  class="page snowy-page hidden"
->
+<main id="snowy" class="page snowy-page hidden">
 
   <div class="page-head">
 
-    <button
-      class="back"
-      onclick="goHome()"
-    >
+    <button class="back" onclick="goHome()">
       ← Accueil
     </button>
 
@@ -1971,19 +1861,11 @@ button,input{font:inherit}
 
 </main>
 
-<!-- FUN PANEL -->
-
-<main
-  id="fun"
-  class="page fun-page hidden"
->
+<main id="fun" class="page fun-page hidden">
 
   <div class="page-head">
 
-    <button
-      class="back"
-      onclick="goHome()"
-    >
+    <button class="back" onclick="goHome()">
       ← Accueil
     </button>
 
@@ -2015,93 +1897,34 @@ button,input{font:inherit}
 
       <div class="fun-controls">
 
-        <button class="fun-btn" onclick="spawnNoob()">
-          🤖 Faire apparaître
-        </button>
-
-        <button class="fun-btn" onclick="funTiny()">
-          🔬 Tiny
-        </button>
-
-        <button class="fun-btn" onclick="funGiant()">
-          🗿 Géant
-        </button>
-
-        <button class="fun-btn" onclick="funDino()">
-          🦖 Transformer en dinosaure
-        </button>
-
-        <button class="fun-btn" onclick="funRainbow()">
-          🌈 Arc-en-ciel
-        </button>
-
-        <button class="fun-btn" onclick="funJail()">
-          🔒 Mettre en prison
-        </button>
-
-        <button class="fun-btn" onclick="funExplode()">
-          💥 Explosion
-        </button>
-
-        <button class="fun-btn" onclick="funSpin()">
-          🌀 Faire tourner
-        </button>
-
-        <button class="fun-btn" onclick="funJump()">
-          🦘 Faire sauter
-        </button>
-
-        <button class="fun-btn" onclick="funGhost()">
-          👻 Fantôme
-        </button>
-
-        <button class="fun-btn" onclick="funFire()">
-          🔥 Mode feu
-        </button>
-
-        <button class="fun-btn" onclick="funIce()">
-          🧊 Mode glace
-        </button>
-
-        <button class="fun-btn" onclick="funMetal()">
-          🤖 Métallique
-        </button>
-
-        <button class="fun-btn" onclick="funBlue()">
-          🔵 Bleu
-        </button>
-
-        <button class="fun-btn" onclick="funPink()">
-          🩷 Rose
-        </button>
-
-        <button class="fun-btn" onclick="resetNoob()">
-          ♻️ Reset
-        </button>
+        <button class="fun-btn" onclick="spawnNoob()">🤖 Faire apparaître</button>
+        <button class="fun-btn" onclick="funTiny()">🔬 Tiny</button>
+        <button class="fun-btn" onclick="funGiant()">🗿 Géant</button>
+        <button class="fun-btn" onclick="funDino()">🦖 Transformer en dinosaure</button>
+        <button class="fun-btn" onclick="funRainbow()">🌈 Arc-en-ciel</button>
+        <button class="fun-btn" onclick="funJail()">🔒 Mettre en prison</button>
+        <button class="fun-btn" onclick="funExplode()">💥 Explosion</button>
+        <button class="fun-btn" onclick="funSpin()">🌀 Faire tourner</button>
+        <button class="fun-btn" onclick="funJump()">🦘 Faire sauter</button>
+        <button class="fun-btn" onclick="funGhost()">👻 Fantôme</button>
+        <button class="fun-btn" onclick="funFire()">🔥 Mode feu</button>
+        <button class="fun-btn" onclick="funIce()">🧊 Mode glace</button>
+        <button class="fun-btn" onclick="funMetal()">🤖 Métallique</button>
+        <button class="fun-btn" onclick="funBlue()">🔵 Bleu</button>
+        <button class="fun-btn" onclick="funPink()">🩷 Rose</button>
+        <button class="fun-btn" onclick="resetNoob()">♻️ Reset</button>
 
       </div>
 
-      <div
-        id="fun-status"
-        class="fun-status"
-      >
+      <div id="fun-status" class="fun-status">
         🤖 Aucun Noob n'est apparu.
       </div>
 
-      <div
-        id="noob-stage"
-        class="noob-stage grid"
-      >
+      <div id="noob-stage" class="noob-stage grid">
 
-        <div
-          id="jail"
-          class="jail"
-        ></div>
+        <div id="jail" class="jail"></div>
 
-        <div
-          id="noob"
-          class="noob hidden"
-        >
+        <div id="noob" class="noob hidden">
 
           <div class="noob-name">
             Noob
@@ -2131,12 +1954,7 @@ button,input{font:inherit}
 
 </section>
 
-<!-- PROMO WIN -->
-
-<main
-  id="promo-win"
-  class="page promo-win hidden"
->
+<main id="promo-win" class="page promo-win hidden">
 
   <div class="promo-win-card">
 
@@ -2177,12 +1995,7 @@ button,input{font:inherit}
 
 </main>
 
-<!-- DOUBLE VERIFICATION -->
-
-<div
-  id="snowyy-lock"
-  class="hidden"
->
+<div id="snowyy-lock" class="hidden">
 
   <div class="snowyy-lock-card">
 
@@ -2221,41 +2034,88 @@ button,input{font:inherit}
 
 <script>
 
+/* =========================
+   CONFIGURATION
+========================= */
+
 const KEY='snowyHubUsers_v2';
 
 let state=null;
 let timer=null;
 
-/* MOT DE PASSE DOUBLE VERIFICATION */
 const ADMIN_PASSWORD='adminaccount@243';
 
-/* UTILISATEURS ADMIN */
 const ADMIN_ACCOUNTS=[
   'snowyy',
   'eneroxx'
 ];
 
-/* UTILITAIRES */
+/* =========================
+   STOCKAGE CORRIGÉ
+========================= */
 
 function getUsers(){
 
   try{
-    return JSON.parse(
-      localStorage.getItem(KEY)||'{}'
+
+    const raw=localStorage.getItem(KEY);
+
+    if(!raw){
+      return {};
+    }
+
+    const users=JSON.parse(raw);
+
+    if(
+      typeof users!=='object' ||
+      users===null ||
+      Array.isArray(users)
+    ){
+      return {};
+    }
+
+    return users;
+
+  }catch(error){
+
+    console.error(
+      'Erreur lors de la lecture des comptes :',
+      error
     );
 
-  }catch(e){
     return {};
+
   }
 
 }
 
 function saveUsers(users){
-  localStorage.setItem(
-    KEY,
-    JSON.stringify(users)
-  );
+
+  try{
+
+    localStorage.setItem(
+      KEY,
+      JSON.stringify(users)
+    );
+
+    return true;
+
+  }catch(error){
+
+    console.error(
+      'Erreur lors de la sauvegarde :',
+      error
+    );
+
+    return false;
+
+  }
+
 }
+
+/* =========================
+   ADMIN
+========================= */
 
 function isAdmin(){
 
@@ -2266,7 +2126,9 @@ function isAdmin(){
 
 }
 
-/* SAUVEGARDE */
+/* =========================
+   SAUVEGARDE
+========================= */
 
 function persist(){
 
@@ -2296,38 +2158,62 @@ function persist(){
 
 }
 
-/* CODE DE COMPTE */
+/* =========================
+   CODE DE COMPTE
+========================= */
 
 function makeCode(){
 
   const chars=
     'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
-  const bytes=
-    new Uint32Array(10);
-
-  crypto.getRandomValues(bytes);
-
   let out='';
 
-  for(let i=0;i<10;i++){
-    out+=chars[
-      bytes[i]%chars.length
-    ];
+  try{
+
+    const bytes=
+      new Uint32Array(10);
+
+    crypto.getRandomValues(bytes);
+
+    for(let i=0;i<10;i++){
+
+      out+=chars[
+        bytes[i]%chars.length
+      ];
+
+    }
+
+  }catch(error){
+
+    console.warn(
+      'Crypto indisponible, génération de secours utilisée.'
+    );
+
+    for(let i=0;i<10;i++){
+
+      out+=chars[
+        Math.floor(
+          Math.random()*chars.length
+        )
+      ];
+
+    }
+
   }
 
   return out.slice(0,5)+'-'+out.slice(5);
 
 }
 
-/* CONNEXION */
+/* =========================
+   INSCRIPTION CORRIGÉE
+========================= */
 
 function register(){
 
-  const name=
-    document.getElementById('username')
-      .value
-      .trim();
+  const input=
+    document.getElementById('username');
 
   const error=
     document.getElementById('login-error');
@@ -2335,7 +2221,15 @@ function register(){
   const box=
     document.getElementById('code-box');
 
+  const button=
+    document.getElementById('login-button');
+
+  const name=
+    input.value.trim();
+
   error.textContent='';
+  error.style.color='#d92d20';
+
   box.classList.add('hidden');
 
   if(!name){
@@ -2343,7 +2237,10 @@ function register(){
     error.textContent=
       'Entre un pseudo.';
 
+    input.focus();
+
     return;
+
   }
 
   if(name.length<3){
@@ -2351,33 +2248,79 @@ function register(){
     error.textContent=
       'Le pseudo doit contenir au moins 3 caractères.';
 
+    input.focus();
+
     return;
+
   }
 
-  const users=getUsers();
-  const saved=users[name];
+  if(name.length>24){
 
-  if(!saved){
+    error.textContent=
+      'Le pseudo est trop long.';
+
+    input.focus();
+
+    return;
+
+  }
+
+  /*
+    On interdit certains caractères problématiques
+    pour éviter les problèmes de sauvegarde.
+  */
+
+  if(!/^[a-zA-Z0-9_ -]+$/.test(name)){
+
+    error.textContent=
+      'Utilise uniquement des lettres, chiffres, espaces, tirets ou _.';
+
+    input.focus();
+
+    return;
+
+  }
+
+  let users=getUsers();
+
+  /*
+    Recherche insensible à la casse.
+    Exemple : Snowy et snowy sont considérés
+    comme le même compte.
+  */
+
+  let existingKey=
+    Object.keys(users).find(
+      key=>key.toLowerCase()===name.toLowerCase()
+    );
+
+  if(!existingKey){
 
     const code=makeCode();
 
     state={
-      name,
+      name:name,
       level:1,
       elapsed:0,
       sessionStart:Date.now(),
-      code,
+      code:code,
       claimedCodes:[]
     };
 
     users[name]={
       level:1,
       elapsed:0,
-      code,
+      code:code,
       claimedCodes:[]
     };
 
-    saveUsers(users);
+    const saved=saveUsers(users);
+
+    /*
+      Même si le stockage est bloqué,
+      on permet quand même de continuer
+      pendant cette session.
+    */
 
     document.getElementById(
       'generated-code'
@@ -2387,11 +2330,17 @@ function register(){
 
     error.style.color='#027a48';
 
-    error.textContent=
-      'Compte créé ! Garde bien ton code avant de continuer.';
+    if(saved){
 
-    const button=
-      document.getElementById('login-button');
+      error.textContent=
+        '✅ Compte créé ! Garde bien ton code avant de continuer.';
+
+    }else{
+
+      error.textContent=
+        '⚠️ Compte créé pour cette session. Le navigateur bloque peut-être la sauvegarde locale.';
+
+    }
 
     button.textContent='Continuer';
 
@@ -2400,30 +2349,43 @@ function register(){
     };
 
     return;
+
   }
+
+  /*
+    Compte existant
+  */
+
+  const saved=users[existingKey];
 
   const entered=prompt(
     'Ce pseudo existe déjà. Entre le code de connexion fourni à la création du compte :'
   );
 
-  if(entered===null)return;
+  if(entered===null){
+
+    return;
+
+  }
 
   if(
-    entered.trim().toUpperCase()!==saved.code
+    entered.trim().toUpperCase()!==
+    String(saved.code||'').toUpperCase()
   ){
 
     error.style.color='#d92d20';
 
     error.textContent=
-      'Code incorrect. Impossible de se connecter à ce compte.';
+      '❌ Code incorrect. Impossible de se connecter à ce compte.';
 
     return;
+
   }
 
   state={
-    name,
-    level:saved.level||1,
-    elapsed:saved.elapsed||0,
+    name:existingKey,
+    level:Number(saved.level)||1,
+    elapsed:Number(saved.elapsed)||0,
     sessionStart:Date.now(),
     code:saved.code,
     claimedCodes:
@@ -2436,7 +2398,9 @@ function register(){
 
 }
 
-/* DEMARRAGE */
+/* =========================
+   DEMARRAGE
+========================= */
 
 function start(){
 
@@ -2468,11 +2432,6 @@ function start(){
     1000
   );
 
-  /*
-    Double vérification pour
-    Snowyy ET Eneroxx
-  */
-
   if(isAdmin()){
 
     setTimeout(()=>{
@@ -2496,7 +2455,9 @@ function start(){
 
 }
 
-/* DOUBLE MOT DE PASSE */
+/* =========================
+   DOUBLE VERIFICATION
+========================= */
 
 function unlockSnowyy(){
 
@@ -2516,6 +2477,7 @@ function unlockSnowyy(){
       '❌ Mot de passe incorrect.';
 
     return;
+
   }
 
   document.getElementById(
@@ -2545,7 +2507,9 @@ document.getElementById(
   }
 );
 
-/* NIVEAUX */
+/* =========================
+   NIVEAUX
+========================= */
 
 function updateLevel(){
 
@@ -2609,7 +2573,9 @@ function updateLevel(){
 
 }
 
-/* SAUVEGARDE AUTO */
+/* =========================
+   SAUVEGARDE AUTO
+========================= */
 
 window.addEventListener(
   'beforeunload',
@@ -2619,6 +2585,7 @@ window.addEventListener(
 document.addEventListener(
   'visibilitychange',
   ()=>{
+
     if(document.hidden){
 
       persist();
@@ -2628,6 +2595,7 @@ document.addEventListener(
       state.sessionStart=Date.now();
 
     }
+
   }
 );
 
@@ -2638,7 +2606,9 @@ setInterval(
   5000
 );
 
-/* PROMO */
+/* =========================
+   PROMO
+========================= */
 
 function unlockPromo(level){
 
@@ -2659,6 +2629,8 @@ function unlockPromo(level){
 }
 
 function redeem(){
+
+  if(!state)return;
 
   const code=
     document.getElementById(
@@ -2687,6 +2659,7 @@ function redeem(){
       'Code invalide.';
 
     return;
+
   }
 
   if(!Array.isArray(state.claimedCodes)){
@@ -2701,6 +2674,7 @@ function redeem(){
       '⚠️ Tu as déjà utilisé ce code sur ce compte.';
 
     return;
+
   }
 
   state.claimedCodes.push(code);
@@ -2731,12 +2705,6 @@ function showPage(id){
 
   document.getElementById(id)
     .classList.remove('hidden');
-
-  /*
-    Quand on ouvre MM2,
-    on revient automatiquement
-    sur l'onglet Histoire.
-  */
 
   if(id==='mm2'){
 
@@ -2774,15 +2742,19 @@ function mm2Tab(id,btn){
 
   tabs.forEach(
     x=>{
+
       const section=
         document.getElementById(x);
 
       if(section){
+
         section.classList.toggle(
           'hidden',
           x!==id
         );
+
       }
+
     }
   );
 
@@ -2790,11 +2762,14 @@ function mm2Tab(id,btn){
     '.mm2-nav .tab'
   ).forEach(
     x=>{
+
       x.classList.remove('active');
+
       x.setAttribute(
         'aria-selected',
         'false'
       );
+
     }
   );
 
@@ -2809,14 +2784,15 @@ function mm2Tab(id,btn){
 
   }
 
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
+  if(state){
+    unlockPromo(state.level);
+  }
 
 }
 
-/* PROMO WIN */
+/* =========================
+   PROMO WIN
+========================= */
 
 function showPromoWin(){
 
@@ -2863,6 +2839,7 @@ function funAllowed(){
     );
 
     return false;
+
   }
 
   return true;
@@ -2885,8 +2862,6 @@ function noob(){
 
 }
 
-/* APPARITION */
-
 function spawnNoob(){
 
   if(!funAllowed())return;
@@ -2907,8 +2882,6 @@ function spawnNoob(){
 
 }
 
-/* RESET */
-
 function resetNoob(){
 
   if(!funAllowed())return;
@@ -2922,6 +2895,7 @@ function resetNoob(){
   ).classList.remove('active');
 
   n.style='';
+
   n.querySelector(
     '.noob-head'
   ).style.background='';
@@ -2942,8 +2916,6 @@ function resetNoob(){
 
 }
 
-/* TINY */
-
 function funTiny(){
 
   if(!funAllowed())return;
@@ -2957,8 +2929,6 @@ function funTiny(){
   );
 
 }
-
-/* GEANT */
 
 function funGiant(){
 
@@ -2974,8 +2944,6 @@ function funGiant(){
 
 }
 
-/* DINO */
-
 function funDino(){
 
   if(!funAllowed())return;
@@ -2990,8 +2958,6 @@ function funDino(){
 
 }
 
-/* RAINBOW */
-
 function funRainbow(){
 
   if(!funAllowed())return;
@@ -3005,8 +2971,6 @@ function funRainbow(){
   );
 
 }
-
-/* JAIL */
 
 function funJail(){
 
@@ -3023,8 +2987,6 @@ function funJail(){
   );
 
 }
-
-/* EXPLOSION */
 
 function funExplode(){
 
@@ -3073,8 +3035,6 @@ function funExplode(){
 
 }
 
-/* TOURNE */
-
 function funSpin(){
 
   if(!funAllowed())return;
@@ -3088,8 +3048,6 @@ function funSpin(){
   );
 
 }
-
-/* SAUT */
 
 function funJump(){
 
@@ -3105,8 +3063,6 @@ function funJump(){
 
 }
 
-/* FANTOME */
-
 function funGhost(){
 
   if(!funAllowed())return;
@@ -3120,8 +3076,6 @@ function funGhost(){
   );
 
 }
-
-/* FEU */
 
 function funFire(){
 
@@ -3137,8 +3091,6 @@ function funFire(){
 
 }
 
-/* GLACE */
-
 function funIce(){
 
   if(!funAllowed())return;
@@ -3153,8 +3105,6 @@ function funIce(){
 
 }
 
-/* METAL */
-
 function funMetal(){
 
   if(!funAllowed())return;
@@ -3168,8 +3118,6 @@ function funMetal(){
   );
 
 }
-
-/* BLEU */
 
 function funBlue(){
 
@@ -3192,8 +3140,6 @@ function funBlue(){
   );
 
 }
-
-/* ROSE */
 
 function funPink(){
 
@@ -3254,6 +3200,7 @@ function runAdminCommand(){
     msg.textContent='Accès refusé.';
 
     return;
+
   }
 
   if(!raw.startsWith('/')){
@@ -3264,6 +3211,7 @@ function runAdminCommand(){
       'Une commande doit commencer par /.';
 
     return;
+
   }
 
   const parts=
@@ -3276,8 +3224,6 @@ function runAdminCommand(){
 
   const args=
     parts[2].trim();
-
-  /* LEVEL */
 
   if(cmd==='level'){
 
@@ -3295,6 +3241,7 @@ function runAdminCommand(){
         'Niveau invalide (1 à 100).';
 
       return;
+
     }
 
     state.level=n;
@@ -3312,8 +3259,6 @@ function runAdminCommand(){
 
   }
 
-  /* BACKGROUND */
-
   else if(cmd==='bg'){
 
     if(!args){
@@ -3324,6 +3269,7 @@ function runAdminCommand(){
         'Utilise /bg #123456 ou /bg https://...';
 
       return;
+
     }
 
     const home=
@@ -3354,8 +3300,6 @@ function runAdminCommand(){
 
   }
 
-  /* TEXT */
-
   else if(cmd==='text'){
 
     const m=args.match(
@@ -3370,6 +3314,7 @@ function runAdminCommand(){
         'Exemple : /text home h1 Bonjour';
 
       return;
+
     }
 
     const page=
@@ -3390,6 +3335,7 @@ function runAdminCommand(){
         'Élément introuvable.';
 
       return;
+
     }
 
     el.textContent=m[3];
@@ -3401,8 +3347,6 @@ function runAdminCommand(){
 
   }
 
-  /* SNOWY HUB TEXT */
-
   else if(cmd==='modifysnowyhubtext'){
 
     if(!args){
@@ -3413,6 +3357,7 @@ function runAdminCommand(){
         'Utilise /modifysnowyhubtext Ton texte';
 
       return;
+
     }
 
     document.querySelector(
@@ -3426,8 +3371,6 @@ function runAdminCommand(){
 
   }
 
-  /* TITLE */
-
   else if(cmd==='modifytitle'){
 
     if(!args){
@@ -3438,6 +3381,7 @@ function runAdminCommand(){
         'Utilise /modifytitle Ton titre';
 
       return;
+
     }
 
     const page=
@@ -3453,6 +3397,7 @@ function runAdminCommand(){
         'Aucune page ouverte.';
 
       return;
+
     }
 
     page.textContent=args;
@@ -3464,8 +3409,6 @@ function runAdminCommand(){
 
   }
 
-  /* DESCRIPTION */
-
   else if(cmd==='modifydesc'){
 
     if(!args){
@@ -3476,6 +3419,7 @@ function runAdminCommand(){
         'Utilise /modifydesc Ton texte';
 
       return;
+
     }
 
     const page=
@@ -3491,6 +3435,7 @@ function runAdminCommand(){
         'Aucune page ouverte.';
 
       return;
+
     }
 
     page.textContent=args;
@@ -3501,8 +3446,6 @@ function runAdminCommand(){
       '✅ Description modifiée temporairement.';
 
   }
-
-  /* HIDE / SHOW */
 
   else if(
     cmd==='hide'||
@@ -3520,6 +3463,7 @@ function runAdminCommand(){
         'Élément introuvable : '+args;
 
       return;
+
     }
 
     target.classList.toggle(
@@ -3539,8 +3483,6 @@ function runAdminCommand(){
 
   }
 
-  /* OUVRIR FUN */
-
   else if(cmd==='fun'){
 
     if(state.level<25){
@@ -3551,6 +3493,7 @@ function runAdminCommand(){
         '🔒 Fun Panel disponible au niveau 25.';
 
       return;
+
     }
 
     showPage('fun');
@@ -3561,8 +3504,6 @@ function runAdminCommand(){
       '🎉 Fun Panel ouvert.';
 
   }
-
-  /* COMMANDES FUN ADMIN */
 
   else if(cmd==='spawn'){
 
@@ -3772,8 +3713,6 @@ function runAdminCommand(){
 
   }
 
-  /* RESET VISUALS */
-
   else if(cmd==='resetvisuals'){
 
     location.reload();
@@ -3792,6 +3731,30 @@ function runAdminCommand(){
   input.value='';
 
 }
+
+/* =========================
+   ENTRÉE CLAVIER
+========================= */
+
+document.getElementById(
+  'username'
+).addEventListener(
+  'keydown',
+  function(e){
+
+    if(e.key==='Enter'){
+
+      const button=
+        document.getElementById(
+          'login-button'
+        );
+
+      button.click();
+
+    }
+
+  }
+);
 
 </script>
 
