@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Snowy Hub ❄️</title>
+
 <style>
 :root{--blue:#147cff;--purple:#a855f7;--dark:#07070c;--card:#11131b;--text:#f7f8ff;--muted:#a9afc1;--red:#ff294d}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -48,6 +49,7 @@ button,input{font:inherit}
 .primary:hover{transform:translateY(-1px)}
 
 #app{min-height:100vh}
+
 .topbar{
   position:sticky;
   top:0;
@@ -385,16 +387,6 @@ button,input{font:inherit}
 }
 .reward-icon{font-size:70px}
 
-.code-display{
-  margin-top:12px;
-  padding:12px 14px;
-  border-radius:12px;
-  background:#111;
-  color:#fff;
-  font-weight:900;
-  letter-spacing:2px;
-  text-align:center
-}
 .role-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -494,7 +486,6 @@ button,input{font:inherit}
   color:#ffd7de
 }
 
-/* 🔐 AJOUT UNIQUEMENT POUR LA DOUBLE VÉRIFICATION SNOWYY */
 #snowyy-lock{
   position:fixed;
   inset:0;
@@ -573,7 +564,7 @@ button,input{font:inherit}
 
     <div class="field">
       <input id="username" maxlength="24" placeholder="Ex : lenoob89">
-      <button class="primary" onclick="register()">S'enregistrer</button>
+      <button id="register-btn" class="primary" onclick="register()">S'enregistrer</button>
     </div>
 
     <p id="login-error" style="color:#d92d20;margin-top:12px"></p>
@@ -797,7 +788,6 @@ button,input{font:inherit}
           <li>Apprends progressivement les différentes cartes.</li>
         </ul>
       </div>
-
     </section>
 
     <section id="promo" class="panel wide hidden">
@@ -889,16 +879,18 @@ button,input{font:inherit}
   </div>
 </main>
 
-<!-- 🔐 AJOUT UNIQUEMENT : DOUBLE VÉRIFICATION SNOWYY -->
+<!-- DOUBLE VERIFICATION POUR SNOWYY ET ENEROXX -->
+
 <div id="snowyy-lock" class="hidden">
+
   <div class="snowyy-lock-card">
 
     <div style="font-size:55px">🔐</div>
 
-    <h2>Compte Snowyy</h2>
+    <h2>Compte protégé</h2>
 
     <p>
-      Cette page est protégée.<br>
+      Ce compte administrateur est protégé.<br>
       Entre le mot de passe pour continuer.
     </p>
 
@@ -916,27 +908,69 @@ button,input{font:inherit}
     <div id="snowyy-error"></div>
 
   </div>
+
 </div>
 
 <script>
 
 const KEY='snowyHubUsers_v2';
-let state=null,timer=null;
 
-/* 🔐 AJOUT UNIQUEMENT */
-const SNOWYY_PASSWORD='snowy@hub-283';
+let state=null;
+let timer=null;
+
+/* 🔐 MOT DE PASSE ADMIN POUR SNOWYY ET ENEROXX */
+const ADMIN_ACCOUNTS=['snowyy','eneroxx'];
+const SNOWYY_PASSWORD='adminaccount@243';
+
 
 function getUsers(){
+
   try{
-    return JSON.parse(localStorage.getItem(KEY)||'{}')
+
+    const raw=localStorage.getItem(KEY);
+
+    if(!raw)return {};
+
+    const parsed=JSON.parse(raw);
+
+    if(!parsed || typeof parsed!=='object' || Array.isArray(parsed)){
+      return {};
+    }
+
+    return parsed;
+
   }catch(e){
-    return {}
+
+    /* Si l'ancien stockage est corrompu,
+       on repart proprement sans bloquer l'inscription. */
+    try{
+      localStorage.removeItem(KEY);
+    }catch(err){}
+
+    return {};
   }
+
 }
 
+
 function saveUsers(users){
-  localStorage.setItem(KEY,JSON.stringify(users))
+
+  try{
+
+    localStorage.setItem(
+      KEY,
+      JSON.stringify(users)
+    );
+
+    return true;
+
+  }catch(e){
+
+    return false;
+  }
+
 }
+
 
 function persist(){
 
@@ -962,8 +996,10 @@ function persist(){
       : []
   };
 
-  saveUsers(users)
+  saveUsers(users);
+
 }
+
 
 function makeCode(){
 
@@ -976,37 +1012,61 @@ function makeCode(){
   let out='';
 
   for(let i=0;i<10;i++){
-    out+=chars[bytes[i]%chars.length]
+    out+=chars[bytes[i]%chars.length];
   }
 
-  return out.slice(0,5)+'-'+out.slice(5)
+  return out.slice(0,5)+'-'+out.slice(5);
+
 }
+
 
 function register(){
 
-  const name=document.getElementById('username').value.trim();
+  const input=document.getElementById('username');
+
+  const name=input.value.trim();
 
   const error=document.getElementById('login-error');
 
   const box=document.getElementById('code-box');
 
+  const button=document.getElementById('register-btn');
+
   error.textContent='';
+
+  error.style.color='#d92d20';
 
   box.classList.add('hidden');
 
   if(!name){
+
     error.textContent='Entre un pseudo.';
-    return
+
+    return;
+
   }
 
   if(name.length<3){
+
     error.textContent='Le pseudo doit contenir au moins 3 caractères.';
-    return
+
+    return;
+
   }
 
   const users=getUsers();
 
-  const saved=users[name];
+  /*
+    On rend les pseudos insensibles à la casse.
+    Exemple : Snowyy / snowyy = même compte.
+  */
+  const existingKey=Object.keys(users).find(
+    key=>key.toLowerCase()===name.toLowerCase()
+  );
+
+  const savedKey=existingKey||name;
+
+  const saved=users[savedKey];
 
   if(!saved){
 
@@ -1028,7 +1088,16 @@ function register(){
       claimedCodes:[]
     };
 
-    saveUsers(users);
+    if(!saveUsers(users)){
+
+      state=null;
+
+      error.textContent=
+        'Impossible de sauvegarder le compte sur ce navigateur.';
+
+      return;
+
+    }
 
     document.getElementById('generated-code').textContent=code;
 
@@ -1036,16 +1105,23 @@ function register(){
 
     error.style.color='#027a48';
 
-    error.textContent='Compte créé ! Garde bien ton code avant de continuer.';
+    error.textContent=
+      'Compte créé ! Garde bien ton code avant de continuer.';
 
-    document.querySelector('#login .primary').textContent='Continuer';
+    button.textContent='Continuer';
 
-    document.querySelector('#login .primary').onclick=function(){
-      start()
+    button.onclick=function(){
+
+      start();
+
     };
 
-    return
+    input.disabled=true;
+
+    return;
+
   }
+
 
   const entered=prompt(
     'Ce pseudo existe déjà. Entre le code de connexion fourni à la création du compte :'
@@ -1053,19 +1129,25 @@ function register(){
 
   if(entered===null)return;
 
-  if(entered.trim().toUpperCase()!==saved.code){
+  if(
+    entered.trim().toUpperCase()!==
+    String(saved.code||'').trim().toUpperCase()
+  ){
 
     error.style.color='#d92d20';
 
-    error.textContent='Code incorrect. Impossible de se connecter à ce compte.';
+    error.textContent=
+      'Code incorrect. Impossible de se connecter à ce compte.';
 
-    return
+    return;
+
   }
 
+
   state={
-    name,
-    level:saved.level||1,
-    elapsed:saved.elapsed||0,
+    name:savedKey,
+    level:Number(saved.level)||1,
+    elapsed:Number(saved.elapsed)||0,
     sessionStart:Date.now(),
     code:saved.code,
     claimedCodes:Array.isArray(saved.claimedCodes)
@@ -1075,8 +1157,10 @@ function register(){
 
   saveUsers(users);
 
-  start()
+  start();
+
 }
+
 
 function start(){
 
@@ -1086,72 +1170,106 @@ function start(){
 
   document.getElementById('user-label').textContent=state.name;
 
-  document.getElementById('admin-btn').classList.toggle(
-    'hidden',
-    state.name.toLowerCase()!=='snowyy'
-  );
+  const isAdmin=
+    ADMIN_ACCOUNTS.includes(
+      state.name.toLowerCase()
+    );
+
+  document.getElementById('admin-btn')
+    .classList.toggle(
+      'hidden',
+      !isAdmin
+    );
 
   updateLevel();
 
   clearInterval(timer);
 
-  timer=setInterval(updateLevel,1000)
+  timer=setInterval(
+    updateLevel,
+    1000
+  );
 
-  /* 🔐 AJOUT UNIQUEMENT :
-     le verrou apparaît après l'affichage de l'accueil */
-  if(state.name.toLowerCase()==='snowyy'){
+  /*
+    Double vérification pour :
+    - snowyy
+    - eneroxx
+  */
+  if(isAdmin){
 
     requestAnimationFrame(()=>{
 
       setTimeout(()=>{
 
-        const lock=document.getElementById('snowyy-lock');
+        const lock=
+          document.getElementById('snowyy-lock');
 
         lock.classList.remove('hidden');
 
         document.body.style.overflow='hidden';
 
-        document.getElementById('snowyy-password').focus();
+        document.getElementById(
+          'snowyy-password'
+        ).focus();
 
       },400);
 
     });
 
   }
+
 }
 
-/* 🔐 AJOUT UNIQUEMENT : vérification Snowyy */
+
 function unlockSnowyy(){
 
-  const password=document.getElementById('snowyy-password').value;
+  const password=
+    document.getElementById(
+      'snowyy-password'
+    ).value;
 
-  const error=document.getElementById('snowyy-error');
+  const error=
+    document.getElementById(
+      'snowyy-error'
+    );
 
   if(password!==SNOWYY_PASSWORD){
 
-    error.textContent='❌ Mot de passe incorrect.';
+    error.textContent=
+      '❌ Mot de passe incorrect.';
 
-    return
+    return;
+
   }
 
-  document.getElementById('snowyy-lock').classList.add('hidden');
+  document.getElementById(
+    'snowyy-lock'
+  ).classList.add('hidden');
 
   document.body.style.overflow='';
 
-  document.getElementById('snowyy-password').value='';
+  document.getElementById(
+    'snowyy-password'
+  ).value='';
 
   error.textContent='';
+
 }
 
-/* 🔐 AJOUT UNIQUEMENT : touche Entrée */
-document.getElementById('snowyy-password').addEventListener(
+
+document.getElementById(
+  'snowyy-password'
+).addEventListener(
   'keydown',
   function(e){
+
     if(e.key==='Enter'){
-      unlockSnowyy()
+      unlockSnowyy();
     }
+
   }
 );
+
 
 function updateLevel(){
 
@@ -1173,95 +1291,167 @@ function updateLevel(){
 
   const left=600000-remainder;
 
-  const mins=Math.floor(left/60000);
+  const mins=Math.floor(
+    left/60000
+  );
 
-  const secs=Math.floor(left/1000)%60;
+  const secs=
+    Math.floor(left/1000)%60;
 
-  document.getElementById('level-text').textContent='Niveau '+level;
+  document.getElementById(
+    'level-text'
+  ).textContent='Niveau '+level;
 
-  document.getElementById('time-text').textContent=
+  document.getElementById(
+    'time-text'
+  ).textContent=
     level>=100
       ? 'MAX'
       : `${mins}:${String(secs).padStart(2,'0')}`;
 
-  document.getElementById('progress').style.width=
-    (level>=100
-      ? 100
-      : (remainder/600000*100)
+  document.getElementById(
+    'progress'
+  ).style.width=
+    (
+      level>=100
+        ? 100
+        : remainder/600000*100
     )+'%';
 
   if(level!==state.level){
 
     state.level=level;
 
-    persist()
+    persist();
+
   }
 
-  unlockPromo(level)
+  unlockPromo(level);
+
 }
 
-window.addEventListener('beforeunload',persist);
+
+window.addEventListener(
+  'beforeunload',
+  persist
+);
+
 
 document.addEventListener(
   'visibilitychange',
   ()=>{
+
     if(document.hidden){
-      persist()
+
+      persist();
+
     }else if(state){
-      state.sessionStart=Date.now()
+
+      state.sessionStart=Date.now();
+
     }
+
   }
 );
 
-setInterval(()=>{
-  if(state)persist()
-},5000);
+
+setInterval(
+  ()=>{
+    if(state)persist();
+  },
+  5000
+);
+
 
 function unlockPromo(level){
 
-  document.getElementById('promo-lock')
-    .classList.toggle('hidden',level>=10);
+  document.getElementById(
+    'promo-lock'
+  ).classList.toggle(
+    'hidden',
+    level>=10
+  );
 
-  document.getElementById('promo-content')
-    .classList.toggle('hidden',level<10)
+  document.getElementById(
+    'promo-content'
+  ).classList.toggle(
+    'hidden',
+    level<10
+  );
+
 }
+
 
 function showPage(id){
 
-  ['home','mm2','snowy'].forEach(
-    x=>document.getElementById(x).classList.add('hidden')
+  [
+    'home',
+    'mm2',
+    'snowy'
+  ].forEach(
+    x=>{
+      document.getElementById(
+        x
+      ).classList.add('hidden');
+    }
   );
 
-  document.getElementById(id).classList.remove('hidden');
+  document.getElementById(
+    id
+  ).classList.remove('hidden');
 
-  window.scrollTo(0,0)
+  window.scrollTo(0,0);
+
 }
+
 
 function goHome(){
-  showPage('home')
+
+  showPage('home');
+
 }
+
 
 function mm2Tab(id,btn){
 
-  ['history','roles','promo'].forEach(
-    x=>document.getElementById(x).classList.add('hidden')
+  [
+    'history',
+    'roles',
+    'promo'
+  ].forEach(
+    x=>{
+      document.getElementById(
+        x
+      ).classList.add('hidden');
+    }
   );
 
-  document.getElementById(id).classList.remove('hidden');
+  document.getElementById(
+    id
+  ).classList.remove('hidden');
 
-  document.querySelectorAll('.tab').forEach(
+  document.querySelectorAll(
+    '.tab'
+  ).forEach(
     x=>x.classList.remove('active')
   );
 
-  btn.classList.add('active')
+  btn.classList.add('active');
+
 }
+
 
 function redeem(){
 
-  const code=document.getElementById('promo-input')
-    .value
-    .trim()
-    .toUpperCase();
+  const input=
+    document.getElementById(
+      'promo-input'
+    );
+
+  const code=
+    input.value
+      .trim()
+      .toUpperCase();
 
   const valid=[
     'STRAWBERRIES',
@@ -1269,36 +1459,51 @@ function redeem(){
     'ORANGE'
   ];
 
-  const result=document.getElementById('promo-result');
+  const result=
+    document.getElementById(
+      'promo-result'
+    );
 
   if(!valid.includes(code)){
 
     result.className='notice';
 
-    result.textContent='Code invalide.';
+    result.textContent=
+      'Code invalide.';
 
-    return
+    return;
+
   }
 
   if(!Array.isArray(state.claimedCodes)){
-    state.claimedCodes=[]
+
+    state.claimedCodes=[];
+
   }
 
-  if(state.claimedCodes.includes(code)){
+  if(
+    state.claimedCodes
+      .map(x=>x.toUpperCase())
+      .includes(code)
+  ){
 
     result.className='notice';
 
-    result.textContent='⚠️ Tu as déjà utilisé ce code sur ce compte.';
+    result.textContent=
+      '⚠️ Tu as déjà utilisé ce code sur ce compte.';
 
-    return
+    return;
+
   }
 
   state.claimedCodes.push(code);
 
   persist();
 
-  showPromoWin()
+  showPromoWin();
+
 }
+
 
 function showPromoWin(){
 
@@ -1308,42 +1513,59 @@ function showPromoWin(){
     el=>el.classList.add('hidden')
   );
 
-  document.getElementById('promo-win')
-    .classList.remove('hidden');
+  document.getElementById(
+    'promo-win'
+  ).classList.remove('hidden');
 
   document.body.style.overflow='hidden';
 
-  window.scrollTo(0,0)
+  window.scrollTo(0,0);
+
 }
+
 
 function closePromoWin(){
 
-  document.getElementById('promo-win')
-    .classList.add('hidden');
+  document.getElementById(
+    'promo-win'
+  ).classList.add('hidden');
 
   document.body.style.overflow='';
 
   goHome();
 
-  window.scrollTo(0,0)
+  window.scrollTo(0,0);
+
 }
+
 
 function toggleAdmin(){
 
   if(
     !state ||
-    state.name.toLowerCase()!=='snowyy'
+    !ADMIN_ACCOUNTS.includes(
+      state.name.toLowerCase()
+    )
   )return;
 
-  document.getElementById('admin-panel')
-    .classList.toggle('hidden')
+  document.getElementById(
+    'admin-panel'
+  ).classList.toggle('hidden');
+
 }
+
 
 function runAdminCommand(){
 
-  const input=document.getElementById('admin-command');
+  const input=
+    document.getElementById(
+      'admin-command'
+    );
 
-  const msg=document.getElementById('admin-msg');
+  const msg=
+    document.getElementById(
+      'admin-msg'
+    );
 
   const raw=input.value.trim();
 
@@ -1353,14 +1575,18 @@ function runAdminCommand(){
 
   if(
     !state ||
-    state.name.toLowerCase()!=='snowyy'
+    !ADMIN_ACCOUNTS.includes(
+      state.name.toLowerCase()
+    )
   ){
 
     msg.className='admin-error';
 
-    msg.textContent='Accès refusé.';
+    msg.textContent=
+      'Accès refusé.';
 
-    return
+    return;
+
   }
 
   if(!raw.startsWith('/')){
@@ -1370,16 +1596,21 @@ function runAdminCommand(){
     msg.textContent=
       'Une commande doit commencer par /. Exemple : /level 10';
 
-    return
+    return;
+
   }
 
-  const parts=raw.match(/^\/(\S+)\s*(.*)$/);
+  const parts=
+    raw.match(/^\/(\S+)\s*(.*)$/);
 
   if(!parts)return;
 
-  const cmd=parts[1].toLowerCase();
+  const cmd=
+    parts[1].toLowerCase();
 
-  const args=parts[2].trim();
+  const args=
+    parts[2].trim();
+
 
   if(cmd==='level'){
 
@@ -1393,9 +1624,11 @@ function runAdminCommand(){
 
       msg.className='admin-error';
 
-      msg.textContent='Niveau invalide (1 à 100).';
+      msg.textContent=
+        'Niveau invalide (1 à 100).';
 
-      return
+      return;
+
     }
 
     state.level=n;
@@ -1413,6 +1646,7 @@ function runAdminCommand(){
 
   }
 
+
   else if(cmd==='bg'){
 
     if(!args){
@@ -1422,10 +1656,12 @@ function runAdminCommand(){
       msg.textContent=
         'Utilise /bg #123456 ou /bg https://...';
 
-      return
+      return;
+
     }
 
-    const home=document.getElementById('home');
+    const home=
+      document.getElementById('home');
 
     if(/^https?:\/\//i.test(args)){
 
@@ -1438,14 +1674,17 @@ function runAdminCommand(){
 
       home.style.backgroundImage='none';
 
-      home.style.background=args
+      home.style.background=args;
+
     }
 
     msg.className='admin-ok';
 
     msg.textContent=
-      '✅ Fond modifié temporairement.'
+      '✅ Fond modifié temporairement.';
+
   }
+
 
   else if(cmd==='text'){
 
@@ -1460,24 +1699,29 @@ function runAdminCommand(){
       msg.textContent=
         'Exemple : /text home h1 Bienvenue Snowy';
 
-      return
+      return;
+
     }
 
-    const page=document.getElementById(
-      m[1].toLowerCase()
-    );
+    const page=
+      document.getElementById(
+        m[1].toLowerCase()
+      );
 
-    const el=page.querySelector(
-      m[2].toLowerCase()
-    );
+    const el=
+      page.querySelector(
+        m[2].toLowerCase()
+      );
 
     if(!el){
 
       msg.className='admin-error';
 
-      msg.textContent='Élément introuvable.';
+      msg.textContent=
+        'Élément introuvable.';
 
-      return
+      return;
+
     }
 
     el.textContent=m[3];
@@ -1485,8 +1729,10 @@ function runAdminCommand(){
     msg.className='admin-ok';
 
     msg.textContent=
-      '✅ Texte modifié temporairement.'
+      '✅ Texte modifié temporairement.';
+
   }
+
 
   else if(cmd==='modifysnowyhubtext'){
 
@@ -1497,17 +1743,21 @@ function runAdminCommand(){
       msg.textContent=
         'Utilise /modifysnowyhubtext Ton texte';
 
-      return
+      return;
+
     }
 
-    document.querySelector('#home h1')
-      .textContent=args;
+    document.querySelector(
+      '#home h1'
+    ).textContent=args;
 
     msg.className='admin-ok';
 
     msg.textContent=
-      '✅ Texte Snowy Hub modifié temporairement.'
+      '✅ Texte Snowy Hub modifié temporairement.';
+
   }
+
 
   else if(cmd==='modifytitle'){
 
@@ -1518,20 +1768,24 @@ function runAdminCommand(){
       msg.textContent=
         'Utilise /modifytitle Ton titre';
 
-      return
+      return;
+
     }
 
-    const page=document.querySelector(
-      '.page:not(.hidden) h1'
-    );
+    const page=
+      document.querySelector(
+        '.page:not(.hidden) h1'
+      );
 
     if(!page){
 
       msg.className='admin-error';
 
-      msg.textContent='Aucune page ouverte.';
+      msg.textContent=
+        'Aucune page ouverte.';
 
-      return
+      return;
+
     }
 
     page.textContent=args;
@@ -1539,8 +1793,10 @@ function runAdminCommand(){
     msg.className='admin-ok';
 
     msg.textContent=
-      '✅ Titre modifié temporairement.'
+      '✅ Titre modifié temporairement.';
+
   }
+
 
   else if(cmd==='modifydesc'){
 
@@ -1551,20 +1807,24 @@ function runAdminCommand(){
       msg.textContent=
         'Utilise /modifydesc Ton texte';
 
-      return
+      return;
+
     }
 
-    const page=document.querySelector(
-      '.page:not(.hidden) .page-desc'
-    );
+    const page=
+      document.querySelector(
+        '.page:not(.hidden) .page-desc'
+      );
 
     if(!page){
 
       msg.className='admin-error';
 
-      msg.textContent='Aucune page ouverte.';
+      msg.textContent=
+        'Aucune page ouverte.';
 
-      return
+      return;
+
     }
 
     page.textContent=args;
@@ -1572,12 +1832,15 @@ function runAdminCommand(){
     msg.className='admin-ok';
 
     msg.textContent=
-      '✅ Description modifiée temporairement.'
+      '✅ Description modifiée temporairement.';
+
   }
+
 
   else if(cmd==='hide' || cmd==='show'){
 
-    const target=document.getElementById(args);
+    const target=
+      document.getElementById(args);
 
     if(!target){
 
@@ -1586,7 +1849,8 @@ function runAdminCommand(){
       msg.textContent=
         'Élément introuvable : '+args;
 
-      return
+      return;
+
     }
 
     target.classList.toggle(
@@ -1597,12 +1861,15 @@ function runAdminCommand(){
     msg.className='admin-ok';
 
     msg.textContent=
-      '✅ '+(
+      '✅ '+
+      (
         cmd==='hide'
           ? 'Élément masqué.'
           : 'Élément affiché.'
-      )
+      );
+
   }
+
 
   else if(cmd==='resetvisuals'){
 
@@ -1610,29 +1877,37 @@ function runAdminCommand(){
 
     document.body.style.backgroundImage='';
 
-    document.querySelectorAll('[style]')
-      .forEach(el=>{
+    location.reload();
 
-        if(el.dataset.snowyOriginalBg){
-          el.style.background=
-            el.dataset.snowyOriginalBg
-        }
-
-      });
-
-    location.reload()
   }
+
 
   else{
 
     msg.className='admin-error';
 
     msg.textContent=
-      'Commande inconnue. Utilise /level, /bg, /text, /modifysnowyhubtext, /modifytitle, /modifydesc, /hide, /show ou /resetvisuals.'
+      'Commande inconnue. Utilise /level, /bg, /text, /modifysnowyhubtext, /modifytitle, /modifydesc, /hide, /show ou /resetvisuals.';
+
   }
 
-  input.value=''
+  input.value='';
+
 }
+
+
+document.getElementById(
+  'username'
+).addEventListener(
+  'keydown',
+  function(e){
+
+    if(e.key==='Enter'){
+      register();
+    }
+
+  }
+);
 
 </script>
 
