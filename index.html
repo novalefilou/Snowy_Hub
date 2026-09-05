@@ -351,6 +351,10 @@ button,input{font:inherit}
   grid-column:1/-1
 }
 
+/* =========================
+   MM2 ONGLET
+========================= */
+
 .mm2-nav{
   display:flex;
   flex-wrap:wrap;
@@ -362,15 +366,179 @@ button,input{font:inherit}
   border:1px solid #ffffff20;
   background:#ffffff0a;
   color:#fff;
-  padding:11px 16px;
-  border-radius:12px;
-  cursor:pointer
+  padding:12px 18px;
+  border-radius:13px;
+  cursor:pointer;
+  font-weight:800;
+  transition:.2s;
+  box-shadow:0 5px 20px #0002
+}
+
+.tab:hover{
+  background:#ffffff18;
+  transform:translateY(-2px)
 }
 
 .tab.active{
   background:#fff;
-  color:#08090d
+  color:#08090d;
+  box-shadow:0 8px 25px #0004
 }
+
+/* CONTENU HISTOIRE */
+
+.mm2-history-box{
+  margin-top:18px;
+  display:grid;
+  gap:15px
+}
+
+.mm2-story-card{
+  padding:20px;
+  border-radius:18px;
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.07),
+    rgba(255,255,255,.025)
+  );
+  border:1px solid #ffffff12
+}
+
+.mm2-story-card h3{
+  margin-bottom:8px;
+  font-size:19px
+}
+
+.mm2-story-card p{
+  margin:0
+}
+
+.mm2-timeline{
+  display:grid;
+  gap:12px;
+  margin-top:18px
+}
+
+.mm2-timeline-item{
+  display:flex;
+  gap:15px;
+  align-items:flex-start;
+  padding:16px;
+  border-radius:16px;
+  background:#ffffff08;
+  border:1px solid #ffffff10
+}
+
+.mm2-year{
+  min-width:70px;
+  padding:7px 10px;
+  text-align:center;
+  border-radius:10px;
+  background:#ffffff14;
+  color:#fff;
+  font-weight:900
+}
+
+.mm2-highlight{
+  margin-top:18px;
+  padding:18px;
+  border-radius:17px;
+  background:linear-gradient(
+    135deg,
+    #2563eb20,
+    #a855f720
+  );
+  border:1px solid #8b5cf633
+}
+
+.mm2-highlight b{
+  color:#fff
+}
+
+/* GAMEPLAY */
+
+.role-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:18px
+}
+
+.role-card{
+  padding:20px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:linear-gradient(
+    145deg,
+    rgba(18,20,29,.95),
+    rgba(10,12,18,.9)
+  );
+  box-shadow:0 8px 30px rgba(0,0,0,.2);
+  transition:.2s
+}
+
+.role-card:hover{
+  transform:translateY(-3px);
+  border-color:#ffffff25
+}
+
+.role-card h3{
+  margin:4px 0 8px;
+  font-size:20px
+}
+
+.role-card p{
+  margin:0;
+  color:#b9bfcc;
+  line-height:1.5
+}
+
+.role-icon{
+  font-size:30px
+}
+
+.mm2-strategy-title{
+  margin-top:28px!important;
+  margin-bottom:12px!important
+}
+
+.mm2-tips{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:15px
+}
+
+.mm2-tip{
+  padding:17px;
+  border-radius:16px;
+  background:#ffffff08;
+  border:1px solid #ffffff10
+}
+
+.mm2-tip h3{
+  font-size:17px;
+  margin-bottom:7px
+}
+
+.mm2-tip p{
+  font-size:14px;
+  line-height:1.55
+}
+
+.mm2-objective{
+  margin-top:18px;
+  padding:18px;
+  border-radius:17px;
+  background:#00000022;
+  border:1px solid #ffffff12
+}
+
+.mm2-objective ul{
+  margin-top:10px
+}
+
+/* PROMO */
 
 .notice{
   padding:15px;
@@ -417,36 +585,6 @@ button,input{font:inherit}
   background:#071f4d77;
   border-color:#7aa7ff33;
   box-shadow:0 20px 60px #0004
-}
-
-.role-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-  margin-top:18px
-}
-
-.role-card{
-  padding:18px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:18px;
-  background:linear-gradient(145deg,rgba(18,20,29,.95),rgba(10,12,18,.9));
-  box-shadow:0 8px 30px rgba(0,0,0,.2)
-}
-
-.role-card h3{
-  margin:4px 0 8px;
-  font-size:20px
-}
-
-.role-card p{
-  margin:0;
-  color:#b9bfcc;
-  line-height:1.5
-}
-
-.role-icon{
-  font-size:30px
 }
 
 /* ADMIN */
@@ -787,7 +925,7 @@ button,input{font:inherit}
   color:#dce1ef
 }
 
-/* PROMO */
+/* PROMO WIN */
 
 .promo-win{
   position:fixed;
@@ -920,6 +1058,10 @@ button,input{font:inherit}
   .brand{
     font-size:18px
   }
+
+  .mm2-tips{
+    grid-template-columns:1fr
+  }
 }
 
 @media(max-width:700px){
@@ -949,6 +1091,19 @@ button,input{font:inherit}
   }
 
   .admin-row{
+    flex-direction:column
+  }
+
+  .mm2-nav{
+    display:grid;
+    grid-template-columns:1fr
+  }
+
+  .tab{
+    width:100%;
+  }
+
+  .mm2-timeline-item{
     flex-direction:column
   }
 }
@@ -1229,7 +1384,9 @@ button,input{font:inherit}
 
 </main>
 
-<!-- MM2 -->
+<!-- =========================
+     MM2
+========================= -->
 
 <main
   id="mm2"
@@ -1253,27 +1410,32 @@ button,input{font:inherit}
       Le hub communautaire Snowy dédié à MM2.
     </p>
 
+    <!-- ONGLES MM2 -->
+
     <div class="mm2-nav">
 
       <button
         class="tab active"
+        aria-selected="true"
         onclick="mm2Tab('history',this)"
       >
-        Histoire
+        📖 Histoire
       </button>
 
       <button
         class="tab"
+        aria-selected="false"
         onclick="mm2Tab('roles',this)"
       >
-        Rôles & Gameplay
+        🎭 Rôle & Gameplay
       </button>
 
       <button
         class="tab"
+        aria-selected="false"
         onclick="mm2Tab('promo',this)"
       >
-        Code Promo
+        🎟️ Code Promo
       </button>
 
     </div>
@@ -1282,45 +1444,179 @@ button,input{font:inherit}
 
   <div class="section-grid">
 
+    <!-- =========================
+         HISTOIRE
+    ========================== -->
+
     <section
       id="history"
       class="panel wide"
     >
 
       <h2>
-        📖 Histoire
+        📖 L'histoire de Murder Mystery 2
       </h2>
 
-      <p>
-        <b>Créateur :</b> Nikilis
-      </p>
+      <div class="mm2-history-box">
 
-      <p>
-        <b>Début du projet :</b> janvier 2014
-      </p>
+        <div class="mm2-story-card">
 
-      <p style="margin-top:12px">
-        Murder Mystery est une expérience Roblox développée
-        par Nikilis. Le concept reprend le principe du
-        « murder mystery ».
-      </p>
+          <h3>🕵️ Les débuts</h3>
 
-      <p style="margin-top:12px">
-        Une importante refonte a donné naissance à
-        <b>Murder Mystery 2</b> à la fin de 2014.
-      </p>
+          <p>
+            Murder Mystery est un concept Roblox imaginé autour
+            d'une idée simple : plusieurs joueurs se retrouvent
+            dans une même partie, mais certains cachent leur rôle.
+            Le but est de comprendre rapidement ce qui se passe
+            tout en essayant de survivre à la manche.
+          </p>
 
-      <p style="margin-top:12px">
-        Le Murderer cherche à éliminer les autres,
-        le Sheriff tente de l'arrêter et les Innocents
-        doivent survivre et aider à identifier le danger.
-      </p>
+        </div>
 
-      <p style="margin-top:12px">
-        <b>Une expérience basée sur la déduction.</b>
-      </p>
+        <div class="mm2-story-card">
+
+          <h3>🔪 L'arrivée de Murder Mystery 2</h3>
+
+          <p>
+            <b>Murder Mystery 2</b>, développé par
+            <b>Nikilis</b>, reprend cette formule et construit
+            son propre univers autour des enquêtes, des armes,
+            des cartes et des différents rôles.
+          </p>
+
+          <p style="margin-top:10px">
+            Le jeu s'est progressivement imposé comme une expérience
+            très connue de Roblox grâce à ses parties rapides,
+            son aspect imprévisible et son système de collection.
+          </p>
+
+        </div>
+
+        <div class="mm2-story-card">
+
+          <h3>🎭 Un concept basé sur la déduction</h3>
+
+          <p>
+            Chaque manche transforme les joueurs en enquêteurs,
+            survivants ou responsables du danger. Les rôles ne sont
+            pas connus de tout le monde, ce qui crée une grande
+            partie du suspense.
+          </p>
+
+          <p style="margin-top:10px">
+            Un joueur peut sembler suspect sans être le Murderer,
+            tandis qu'un joueur discret peut cacher son véritable rôle.
+            Observer les déplacements et les événements de la manche
+            devient donc essentiel.
+          </p>
+
+        </div>
+
+        <div class="mm2-story-card">
+
+          <h3>🗺️ L'importance des cartes</h3>
+
+          <p>
+            Les maps jouent un rôle important dans les parties.
+            Couloirs, pièces, passages et zones ouvertes changent
+            complètement la façon dont les joueurs se déplacent.
+          </p>
+
+          <p style="margin-top:10px">
+            Connaître une carte permet de mieux anticiper les
+            déplacements, de trouver des endroits intéressants
+            et de comprendre plus rapidement ce qui s'est passé.
+          </p>
+
+        </div>
+
+        <div class="mm2-story-card">
+
+          <h3>🪙 Collection et progression</h3>
+
+          <p>
+            Au-delà des manches, MM2 possède également un aspect
+            collection. Les joueurs peuvent s'intéresser aux armes,
+            aux objets, aux skins et à leur inventaire.
+          </p>
+
+          <p style="margin-top:10px">
+            Cette dimension collection ajoute une autre façon de
+            jouer au jeu : certains recherchent surtout la victoire,
+            tandis que d'autres aiment construire un inventaire
+            qu'ils trouvent intéressant.
+          </p>
+
+        </div>
+
+      </div>
+
+      <h2 style="margin-top:28px">
+        🕰️ Quelques étapes importantes
+      </h2>
+
+      <div class="mm2-timeline">
+
+        <div class="mm2-timeline-item">
+
+          <div class="mm2-year">
+            2014
+          </div>
+
+          <p>
+            Les premières bases du concept Murder Mystery
+            apparaissent sur Roblox.
+          </p>
+
+        </div>
+
+        <div class="mm2-timeline-item">
+
+          <div class="mm2-year">
+            2014+
+          </div>
+
+          <p>
+            Murder Mystery 2 développe sa propre identité
+            avec ses cartes, ses rôles et son système d'objets.
+          </p>
+
+        </div>
+
+        <div class="mm2-timeline-item">
+
+          <div class="mm2-year">
+            Au fil du temps
+          </div>
+
+          <p>
+            La communauté grandit et le jeu développe un important
+            aspect autour de la collection, des événements et
+            des échanges entre joueurs.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="mm2-highlight">
+
+        ⭐ <b>À retenir :</b>
+
+        <p style="margin-top:6px">
+          MM2 mélange enquête, stratégie, observation et
+          collection. Chaque manche peut être différente,
+          car les rôles et les décisions des joueurs changent
+          complètement le déroulement de la partie.
+        </p>
+
+      </div>
 
     </section>
+
+    <!-- =========================
+         ROLES & GAMEPLAY
+    ========================== -->
 
     <section
       id="roles"
@@ -1328,65 +1624,230 @@ button,input{font:inherit}
     >
 
       <h2>
-        🎭 Rôles & Gameplay
+        🎭 Rôle & Gameplay
       </h2>
+
+      <p>
+        Chaque rôle possède un objectif différent. Pour gagner,
+        il faut adapter sa façon de jouer à la situation.
+      </p>
 
       <div class="role-grid">
 
         <div class="role-card">
+
           <div class="role-icon">🔪</div>
-          <h3>Murderer</h3>
+
+          <h3>
+            Murderer
+          </h3>
+
           <p>
-            Éliminer les autres joueurs tout en restant discret.
+            Le Murderer doit éliminer les autres joueurs tout en
+            essayant de ne pas révéler son identité. Il doit
+            profiter de la carte, observer les déplacements et
+            choisir le bon moment pour agir.
           </p>
+
         </div>
 
         <div class="role-card">
-          <div class="role-icon">🛡️</div>
-          <h3>Sheriff</h3>
+
+          <div class="role-icon">🔫</div>
+
+          <h3>
+            Sheriff
+          </h3>
+
           <p>
-            Identifier le Murderer et l'arrêter.
+            Le Sheriff possède une arme permettant de stopper
+            le Murderer. Son rôle demande de rester attentif :
+            tirer sur le mauvais joueur peut coûter très cher
+            à la partie.
           </p>
+
         </div>
 
         <div class="role-card">
+
           <div class="role-icon">👤</div>
-          <h3>Innocent</h3>
+
+          <h3>
+            Innocent
+          </h3>
+
           <p>
-            Survivre, observer et aider à repérer le Murderer.
+            Les Innocents doivent principalement survivre et
+            comprendre qui est le Murderer. Ils peuvent observer
+            les comportements, communiquer avec les autres et
+            aider le Sheriff à identifier la menace.
           </p>
+
         </div>
 
         <div class="role-card">
+
           <div class="role-icon">⏱️</div>
-          <h3>Déroulement</h3>
+
+          <h3>
+            Une manche
+          </h3>
+
           <p>
-            Une manche commence avec une distribution secrète
-            des rôles.
+            Une partie commence avec une attribution secrète des
+            rôles. Les joueurs se déplacent ensuite sur la carte
+            jusqu'à ce qu'un camp atteigne son objectif.
           </p>
+
         </div>
 
         <div class="role-card">
+
           <div class="role-icon">🗺️</div>
-          <h3>Les cartes</h3>
+
+          <h3>
+            Les cartes
+          </h3>
+
           <p>
-            Chaque map possède ses propres couloirs,
-            pièces et zones ouvertes.
+            Chaque map possède sa propre disposition. Les endroits
+            ouverts facilitent les déplacements tandis que les
+            couloirs et les pièces peuvent créer des situations
+            beaucoup plus difficiles à lire.
           </p>
+
         </div>
 
         <div class="role-card">
+
           <div class="role-icon">🪙</div>
-          <h3>Pièces & progression</h3>
+
+          <h3>
+            Pièces & progression
+          </h3>
+
           <p>
-            Les pièces trouvées pendant les manches servent
-            à la progression.
+            Les manches permettent également de récupérer des
+            pièces et de progresser. La collection et l'inventaire
+            font partie intégrante de l'expérience MM2.
           </p>
+
+        </div>
+
+        <div class="role-card">
+
+          <div class="role-icon">👀</div>
+
+          <h3>
+            Observation
+          </h3>
+
+          <p>
+            Observer les joueurs est essentiel. Un changement
+            soudain de direction, un comportement étrange ou
+            un joueur qui disparaît peut donner un indice.
+          </p>
+
+        </div>
+
+        <div class="role-card">
+
+          <div class="role-icon">🧠</div>
+
+          <h3>
+            Déduction
+          </h3>
+
+          <p>
+            Il ne faut pas accuser quelqu'un uniquement parce
+            qu'il paraît suspect. Comparer plusieurs indices
+            permet de prendre de meilleures décisions.
+          </p>
+
         </div>
 
       </div>
 
+      <h2 class="mm2-strategy-title">
+        🏆 Comment mieux jouer ?
+      </h2>
+
+      <div class="mm2-tips">
+
+        <div class="mm2-tip">
+
+          <h3>🔪 Conseil Murderer</h3>
+
+          <p>
+            Évite d'attirer immédiatement l'attention sur toi.
+            Observe les déplacements et profite des moments où
+            les joueurs sont séparés.
+          </p>
+
+        </div>
+
+        <div class="mm2-tip">
+
+          <h3>🔫 Conseil Sheriff</h3>
+
+          <p>
+            Prends ton temps avant de tirer. Un indice solide
+            vaut mieux qu'une décision précipitée.
+          </p>
+
+        </div>
+
+        <div class="mm2-tip">
+
+          <h3>👤 Conseil Innocent</h3>
+
+          <p>
+            Reste attentif aux événements de la manche et
+            communique les informations utiles aux autres.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="mm2-objective">
+
+        <h3>
+          🎯 Les objectifs principaux
+        </h3>
+
+        <ul>
+
+          <li>
+            🔪 <b>Murderer :</b>
+            éliminer les joueurs adverses.
+          </li>
+
+          <li>
+            🔫 <b>Sheriff :</b>
+            identifier et arrêter le Murderer.
+          </li>
+
+          <li>
+            👤 <b>Innocents :</b>
+            survivre et aider à identifier le Murderer.
+          </li>
+
+          <li>
+            🧠 <b>Tous les joueurs :</b>
+            utiliser les informations disponibles pour prendre
+            les meilleures décisions possibles.
+          </li>
+
+        </ul>
+
+      </div>
+
     </section>
+
+    <!-- =========================
+         CODE PROMO
+    ========================== -->
 
     <section
       id="promo"
@@ -1398,7 +1859,8 @@ button,input{font:inherit}
       </h2>
 
       <p>
-        Débloqué au <b>niveau 10</b>.
+        Cette section est débloquée au
+        <b>niveau 10</b>.
       </p>
 
       <div
@@ -2249,7 +2711,9 @@ function redeem(){
 
 }
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+========================= */
 
 function showPage(id){
 
@@ -2268,6 +2732,26 @@ function showPage(id){
   document.getElementById(id)
     .classList.remove('hidden');
 
+  /*
+    Quand on ouvre MM2,
+    on revient automatiquement
+    sur l'onglet Histoire.
+  */
+
+  if(id==='mm2'){
+
+    const historyBtn=
+      document.querySelector(
+        '.mm2-nav .tab'
+      );
+
+    mm2Tab(
+      'history',
+      historyBtn
+    );
+
+  }
+
   window.scrollTo(0,0);
 
 }
@@ -2276,28 +2760,59 @@ function goHome(){
   showPage('home');
 }
 
+/* =========================
+   ONGLES MM2
+========================= */
+
 function mm2Tab(id,btn){
 
-  [
+  const tabs=[
     'history',
     'roles',
     'promo'
-  ].forEach(
+  ];
+
+  tabs.forEach(
     x=>{
-      document.getElementById(x)
-        .classList.add('hidden');
+      const section=
+        document.getElementById(x);
+
+      if(section){
+        section.classList.toggle(
+          'hidden',
+          x!==id
+        );
+      }
     }
   );
 
-  document.getElementById(id)
-    .classList.remove('hidden');
+  document.querySelectorAll(
+    '.mm2-nav .tab'
+  ).forEach(
+    x=>{
+      x.classList.remove('active');
+      x.setAttribute(
+        'aria-selected',
+        'false'
+      );
+    }
+  );
 
-  document.querySelectorAll('.tab')
-    .forEach(
-      x=>x.classList.remove('active')
+  if(btn){
+
+    btn.classList.add('active');
+
+    btn.setAttribute(
+      'aria-selected',
+      'true'
     );
 
-  btn.classList.add('active');
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
 
 }
 
@@ -2547,9 +3062,11 @@ function funExplode(){
   setTimeout(
     ()=>{
       n.className='noob hidden';
+
       document.getElementById(
         'jail'
       ).classList.remove('active');
+
     },
     700
   );
