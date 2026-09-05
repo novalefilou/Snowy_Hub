@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Snowy Hub ❄️</title>
 
 <style>
@@ -10,22 +10,17 @@
   --blue:#147cff;
   --purple:#a855f7;
   --dark:#07070c;
-  --card:#11131b;
   --text:#f7f8ff;
   --muted:#a9afc1;
-  --red:#ff294d;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
   font-family:Inter,system-ui,Arial,sans-serif;
   min-height:100vh;
   background:#fff;
   color:#111;
-  overflow-x:hidden
+  overflow-x:hidden;
 }
-
 button,input{font:inherit}
 .hidden{display:none!important}
 
@@ -33,45 +28,37 @@ button,input{font:inherit}
   min-height:100vh;
   display:grid;
   place-items:center;
-  background:
-    radial-gradient(circle at 20% 20%,#edf4ff,transparent 35%),
-    #fff;
-  padding:24px
+  padding:24px;
+  background:radial-gradient(circle at 20% 20%,#edf4ff,transparent 35%),#fff;
 }
-
 .login-card{
   width:min(460px,100%);
   padding:38px;
   border:1px solid #e5e7eb;
   border-radius:28px;
   box-shadow:0 25px 70px #00000012;
-  text-align:center
+  text-align:center;
 }
-
 .logo{
   font-size:42px;
   font-weight:900;
-  letter-spacing:-2px
+  letter-spacing:-2px;
 }
-
 .subtitle{
   color:#667085;
-  margin:8px 0 28px
+  margin:8px 0 28px;
 }
-
 .field{
   display:flex;
-  gap:10px
+  gap:10px;
 }
-
 .field input{
   flex:1;
   padding:15px 16px;
   border:1px solid #d8dce5;
   border-radius:14px;
-  outline:none
+  outline:none;
 }
-
 .primary{
   border:0;
   border-radius:14px;
@@ -79,21 +66,16 @@ button,input{font:inherit}
   background:#111;
   color:#fff;
   font-weight:800;
-  cursor:pointer
+  cursor:pointer;
 }
+.primary:hover{transform:translateY(-1px)}
 
-.primary:hover{
-  transform:translateY(-1px)
-}
-
-#app{
-  min-height:100vh
-}
+#app{min-height:100vh}
 
 .topbar{
   position:sticky;
   top:0;
-  z-index:10;
+  z-index:100;
   height:72px;
   padding:0 24px;
   display:flex;
@@ -101,46 +83,38 @@ button,input{font:inherit}
   justify-content:space-between;
   background:#ffffffdd;
   backdrop-filter:blur(14px);
-  border-bottom:1px solid #e8e9ee
+  border-bottom:1px solid #e8e9ee;
 }
-
 .brand{
   font-size:23px;
-  font-weight:900
+  font-weight:900;
 }
-
 .profile{
   display:flex;
   align-items:center;
-  gap:12px
+  gap:12px;
 }
-
 .level-box{
   background:#111;
   color:#fff;
   border-radius:14px;
   padding:8px 13px;
   text-align:right;
-  min-width:145px
+  min-width:145px;
 }
-
-.level-box small{
-  color:#aeb4c4
-}
-
+.level-box small{color:#aeb4c4}
 .progress{
   height:5px;
   background:#30333d;
   border-radius:99px;
   margin-top:6px;
-  overflow:hidden
+  overflow:hidden;
 }
-
 .progress i{
   display:block;
   height:100%;
   width:0;
-  background:linear-gradient(90deg,#6d5dfc,#00aaff)
+  background:linear-gradient(90deg,#6d5dfc,#00aaff);
 }
 
 .home{
@@ -149,25 +123,46 @@ button,input{font:inherit}
   background:#fff;
   position:relative;
   isolation:isolate;
-  overflow:hidden
+  overflow:hidden;
 }
-
+.home:before{
+  content:"🔪   🛡️   🔪   🛡️   🔪   🛡️   🔪";
+  position:absolute;
+  inset:20px 0 auto;
+  white-space:pre;
+  font-size:28px;
+  letter-spacing:30px;
+  opacity:.07;
+  transform:rotate(-7deg);
+  pointer-events:none;
+  z-index:-1;
+}
+.home:after{
+  content:"🛡️   🔪   🛡️   🔪   🛡️   🔪";
+  position:absolute;
+  right:-50px;
+  bottom:50px;
+  white-space:pre;
+  font-size:34px;
+  letter-spacing:22px;
+  opacity:.06;
+  transform:rotate(8deg);
+  pointer-events:none;
+  z-index:-1;
+}
 .mm2-decor{
   position:absolute;
   inset:0;
   z-index:-1;
   pointer-events:none;
-  overflow:hidden
+  overflow:hidden;
 }
-
 .mm2-decor .d{
   position:absolute;
   font-size:26px;
   opacity:.09;
-  filter:grayscale(.15);
-  user-select:none
+  user-select:none;
 }
-
 .d1{left:4%;top:15%;transform:rotate(-28deg)}
 .d2{left:12%;top:37%;transform:rotate(18deg)}
 .d3{left:22%;top:8%;transform:rotate(42deg)}
@@ -188,23 +183,20 @@ button,input{font:inherit}
 .home h1{
   text-align:center;
   font-size:clamp(38px,6vw,72px);
-  letter-spacing:-4px
+  letter-spacing:-4px;
 }
-
 .home>p{
   text-align:center;
   color:#697386;
-  margin:12px 0 50px
+  margin:12px 0 50px;
 }
-
 .cards{
   max-width:1100px;
   margin:auto;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:28px
+  gap:28px;
 }
-
 .category{
   position:relative;
   min-height:420px;
@@ -213,91 +205,70 @@ button,input{font:inherit}
   border:1px solid #e6e7eb;
   box-shadow:0 25px 70px #00000012;
   cursor:pointer;
-  transition:.25s
+  transition:.25s;
 }
-
 .category:hover{
   transform:translateY(-7px);
-  box-shadow:0 35px 80px #0000001b
+  box-shadow:0 35px 80px #0000001b;
 }
-
 .category img{
   display:block;
   width:100%;
   height:100%;
-  object-fit:cover
+  object-fit:cover;
 }
-
-.category.mm2{
-  background:#07070b
-}
-
+.category.mm2{background:#07070b}
 .category.mm2 img{
   object-fit:contain;
   padding:70px;
-  background:radial-gradient(circle,#24242d,#050508)
+  background:radial-gradient(circle,#24242d,#050508);
 }
-
-.category.snowy{
-  background:#071a45
-}
-
+.category.snowy{background:#071a45}
 .category.snowy img{
   object-fit:contain;
   padding:70px;
-  background:radial-gradient(circle,#2364d5,#071a45)
+  background:radial-gradient(circle,#2364d5,#071a45);
 }
-
 .overlay{
   position:absolute;
   inset:auto 0 0;
   padding:35px;
   color:#fff;
-  background:linear-gradient(transparent,#000d)
+  background:linear-gradient(transparent,#000d);
 }
-
-.overlay h2{
-  font-size:34px
-}
-
+.overlay h2{font-size:34px}
 .overlay p{
   margin-top:6px;
-  color:#d9dded
+  color:#d9dded;
 }
 
 .page{
   min-height:calc(100vh - 72px);
   padding:45px 6%;
-  color:var(--text)
+  color:var(--text);
 }
-
 .mm2-page{
   background:
-    radial-gradient(circle at 80% 10%,#102d62 0,transparent 28%),
-    radial-gradient(circle at 20% 80%,#4a0715 0,transparent 25%),
-    #06070b
+  radial-gradient(circle at 80% 10%,#102d62 0,transparent 28%),
+  radial-gradient(circle at 20% 80%,#4a0715 0,transparent 25%),
+  #06070b;
 }
-
 .snowy-page{
   background:
-    radial-gradient(circle at 10% 20%,#2364d5 0,transparent 30%),
-    radial-gradient(circle at 90% 70%,#8a2be2 0,transparent 25%),
-    #061942
+  radial-gradient(circle at 10% 20%,#2364d5 0,transparent 30%),
+  radial-gradient(circle at 90% 70%,#8a2be2 0,transparent 25%),
+  #061942;
 }
-
 .fun-page{
   background:
-    radial-gradient(circle at 10% 20%,#7c3aed 0,transparent 30%),
-    radial-gradient(circle at 90% 20%,#2563eb 0,transparent 30%),
-    radial-gradient(circle at 50% 100%,#ec4899 0,transparent 35%),
-    #070711
+  radial-gradient(circle at 20% 20%,#7c3aed 0,transparent 30%),
+  radial-gradient(circle at 80% 80%,#147cff 0,transparent 30%),
+  #070914;
 }
-
 .page-head{
   max-width:1100px;
-  margin:auto
+  margin:auto;
 }
-
 .back{
   background:#ffffff16;
   color:#fff;
@@ -305,258 +276,39 @@ button,input{font:inherit}
   border-radius:12px;
   padding:10px 14px;
   cursor:pointer;
-  margin-bottom:25px
+  margin-bottom:25px;
 }
-
 .page h1{
   font-size:clamp(38px,6vw,68px);
-  letter-spacing:-3px
+  letter-spacing:-3px;
 }
-
 .page-desc{
   color:#b8bfd1;
-  margin:8px 0 28px
+  margin:8px 0 28px;
 }
-
 .section-grid{
   max-width:1100px;
   margin:28px auto 0;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:20px
+  gap:20px;
 }
-
 .panel{
   background:#ffffff0c;
   border:1px solid #ffffff16;
   border-radius:24px;
   padding:26px;
-  backdrop-filter:blur(10px)
+  backdrop-filter:blur(10px);
 }
-
-.panel h2{
-  margin-bottom:14px
-}
-
+.panel h2{margin-bottom:14px}
 .panel p,.panel li{
   color:#c9cede;
-  line-height:1.65
+  line-height:1.65;
 }
+.panel ul{padding-left:20px}
+.wide{grid-column:1/-1}
 
-.panel ul{
-  padding-left:20px
-}
-
-.wide{
-  grid-column:1/-1
-}
-
-.mm2-nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px
-}
-
-.tab{
-  border:1px solid #ffffff20;
-  background:#ffffff0a;
-  color:#fff;
-  padding:12px 18px;
-  border-radius:13px;
-  cursor:pointer;
-  font-weight:800;
-  transition:.2s;
-  box-shadow:0 5px 20px #0002
-}
-
-.tab:hover{
-  background:#ffffff18;
-  transform:translateY(-2px)
-}
-
-.tab.active{
-  background:#fff;
-  color:#08090d;
-  box-shadow:0 8px 25px #0004
-}
-
-.mm2-history-box{
-  margin-top:18px;
-  display:grid;
-  gap:15px
-}
-
-.mm2-story-card{
-  padding:20px;
-  border-radius:18px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.07),
-    rgba(255,255,255,.025)
-  );
-  border:1px solid #ffffff12
-}
-
-.mm2-story-card h3{
-  margin-bottom:8px;
-  font-size:19px
-}
-
-.mm2-story-card p{
-  margin:0
-}
-
-.mm2-timeline{
-  display:grid;
-  gap:12px;
-  margin-top:18px
-}
-
-.mm2-timeline-item{
-  display:flex;
-  gap:15px;
-  align-items:flex-start;
-  padding:16px;
-  border-radius:16px;
-  background:#ffffff08;
-  border:1px solid #ffffff10
-}
-
-.mm2-year{
-  min-width:70px;
-  padding:7px 10px;
-  text-align:center;
-  border-radius:10px;
-  background:#ffffff14;
-  color:#fff;
-  font-weight:900
-}
-
-.mm2-highlight{
-  margin-top:18px;
-  padding:18px;
-  border-radius:17px;
-  background:linear-gradient(
-    135deg,
-    #2563eb20,
-    #a855f720
-  );
-  border:1px solid #8b5cf633
-}
-
-.mm2-highlight b{
-  color:#fff
-}
-
-.role-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-  margin-top:18px
-}
-
-.role-card{
-  padding:20px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:18px;
-  background:linear-gradient(
-    145deg,
-    rgba(18,20,29,.95),
-    rgba(10,12,18,.9)
-  );
-  box-shadow:0 8px 30px rgba(0,0,0,.2);
-  transition:.2s
-}
-
-.role-card:hover{
-  transform:translateY(-3px);
-  border-color:#ffffff25
-}
-
-.role-card h3{
-  margin:4px 0 8px;
-  font-size:20px
-}
-
-.role-card p{
-  margin:0;
-  color:#b9bfcc;
-  line-height:1.5
-}
-
-.role-icon{
-  font-size:30px
-}
-
-.mm2-strategy-title{
-  margin-top:28px!important;
-  margin-bottom:12px!important
-}
-
-.mm2-tips{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:15px
-}
-
-.mm2-tip{
-  padding:17px;
-  border-radius:16px;
-  background:#ffffff08;
-  border:1px solid #ffffff10
-}
-
-.mm2-tip h3{
-  font-size:17px;
-  margin-bottom:7px
-}
-
-.mm2-tip p{
-  font-size:14px;
-  line-height:1.55
-}
-
-.mm2-objective{
-  margin-top:18px;
-  padding:18px;
-  border-radius:17px;
-  background:#00000022;
-  border:1px solid #ffffff12
-}
-
-.mm2-objective ul{
-  margin-top:10px
-}
-
-.notice{
-  padding:15px;
-  border-radius:14px;
-  background:#ff294d14;
-  border:1px solid #ff294d44;
-  color:#ffd7de
-}
-
-.promo-row{
-  display:flex;
-  gap:10px
-}
-
-.promo-row input{
-  flex:1;
-  padding:14px;
-  border-radius:12px;
-  border:1px solid #ffffff1c;
-  background:#080a10;
-  color:#fff
-}
-
-.socials{
-  display:grid;
-  gap:14px
-}
-
+.socials{display:grid;gap:14px}
 .social{
   display:block;
   padding:18px;
@@ -564,18 +316,230 @@ button,input{font:inherit}
   background:#ffffff10;
   border:1px solid #ffffff18;
   color:#fff;
-  text-decoration:none
+  text-decoration:none;
 }
-
-.social:hover{
-  background:#ffffff18
-}
-
+.social:hover{background:#ffffff18}
 .snowy-page .panel{
   background:#071f4d77;
   border-color:#7aa7ff33;
-  box-shadow:0 20px 60px #0004
+  box-shadow:0 20px 60px #0004;
 }
+
+/* FUN PANEL */
+
+.fun-status{
+  padding:14px 16px;
+  margin-bottom:18px;
+  border-radius:14px;
+  background:#22c55e18;
+  border:1px solid #22c55e44;
+  color:#c9ffd8;
+  font-weight:700;
+}
+
+.fun-row{
+  display:flex;
+  gap:10px;
+}
+.fun-row input{
+  flex:1;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #ffffff1c;
+  background:#080a10;
+  color:#fff;
+  outline:none;
+}
+
+.fun-commands{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+.fun-commands span{
+  padding:8px 10px;
+  border-radius:10px;
+  background:#ffffff0b;
+  border:1px solid #ffffff14;
+  color:#dfe4f1;
+  font-family:monospace;
+  font-size:13px;
+}
+
+.noob-stage{
+  position:relative;
+  min-height:450px;
+  margin-top:22px;
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid #ffffff18;
+  background:
+    linear-gradient(#8bd5ff 0 70%,#50b848 70% 100%);
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.noob{
+  position:absolute;
+  bottom:55px;
+  width:90px;
+  height:180px;
+  transition:.35s;
+  transform-origin:center bottom;
+}
+
+.noob-head{
+  width:72px;
+  height:72px;
+  margin:auto;
+  background:#f5c16c;
+  border:3px solid #111;
+  border-radius:7px;
+  position:relative;
+}
+.noob-head:before,
+.noob-head:after{
+  content:"";
+  position:absolute;
+  top:29px;
+  width:8px;
+  height:8px;
+  background:#111;
+  border-radius:50%;
+}
+.noob-head:before{left:17px}
+.noob-head:after{right:17px}
+
+.noob-body{
+  width:80px;
+  height:75px;
+  margin:5px auto 0;
+  background:#147cff;
+  border:3px solid #111;
+  border-radius:5px;
+}
+
+.noob-legs{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+}
+.noob-leg{
+  width:31px;
+  height:58px;
+  background:#333;
+  border:3px solid #111;
+  border-radius:4px;
+}
+
+.noob-arms{
+  position:absolute;
+  top:78px;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+}
+.noob-arm{
+  width:24px;
+  height:65px;
+  background:#f5c16c;
+  border:3px solid #111;
+  border-radius:4px;
+}
+
+.noob.tiny{
+  transform:scale(.25);
+}
+.noob.big{
+  transform:scale(1.7);
+}
+.noob.spin{
+  animation:noobSpin 1s linear infinite;
+}
+.noob.jump{
+  animation:noobJump .7s ease-in-out infinite;
+}
+.noob.dance{
+  animation:noobDance .55s ease-in-out infinite alternate;
+}
+
+@keyframes noobSpin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@keyframes noobJump{
+  0%,100%{bottom:55px}
+  50%{bottom:220px}
+}
+@keyframes noobDance{
+  from{transform:rotate(-15deg) translateX(-15px)}
+  to{transform:rotate(15deg) translateX(15px)}
+}
+
+.jail{
+  position:absolute;
+  bottom:40px;
+  width:230px;
+  height:230px;
+  border:8px solid #777;
+  border-bottom:0;
+  border-radius:20px 20px 0 0;
+  pointer-events:none;
+}
+.jail:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent 0 28px,
+    #555 28px 35px
+  );
+}
+
+.explosion{
+  position:absolute;
+  font-size:100px;
+  animation:explode .8s ease-out forwards;
+  pointer-events:none;
+}
+@keyframes explode{
+  0%{transform:scale(.2);opacity:1}
+  100%{transform:scale(2.5);opacity:0}
+}
+
+.fun-message{
+  margin-top:14px;
+  min-height:45px;
+  padding:12px;
+  border-radius:12px;
+  background:#ffffff0c;
+  color:#dfe4f1;
+}
+
+.fun-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+.fun-buttons button{
+  border:1px solid #ffffff1c;
+  background:#ffffff0d;
+  color:#fff;
+  border-radius:11px;
+  padding:10px 13px;
+  cursor:pointer;
+}
+.fun-buttons button:hover{
+  background:#ffffff1c;
+  transform:translateY(-2px);
+}
+
+/* ADMIN */
 
 .admin-btn{
   border:1px solid #7c3aed55;
@@ -584,42 +548,34 @@ button,input{font:inherit}
   border-radius:11px;
   padding:9px 12px;
   font-weight:800;
-  cursor:pointer
+  cursor:pointer;
 }
-
 .admin-panel{
   position:fixed;
   top:82px;
   right:18px;
-  z-index:30;
+  z-index:500;
   width:min(620px,calc(100vw - 36px));
   background:#0b0c12f5;
   color:#fff;
   border:1px solid #ffffff1c;
   border-radius:20px;
   box-shadow:0 25px 80px #0007;
-  backdrop-filter:blur(16px)
+  backdrop-filter:blur(16px);
 }
-
-.admin-inner{
-  padding:20px
-}
-
+.admin-inner{padding:20px}
 .admin-title{
   font-size:21px;
-  font-weight:900
+  font-weight:900;
 }
-
 .admin-help{
   color:#aeb4c4;
-  margin:5px 0 15px
+  margin:5px 0 15px;
 }
-
 .admin-row{
   display:flex;
-  gap:8px
+  gap:8px;
 }
-
 .admin-row input{
   flex:1;
   min-width:0;
@@ -628,16 +584,14 @@ button,input{font:inherit}
   border:1px solid #ffffff1c;
   background:#080a10;
   color:#fff;
-  outline:none
+  outline:none;
 }
-
 .admin-commands{
   display:flex;
   flex-wrap:wrap;
   gap:7px;
-  margin-top:12px
+  margin-top:12px;
 }
-
 .admin-commands span{
   font-family:monospace;
   font-size:12px;
@@ -645,253 +599,29 @@ button,input{font:inherit}
   border:1px solid #ffffff12;
   border-radius:8px;
   padding:6px 8px;
-  color:#d8dce8
+  color:#d8dce8;
 }
-
 .admin-ok{
   margin-top:12px;
   padding:10px;
   border-radius:10px;
   background:#22c55e18;
-  color:#bff7d0
+  color:#bff7d0;
 }
-
 .admin-error{
   margin-top:12px;
   padding:10px;
   border-radius:10px;
   background:#ff294d18;
-  color:#ffd7de
+  color:#ffd7de;
 }
 
-.fun-unlock{
-  margin-top:15px;
-  padding:14px 16px;
-  border-radius:14px;
-  background:#a855f722;
-  border:1px solid #a855f766;
-  color:#eadcff
-}
-
-.fun-controls{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:20px
-}
-
-.fun-btn{
-  border:1px solid #ffffff20;
-  background:#ffffff0c;
-  color:#fff;
-  border-radius:14px;
-  padding:13px;
-  cursor:pointer;
-  font-weight:800;
-  transition:.2s
-}
-
-.fun-btn:hover{
-  transform:translateY(-2px);
-  background:#ffffff18
-}
-
-.noob-stage{
-  position:relative;
-  min-height:470px;
-  margin-top:22px;
-  border-radius:26px;
-  overflow:hidden;
-  border:1px solid #ffffff18;
-  background:
-    linear-gradient(#172554aa,#0f172aaa),
-    radial-gradient(circle at 50% 0,#60a5fa33,transparent 45%);
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  padding-bottom:45px
-}
-
-.noob-stage.grid{
-  background-image:
-    linear-gradient(#ffffff08 1px,transparent 1px),
-    linear-gradient(90deg,#ffffff08 1px,transparent 1px),
-    linear-gradient(#172554aa,#0f172aaa);
-  background-size:35px 35px,35px 35px,auto
-}
-
-.noob{
-  position:relative;
-  width:150px;
-  height:290px;
-  transform-origin:center bottom;
-  transition:.35s;
-  filter:drop-shadow(0 20px 20px #0007)
-}
-
-.noob-head{
-  position:absolute;
-  top:0;
-  left:35px;
-  width:80px;
-  height:80px;
-  background:#f3c48b;
-  border-radius:5px;
-  border:3px solid #c48b5c;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:35px
-}
-
-.noob-body{
-  position:absolute;
-  top:78px;
-  left:25px;
-  width:100px;
-  height:100px;
-  background:#3b82f6;
-  border-radius:4px;
-  border:3px solid #1d4ed8
-}
-
-.noob-arm{
-  position:absolute;
-  top:82px;
-  width:30px;
-  height:92px;
-  background:#f3c48b;
-  border:3px solid #c48b5c;
-  border-radius:4px
-}
-
-.noob-arm.left{left:0}
-.noob-arm.right{right:0}
-
-.noob-leg{
-  position:absolute;
-  top:174px;
-  width:38px;
-  height:110px;
-  background:#22c55e;
-  border:3px solid #15803d;
-  border-radius:4px
-}
-
-.noob-leg.left{left:27px}
-.noob-leg.right{right:27px}
-
-.noob-name{
-  position:absolute;
-  top:-34px;
-  left:50%;
-  transform:translateX(-50%);
-  white-space:nowrap;
-  font-weight:900;
-  color:#fff;
-  text-shadow:0 2px 6px #000
-}
-
-.noob.tiny{transform:scale(.35)}
-.noob.giant{transform:scale(1.7)}
-
-.noob.spin{
-  animation:noobSpin 1s linear infinite
-}
-
-@keyframes noobSpin{
-  to{transform:rotate(360deg)}
-}
-
-.noob.jumpy{
-  animation:noobJump .6s ease-in-out infinite alternate
-}
-
-@keyframes noobJump{
-  from{translate:0 0}
-  to{translate:0 -90px}
-}
-
-.noob.rainbow .noob-body,
-.noob.rainbow .noob-leg{
-  animation:rainbow 1s linear infinite
-}
-
-@keyframes rainbow{
-  0%{filter:hue-rotate(0deg)}
-  100%{filter:hue-rotate(360deg)}
-}
-
-.noob.ghost{opacity:.35}
-
-.noob.ice{
-  filter:
-    hue-rotate(150deg)
-    saturate(.5)
-    drop-shadow(0 0 25px #67e8f9)
-}
-
-.noob.fire{
-  filter:
-    drop-shadow(0 0 10px #ff6b00)
-    drop-shadow(0 0 25px #ff2600)
-}
-
-.noob.metal{
-  filter:grayscale(1) brightness(1.4)
-}
-
-.noob.dino .noob-head:after{
-  content:"🦖";
-  position:absolute;
-  font-size:58px
-}
-
-.noob.dino .noob-head{
-  font-size:0
-}
-
-.jail{
-  position:absolute;
-  left:50%;
-  bottom:28px;
-  width:230px;
-  height:310px;
-  transform:translateX(-50%);
-  border:8px solid #94a3b8;
-  border-bottom:0;
-  pointer-events:none;
-  display:none
-}
-
-.jail:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 25px,
-      #94a3b8 25px 32px
-    );
-}
-
-.jail.active{display:block}
-
-.fun-status{
-  margin-top:15px;
-  min-height:45px;
-  padding:12px 15px;
-  border-radius:13px;
-  background:#ffffff0b;
-  border:1px solid #ffffff14;
-  color:#dce1ef
-}
+/* PROMO */
 
 .promo-win{
   position:fixed;
   inset:0;
-  z-index:100;
+  z-index:10000;
   min-height:100vh;
   height:100vh;
   overflow:auto;
@@ -900,9 +630,8 @@ button,input{font:inherit}
   background:
     radial-gradient(circle at 20% 20%,#6d28d9 0,transparent 25%),
     radial-gradient(circle at 80% 80%,#2563eb 0,transparent 25%),
-    #080914
+    #080914;
 }
-
 .promo-win-card{
   width:min(760px,92vw);
   text-align:center;
@@ -911,37 +640,32 @@ button,input{font:inherit}
   border-radius:32px;
   background:#ffffff12;
   backdrop-filter:blur(16px);
-  box-shadow:0 30px 100px #0008
+  box-shadow:0 30px 100px #0008;
 }
-
 .promo-win-card h1{
   font-size:72px;
-  margin:10px 0
+  margin:10px 0;
 }
-
 .promo-win-card h2{
   font-size:30px;
-  margin-bottom:16px
+  margin-bottom:16px;
 }
-
 .promo-win-card p{
   color:#dce1ef;
   font-size:18px;
   line-height:1.7;
-  margin-bottom:28px
+  margin-bottom:28px;
 }
-
 .party{
   font-size:25px;
   line-height:2;
-  word-spacing:12px
+  word-spacing:12px;
 }
+.reward-icon{font-size:70px}
 
-.reward-icon{
-  font-size:70px
-}
+/* SNOWYY / ENEROXX */
 
-#snowyy-lock{
+#security-lock{
   position:fixed;
   inset:0;
   z-index:99999;
@@ -950,124 +674,58 @@ button,input{font:inherit}
   justify-content:center;
   background:rgba(0,0,0,.84);
   backdrop-filter:blur(12px);
-  padding:20px
+  padding:20px;
 }
-
-#snowyy-lock.hidden{
-  display:none!important
+#security-lock.hidden{
+  display:none!important;
 }
-
-.snowyy-lock-card{
+.security-card{
   width:min(430px,100%);
   background:#fff;
   color:#111;
   border-radius:28px;
   padding:32px;
   text-align:center;
-  box-shadow:0 30px 100px #0008
+  box-shadow:0 30px 100px #0008;
 }
-
-.snowyy-lock-card h2{
+.security-card h2{
   font-size:28px;
-  margin-bottom:8px
+  margin-bottom:8px;
 }
-
-.snowyy-lock-card p{
+.security-card p{
   color:#667085;
-  margin-bottom:20px
+  margin-bottom:20px;
 }
-
-.snowyy-lock-card input{
+.security-card input{
   width:100%;
   padding:15px;
   border:1px solid #d0d5dd;
   border-radius:14px;
   outline:none;
-  margin-bottom:12px
+  margin-bottom:12px;
 }
-
-.snowyy-lock-card button{
-  width:100%
-}
-
-#snowyy-error{
+.security-card button{width:100%}
+#security-error{
   min-height:22px;
   margin-top:10px;
   color:#d92d20;
-  font-weight:700
+  font-weight:700;
 }
 
 @media(max-width:800px){
-
-  .cards,
-  .section-grid{
-    grid-template-columns:1fr
-  }
-
-  .category{
-    min-height:350px
-  }
-
-  .profile .level-box{
-    min-width:120px
-  }
-
-  .topbar{
-    padding:0 12px
-  }
-
-  .brand{
-    font-size:18px
-  }
-
-  .mm2-tips{
-    grid-template-columns:1fr
-  }
+  .cards,.section-grid{grid-template-columns:1fr}
+  .category{min-height:350px}
+  .profile .level-box{min-width:120px}
+  .topbar{padding:0 12px}
+  .brand{font-size:18px}
 }
-
 @media(max-width:700px){
-
-  .role-grid,
-  .fun-controls{
-    grid-template-columns:1fr
-  }
-
-  .promo-win-card h1{
-    font-size:52px
-  }
-
-  .promo-win-card h2{
-    font-size:23px
-  }
-
-  .party{
-    font-size:18px
-  }
-
-  .profile{
-    gap:6px
-  }
-
-  .admin-btn{
-    padding:7px 8px
-  }
-
-  .admin-row{
-    flex-direction:column
-  }
-
-  .mm2-nav{
-    display:grid;
-    grid-template-columns:1fr
-  }
-
-  .tab{
-    width:100%;
-  }
-
-  .mm2-timeline-item{
-    flex-direction:column
-  }
+  .promo-win-card h1{font-size:52px}
+  .promo-win-card h2{font-size:23px}
+  .party{font-size:18px}
+  .profile{gap:6px}
+  .admin-btn{padding:7px 8px}
+  .admin-row,.fun-row{flex-direction:column}
 }
 </style>
 </head>
@@ -1075,52 +733,21 @@ button,input{font:inherit}
 <body>
 
 <section id="login">
-
   <div class="login-card">
-
     <div class="logo">❄️ Snowy Hub</div>
-
-    <p class="subtitle">
-      Entre ton pseudo pour commencer
-    </p>
+    <p class="subtitle">Entre ton pseudo pour commencer</p>
 
     <div class="field">
-
-      <input
-        id="username"
-        maxlength="24"
-        placeholder="Ex : lenoob89"
-        autocomplete="off"
-      >
-
-      <button
-        id="login-button"
-        class="primary"
-        type="button"
-      >
+      <input id="username" maxlength="24" placeholder="Ex : lenoob89">
+      <button id="register-btn" class="primary" onclick="register()">
         S'enregistrer
       </button>
-
     </div>
 
-    <p
-      id="login-error"
-      style="color:#d92d20;margin-top:12px"
-    ></p>
+    <p id="login-error" style="color:#d92e20;margin-top:12px"></p>
 
-    <div
-      id="code-box"
-      class="hidden"
-      style="
-        margin-top:18px;
-        text-align:left;
-        padding:16px;
-        border:1px solid #c4b5fd;
-        background:#f5f3ff;
-        border-radius:16px
-      "
-    >
-
+    <div id="code-box" class="hidden"
+      style="margin-top:18px;text-align:left;padding:16px;border:1px solid #c4b5fd;background:#f5f3ff;border-radius:16px">
       <b>🔐 Ton code de connexion</b>
 
       <p style="color:#667085;margin:6px 0 10px">
@@ -1128,123 +755,78 @@ button,input{font:inherit}
         Note-le précieusement.
       </p>
 
-      <div
-        id="generated-code"
-        style="
-          font-size:25px;
-          font-weight:900;
-          letter-spacing:4px;
-          text-align:center;
-          padding:12px;
-          background:#111;
-          color:#fff;
-          border-radius:12px;
-          user-select:all
-        "
-      ></div>
-
+      <div id="generated-code"
+        style="font-size:25px;font-weight:900;letter-spacing:4px;text-align:center;padding:12px;background:#111;color:#fff;border-radius:12px;user-select:all">
+      </div>
     </div>
-
   </div>
-
 </section>
 
 <section id="app" class="hidden">
 
 <header class="topbar">
-
-  <div class="brand">
-    ❄️ Snowy Hub
-  </div>
+  <div class="brand">❄️ Snowy Hub</div>
 
   <div class="profile">
-
-    <button
-      id="admin-btn"
+    <button id="admin-btn"
       class="admin-btn hidden"
-      type="button"
-    >
+      onclick="toggleAdmin()">
       ⚙️ Admin
     </button>
 
     <span id="user-label"></span>
 
     <div class="level-box">
-
-      <b id="level-text">
-        Niveau 1
-      </b>
-
-      <br>
-
-      <small id="time-text">
-        10:00
-      </small>
+      <b id="level-text">Niveau 1</b><br>
+      <small id="time-text">10:00</small>
 
       <div class="progress">
         <i id="progress"></i>
       </div>
-
     </div>
-
   </div>
-
 </header>
 
-<div id="admin-panel" class="admin-panel hidden">
+<!-- ADMIN PANEL -->
 
+<div id="admin-panel" class="admin-panel hidden">
   <div class="admin-inner">
 
-    <div class="admin-title">
-      ⚙️ Snowy Admin
-    </div>
+    <div class="admin-title">⚙️ Snowy Admin</div>
 
     <p class="admin-help">
-      Commandes temporaires : elles disparaissent après actualisation.
+      Commandes administratives temporaires.
     </p>
 
     <div class="admin-row">
-
-      <input
-        id="admin-command"
-        placeholder="/level 25   /bg #111827"
-      >
-
-      <button
-        id="admin-execute"
-        class="primary"
-        type="button"
-      >
+      <input id="admin-command"
+        placeholder="/level 50">
+      <button class="primary" onclick="runAdminCommand()">
         Exécuter
       </button>
-
     </div>
 
     <div class="admin-commands">
-
-      <span>/level 25</span>
+      <span>/level 50</span>
       <span>/bg #123456</span>
-      <span>/bg https://...</span>
+      <span>/text home h1 Bonjour</span>
       <span>/modifysnowyhubtext Texte</span>
       <span>/modifytitle Titre</span>
       <span>/modifydesc Texte</span>
-      <span>/text home h1 Texte</span>
       <span>/hide mm2</span>
       <span>/show mm2</span>
       <span>/resetvisuals</span>
-
     </div>
 
     <div id="admin-msg"></div>
-
   </div>
-
 </div>
+
+<!-- ACCUEIL -->
 
 <main id="home" class="home">
 
-  <div class="mm2-decor" aria-hidden="true">
-
+  <div class="mm2-decor">
     <span class="d d1">🔪</span>
     <span class="d d2">🔫</span>
     <span class="d d3">🔪</span>
@@ -1261,476 +843,169 @@ button,input{font:inherit}
     <span class="d d14">🔫</span>
     <span class="d d15">🔪</span>
     <span class="d d16">🔫</span>
-
   </div>
 
-  <h1>
-    Bienvenue sur Snowy Hub
-  </h1>
+  <h1>Bienvenue sur Snowy Hub</h1>
 
-  <p>
-    Choisis ton univers 👇
-  </p>
+  <p>Choisis ton univers 👇</p>
 
-  <div
-    style="
-      max-width:900px;
-      margin:-25px auto 35px;
-      text-align:center;
-      color:#667085;
-      line-height:1.7
-    "
-  >
-    Bienvenue sur <b>Snowy Hub</b> ❄️ —
-    découvre l'univers de Murder Mystery 2,
-    les rôles, le gameplay et l'histoire du jeu,
-    puis retrouve la communauté Snowy.
+  <div style="max-width:900px;margin:-25px auto 35px;text-align:center;color:#667085;line-height:1.7">
+    Bienvenue sur <b>Snowy Hub</b> ❄️ — découvre Murder Mystery 2,
+    Snowy Page et maintenant le nouveau Fun Panel 🎉
   </div>
 
   <div class="cards">
 
-    <article
-      class="category mm2"
-      onclick="showPage('mm2')"
-    >
-
-      <img
-        src="https://static.wikia.nocookie.net/murdermystery/images/3/30/MM2logo.png/revision/latest?cb=20141230012338"
-        alt="Murder Mystery 2"
-      >
-
+    <article class="category mm2" onclick="showPage('mm2')">
+      <img src="https://static.wikia.nocookie.net/murdermystery/images/3/30/MM2logo.png/revision/latest?cb=20141230012338">
       <div class="overlay">
-
-        <h2>
-          Murder Mystery 2
-        </h2>
-
-        <p>
-          Histoire, informations et codes
-        </p>
-
+        <h2>Murder Mystery 2</h2>
+        <p>Histoire, informations et codes</p>
       </div>
-
     </article>
 
-    <article
-      class="category snowy"
-      onclick="showPage('snowy')"
-    >
-
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/1247/1247131.png"
-        alt="Snowy Page"
-      >
-
+    <article class="category snowy" onclick="showPage('snowy')">
+      <img src="https://cdn-icons-png.flaticon.com/512/1247/1247131.png">
       <div class="overlay">
+        <h2>Snowy Page</h2>
+        <p>Réseaux sociaux & communauté</p>
+      </div>
+    </article>
 
-        <h2>
-          Snowy Page
-        </h2>
-
-        <p>
-          Réseaux sociaux & communauté
-        </p>
-
+    <article class="category snowy" onclick="showPage('fun')">
+      <div style="
+        height:100%;
+        min-height:420px;
+        display:grid;
+        place-items:center;
+        background:
+          radial-gradient(circle,#7c3aed,#111827);
+        font-size:120px;
+      ">
+        🤪
       </div>
 
+      <div class="overlay">
+        <h2>🎉 Fun Panel</h2>
+        <p>Débloqué au niveau 25</p>
+      </div>
     </article>
 
   </div>
-
 </main>
+
+<!-- MM2 -->
 
 <main id="mm2" class="page mm2-page hidden">
 
   <div class="page-head">
 
-    <button class="back" onclick="goHome()" type="button">
-      ← Accueil
-    </button>
+    <button class="back" onclick="goHome()">← Accueil</button>
 
-    <h1>
-      🔪 Murder Mystery 2
-    </h1>
+    <h1>🔪 Murder Mystery 2</h1>
 
     <p class="page-desc">
       Le hub communautaire Snowy dédié à MM2.
     </p>
 
-    <div class="mm2-nav">
-
-      <button
-        class="tab active"
-        aria-selected="true"
-        onclick="mm2Tab('history',this)"
-        type="button"
-      >
-        📖 Histoire
-      </button>
-
-      <button
-        class="tab"
-        aria-selected="false"
-        onclick="mm2Tab('roles',this)"
-        type="button"
-      >
-        🎭 Rôle & Gameplay
-      </button>
-
-      <button
-        class="tab"
-        aria-selected="false"
-        onclick="mm2Tab('promo',this)"
-        type="button"
-      >
-        🎟️ Code Promo
-      </button>
-
-    </div>
-
   </div>
 
   <div class="section-grid">
 
-    <section id="history" class="panel wide">
+    <section class="panel wide">
 
-      <h2>
-        📖 L'histoire de Murder Mystery 2
-      </h2>
+      <h2>📖 Histoire</h2>
 
-      <div class="mm2-history-box">
+      <p><b>Créateur :</b> Nikilis</p>
+      <p><b>Début du projet :</b> janvier 2014</p>
 
-        <div class="mm2-story-card">
-          <h3>🕵️ Les débuts</h3>
-          <p>
-            Murder Mystery est un concept Roblox imaginé autour
-            d'une idée simple : plusieurs joueurs se retrouvent
-            dans une même partie, mais certains cachent leur rôle.
-            Le but est de comprendre rapidement ce qui se passe
-            tout en essayant de survivre à la manche.
-          </p>
-        </div>
+      <p style="margin-top:12px">
+        Murder Mystery est une expérience Roblox développée par Nikilis.
+        Le concept reprend le principe du murder mystery.
+      </p>
 
-        <div class="mm2-story-card">
-          <h3>🔪 L'arrivée de Murder Mystery 2</h3>
-          <p>
-            <b>Murder Mystery 2</b>, développé par
-            <b>Nikilis</b>, reprend cette formule et construit
-            son propre univers autour des enquêtes, des armes,
-            des cartes et des différents rôles.
-          </p>
-
-          <p style="margin-top:10px">
-            Le jeu s'est progressivement imposé comme une expérience
-            très connue de Roblox grâce à ses parties rapides,
-            son aspect imprévisible et son système de collection.
-          </p>
-        </div>
-
-        <div class="mm2-story-card">
-          <h3>🎭 Un concept basé sur la déduction</h3>
-          <p>
-            Chaque manche transforme les joueurs en enquêteurs,
-            survivants ou responsables du danger. Les rôles ne sont
-            pas connus de tout le monde, ce qui crée une grande
-            partie du suspense.
-          </p>
-
-          <p style="margin-top:10px">
-            Observer les déplacements et les événements de la manche
-            devient donc essentiel.
-          </p>
-        </div>
-
-        <div class="mm2-story-card">
-          <h3>🗺️ L'importance des cartes</h3>
-          <p>
-            Les maps jouent un rôle important dans les parties.
-            Couloirs, pièces, passages et zones ouvertes changent
-            complètement la façon dont les joueurs se déplacent.
-          </p>
-
-          <p style="margin-top:10px">
-            Connaître une carte permet de mieux anticiper les
-            déplacements et de comprendre plus rapidement ce qui
-            s'est passé.
-          </p>
-        </div>
-
-        <div class="mm2-story-card">
-          <h3>🪙 Collection et progression</h3>
-          <p>
-            Au-delà des manches, MM2 possède également un aspect
-            collection. Les joueurs peuvent s'intéresser aux armes,
-            aux objets, aux skins et à leur inventaire.
-          </p>
-
-          <p style="margin-top:10px">
-            Cette dimension collection ajoute une autre façon de
-            jouer au jeu.
-          </p>
-        </div>
-
-      </div>
-
-      <h2 style="margin-top:28px">
-        🕰️ Quelques étapes importantes
-      </h2>
-
-      <div class="mm2-timeline">
-
-        <div class="mm2-timeline-item">
-          <div class="mm2-year">2014</div>
-          <p>
-            Les premières bases du concept Murder Mystery
-            apparaissent sur Roblox.
-          </p>
-        </div>
-
-        <div class="mm2-timeline-item">
-          <div class="mm2-year">2014+</div>
-          <p>
-            Murder Mystery 2 développe sa propre identité
-            avec ses cartes, ses rôles et son système d'objets.
-          </p>
-        </div>
-
-        <div class="mm2-timeline-item">
-          <div class="mm2-year">Au fil du temps</div>
-          <p>
-            La communauté grandit et le jeu développe un important
-            aspect autour de la collection et des échanges entre joueurs.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="mm2-highlight">
-        ⭐ <b>À retenir :</b>
-        <p style="margin-top:6px">
-          MM2 mélange enquête, stratégie, observation et
-          collection. Chaque manche peut être différente,
-          car les rôles et les décisions des joueurs changent
-          complètement le déroulement de la partie.
-        </p>
-      </div>
+      <p style="margin-top:12px">
+        Une importante refonte a donné naissance à
+        <b>Murder Mystery 2</b> à la fin de 2014.
+      </p>
 
     </section>
 
-    <section id="roles" class="panel wide hidden">
+    <section class="panel wide">
 
-      <h2>
-        🎭 Rôle & Gameplay
-      </h2>
+      <h2>🎭 Rôles & Gameplay</h2>
 
-      <p>
-        Chaque rôle possède un objectif différent. Pour gagner,
-        il faut adapter sa façon de jouer à la situation.
-      </p>
-
-      <div class="role-grid">
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px">
 
         <div class="role-card">
           <div class="role-icon">🔪</div>
           <h3>Murderer</h3>
-          <p>
-            Le Murderer doit éliminer les autres joueurs tout en
-            essayant de ne pas révéler son identité.
-          </p>
+          <p>Éliminer les autres joueurs tout en restant discret.</p>
         </div>
 
         <div class="role-card">
-          <div class="role-icon">🔫</div>
+          <div class="role-icon">🛡️</div>
           <h3>Sheriff</h3>
-          <p>
-            Le Sheriff possède une arme permettant de stopper
-            le Murderer. Il doit identifier correctement la menace.
-          </p>
+          <p>Identifier le Murderer et l'arrêter.</p>
         </div>
 
         <div class="role-card">
           <div class="role-icon">👤</div>
           <h3>Innocent</h3>
-          <p>
-            Les Innocents doivent principalement survivre et
-            comprendre qui est le Murderer.
-          </p>
-        </div>
-
-        <div class="role-card">
-          <div class="role-icon">⏱️</div>
-          <h3>Une manche</h3>
-          <p>
-            Une partie commence avec une attribution secrète des
-            rôles. Les joueurs se déplacent ensuite sur la carte
-            jusqu'à ce qu'un camp atteigne son objectif.
-          </p>
+          <p>Survivre et aider à identifier le danger.</p>
         </div>
 
         <div class="role-card">
           <div class="role-icon">🗺️</div>
           <h3>Les cartes</h3>
-          <p>
-            Chaque map possède sa propre disposition. Les endroits
-            ouverts et les couloirs influencent les déplacements.
-          </p>
+          <p>Chaque map possède ses propres zones.</p>
         </div>
-
-        <div class="role-card">
-          <div class="role-icon">🪙</div>
-          <h3>Pièces & progression</h3>
-          <p>
-            Les manches permettent également de récupérer des
-            pièces et de progresser dans l'expérience MM2.
-          </p>
-        </div>
-
-        <div class="role-card">
-          <div class="role-icon">👀</div>
-          <h3>Observation</h3>
-          <p>
-            Observer les joueurs est essentiel. Les déplacements
-            et comportements peuvent donner des indices.
-          </p>
-        </div>
-
-        <div class="role-card">
-          <div class="role-icon">🧠</div>
-          <h3>Déduction</h3>
-          <p>
-            Comparer plusieurs indices permet de prendre de
-            meilleures décisions plutôt que d'accuser au hasard.
-          </p>
-        </div>
-
-      </div>
-
-      <h2 class="mm2-strategy-title">
-        🏆 Comment mieux jouer ?
-      </h2>
-
-      <div class="mm2-tips">
-
-        <div class="mm2-tip">
-          <h3>🔪 Conseil Murderer</h3>
-          <p>
-            Évite d'attirer immédiatement l'attention sur toi
-            et observe les déplacements.
-          </p>
-        </div>
-
-        <div class="mm2-tip">
-          <h3>🔫 Conseil Sheriff</h3>
-          <p>
-            Prends ton temps avant de tirer. Un indice solide
-            vaut mieux qu'une décision précipitée.
-          </p>
-        </div>
-
-        <div class="mm2-tip">
-          <h3>👤 Conseil Innocent</h3>
-          <p>
-            Reste attentif aux événements et communique les
-            informations utiles aux autres.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="mm2-objective">
-
-        <h3>
-          🎯 Les objectifs principaux
-        </h3>
-
-        <ul>
-          <li>
-            🔪 <b>Murderer :</b>
-            éliminer les joueurs adverses.
-          </li>
-
-          <li>
-            🔫 <b>Sheriff :</b>
-            identifier et arrêter le Murderer.
-          </li>
-
-          <li>
-            👤 <b>Innocents :</b>
-            survivre et aider à identifier le Murderer.
-          </li>
-
-          <li>
-            🧠 <b>Tous les joueurs :</b>
-            utiliser les informations disponibles.
-          </li>
-        </ul>
 
       </div>
 
     </section>
 
-    <section id="promo" class="panel wide hidden">
+    <section class="panel wide">
 
-      <h2>
-        🎟️ Code Promo
-      </h2>
+      <h2>🎟️ Code Promo</h2>
 
       <p>
-        Cette section est débloquée au
-        <b>niveau 10</b>.
+        Débloqué au <b>niveau 10</b>.
       </p>
 
-      <div
-        id="promo-lock"
-        class="notice"
+      <div id="promo-lock"
         style="margin-top:14px"
-      >
-        🔒 Cette catégorie est verrouillée.
+        class="fun-status">
+        🔒 Catégorie verrouillée.
       </div>
 
       <div id="promo-content" class="hidden">
 
-        <div
-          class="promo-row"
-          style="margin-top:14px"
-        >
-
-          <input
-            id="promo-input"
-            placeholder="Entre ton code"
-          >
-
-          <button
-            class="primary"
-            type="button"
-            onclick="redeem()"
-          >
+        <div class="fun-row" style="margin-top:14px">
+          <input id="promo-input" placeholder="Entre ton code">
+          <button class="primary" onclick="redeem()">
             Valider
           </button>
-
         </div>
 
-        <div id="promo-result"></div>
+        <div id="promo-result" style="margin-top:12px"></div>
 
       </div>
 
     </section>
 
   </div>
-
 </main>
+
+<!-- SNOWY PAGE -->
 
 <main id="snowy" class="page snowy-page hidden">
 
   <div class="page-head">
 
-    <button class="back" onclick="goHome()" type="button">
-      ← Accueil
-    </button>
+    <button class="back" onclick="goHome()">← Accueil</button>
 
-    <h1>
-      ⚡ Snowy Page
-    </h1>
+    <h1>⚡ Snowy Page</h1>
 
     <p class="page-desc">
       Retrouve Snowy sur ses réseaux et rejoins la communauté.
@@ -1742,18 +1017,14 @@ button,input{font:inherit}
 
     <section class="panel wide">
 
-      <h2>
-        🌐 Réseaux Sociaux
-      </h2>
+      <h2>🌐 Réseaux Sociaux</h2>
 
       <div class="socials">
 
-        <a
-          class="social"
+        <a class="social"
           target="_blank"
           rel="noopener"
-          href="https://www.tiktok.com/@the_snowy22?is_from_webapp=1&sender_device=pc"
-        >
+          href="https://www.tiktok.com/@the_snowy22">
           🎵 TikTok : @the_snowy22
         </a>
 
@@ -1761,12 +1032,10 @@ button,input{font:inherit}
           💬 Discord : snowyrbx280
         </div>
 
-        <a
-          class="social"
+        <a class="social"
           target="_blank"
           rel="noopener"
-          href="https://discord.gg/SZfFeYYNa"
-        >
+          href="https://discord.gg/SZfFeYYNa">
           ⚡ Serveur Discord : Rejoindre le serveur
         </a>
 
@@ -1775,28 +1044,21 @@ button,input{font:inherit}
     </section>
 
   </div>
-
 </main>
+
+<!-- FUN PANEL -->
 
 <main id="fun" class="page fun-page hidden">
 
   <div class="page-head">
 
-    <button class="back" onclick="goHome()" type="button">
-      ← Accueil
-    </button>
+    <button class="back" onclick="goHome()">← Accueil</button>
 
-    <h1>
-      🎉 Fun Panel
-    </h1>
+    <h1>🎉 Fun Panel</h1>
 
     <p class="page-desc">
-      Fais apparaître un petit Noob et amuse-toi avec lui !
+      Un terrain de jeu pour faire apparaître et modifier ton Noob.
     </p>
-
-    <div class="fun-unlock">
-      🔓 Panel débloqué au niveau 25.
-    </div>
 
   </div>
 
@@ -1804,60 +1066,132 @@ button,input{font:inherit}
 
     <section class="panel wide">
 
-      <h2>
-        🤖 Commandes Fun
-      </h2>
-
-      <p>
-        Clique sur une commande pour appliquer l'effet au Noob.
-      </p>
-
-      <div class="fun-controls">
-
-        <button class="fun-btn" type="button" onclick="spawnNoob()">🤖 Faire apparaître</button>
-        <button class="fun-btn" type="button" onclick="funTiny()">🔬 Tiny</button>
-        <button class="fun-btn" type="button" onclick="funGiant()">🗿 Géant</button>
-        <button class="fun-btn" type="button" onclick="funDino()">🦖 Transformer en dinosaure</button>
-        <button class="fun-btn" type="button" onclick="funRainbow()">🌈 Arc-en-ciel</button>
-        <button class="fun-btn" type="button" onclick="funJail()">🔒 Mettre en prison</button>
-        <button class="fun-btn" type="button" onclick="funExplode()">💥 Explosion</button>
-        <button class="fun-btn" type="button" onclick="funSpin()">🌀 Faire tourner</button>
-        <button class="fun-btn" type="button" onclick="funJump()">🦘 Faire sauter</button>
-        <button class="fun-btn" type="button" onclick="funGhost()">👻 Fantôme</button>
-        <button class="fun-btn" type="button" onclick="funFire()">🔥 Mode feu</button>
-        <button class="fun-btn" type="button" onclick="funIce()">🧊 Mode glace</button>
-        <button class="fun-btn" type="button" onclick="funMetal()">🤖 Métallique</button>
-        <button class="fun-btn" type="button" onclick="funBlue()">🔵 Bleu</button>
-        <button class="fun-btn" type="button" onclick="funPink()">🩷 Rose</button>
-        <button class="fun-btn" type="button" onclick="resetNoob()">♻️ Reset</button>
-
+      <div id="fun-locked" class="fun-status hidden">
+        🔒 Le Fun Panel est débloqué au niveau 25.
       </div>
 
-      <div id="fun-status" class="fun-status">
-        🤖 Aucun Noob n'est apparu.
-      </div>
+      <div id="fun-content">
 
-      <div id="noob-stage" class="noob-stage grid">
+        <div class="fun-status">
+          🟢 Fun Panel disponible !
+          <br>
+          Ton Noob est uniquement une animation visuelle du site.
+        </div>
 
-        <div id="jail" class="jail"></div>
+        <div class="fun-row">
 
-        <div id="noob" class="noob hidden">
+          <input
+            id="fun-command"
+            placeholder="/spawnnoob">
 
-          <div class="noob-name">
-            Noob
+          <button
+            class="primary"
+            onclick="runFunCommand()">
+            Exécuter
+          </button>
+
+        </div>
+
+        <div class="fun-commands">
+
+          <span>/spawnnoob</span>
+          <span>/remove</span>
+          <span>/jail</span>
+          <span>/unjail</span>
+          <span>/tiny</span>
+          <span>/big</span>
+          <span>/normal</span>
+          <span>/explode</span>
+          <span>/red</span>
+          <span>/blue</span>
+          <span>/green</span>
+          <span>/purple</span>
+          <span>/rainbow</span>
+          <span>/spin</span>
+          <span>/jump</span>
+          <span>/dance</span>
+          <span>/freeze</span>
+          <span>/unfreeze</span>
+
+        </div>
+
+        <div id="fun-message" class="fun-message">
+          Aucun Noob présent. Utilise <b>/spawnnoob</b>.
+        </div>
+
+        <div class="fun-buttons">
+
+          <button onclick="runFun('/spawnnoob')">
+            👤 Faire apparaître
+          </button>
+
+          <button onclick="runFun('/jail')">
+            🔒 Jail
+          </button>
+
+          <button onclick="runFun('/tiny')">
+            🤏 Tiny
+          </button>
+
+          <button onclick="runFun('/big')">
+            🔎 Big
+          </button>
+
+          <button onclick="runFun('/normal')">
+            📏 Normal
+          </button>
+
+          <button onclick="runFun('/explode')">
+            💥 Explode
+          </button>
+
+          <button onclick="runFun('/rainbow')">
+            🌈 Rainbow
+          </button>
+
+          <button onclick="runFun('/spin')">
+            🌀 Spin
+          </button>
+
+          <button onclick="runFun('/jump')">
+            🦘 Jump
+          </button>
+
+          <button onclick="runFun('/dance')">
+            🕺 Dance
+          </button>
+
+          <button onclick="runFun('/freeze')">
+            🧊 Freeze
+          </button>
+
+          <button onclick="runFun('/remove')">
+            🗑️ Remove
+          </button>
+
+        </div>
+
+        <div id="noob-stage" class="noob-stage">
+
+          <div id="jail" class="jail hidden"></div>
+
+          <div id="noob" class="noob hidden">
+
+            <div class="noob-head"></div>
+
+            <div class="noob-arms">
+              <div class="noob-arm"></div>
+              <div class="noob-arm"></div>
+            </div>
+
+            <div class="noob-body"></div>
+
+            <div class="noob-legs">
+              <div class="noob-leg"></div>
+              <div class="noob-leg"></div>
+            </div>
+
           </div>
-
-          <div class="noob-head">
-            🙂
-          </div>
-
-          <div class="noob-body"></div>
-
-          <div class="noob-arm left"></div>
-          <div class="noob-arm right"></div>
-
-          <div class="noob-leg left"></div>
-          <div class="noob-leg right"></div>
 
         </div>
 
@@ -1866,10 +1200,11 @@ button,input{font:inherit}
     </section>
 
   </div>
-
 </main>
 
 </section>
+
+<!-- PROMO REWARD -->
 
 <main id="promo-win" class="page promo-win hidden">
 
@@ -1879,33 +1214,24 @@ button,input{font:inherit}
       🎉 ✨ 🥳 🎊 ⭐ 🎈 🎉 ✨ 🥳 🎊 ⭐ 🎈
     </div>
 
-    <div class="reward-icon">
-      🎁
-    </div>
+    <div class="reward-icon">🎁</div>
 
-    <h1>
-      Bravo !
-    </h1>
+    <h1>Bravo !</h1>
 
     <h2>
       Tu as remporté une récompense secrète !
     </h2>
 
     <p>
-      Envoie ce screen à
-      <b>snowyrbx280</b>
+      Envoie ce screen à <b>snowyrbx280</b>
       sur Discord pour récupérer ta récompense !
     </p>
 
     <div class="party">
-      🎈 🎊 ✨ 🎉 🥳 ⭐ 🎁 ⭐ 🥳 🎉 ✨
+      🎈 🎊 ✨ 🎉 🥳 ⭐ 🎁 ⭐ 🥳 🎉 ✨ 🎊
     </div>
 
-    <button
-      class="primary"
-      type="button"
-      onclick="closePromoWin()"
-    >
+    <button class="primary" onclick="closePromoWin()">
       ← Retour à Snowy Hub
     </button>
 
@@ -1913,15 +1239,15 @@ button,input{font:inherit}
 
 </main>
 
-<div id="snowyy-lock" class="hidden">
+<!-- DOUBLE VERIFICATION -->
 
-  <div class="snowyy-lock-card">
+<div id="security-lock" class="hidden">
 
-    <div style="font-size:55px">
-      🔐
-    </div>
+  <div class="security-card">
 
-    <h2>
+    <div style="font-size:55px">🔐</div>
+
+    <h2 id="security-title">
       Compte protégé
     </h2>
 
@@ -1931,21 +1257,18 @@ button,input{font:inherit}
     </p>
 
     <input
-      id="snowyy-password"
+      id="security-password"
       type="password"
       placeholder="Mot de passe"
-      autocomplete="off"
-    >
+      autocomplete="off">
 
     <button
       class="primary"
-      type="button"
-      onclick="unlockSnowyy()"
-    >
+      onclick="unlockSecurity()">
       🔓 Débloquer
     </button>
 
-    <div id="snowyy-error"></div>
+    <div id="security-error"></div>
 
   </div>
 
@@ -1954,715 +1277,431 @@ button,input{font:inherit}
 <script>
 
 /* =========================================================
-   CONFIGURATION
-========================================================= */
+   SNOWY HUB - SCRIPT UNIQUE
+   ========================================================= */
 
-const KEY = 'snowyHubUsers_v2';
+const KEY='snowyHubUsers_v2';
 
-let state = null;
-let timer = null;
+let state=null;
+let timer=null;
 
-const ADMIN_PASSWORD = 'adminaccount@243';
+/* Double vérification Snowyy + Eneroxx */
+const SECURITY_PASSWORD='adminaccount@243';
 
-const ADMIN_ACCOUNTS = [
-  'snowyy',
-  'eneroxx'
-];
+let securityUser='';
 
-
-/* =========================================================
-   STOCKAGE
-========================================================= */
-
-let memoryUsers = {};
+/* =========================
+   COMPTES
+========================= */
 
 function getUsers(){
-
   try{
-
-    if(
-      typeof window.localStorage !== 'undefined'
-    ){
-
-      const raw = window.localStorage.getItem(KEY);
-
-      if(raw){
-
-        const parsed = JSON.parse(raw);
-
-        if(
-          parsed &&
-          typeof parsed === 'object' &&
-          !Array.isArray(parsed)
-        ){
-
-          memoryUsers = parsed;
-
-          return parsed;
-
-        }
-
-      }
-
-    }
-
-  }catch(error){
-
-    console.warn(
-      'localStorage indisponible :',
-      error
+    return JSON.parse(
+      localStorage.getItem(KEY)||'{}'
     );
-
+  }catch(e){
+    return {};
   }
-
-  return memoryUsers;
-
 }
-
 
 function saveUsers(users){
+  localStorage.setItem(
+    KEY,
+    JSON.stringify(users)
+  );
+}
 
-  memoryUsers = users;
+/* =========================
+   CODE DE COMPTE
+========================= */
 
-  try{
+function makeCode(){
 
-    if(
-      typeof window.localStorage !== 'undefined'
-    ){
+  const chars=
+    'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
-      window.localStorage.setItem(
-        KEY,
-        JSON.stringify(users)
-      );
+  const bytes=
+    new Uint32Array(10);
 
-      return true;
+  crypto.getRandomValues(bytes);
 
-    }
+  let out='';
 
-  }catch(error){
-
-    console.warn(
-      'Impossible de sauvegarder dans localStorage :',
-      error
-    );
-
+  for(let i=0;i<10;i++){
+    out+=chars[
+      bytes[i]%chars.length
+    ];
   }
 
-  return false;
-
+  return out.slice(0,5)+'-'+out.slice(5);
 }
 
-
-/* =========================================================
-   ADMIN
-========================================================= */
-
-function isAdmin(){
-
-  return !!(
-    state &&
-    ADMIN_ACCOUNTS.includes(
-      String(state.name).toLowerCase()
-    )
-  );
-
-}
-
-
-/* =========================================================
+/* =========================
    SAUVEGARDE
-========================================================= */
+========================= */
 
 function persist(){
 
   if(!state)return;
 
-  try{
+  const now=Date.now();
 
-    const now = Date.now();
+  state.elapsed=Math.min(
+    state.elapsed+
+    (now-state.sessionStart),
+    (100-1)*600000+599999
+  );
 
-    state.elapsed = Math.min(
-      Number(state.elapsed || 0) +
-      (now - state.sessionStart),
-      (100 - 1) * 600000 + 599999
-    );
+  state.sessionStart=now;
 
-    state.sessionStart = now;
+  const users=getUsers();
 
-    const users = getUsers();
+  users[state.name]={
+    level:state.level,
+    elapsed:state.elapsed,
+    code:state.code,
+    claimedCodes:
+      Array.isArray(state.claimedCodes)
+      ? state.claimedCodes
+      : []
+  };
 
-    users[state.name] = {
+  saveUsers(users);
+}
 
-      level: state.level,
+/* =========================
+   INSCRIPTION / CONNEXION
+========================= */
 
-      elapsed: state.elapsed,
+function register(){
 
-      code: state.code,
+  const input=
+    document.getElementById('username');
 
-      claimedCodes:
-        Array.isArray(state.claimedCodes)
-          ? state.claimedCodes
-          : []
+  const name=
+    input.value.trim();
 
+  const error=
+    document.getElementById('login-error');
+
+  const box=
+    document.getElementById('code-box');
+
+  const button=
+    document.getElementById('register-btn');
+
+  error.textContent='';
+  error.style.color='#d92e20';
+
+  box.classList.add('hidden');
+
+  if(!name){
+
+    error.textContent=
+      'Entre un pseudo.';
+
+    return;
+  }
+
+  if(name.length<3){
+
+    error.textContent=
+      'Le pseudo doit contenir au moins 3 caractères.';
+
+    return;
+  }
+
+  const users=getUsers();
+
+  /*
+    Correction importante :
+    les pseudos sont recherchés sans tenir compte
+    des majuscules/minuscules.
+  */
+
+  let existingKey=null;
+
+  for(const key of Object.keys(users)){
+
+    if(key.toLowerCase()===name.toLowerCase()){
+
+      existingKey=key;
+      break;
+    }
+  }
+
+  /* NOUVEAU COMPTE */
+
+  if(!existingKey){
+
+    const code=makeCode();
+
+    state={
+      name:name,
+      level:1,
+      elapsed:0,
+      sessionStart:Date.now(),
+      code:code,
+      claimedCodes:[]
+    };
+
+    users[name]={
+      level:1,
+      elapsed:0,
+      code:code,
+      claimedCodes:[]
     };
 
     saveUsers(users);
 
-  }catch(error){
+    document.getElementById(
+      'generated-code'
+    ).textContent=code;
 
-    console.error(
-      'Erreur de sauvegarde :',
-      error
-    );
+    box.classList.remove('hidden');
 
-  }
+    error.style.color='#027a48';
 
-}
+    error.textContent=
+      'Compte créé ! Garde bien ton code.';
 
+    button.textContent='Continuer';
 
-/* =========================================================
-   GENERATION DU CODE
-========================================================= */
-
-function makeCode(){
-
-  const chars =
-    'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-
-  let out = '';
-
-  for(let i = 0; i < 10; i++){
-
-    out += chars[
-      Math.floor(
-        Math.random() * chars.length
-      )
-    ];
-
-  }
-
-  return (
-    out.slice(0,5) +
-    '-' +
-    out.slice(5)
-  );
-
-}
-
-
-/* =========================================================
-   INSCRIPTION / CONNEXION
-========================================================= */
-
-function register(){
-
-  const input =
-    document.getElementById('username');
-
-  const error =
-    document.getElementById('login-error');
-
-  const box =
-    document.getElementById('code-box');
-
-  const button =
-    document.getElementById('login-button');
-
-  try{
-
-    if(!input || !error || !box || !button){
-
-      throw new Error(
-        'Éléments de connexion introuvables.'
-      );
-
-    }
-
-    const name =
-      input.value.trim();
-
-    error.textContent = '';
-
-    error.style.color = '#d92d20';
-
-    box.classList.add('hidden');
-
-
-    /* PSEUDO VIDE */
-
-    if(!name){
-
-      error.textContent =
-        '❌ Entre un pseudo.';
-
-      input.focus();
-
-      return;
-
-    }
-
-
-    /* PSEUDO TROP COURT */
-
-    if(name.length < 3){
-
-      error.textContent =
-        '❌ Le pseudo doit contenir au moins 3 caractères.';
-
-      input.focus();
-
-      return;
-
-    }
-
-
-    /* PSEUDO TROP LONG */
-
-    if(name.length > 24){
-
-      error.textContent =
-        '❌ Le pseudo est trop long.';
-
-      input.focus();
-
-      return;
-
-    }
-
-
-    /* CARACTÈRES AUTORISÉS */
-
-    if(!/^[a-zA-Z0-9_ -]+$/.test(name)){
-
-      error.textContent =
-        '❌ Utilise uniquement des lettres, chiffres, espaces, tirets ou _.';
-
-      input.focus();
-
-      return;
-
-    }
-
-
-    const users = getUsers();
-
-
-    /* =====================================================
-       RECHERCHE D'UN COMPTE EXISTANT
-    ===================================================== */
-
-    const existingKey =
-      Object.keys(users).find(
-        key =>
-          String(key).toLowerCase() ===
-          name.toLowerCase()
-      );
-
-
-    /* =====================================================
-       NOUVEAU COMPTE
-    ===================================================== */
-
-    if(!existingKey){
-
-      const code = makeCode();
-
-      state = {
-
-        name: name,
-
-        level: 1,
-
-        elapsed: 0,
-
-        sessionStart: Date.now(),
-
-        code: code,
-
-        claimedCodes: []
-
-      };
-
-
-      users[name] = {
-
-        level: 1,
-
-        elapsed: 0,
-
-        code: code,
-
-        claimedCodes: []
-
-      };
-
-
-      const saved = saveUsers(users);
-
-
-      document.getElementById(
-        'generated-code'
-      ).textContent = code;
-
-
-      box.classList.remove('hidden');
-
-
-      if(saved){
-
-        error.style.color = '#027a48';
-
-        error.textContent =
-          '✅ Compte créé ! Garde bien ton code avant de continuer.';
-
-      }else{
-
-        error.style.color = '#b54708';
-
-        error.textContent =
-          '⚠️ Compte créé pour cette session. La sauvegarde locale est bloquée par ton navigateur.';
-
-      }
-
-
-      button.textContent =
-        'Continuer';
-
-
-      /*
-        IMPORTANT :
-        On remplace complètement l'action
-        du bouton après la création.
-      */
-
-      button.onclick = function(){
-
-        start();
-
-      };
-
-
-      return;
-
-    }
-
-
-    /* =====================================================
-       COMPTE EXISTANT
-    ===================================================== */
-
-    const saved =
-      users[existingKey];
-
-
-    if(
-      !saved ||
-      !saved.code
-    ){
-
-      error.textContent =
-        '❌ Ce compte est invalide ou corrompu.';
-
-      return;
-
-    }
-
-
-    const entered =
-      prompt(
-        '🔐 Ce pseudo existe déjà.\n\nEntre ton code de connexion :'
-      );
-
-
-    if(entered === null){
-
-      return;
-
-    }
-
-
-    if(
-      entered.trim().toUpperCase() !==
-      String(saved.code).trim().toUpperCase()
-    ){
-
-      error.style.color =
-        '#d92d20';
-
-      error.textContent =
-        '❌ Code incorrect. Impossible de se connecter à ce compte.';
-
-      return;
-
-    }
-
-
-    state = {
-
-      name: existingKey,
-
-      level:
-        Number(saved.level) || 1,
-
-      elapsed:
-        Number(saved.elapsed) || 0,
-
-      sessionStart:
-        Date.now(),
-
-      code:
-        saved.code,
-
-      claimedCodes:
-        Array.isArray(saved.claimedCodes)
-          ? saved.claimedCodes
-          : []
-
+    button.onclick=function(){
+      start();
     };
 
-
-    start();
-
-  }catch(errorObject){
-
-    console.error(
-      'ERREUR REGISTER :',
-      errorObject
-    );
-
-    error.style.color =
-      '#d92d20';
-
-    error.textContent =
-      '❌ Erreur : ' +
-      (
-        errorObject.message ||
-        String(errorObject)
-      );
-
+    return;
   }
 
-}
+  /* COMPTE EXISTANT */
 
+  const saved=
+    users[existingKey];
 
-/* =========================================================
-   DEMARRAGE
-========================================================= */
+  const entered=prompt(
+    'Ce pseudo existe déjà.\n\nEntre le code de connexion créé avec ce compte :'
+  );
 
-function start(){
+  if(entered===null)return;
 
-  if(!state){
+  if(
+    entered.trim().toUpperCase() !==
+    String(saved.code||'').toUpperCase()
+  ){
+
+    error.textContent=
+      'Code incorrect. Impossible de se connecter à ce compte.';
 
     return;
-
   }
+
+  state={
+    name:existingKey,
+    level:saved.level||1,
+    elapsed:saved.elapsed||0,
+    sessionStart:Date.now(),
+    code:saved.code,
+    claimedCodes:
+      Array.isArray(saved.claimedCodes)
+      ? saved.claimedCodes
+      : []
+  };
+
+  start();
+}
+
+/* =========================
+   DEMARRAGE
+========================= */
+
+function start(){
 
   document.getElementById(
     'login'
   ).classList.add('hidden');
 
-
   document.getElementById(
     'app'
   ).classList.remove('hidden');
 
-
   document.getElementById(
     'user-label'
-  ).textContent =
-    state.name;
+  ).textContent=state.name;
 
+  const isAdmin=
+    state.name.toLowerCase()==='snowyy' ||
+    state.name.toLowerCase()==='eneroxx';
 
   document.getElementById(
     'admin-btn'
   ).classList.toggle(
     'hidden',
-    !isAdmin()
+    !isAdmin
   );
-
 
   updateLevel();
 
-
   clearInterval(timer);
 
-
-  timer = setInterval(
+  timer=setInterval(
     updateLevel,
     1000
   );
 
+  /* Double vérification */
+  if(isAdmin){
 
-  if(isAdmin()){
+    securityUser=
+      state.name.toLowerCase();
 
-    setTimeout(
-      function(){
+    setTimeout(()=>{
 
-        const lock =
-          document.getElementById(
-            'snowyy-lock'
-          );
-
-        lock.classList.remove(
-          'hidden'
+      const lock=
+        document.getElementById(
+          'security-lock'
         );
 
-        document.body.style.overflow =
-          'hidden';
+      document.getElementById(
+        'security-title'
+      ).textContent=
+        'Compte '+state.name;
 
-        document.getElementById(
-          'snowyy-password'
-        ).focus();
+      lock.classList.remove('hidden');
 
-      },
-      400
-    );
+      document.body.style.overflow='hidden';
 
+      document.getElementById(
+        'security-password'
+      ).focus();
+
+    },400);
   }
-
 }
 
+/* =========================
+   DOUBLE MOT DE PASSE
+========================= */
 
-/* =========================================================
-   DOUBLE VERIFICATION ADMIN
-========================================================= */
+function unlockSecurity(){
 
-function unlockSnowyy(){
-
-  const password =
+  const password=
     document.getElementById(
-      'snowyy-password'
+      'security-password'
     ).value;
 
-  const error =
+  const error=
     document.getElementById(
-      'snowyy-error'
+      'security-error'
     );
 
-  if(password !== ADMIN_PASSWORD){
+  if(password!==SECURITY_PASSWORD){
 
-    error.textContent =
+    error.textContent=
       '❌ Mot de passe incorrect.';
 
     return;
-
   }
 
   document.getElementById(
-    'snowyy-lock'
-  ).classList.add(
-    'hidden'
-  );
+    'security-lock'
+  ).classList.add('hidden');
 
-  document.body.style.overflow =
-    '';
+  document.body.style.overflow='';
 
   document.getElementById(
-    'snowyy-password'
-  ).value = '';
+    'security-password'
+  ).value='';
 
-  error.textContent = '';
-
+  error.textContent='';
 }
 
+document.getElementById(
+  'security-password'
+).addEventListener(
+  'keydown',
+  function(e){
 
-/* =========================================================
+    if(e.key==='Enter'){
+      unlockSecurity();
+    }
+
+  }
+);
+
+/* =========================
    NIVEAUX
-========================================================= */
+========================= */
 
 function updateLevel(){
 
   if(!state)return;
 
-  const now = Date.now();
+  const now=Date.now();
 
-  const total =
-    Math.min(
-      state.elapsed +
-      (now - state.sessionStart),
-      (100 - 1) * 600000 + 599999
-    );
+  const total=Math.min(
+    state.elapsed+
+    (now-state.sessionStart),
+    (100-1)*600000+599999
+  );
 
+  const level=Math.min(
+    100,
+    1+Math.floor(total/600000)
+  );
 
-  const level =
-    Math.min(
-      100,
-      1 + Math.floor(total / 600000)
-    );
+  const remainder=
+    total%600000;
 
+  const left=
+    600000-remainder;
 
-  const remainder =
-    total % 600000;
+  const mins=
+    Math.floor(left/60000);
 
-
-  const left =
-    600000 - remainder;
-
-
-  const mins =
-    Math.floor(
-      left / 60000
-    );
-
-
-  const secs =
-    Math.floor(
-      left / 1000
-    ) % 60;
-
+  const secs=
+    Math.floor(left/1000)%60;
 
   document.getElementById(
     'level-text'
-  ).textContent =
-    'Niveau ' + level;
-
+  ).textContent=
+    'Niveau '+level;
 
   document.getElementById(
     'time-text'
-  ).textContent =
-    level >= 100
-      ? 'MAX'
-      : `${mins}:${String(secs).padStart(2,'0')}`;
-
+  ).textContent=
+    level>=100
+    ?'MAX'
+    :`${mins}:${String(secs).padStart(2,'0')}`;
 
   document.getElementById(
     'progress'
-  ).style.width =
+  ).style.width=
     (
-      level >= 100
-        ? 100
-        : remainder / 600000 * 100
-    ) + '%';
+      level>=100
+      ?100
+      :(remainder/600000*100)
+    )+'%';
 
+  if(level!==state.level){
 
-  if(level !== state.level){
-
-    state.level =
-      level;
+    state.level=level;
 
     persist();
-
   }
 
-
   unlockPromo(level);
-
+  unlockFun(level);
 }
-
-
-/* =========================================================
-   SAUVEGARDE AUTO
-========================================================= */
 
 window.addEventListener(
   'beforeunload',
   persist
 );
 
-
 document.addEventListener(
   'visibilitychange',
-  function(){
+  ()=>{
 
     if(document.hidden){
 
@@ -2670,142 +1709,23 @@ document.addEventListener(
 
     }else if(state){
 
-      state.sessionStart =
-        Date.now();
+      state.sessionStart=Date.now();
 
     }
 
   }
 );
 
-
 setInterval(
-  function(){
-
-    if(state){
-
-      persist();
-
-    }
-
+  ()=>{
+    if(state)persist();
   },
   5000
 );
 
-
-/* =========================================================
-   PROMO
-========================================================= */
-
-function unlockPromo(level){
-
-  const lock =
-    document.getElementById(
-      'promo-lock'
-    );
-
-  const content =
-    document.getElementById(
-      'promo-content'
-    );
-
-  if(!lock || !content)return;
-
-  lock.classList.toggle(
-    'hidden',
-    level >= 10
-  );
-
-  content.classList.toggle(
-    'hidden',
-    level < 10
-  );
-
-}
-
-
-function redeem(){
-
-  if(!state)return;
-
-  const input =
-    document.getElementById(
-      'promo-input'
-    );
-
-  const result =
-    document.getElementById(
-      'promo-result'
-    );
-
-  const code =
-    input.value
-      .trim()
-      .toUpperCase();
-
-
-  const valid = [
-
-    'STRAWBERRIES',
-
-    'LEMON',
-
-    'ORANGE'
-
-  ];
-
-
-  if(!valid.includes(code)){
-
-    result.className =
-      'notice';
-
-    result.textContent =
-      'Code invalide.';
-
-    return;
-
-  }
-
-
-  if(!Array.isArray(
-    state.claimedCodes
-  )){
-
-    state.claimedCodes = [];
-
-  }
-
-
-  if(
-    state.claimedCodes.includes(code)
-  ){
-
-    result.className =
-      'notice';
-
-    result.textContent =
-      '⚠️ Tu as déjà utilisé ce code sur ce compte.';
-
-    return;
-
-  }
-
-
-  state.claimedCodes.push(
-    code
-  );
-
-  persist();
-
-  showPromoWin();
-
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* =========================
+   PAGES
+========================= */
 
 function showPage(id){
 
@@ -2814,1521 +1734,1044 @@ function showPage(id){
     'mm2',
     'snowy',
     'fun'
-  ].forEach(
-    function(x){
+  ].forEach(x=>{
 
-      const element =
-        document.getElementById(x);
+    const el=
+      document.getElementById(x);
 
-      if(element){
-
-        element.classList.add(
-          'hidden'
-        );
-
-      }
-
+    if(el){
+      el.classList.add('hidden');
     }
-  );
 
+  });
 
-  const target =
-    document.getElementById(id);
+  document.getElementById(
+    id
+  ).classList.remove('hidden');
 
-
-  if(!target)return;
-
-
-  target.classList.remove(
-    'hidden'
-  );
-
-
-  if(id === 'mm2'){
-
-    const historyBtn =
-      document.querySelector(
-        '.mm2-nav .tab'
-      );
-
-    mm2Tab(
-      'history',
-      historyBtn
-    );
-
-  }
-
-
-  window.scrollTo(
-    0,
-    0
-  );
-
+  window.scrollTo(0,0);
 }
-
 
 function goHome(){
-
-  showPage(
-    'home'
-  );
-
+  showPage('home');
 }
 
+/* =========================
+   PROMO
+========================= */
 
-/* =========================================================
-   ONGLETS MM2
-========================================================= */
+function unlockPromo(level){
 
-function mm2Tab(id,btn){
+  document.getElementById(
+    'promo-lock'
+  ).classList.toggle(
+    'hidden',
+    level>=10
+  );
 
-  const tabs = [
+  document.getElementById(
+    'promo-content'
+  ).classList.toggle(
+    'hidden',
+    level<10
+  );
+}
 
-    'history',
+function redeem(){
 
-    'roles',
+  if(state.level<10)return;
 
-    'promo'
+  const code=
+    document.getElementById(
+      'promo-input'
+    ).value
+    .trim()
+    .toUpperCase();
 
+  const valid=[
+    'STRAWBERRIES',
+    'LEMON',
+    'ORANGE'
   ];
 
-
-  tabs.forEach(
-    function(x){
-
-      const section =
-        document.getElementById(x);
-
-      if(section){
-
-        section.classList.toggle(
-          'hidden',
-          x !== id
-        );
-
-      }
-
-    }
-  );
-
-
-  document.querySelectorAll(
-    '.mm2-nav .tab'
-  ).forEach(
-    function(x){
-
-      x.classList.remove(
-        'active'
-      );
-
-      x.setAttribute(
-        'aria-selected',
-        'false'
-      );
-
-    }
-  );
-
-
-  if(btn){
-
-    btn.classList.add(
-      'active'
+  const result=
+    document.getElementById(
+      'promo-result'
     );
 
-    btn.setAttribute(
-      'aria-selected',
-      'true'
-    );
+  if(!valid.includes(code)){
 
+    result.className='fun-message';
+
+    result.textContent=
+      '❌ Code invalide.';
+
+    return;
   }
 
-
-  if(state){
-
-    unlockPromo(
-      state.level
-    );
-
+  if(!Array.isArray(state.claimedCodes)){
+    state.claimedCodes=[];
   }
 
+  if(
+    state.claimedCodes.includes(code)
+  ){
+
+    result.className='fun-message';
+
+    result.textContent=
+      '⚠️ Tu as déjà utilisé ce code sur ce compte.';
+
+    return;
+  }
+
+  state.claimedCodes.push(code);
+
+  persist();
+
+  showPromoWin();
 }
-
-
-/* =========================================================
-   PROMO WIN
-========================================================= */
 
 function showPromoWin(){
 
   document.querySelectorAll(
     'main.page, main.home'
   ).forEach(
-    function(el){
-
-      el.classList.add(
-        'hidden'
-      );
-
-    }
+    el=>el.classList.add('hidden')
   );
-
 
   document.getElementById(
     'promo-win'
-  ).classList.remove(
-    'hidden'
-  );
+  ).classList.remove('hidden');
 
+  document.body.style.overflow='hidden';
 
-  document.body.style.overflow =
-    'hidden';
-
-
-  window.scrollTo(
-    0,
-    0
-  );
-
+  window.scrollTo(0,0);
 }
-
 
 function closePromoWin(){
 
   document.getElementById(
     'promo-win'
-  ).classList.add(
-    'hidden'
-  );
+  ).classList.add('hidden');
 
-  document.body.style.overflow =
-    '';
+  document.body.style.overflow='';
 
   goHome();
-
 }
 
-
-/* =========================================================
+/* =========================
    FUN PANEL
-========================================================= */
+========================= */
 
-function funAllowed(){
+function unlockFun(level){
 
-  if(!state){
-
-    return false;
-
-  }
-
-
-  if(state.level < 25){
-
-    alert(
-      '🔒 Le Fun Panel est disponible à partir du niveau 25.'
-    );
-
-    return false;
-
-  }
-
-
-  return true;
-
-}
-
-
-function funStatus(text){
-
-  const element =
+  const locked=
     document.getElementById(
-      'fun-status'
+      'fun-locked'
     );
 
-  if(element){
+  const content=
+    document.getElementById(
+      'fun-content'
+    );
 
-    element.textContent =
-      text;
+  if(level>=25){
+
+    locked.classList.add('hidden');
+    content.classList.remove('hidden');
+
+  }else{
+
+    locked.classList.remove('hidden');
+    content.classList.add('hidden');
 
   }
-
 }
 
+/* =========================
+   NOOB
+========================= */
 
-function noob(){
-
-  return document.getElementById(
-    'noob'
-  );
-
+function getNoob(){
+  return document.getElementById('noob');
 }
 
+function noobExists(){
+  return !getNoob().classList.contains('hidden');
+}
+
+function funMessage(text){
+
+  document.getElementById(
+    'fun-message'
+  ).textContent=text;
+}
 
 function spawnNoob(){
 
-  if(!funAllowed())return;
+  const noob=getNoob();
 
-  const n =
-    noob();
-
-  n.className =
-    'noob';
-
-  n.classList.remove(
-    'hidden'
+  noob.classList.remove(
+    'hidden',
+    'tiny',
+    'big',
+    'spin',
+    'jump',
+    'dance'
   );
 
+  noob.style.filter='none';
 
   document.getElementById(
     'jail'
-  ).classList.remove(
-    'active'
+  ).classList.add('hidden');
+
+  funMessage(
+    '👤 Un Noob Roblox est apparu !'
   );
-
-
-  funStatus(
-    '🤖 Un Noob est apparu !'
-  );
-
 }
 
+function removeNoob(){
 
-function resetNoob(){
-
-  if(!funAllowed())return;
-
-  const n =
-    noob();
-
-
-  n.className =
-    'noob hidden';
-
+  getNoob().classList.add('hidden');
 
   document.getElementById(
     'jail'
-  ).classList.remove(
-    'active'
+  ).classList.add('hidden');
+
+  funMessage(
+    '🗑️ Le Noob a disparu.'
   );
-
-
-  n.style = '';
-
-
-  n.querySelector(
-    '.noob-head'
-  ).style.background = '';
-
-
-  n.querySelector(
-    '.noob-body'
-  ).style.background = '';
-
-
-  n.querySelectorAll(
-    '.noob-leg'
-  ).forEach(
-    function(x){
-
-      x.style.background = '';
-
-    }
-  );
-
-
-  funStatus(
-    '♻️ Le Noob est revenu à zéro.'
-  );
-
 }
 
+function jailNoob(){
 
-function funTiny(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'tiny'
-  );
-
-  funStatus(
-    '🔬 Le Noob est devenu minuscule !'
-  );
-
-}
-
-
-function funGiant(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'giant'
-  );
-
-  funStatus(
-    '🗿 Le Noob est maintenant GÉANT !'
-  );
-
-}
-
-
-function funDino(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'dino'
-  );
-
-  funStatus(
-    '🦖 Le Noob vient de devenir un DINOSAURE !'
-  );
-
-}
-
-
-function funRainbow(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'rainbow'
-  );
-
-  funStatus(
-    '🌈 Mode arc-en-ciel activé !'
-  );
-
-}
-
-
-function funJail(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
+  if(!noobExists()){
+    spawnNoob();
+  }
 
   document.getElementById(
     'jail'
-  ).classList.add(
-    'active'
-  );
+  ).classList.remove('hidden');
 
-  funStatus(
-    '🔒 Le Noob est en prison !'
+  funMessage(
+    '🔒 Le Noob est maintenant en jail !'
   );
-
 }
 
+function unjailNoob(){
 
-function funExplode(){
+  document.getElementById(
+    'jail'
+  ).classList.add('hidden');
 
-  if(!funAllowed())return;
+  funMessage(
+    '🔓 Le Noob est sorti de jail !'
+  );
+}
 
-  spawnNoob();
+function tinyNoob(){
 
-  const n =
-    noob();
+  if(!noobExists()){
+    spawnNoob();
+  }
 
+  const noob=getNoob();
 
-  n.animate(
-    [
-      {
-        transform:'scale(1)',
-        opacity:1
-      },
-      {
-        transform:'scale(1.7)',
-        opacity:.8
-      },
-      {
-        transform:'scale(0)',
-        opacity:0
-      }
-    ],
-    {
-      duration:650,
-      easing:'ease-out'
-    }
+  noob.classList.remove(
+    'big',
+    'spin',
+    'jump',
+    'dance'
   );
 
+  noob.classList.add('tiny');
 
-  funStatus(
-    '💥 BOUM ! Le Noob a explosé !'
+  funMessage(
+    '🤏 Le Noob est devenu minuscule !'
+  );
+}
+
+function bigNoob(){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  noob.classList.remove(
+    'tiny',
+    'spin',
+    'jump',
+    'dance'
   );
 
+  noob.classList.add('big');
+
+  funMessage(
+    '🔎 Le Noob est devenu énorme !'
+  );
+}
+
+function normalNoob(){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  noob.classList.remove(
+    'tiny',
+    'big',
+    'spin',
+    'jump',
+    'dance'
+  );
+
+  noob.style.filter='none';
+
+  funMessage(
+    '📏 Le Noob est revenu à sa taille normale.'
+  );
+}
+
+function explodeNoob(){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  const stage=
+    document.getElementById(
+      'noob-stage'
+    );
+
+  const rect=
+    noob.getBoundingClientRect();
+
+  const stageRect=
+    stage.getBoundingClientRect();
+
+  const explosion=
+    document.createElement('div');
+
+  explosion.className='explosion';
+
+  explosion.textContent='💥';
+
+  explosion.style.left=
+    (
+      rect.left-
+      stageRect.left+
+      rect.width/2-
+      50
+    )+'px';
+
+  explosion.style.top=
+    (
+      rect.top-
+      stageRect.top+
+      rect.height/2-
+      50
+    )+'px';
+
+  stage.appendChild(explosion);
+
+  noob.classList.add('hidden');
+
+  document.getElementById(
+    'jail'
+  ).classList.add('hidden');
+
+  funMessage(
+    '💥 BOOM ! Le Noob a explosé en animation !'
+  );
 
   setTimeout(
-    function(){
+    ()=>explosion.remove(),
+    900
+  );
+}
 
-      n.className =
-        'noob hidden';
+/* =========================
+   COULEURS
+========================= */
 
-      document.getElementById(
-        'jail'
-      ).classList.remove(
-        'active'
+function colorNoob(color,name){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  const body=
+    noob.querySelector(
+      '.noob-body'
+    );
+
+  body.style.background=color;
+
+  noob.style.filter='none';
+
+  funMessage(
+    '🎨 Couleur du Noob : '+name
+  );
+}
+
+function rainbowNoob(){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  noob.style.filter=
+    'hue-rotate(0deg)';
+
+  noob.dataset.rainbow='true';
+
+  if(!noob.dataset.rainbowTimer){
+
+    noob.dataset.rainbowTimer=
+      setInterval(()=>{
+
+        if(
+          noob.classList.contains('hidden')
+        )return;
+
+        const current=
+          Number(
+            noob.dataset.hue||0
+          );
+
+        const next=
+          (current+15)%360;
+
+        noob.dataset.hue=next;
+
+        noob.style.filter=
+          'hue-rotate('+next+'deg)';
+
+      },100);
+  }
+
+  funMessage(
+    '🌈 Le Noob est maintenant Rainbow !'
+  );
+}
+
+/* =========================
+   FUN ANIMATIONS
+========================= */
+
+function spinNoob(){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  noob.classList.remove(
+    'tiny',
+    'big',
+    'jump',
+    'dance'
+  );
+
+  noob.classList.toggle('spin');
+
+  funMessage(
+    '🌀 Le Noob tourne !'
+  );
+}
+
+function jumpNoob(){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  noob.classList.remove(
+    'tiny',
+    'big',
+    'spin',
+    'dance'
+  );
+
+  noob.classList.toggle('jump');
+
+  funMessage(
+    '🦘 Le Noob saute !'
+  );
+}
+
+function danceNoob(){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  noob.classList.remove(
+    'tiny',
+    'big',
+    'spin',
+    'jump'
+  );
+
+  noob.classList.toggle('dance');
+
+  funMessage(
+    '🕺 Le Noob danse !'
+  );
+}
+
+function freezeNoob(){
+
+  if(!noobExists()){
+    spawnNoob();
+  }
+
+  const noob=getNoob();
+
+  noob.style.animationPlayState=
+    'paused';
+
+  funMessage(
+    '🧊 Le Noob est gelé !'
+  );
+}
+
+function unfreezeNoob(){
+
+  const noob=getNoob();
+
+  noob.style.animationPlayState=
+    'running';
+
+  funMessage(
+    '🔥 Le Noob peut à nouveau bouger !'
+  );
+}
+
+/* =========================
+   COMMANDES FUN
+========================= */
+
+function runFunCommand(){
+
+  const input=
+    document.getElementById(
+      'fun-command'
+    );
+
+  const command=
+    input.value.trim();
+
+  if(!command)return;
+
+  runFun(command);
+
+  input.value='';
+}
+
+function runFun(command){
+
+  if(!state)return;
+
+  if(state.level<25){
+
+    funMessage(
+      '🔒 Le Fun Panel est disponible au niveau 25.'
+    );
+
+    return;
+  }
+
+  const cmd=
+    command.trim().toLowerCase();
+
+  switch(cmd){
+
+    case '/spawnnoob':
+    case '/spawn':
+    case '/noob':
+      spawnNoob();
+      break;
+
+    case '/remove':
+    case '/removenoob':
+      removeNoob();
+      break;
+
+    case '/jail':
+    case '/jailnoob':
+      jailNoob();
+      break;
+
+    case '/unjail':
+      unjailNoob();
+      break;
+
+    case '/tiny':
+    case '/tinynoob':
+      tinyNoob();
+      break;
+
+    case '/big':
+    case '/bignoob':
+      bigNoob();
+      break;
+
+    case '/normal':
+      normalNoob();
+      break;
+
+    case '/explode':
+    case '/explode_noob':
+      explodeNoob();
+      break;
+
+    case '/red':
+      colorNoob('#ef4444','Rouge');
+      break;
+
+    case '/blue':
+      colorNoob('#147cff','Bleu');
+      break;
+
+    case '/green':
+      colorNoob('#22c55e','Vert');
+      break;
+
+    case '/purple':
+      colorNoob('#a855f7','Violet');
+      break;
+
+    case '/yellow':
+      colorNoob('#facc15','Jaune');
+      break;
+
+    case '/orange':
+      colorNoob('#f97316','Orange');
+      break;
+
+    case '/pink':
+      colorNoob('#ec4899','Rose');
+      break;
+
+    case '/rainbow':
+      rainbowNoob();
+      break;
+
+    case '/spin':
+      spinNoob();
+      break;
+
+    case '/jump':
+      jumpNoob();
+      break;
+
+    case '/dance':
+      danceNoob();
+      break;
+
+    case '/freeze':
+      freezeNoob();
+      break;
+
+    case '/unfreeze':
+      unfreezeNoob();
+      break;
+
+    default:
+
+      funMessage(
+        '❌ Commande inconnue. Essaie /spawnnoob, /jail, /tiny, /explode, /rainbow, /spin, /jump ou /dance.'
       );
 
-    },
-    700
-  );
-
+  }
 }
 
+/* =========================
+   ADMIN
+   Snowyy + Eneroxx
+========================= */
 
-function funSpin(){
+function isAdmin(){
 
-  if(!funAllowed())return;
+  if(!state)return false;
 
-  spawnNoob();
+  const name=
+    state.name.toLowerCase();
 
-  noob().classList.add(
-    'spin'
+  return(
+    name==='snowyy' ||
+    name==='eneroxx'
   );
-
-  funStatus(
-    '🌀 Le Noob tourne sans s’arrêter !'
-  );
-
 }
-
-
-function funJump(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'jumpy'
-  );
-
-  funStatus(
-    '🦘 Le Noob saute partout !'
-  );
-
-}
-
-
-function funGhost(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'ghost'
-  );
-
-  funStatus(
-    '👻 Le Noob est devenu un fantôme !'
-  );
-
-}
-
-
-function funFire(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'fire'
-  );
-
-  funStatus(
-    '🔥 Le Noob est en feu !'
-  );
-
-}
-
-
-function funIce(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'ice'
-  );
-
-  funStatus(
-    '🧊 Le Noob est congelé !'
-  );
-
-}
-
-
-function funMetal(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-  noob().classList.add(
-    'metal'
-  );
-
-  funStatus(
-    '🤖 Le Noob est devenu métallique !'
-  );
-
-}
-
-
-function funBlue(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-
-  noob().querySelector(
-    '.noob-body'
-  ).style.background =
-    '#06b6d4';
-
-
-  noob().querySelectorAll(
-    '.noob-leg'
-  ).forEach(
-    function(x){
-
-      x.style.background =
-        '#2563eb';
-
-    }
-  );
-
-
-  funStatus(
-    '🔵 Le Noob est devenu bleu !'
-  );
-
-}
-
-
-function funPink(){
-
-  if(!funAllowed())return;
-
-  spawnNoob();
-
-
-  noob().querySelector(
-    '.noob-body'
-  ).style.background =
-    '#ec4899';
-
-
-  noob().querySelectorAll(
-    '.noob-leg'
-  ).forEach(
-    function(x){
-
-      x.style.background =
-        '#f472b6';
-
-    }
-  );
-
-
-  funStatus(
-    '🩷 Le Noob est devenu rose !'
-  );
-
-}
-
-
-/* =========================================================
-   ADMIN PANEL
-========================================================= */
 
 function toggleAdmin(){
 
   if(!isAdmin())return;
 
-
   document.getElementById(
     'admin-panel'
-  ).classList.toggle(
-    'hidden'
-  );
-
+  ).classList.toggle('hidden');
 }
-
 
 function runAdminCommand(){
 
-  const input =
+  const input=
     document.getElementById(
       'admin-command'
     );
 
-  const msg =
+  const msg=
     document.getElementById(
       'admin-msg'
     );
 
-  const raw =
+  const raw=
     input.value.trim();
 
-
-  msg.className = '';
-
-  msg.textContent = '';
-
+  msg.className='';
+  msg.textContent='';
 
   if(!isAdmin()){
 
-    msg.className =
-      'admin-error';
-
-    msg.textContent =
+    msg.className='admin-error';
+    msg.textContent=
       'Accès refusé.';
 
     return;
-
   }
-
 
   if(!raw.startsWith('/')){
 
-    msg.className =
-      'admin-error';
-
-    msg.textContent =
+    msg.className='admin-error';
+    msg.textContent=
       'Une commande doit commencer par /.';
 
     return;
-
   }
 
-
-  const parts =
-    raw.match(
-      /^\/(\S+)\s*(.*)$/
-    );
-
+  const parts=
+    raw.match(/^\/(\S+)\s*(.*)$/);
 
   if(!parts)return;
 
-
-  const cmd =
+  const cmd=
     parts[1].toLowerCase();
 
-
-  const args =
+  const args=
     parts[2].trim();
 
+  if(cmd==='level'){
 
-  if(cmd === 'level'){
-
-    const n =
-      Number(args);
-
+    const n=Number(args);
 
     if(
       !Number.isInteger(n) ||
-      n < 1 ||
-      n > 100
+      n<1 ||
+      n>100
     ){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
+      msg.textContent=
         'Niveau invalide (1 à 100).';
 
       return;
-
     }
 
+    state.level=n;
 
-    state.level =
-      n;
+    state.elapsed=
+      (n-1)*600000;
 
-    state.elapsed =
-      (n - 1) * 600000;
-
-    state.sessionStart =
+    state.sessionStart=
       Date.now();
-
 
     updateLevel();
 
+    msg.className='admin-ok';
 
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '✅ Niveau réglé sur ' +
-      n +
-      '.';
+    msg.textContent=
+      '✅ Niveau réglé sur '+n+'.';
 
   }
 
-  else if(cmd === 'bg'){
+  else if(cmd==='bg'){
 
     if(!args){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
-        'Utilise /bg #123456 ou /bg https://...';
+      msg.textContent=
+        'Utilise /bg #123456';
 
       return;
-
     }
 
-
-    const home =
+    const home=
       document.getElementById(
         'home'
       );
-
 
     if(
       /^https?:\/\//i.test(args)
     ){
 
-      home.style.backgroundImage =
-        `url("${args.replace(/"/g,'')}"), linear-gradient(#fff,#fff)`;
-
-      home.style.backgroundColor =
-        '#fff';
+      home.style.backgroundImage=
+        `url("${args.replace(/"/g,'')}")`;
 
     }else{
 
-      home.style.backgroundImage =
+      home.style.backgroundImage=
         'none';
 
-      home.style.background =
+      home.style.background=
         args;
-
     }
 
+    msg.className='admin-ok';
 
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
+    msg.textContent=
       '✅ Fond modifié temporairement.';
-
   }
 
-  else if(cmd === 'text'){
+  else if(cmd==='text'){
 
-    const m =
+    const m=
       args.match(
         /^(home|mm2|snowy|fun)\s+(h1|p)\s+([\s\S]+)$/i
       );
 
-
     if(!m){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
+      msg.textContent=
         'Exemple : /text home h1 Bonjour';
 
       return;
-
     }
 
-
-    const page =
+    const page=
       document.getElementById(
         m[1].toLowerCase()
       );
 
-
-    const el =
+    const el=
       page.querySelector(
         m[2].toLowerCase()
       );
 
-
     if(!el){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
+      msg.textContent=
         'Élément introuvable.';
 
       return;
-
     }
 
+    el.textContent=m[3];
 
-    el.textContent =
-      m[3];
+    msg.className='admin-ok';
 
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
+    msg.textContent=
       '✅ Texte modifié temporairement.';
-
   }
 
-  else if(cmd === 'modifysnowyhubtext'){
+  else if(cmd==='modifysnowyhubtext'){
 
     if(!args){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
+      msg.textContent=
         'Utilise /modifysnowyhubtext Ton texte';
 
       return;
-
     }
-
 
     document.querySelector(
       '#home h1'
-    ).textContent =
-      args;
+    ).textContent=args;
 
+    msg.className='admin-ok';
 
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
+    msg.textContent=
       '✅ Texte Snowy Hub modifié.';
-
   }
 
-  else if(cmd === 'modifytitle'){
+  else if(cmd==='modifytitle'){
 
     if(!args){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
+      msg.textContent=
         'Utilise /modifytitle Ton titre';
 
       return;
-
     }
 
-
-    const page =
+    const page=
       document.querySelector(
         '.page:not(.hidden) h1'
       );
 
-
     if(!page){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
+      msg.textContent=
         'Aucune page ouverte.';
 
       return;
-
     }
 
+    page.textContent=args;
 
-    page.textContent =
-      args;
+    msg.className='admin-ok';
 
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '✅ Titre modifié temporairement.';
-
+    msg.textContent=
+      '✅ Titre modifié.';
   }
 
-  else if(cmd === 'modifydesc'){
+  else if(cmd==='modifydesc'){
 
     if(!args){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
+      msg.textContent=
         'Utilise /modifydesc Ton texte';
 
       return;
-
     }
 
-
-    const page =
+    const page=
       document.querySelector(
         '.page:not(.hidden) .page-desc'
       );
 
-
     if(!page){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
+      msg.textContent=
         'Aucune page ouverte.';
 
       return;
-
     }
 
+    page.textContent=args;
 
-    page.textContent =
-      args;
+    msg.className='admin-ok';
 
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '✅ Description modifiée temporairement.';
-
+    msg.textContent=
+      '✅ Description modifiée.';
   }
 
   else if(
-    cmd === 'hide' ||
-    cmd === 'show'
+    cmd==='hide' ||
+    cmd==='show'
   ){
 
-    const target =
-      document.getElementById(
-        args
-      );
-
+    const target=
+      document.getElementById(args);
 
     if(!target){
 
-      msg.className =
-        'admin-error';
+      msg.className='admin-error';
 
-      msg.textContent =
-        'Élément introuvable : ' +
-        args;
+      msg.textContent=
+        'Élément introuvable : '+args;
 
       return;
-
     }
-
 
     target.classList.toggle(
       'hidden',
-      cmd === 'hide'
+      cmd==='hide'
     );
 
+    msg.className='admin-ok';
 
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '✅ Élément ' +
+    msg.textContent=
+      '✅ Élément '+
       (
-        cmd === 'hide'
-          ? 'masqué.'
-          : 'affiché.'
+        cmd==='hide'
+        ?'masqué.'
+        :'affiché.'
       );
-
   }
 
-  else if(cmd === 'fun'){
-
-    if(state.level < 25){
-
-      msg.className =
-        'admin-error';
-
-      msg.textContent =
-        '🔒 Fun Panel disponible au niveau 25.';
-
-      return;
-
-    }
-
-
-    showPage(
-      'fun'
-    );
-
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🎉 Fun Panel ouvert.';
-
-  }
-
-  else if(cmd === 'spawn'){
-
-    if(state.level < 25){
-
-      msg.className =
-        'admin-error';
-
-      msg.textContent =
-        '🔒 Fun Panel disponible au niveau 25.';
-
-      return;
-
-    }
-
-
-    showPage(
-      'fun'
-    );
-
-
-    setTimeout(
-      spawnNoob,
-      50
-    );
-
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🤖 Noob apparu.';
-
-  }
-
-  else if(cmd === 'dino'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funDino,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🦖 Mode dinosaure activé.';
-
-  }
-
-  else if(cmd === 'tiny'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funTiny,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🔬 Mode Tiny activé.';
-
-  }
-
-  else if(cmd === 'giant'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funGiant,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🗿 Mode Géant activé.';
-
-  }
-
-  else if(cmd === 'rainbow'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funRainbow,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🌈 Mode Rainbow activé.';
-
-  }
-
-  else if(cmd === 'jail'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funJail,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🔒 Noob mis en prison.';
-
-  }
-
-  else if(cmd === 'explode'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funExplode,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '💥 Explosion lancée.';
-
-  }
-
-  else if(cmd === 'spin'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funSpin,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🌀 Noob en rotation.';
-
-  }
-
-  else if(cmd === 'jump'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funJump,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🦘 Noob en mode saut.';
-
-  }
-
-  else if(cmd === 'ghost'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funGhost,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '👻 Mode fantôme activé.';
-
-  }
-
-  else if(cmd === 'fire'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funFire,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🔥 Mode feu activé.';
-
-  }
-
-  else if(cmd === 'ice'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      funIce,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '🧊 Mode glace activé.';
-
-  }
-
-  else if(cmd === 'resetnoob'){
-
-    showPage(
-      'fun'
-    );
-
-    setTimeout(
-      resetNoob,
-      50
-    );
-
-    msg.className =
-      'admin-ok';
-
-    msg.textContent =
-      '♻️ Noob réinitialisé.';
-
-  }
-
-  else if(cmd === 'resetvisuals'){
+  else if(cmd==='resetvisuals'){
 
     location.reload();
-
-    return;
 
   }
 
   else{
 
-    msg.className =
-      'admin-error';
+    msg.className='admin-error';
 
-    msg.textContent =
+    msg.textContent=
       'Commande inconnue.';
-
   }
 
-
-  input.value = '';
-
+  input.value='';
 }
 
+/* =========================
+   TOUCHES ENTREE
+========================= */
 
-/* =========================================================
-   INITIALISATION DES BOUTONS
-========================================================= */
-
-document.addEventListener(
-  'DOMContentLoaded',
-  function(){
-
-    /* BOUTON D'INSCRIPTION */
-
-    const loginButton =
-      document.getElementById(
-        'login-button'
-      );
-
-
-    if(loginButton){
-
-      loginButton.addEventListener(
-        'click',
-        function(){
-
-          register();
-
-        }
-      );
-
+document.getElementById(
+  'admin-command'
+).addEventListener(
+  'keydown',
+  e=>{
+    if(e.key==='Enter'){
+      runAdminCommand();
     }
-
-
-    /* TOUCHE ENTRÉE */
-
-    const username =
-      document.getElementById(
-        'username'
-      );
-
-
-    if(username){
-
-      username.addEventListener(
-        'keydown',
-        function(e){
-
-          if(e.key === 'Enter'){
-
-            register();
-
-          }
-
-        }
-      );
-
-    }
-
-
-    /* BOUTON ADMIN */
-
-    const adminButton =
-      document.getElementById(
-        'admin-btn'
-      );
-
-
-    if(adminButton){
-
-      adminButton.addEventListener(
-        'click',
-        toggleAdmin
-      );
-
-    }
-
-
-    /* BOUTON EXECUTER ADMIN */
-
-    const adminExecute =
-      document.getElementById(
-        'admin-execute'
-      );
-
-
-    if(adminExecute){
-
-      adminExecute.addEventListener(
-        'click',
-        runAdminCommand
-      );
-
-    }
-
-
-    /* MOT DE PASSE ADMIN */
-
-    const adminPassword =
-      document.getElementById(
-        'snowyy-password'
-      );
-
-
-    if(adminPassword){
-
-      adminPassword.addEventListener(
-        'keydown',
-        function(e){
-
-          if(e.key === 'Enter'){
-
-            unlockSnowyy();
-
-          }
-
-        }
-      );
-
-    }
-
   }
 );
 
-
-/* =========================================================
-   DETECTION D'ERREUR JAVASCRIPT
-========================================================= */
-
-window.addEventListener(
-  'error',
-  function(event){
-
-    console.error(
-      'Erreur JavaScript détectée :',
-      event.error || event.message
-    );
-
-    const error =
-      document.getElementById(
-        'login-error'
-      );
-
-    /*
-      On affiche uniquement l'erreur
-      si on est encore sur l'écran de connexion.
-    */
-
-    if(
-      error &&
-      !document.getElementById(
-        'login'
-      ).classList.contains('hidden')
-    ){
-
-      error.style.color =
-        '#d92d20';
-
-      error.textContent =
-        '❌ Erreur JavaScript : ' +
-        event.message;
-
+document.getElementById(
+  'fun-command'
+).addEventListener(
+  'keydown',
+  e=>{
+    if(e.key==='Enter'){
+      runFunCommand();
     }
-
   }
 );
+
+/* =========================
+   INITIALISATION
+========================= */
+
+unlockPromo(1);
+unlockFun(1);
 
 </script>
 
