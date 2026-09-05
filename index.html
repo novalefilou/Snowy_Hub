@@ -494,7 +494,7 @@ button,input{font:inherit}
   color:#ffd7de
 }
 
-/* 🔐 VERROU SNOWYY — ajouté uniquement pour snowyy */
+/* 🔐 AJOUT UNIQUEMENT POUR LA DOUBLE VÉRIFICATION SNOWYY */
 #snowyy-lock{
   position:fixed;
   inset:0;
@@ -502,56 +502,41 @@ button,input{font:inherit}
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px;
-  background:#000000c9;
+  background:rgba(0,0,0,.84);
   backdrop-filter:blur(12px);
+  padding:20px;
 }
-
+#snowyy-lock.hidden{
+  display:none!important;
+}
 .snowyy-lock-card{
   width:min(430px,100%);
-  padding:35px;
-  border-radius:26px;
   background:#fff;
   color:#111;
+  border-radius:28px;
+  padding:32px;
   text-align:center;
   box-shadow:0 30px 100px #0008;
 }
-
-.snowyy-lock-icon{
-  font-size:55px;
-  margin-bottom:10px;
-}
-
 .snowyy-lock-card h2{
   font-size:28px;
   margin-bottom:8px;
 }
-
 .snowyy-lock-card p{
   color:#667085;
   margin-bottom:20px;
 }
-
 .snowyy-lock-card input{
   width:100%;
-  padding:14px 15px;
-  border:1px solid #d8dce5;
-  border-radius:13px;
+  padding:15px;
+  border:1px solid #d0d5dd;
+  border-radius:14px;
   outline:none;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
-
-.snowyy-unlock{
+.snowyy-lock-card button{
   width:100%;
-  border:0;
-  border-radius:13px;
-  padding:14px;
-  background:#111;
-  color:#fff;
-  font-weight:800;
-  cursor:pointer;
 }
-
 #snowyy-error{
   min-height:22px;
   margin-top:10px;
@@ -904,12 +889,11 @@ button,input{font:inherit}
   </div>
 </main>
 
-<!-- 🔐 MODAL SNOWYY -->
+<!-- 🔐 AJOUT UNIQUEMENT : DOUBLE VÉRIFICATION SNOWYY -->
 <div id="snowyy-lock" class="hidden">
-
   <div class="snowyy-lock-card">
 
-    <div class="snowyy-lock-icon">🔐</div>
+    <div style="font-size:55px">🔐</div>
 
     <h2>Compte Snowyy</h2>
 
@@ -925,17 +909,13 @@ button,input{font:inherit}
       autocomplete="off"
     >
 
-    <button
-      class="snowyy-unlock"
-      onclick="unlockSnowyy()"
-    >
+    <button class="primary" onclick="unlockSnowyy()">
       🔓 Débloquer
     </button>
 
     <div id="snowyy-error"></div>
 
   </div>
-
 </div>
 
 <script>
@@ -943,8 +923,8 @@ button,input{font:inherit}
 const KEY='snowyHubUsers_v2';
 let state=null,timer=null;
 
-/* 🔐 Mot de passe uniquement pour le compte snowyy */
-const SNOWYY_PASSWORD='Celia@tom2';
+/* 🔐 AJOUT UNIQUEMENT */
+const SNOWYY_PASSWORD='snowy@hub-283';
 
 function getUsers(){
   try{
@@ -1115,13 +1095,10 @@ function start(){
 
   clearInterval(timer);
 
-  timer=setInterval(updateLevel,1000);
+  timer=setInterval(updateLevel,1000)
 
-  /*
-    🔐 IMPORTANT :
-    Le verrou n'apparaît qu'après la connexion
-    à snowyy, une fois l'accueil affiché.
-  */
+  /* 🔐 AJOUT UNIQUEMENT :
+     le verrou apparaît après l'affichage de l'accueil */
   if(state.name.toLowerCase()==='snowyy'){
 
     requestAnimationFrame(()=>{
@@ -1143,7 +1120,7 @@ function start(){
   }
 }
 
-/* 🔐 Vérification du mot de passe Snowyy */
+/* 🔐 AJOUT UNIQUEMENT : vérification Snowyy */
 function unlockSnowyy(){
 
   const password=document.getElementById('snowyy-password').value;
@@ -1166,7 +1143,7 @@ function unlockSnowyy(){
   error.textContent='';
 }
 
-/* Entrée = valider le mot de passe */
+/* 🔐 AJOUT UNIQUEMENT : touche Entrée */
 document.getElementById('snowyy-password').addEventListener(
   'keydown',
   function(e){
