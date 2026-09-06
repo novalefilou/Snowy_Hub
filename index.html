@@ -392,6 +392,27 @@ body.vip-theme-volcano .topbar{background:#220b05dd;border-color:#9a3412;color:#
 body.vip-theme-volcano .home{background:radial-gradient(circle at 20% 22%,#f97316 0,transparent 27%),radial-gradient(circle at 82% 78%,#dc2626 0,transparent 28%),#160806;color:#fff}
 body.vip-theme-volcano .home>p{color:#ffe0d2}
 
+/* VIP RAINBOW */
+@keyframes snowyVipRainbow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+body.vip-theme-rainbow .topbar{
+  background:linear-gradient(90deg,#ff3b30,#ff9500,#ffd60a,#34c759,#00c7be,#0a84ff,#5856d6,#af52de,#ff2d55);
+  background-size:300% 300%;
+  animation:snowyVipRainbow 9s ease infinite;
+  border-color:#ffffff66;
+  color:#fff;
+}
+body.vip-theme-rainbow .home{
+  background:linear-gradient(135deg,#fff0f0,#fff9e6,#edfff2,#e9fbff,#f1edff,#fff0fa);
+  background-size:300% 300%;
+  animation:snowyVipRainbow 14s ease infinite;
+  color:#16121f;
+}
+body.vip-theme-rainbow .home>p{color:#6b4aa3}
+
 .vip-banner{
   margin-bottom:20px;
   padding:18px 20px;
@@ -1550,6 +1571,7 @@ body.vip-no-decor .home:after{
             <button onclick="applyVipTheme('ocean')">🌊 Ocean</button>
             <button onclick="applyVipTheme('sakura')">🌸 Sakura</button>
             <button onclick="applyVipTheme('volcano')">🌋 Volcano</button>
+            <button onclick="applyVipTheme('rainbow')">🌈 Rainbow</button>
             <button onclick="resetVipTheme()">↩️ Thème normal</button>
           </div>
           <div id="vip-theme-status" class="vip-status">🎨 Aucun thème VIP sélectionné.</div>
@@ -2501,7 +2523,8 @@ function applyVipTheme(theme){
     'vip-theme-ruby',
     'vip-theme-ocean',
     'vip-theme-sakura',
-    'vip-theme-volcano'
+    'vip-theme-volcano',
+    'vip-theme-rainbow'
   );
   document.body.classList.add('vip-theme-'+theme);
   localStorage.setItem('snowyVipTheme',theme);
@@ -2515,7 +2538,8 @@ function applyVipTheme(theme){
     ruby:'❤️ Thème Ruby activé.',
     ocean:'🌊 Thème Ocean activé.',
     sakura:'🌸 Thème Sakura activé.',
-    volcano:'🌋 Thème Volcano activé.'
+    volcano:'🌋 Thème Volcano activé.',
+    rainbow:'🌈 Thème Rainbow activé.'
   };
 
   const status=document.getElementById('vip-theme-status');
@@ -2532,7 +2556,8 @@ function resetVipTheme(){
     'vip-theme-ruby',
     'vip-theme-ocean',
     'vip-theme-sakura',
-    'vip-theme-volcano'
+    'vip-theme-volcano',
+    'vip-theme-rainbow'
   );
   localStorage.removeItem('snowyVipTheme');
   const status=document.getElementById('vip-theme-status');
@@ -2559,7 +2584,7 @@ function scrollToTopVip(){
 
 function loadVipPreferences(){
   const theme=localStorage.getItem('snowyVipTheme');
-  if(theme && ['ice','midnight','aurora','cosmic','neon','ruby','ocean','sakura','volcano'].includes(theme)){
+  if(theme && ['ice','midnight','aurora','cosmic','neon','ruby','ocean','sakura','volcano','rainbow'].includes(theme)){
     document.body.classList.add('vip-theme-'+theme);
   }
 
