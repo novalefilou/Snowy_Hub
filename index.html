@@ -277,8 +277,22 @@ button,input{font:inherit}
 .vip-page .panel p,
 .vip-page .vip-banner,
 .vip-page .vip-perk p,
-.vip-page .vip-status{
-  color:#5b4a73;
+.vip-page .vip-status,
+.vip-page .vip-code,
+.vip-page .vip-code small,
+.vip-page .vip-code strong{
+  background:linear-gradient(90deg,#7c3aed,#d97706,#a855f7);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
+  font-weight:800;
+}
+.vip-page .vip-banner b,
+.vip-page .vip-perk p b{
+  background:linear-gradient(90deg,#7c3aed,#d97706,#a855f7);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
 }
 .vip-page .tab-btn{
   color:#6d28d9;
@@ -337,6 +351,17 @@ button,input{font:inherit}
   color:#fff;
 }
 .vip-theme-ruby .home>p{color:#ffd0d6}
+/* VIP THEMES SUPPLÉMENTAIRES */
+body.vip-theme-ocean .topbar{background:#061a2ddd;border-color:#0e7490;color:#fff}
+body.vip-theme-ocean .home{background:radial-gradient(circle at 20% 20%,#0ea5e9 0,transparent 28%),radial-gradient(circle at 80% 75%,#06b6d4 0,transparent 30%),#03111f;color:#fff}
+body.vip-theme-ocean .home>p{color:#bff6ff}
+body.vip-theme-sakura .topbar{background:#2b1024dd;border-color:#9d174d;color:#fff}
+body.vip-theme-sakura .home{background:radial-gradient(circle at 18% 18%,#f472b6 0,transparent 27%),radial-gradient(circle at 82% 78%,#c084fc 0,transparent 28%),#160914;color:#fff}
+body.vip-theme-sakura .home>p{color:#ffd6ea}
+body.vip-theme-volcano .topbar{background:#220b05dd;border-color:#9a3412;color:#fff}
+body.vip-theme-volcano .home{background:radial-gradient(circle at 20% 22%,#f97316 0,transparent 27%),radial-gradient(circle at 82% 78%,#dc2626 0,transparent 28%),#160806;color:#fff}
+body.vip-theme-volcano .home>p{color:#ffe0d2}
+
 .vip-banner{
   margin-bottom:20px;
   padding:18px 20px;
@@ -1441,6 +1466,8 @@ body.vip-no-decor .home:after{
       <button class="tab-btn" onclick="openVipTab('confort',this)">⚡ Confort</button>
       <button class="tab-btn" onclick="openVipTab('profil',this)">🪪 Profil VIP</button>
       <button class="tab-btn" onclick="openVipTab('surprise',this)">🎁 Surprise VIP</button>
+      <button class="tab-btn" onclick="openVipTab('avantages',this)">⭐ Avantages VIP</button>
+      <button class="tab-btn" onclick="openVipTab('objectifs',this)">🎯 Objectifs VIP</button>
     </div>
 
     <div id="vip-codes-tab" class="tab-content active">
@@ -1484,6 +1511,9 @@ body.vip-no-decor .home:after{
             <button onclick="applyVipTheme('cosmic')">🌠 Cosmic</button>
             <button onclick="applyVipTheme('neon')">💠 Neon</button>
             <button onclick="applyVipTheme('ruby')">❤️ Ruby</button>
+            <button onclick="applyVipTheme('ocean')">🌊 Ocean</button>
+            <button onclick="applyVipTheme('sakura')">🌸 Sakura</button>
+            <button onclick="applyVipTheme('volcano')">🌋 Volcano</button>
             <button onclick="resetVipTheme()">↩️ Thème normal</button>
           </div>
           <div id="vip-theme-status" class="vip-status">🎨 Aucun thème VIP sélectionné.</div>
@@ -1529,6 +1559,36 @@ body.vip-no-decor .home:after{
             <div class="vip-perk"><h3>💎 Zone spéciale</h3><p>Des petits bonus visuels et fonctionnalités bonus peuvent être ajoutés ici.</p></div>
           </div>
           <div class="vip-status">🎉 Ton statut VIP te donne accès à cette zone secrète.</div>
+        </section>
+      </div>
+    </div>
+
+    <div id="vip-avantages-tab" class="tab-content">
+      <div class="section-grid">
+        <section class="panel wide">
+          <h2>⭐ Avantages VIP</h2>
+          <p>Une sélection de petits avantages pratiques pour rendre Snowy Hub encore plus agréable.</p>
+          <div class="vip-perk-grid">
+            <div class="vip-perk"><h3>⚡ Accès rapide</h3><p>Retrouve facilement tes espaces VIP depuis cette page.</p></div>
+            <div class="vip-perk"><h3>🎨 Personnalisation</h3><p>Change l'ambiance de Snowy Hub grâce aux thèmes réservés aux VIP.</p></div>
+            <div class="vip-perk"><h3>🔔 Avant-premières</h3><p>Consulte les nouveautés que Snowy Hub réserve d'abord à ses membres VIP.</p></div>
+            <div class="vip-perk"><h3>💎 Badge exclusif</h3><p>Ton statut VIP est visible directement sur ton profil.</p></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div id="vip-objectifs-tab" class="tab-content">
+      <div class="section-grid">
+        <section class="panel wide">
+          <h2>🎯 Objectifs VIP</h2>
+          <p>Le VIP commence au niveau 15, mais tu peux continuer à progresser pour atteindre les prochains paliers de Snowy Hub.</p>
+          <div class="vip-perk-grid">
+            <div class="vip-perk"><h3>🏆 Niveau 15</h3><p>Déblocage du VIP et de ses avantages.</p></div>
+            <div class="vip-perk"><h3>🚀 Niveau 25</h3><p>Déblocage du Fun Panel en plus du VIP.</p></div>
+            <div class="vip-perk"><h3>💯 Niveau 100</h3><p>Atteins le niveau maximum et affiche fièrement ton progrès.</p></div>
+          </div>
+          <div class="vip-status">🌟 Continue de faire progresser ton compte pour débloquer toujours plus de contenu.</div>
         </section>
       </div>
     </div>
@@ -2398,7 +2458,10 @@ function applyVipTheme(theme){
     'vip-theme-aurora',
     'vip-theme-cosmic',
     'vip-theme-neon',
-    'vip-theme-ruby'
+    'vip-theme-ruby',
+    'vip-theme-ocean',
+    'vip-theme-sakura',
+    'vip-theme-volcano'
   );
   document.body.classList.add('vip-theme-'+theme);
   localStorage.setItem('snowyVipTheme',theme);
@@ -2409,7 +2472,10 @@ function applyVipTheme(theme){
     aurora:'🌌 Thème Aurora activé.',
     cosmic:'🌠 Thème Cosmic activé.',
     neon:'💠 Thème Neon activé.',
-    ruby:'❤️ Thème Ruby activé.'
+    ruby:'❤️ Thème Ruby activé.',
+    ocean:'🌊 Thème Ocean activé.',
+    sakura:'🌸 Thème Sakura activé.',
+    volcano:'🌋 Thème Volcano activé.'
   };
 
   const status=document.getElementById('vip-theme-status');
@@ -2450,7 +2516,7 @@ function scrollToTopVip(){
 
 function loadVipPreferences(){
   const theme=localStorage.getItem('snowyVipTheme');
-  if(theme && ['ice','midnight','aurora','cosmic','neon','ruby'].includes(theme)){
+  if(theme && ['ice','midnight','aurora','cosmic','neon','ruby','ocean','sakura','volcano'].includes(theme)){
     document.body.classList.add('vip-theme-'+theme);
   }
 
