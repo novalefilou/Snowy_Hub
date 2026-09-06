@@ -194,8 +194,9 @@ button,input{font:inherit}
   max-width:1100px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:28px;
+  align-items:stretch;
 }
 .category{
   position:relative;
@@ -224,7 +225,22 @@ button,input{font:inherit}
   background:radial-gradient(circle,#24242d,#050508);
 }
 .category.snowy{background:#071a45}
-.category.roblox{background:#071426}
+.category.roblox{
+  background:#071426;
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  min-height:420px;
+}
+.category.roblox .roblox-card-art{
+  width:100%;
+  height:100%;
+  min-height:420px;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle at 50% 35%,#1687ff,#111827 70%);
+  font-size:125px;
+}
 .category.snowy img{
   object-fit:contain;
   padding:70px;
@@ -942,10 +958,8 @@ button,input{font:inherit}
       </div>
     </article>
 
-    <article class="category roblox" onclick="showPage('roblox')">
-      <div style="height:100%;min-height:420px;display:grid;place-items:center;background:radial-gradient(circle,#1687ff,#111827);font-size:125px;">
-        🟥
-      </div>
+    <article class="category roblox" onclick="showPage('roblox')" style="display:block !important;">
+      <div class="roblox-card-art">🎮</div>
       <div class="overlay">
         <h2>🎮 Roblox</h2>
         <p>Univers, création, astuces & communauté</p>
