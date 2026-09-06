@@ -241,11 +241,133 @@ button,input{font:inherit}
   background:radial-gradient(circle at 50% 35%,#1687ff,#111827 70%);
   font-size:125px;
 }
+.category.vip{background:#130c24}
+.category.vip .vip-card-art{
+  width:100%;
+  height:100%;
+  min-height:420px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 35%,#ffd76a,#8b5cf6 38%,#130c24 75%);
+  font-size:125px;
+}
+.vip-page{
+  min-height:calc(100vh - 72px);
+  padding:55px 6%;
+  background:
+    radial-gradient(circle at 15% 10%,#fff3c4,transparent 30%),
+    radial-gradient(circle at 85% 15%,#eadcff,transparent 32%),
+    #faf9ff;
+}
+.vip-page .page-head h1{
+  background:linear-gradient(90deg,#a855f7,#f59e0b);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.vip-banner{
+  margin-bottom:20px;
+  padding:18px 20px;
+  border:1px solid #eadcf8;
+  border-radius:18px;
+  background:#ffffffcc;
+  box-shadow:0 15px 40px #7c3aed12;
+  font-weight:800;
+}
+.vip-codes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+.vip-code{
+  padding:18px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#1a1030,#2a1647);
+  color:#fff;
+  border:1px solid #9b6cff55;
+  box-shadow:0 12px 30px #7c3aed18;
+}
+.vip-code strong{
+  display:block;
+  font-size:22px;
+  letter-spacing:1px;
+}
+.vip-code small{
+  display:block;
+  margin-top:7px;
+  color:#d7c8ef;
+}
+.vip-perk-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+.vip-perk{
+  padding:20px;
+  border-radius:18px;
+  border:1px solid #ece8f4;
+  background:#fff;
+  box-shadow:0 12px 30px #0000000a;
+}
+.vip-perk h3{margin-bottom:7px}
+.vip-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+.vip-actions button{
+  border:0;
+  border-radius:12px;
+  padding:12px 15px;
+  background:#efe8ff;
+  color:#5b21b6;
+  font-weight:800;
+  cursor:pointer;
+}
+.vip-actions button:hover{transform:translateY(-2px)}
+.vip-status{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:12px;
+  background:#f6f2ff;
+  color:#5b21b6;
+  font-weight:700;
+}
+.vip-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin-left:7px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#f59e0b,#a855f7);
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  vertical-align:middle;
+}
+body.vip-theme-ice .topbar{background:#eef8ffdd;border-color:#d7efff}
+body.vip-theme-ice .home{background:#f6fbff}
+body.vip-theme-midnight .topbar{background:#0e1020ee;border-color:#2b2f49;color:#fff}
+body.vip-theme-midnight .home{background:#0b0e19;color:#f8fafc}
+body.vip-theme-midnight .home>p,.home.vip-midnight>p{color:#b9c1d3}
+body.vip-theme-aurora .topbar{background:#effff9dd;border-color:#d2f4e7}
+body.vip-theme-aurora .home{background:linear-gradient(135deg,#fbfffd,#f7f5ff)}
 .category.snowy img{
   object-fit:contain;
   padding:70px;
   background:radial-gradient(circle,#2364d5,#071a45);
 }
+body.vip-no-decor .mm2-decor,
+body.vip-no-decor .home:before,
+body.vip-no-decor .home:after{
+  display:none!important;
+}
+
 .overlay{
   position:absolute;
   inset:auto 0 0;
@@ -985,6 +1107,14 @@ button,input{font:inherit}
       </div>
     </article>
 
+    <article class="category vip" onclick="showPage('vip')">
+      <div class="vip-card-art">👑</div>
+      <div class="overlay">
+        <h2>👑 VIP</h2>
+        <p>Débloqué au niveau 15 • avantages exclusifs</p>
+      </div>
+    </article>
+
   </div>
 </main>
 
@@ -1211,6 +1341,92 @@ button,input{font:inherit}
       <section class="panel"><h2>🤝 Jouer ensemble</h2><p>Les expériences multijoueur permettent de jouer avec ses amis et de découvrir de nouvelles communautés.</p></section>
       <section class="panel"><h2>🎥 Créateurs de contenu</h2><p>De nombreux créateurs partagent des vidéos, astuces et découvertes autour de Roblox.</p></section>
       <section class="panel wide"><h2>❄️ Snowy Hub x Roblox</h2><p>Cette section pourra évoluer avec des guides, des événements et des nouveautés Roblox ajoutés directement sur Snowy Hub.</p></section>
+    </div>
+  </div>
+
+</main>
+
+<!-- VIP -->
+
+<main id="vip" class="page vip-page hidden">
+
+  <div class="page-head">
+    <button class="back" onclick="goHome()">← Accueil</button>
+    <h1>👑 VIP Snowy Hub</h1>
+    <p class="page-desc">Des petits avantages réservés aux membres qui atteignent le niveau 15.</p>
+  </div>
+
+  <div id="vip-locked" class="vip-banner">
+    🔒 Le VIP est verrouillé. Atteins le <b>niveau 15</b> pour débloquer tous les avantages.
+  </div>
+
+  <div id="vip-content" class="hidden">
+    <div class="vip-banner">✨ Bienvenue dans le VIP <span id="vip-name"></span> — tu as maintenant accès aux bonus Snowy Hub.</div>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="openVipTab('codes',this)">🎟️ Code Promo</button>
+      <button class="tab-btn" onclick="openVipTab('badge',this)">👑 Badge VIP</button>
+      <button class="tab-btn" onclick="openVipTab('themes',this)">🎨 Thèmes VIP</button>
+      <button class="tab-btn" onclick="openVipTab('confort',this)">⚡ Confort</button>
+    </div>
+
+    <div id="vip-codes-tab" class="tab-content active">
+      <div class="section-grid">
+        <section class="panel wide">
+          <h2>🎟️ Les codes en avance</h2>
+          <p>Les membres VIP peuvent retrouver ici les codes promo annoncés en avant-première.</p>
+          <div class="vip-codes">
+            <div class="vip-code"><strong>STRAWBERRIES</strong><small>🍓 Code promo</small></div>
+            <div class="vip-code"><strong>LEMON</strong><small>🍋 Code promo</small></div>
+            <div class="vip-code"><strong>ORANGE</strong><small>🍊 Code promo</small></div>
+          </div>
+          <div class="vip-status">💎 Les prochains codes pourront être ajoutés ici avant leur publication générale.</div>
+        </section>
+      </div>
+    </div>
+
+    <div id="vip-badge-tab" class="tab-content">
+      <div class="section-grid">
+        <section class="panel wide">
+          <h2>👑 Ton badge VIP</h2>
+          <p>À partir du niveau 15, ton profil affiche automatiquement un badge VIP dans la barre du site.</p>
+          <div class="vip-perk-grid">
+            <div class="vip-perk"><h3>👑 Badge doré</h3><p>Un petit badge VIP accompagne ton pseudo quand tu es connecté.</p></div>
+            <div class="vip-perk"><h3>✨ Statut exclusif</h3><p>Le site reconnaît ton statut VIP automatiquement à chaque connexion.</p></div>
+            <div class="vip-perk"><h3>🏆 Niveau 15+</h3><p>Le statut reste disponible tant que ton compte conserve son niveau.</p></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div id="vip-themes-tab" class="tab-content">
+      <div class="section-grid">
+        <section class="panel wide">
+          <h2>🎨 Thèmes VIP</h2>
+          <p>Personnalise l'ambiance de l'accueil avec des thèmes réservés au VIP.</p>
+          <div class="vip-actions">
+            <button onclick="applyVipTheme('ice')">❄️ Ice</button>
+            <button onclick="applyVipTheme('midnight')">🌙 Midnight</button>
+            <button onclick="applyVipTheme('aurora')">🌌 Aurora</button>
+            <button onclick="resetVipTheme()">↩️ Thème normal</button>
+          </div>
+          <div id="vip-theme-status" class="vip-status">🎨 Aucun thème VIP sélectionné.</div>
+        </section>
+      </div>
+    </div>
+
+    <div id="vip-confort-tab" class="tab-content">
+      <div class="section-grid">
+        <section class="panel wide">
+          <h2>⚡ Confort VIP</h2>
+          <p>Quelques petits réglages pour rendre Snowy Hub plus agréable à utiliser.</p>
+          <div class="vip-actions">
+            <button onclick="toggleVipDecor()">✨ Basculer les décorations</button>
+            <button onclick="scrollToTopVip()">⬆️ Retour en haut</button>
+          </div>
+          <div id="vip-confort-status" class="vip-status">✨ Les décorations du site sont activées.</div>
+        </section>
+      </div>
     </div>
   </div>
 
@@ -1910,6 +2126,7 @@ function updateLevel(){
   }
 
   unlockPromo(level);
+  unlockVIP(level);
   unlockFun(level);
 }
 
@@ -1953,6 +2170,7 @@ function showPage(id){
     'mm2',
     'snowy',
     'roblox',
+    'vip',
     'fun'
   ].forEach(x=>{
 
@@ -1968,6 +2186,10 @@ function showPage(id){
   document.getElementById(
     id
   ).classList.remove('hidden');
+
+  if(id==='vip' && state){
+    unlockVIP(state.level);
+  }
 
   window.scrollTo(0,0);
 }
@@ -1992,6 +2214,123 @@ function openRobloxTab(tab,button){
   if(target)target.classList.add('active');
   if(button)button.classList.add('active');
   window.scrollTo(0,0);
+}
+
+/* =========================
+   VIP
+========================= */
+
+function unlockVIP(level){
+
+  const locked=document.getElementById('vip-locked');
+  const content=document.getElementById('vip-content');
+
+  if(!locked || !content)return;
+
+  if(level>=15){
+    locked.classList.add('hidden');
+    content.classList.remove('hidden');
+
+    const nameEl=document.getElementById('vip-name');
+    if(nameEl && state){
+      nameEl.textContent=state.name+' 👑';
+    }
+
+    updateVipBadge(true);
+
+  }else{
+    locked.classList.remove('hidden');
+    content.classList.add('hidden');
+    updateVipBadge(false);
+  }
+}
+
+function updateVipBadge(active){
+  const profile=document.querySelector('.profile');
+  if(!profile)return;
+
+  let badge=document.getElementById('vip-badge');
+
+  if(active){
+    if(!badge){
+      badge=document.createElement('span');
+      badge.id='vip-badge';
+      badge.className='vip-tag';
+      badge.textContent='👑 VIP';
+      const levelBox=profile.querySelector('.level-box');
+      if(levelBox)profile.insertBefore(badge,levelBox);
+      else profile.appendChild(badge);
+    }
+  }else if(badge){
+    badge.remove();
+  }
+}
+
+function openVipTab(tab,button){
+  if(!state || state.level<15)return;
+
+  document.querySelectorAll('#vip .tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('#vip .tab-btn').forEach(el=>el.classList.remove('active'));
+
+  const target=document.getElementById('vip-'+tab+'-tab');
+  if(target)target.classList.add('active');
+  if(button)button.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function applyVipTheme(theme){
+  if(!state || state.level<15){
+    return;
+  }
+
+  document.body.classList.remove('vip-theme-ice','vip-theme-midnight','vip-theme-aurora');
+  document.body.classList.add('vip-theme-'+theme);
+  localStorage.setItem('snowyVipTheme',theme);
+
+  const labels={
+    ice:'❄️ Thème Ice activé.',
+    midnight:'🌙 Thème Midnight activé.',
+    aurora:'🌌 Thème Aurora activé.'
+  };
+
+  const status=document.getElementById('vip-theme-status');
+  if(status)status.textContent=labels[theme]||'🎨 Thème VIP activé.';
+}
+
+function resetVipTheme(){
+  document.body.classList.remove('vip-theme-ice','vip-theme-midnight','vip-theme-aurora');
+  localStorage.removeItem('snowyVipTheme');
+  const status=document.getElementById('vip-theme-status');
+  if(status)status.textContent='🎨 Aucun thème VIP sélectionné.';
+}
+
+function toggleVipDecor(){
+  if(!state || state.level<15)return;
+
+  const hidden=document.body.classList.toggle('vip-no-decor');
+  localStorage.setItem('snowyVipNoDecor',hidden?'1':'0');
+
+  const status=document.getElementById('vip-confort-status');
+  if(status){
+    status.textContent=hidden
+      ?'🫧 Mode calme activé : décorations de l’accueil masquées.'
+      :'✨ Les décorations du site sont activées.';
+  }
+}
+
+function scrollToTopVip(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function loadVipPreferences(){
+  const theme=localStorage.getItem('snowyVipTheme');
+  if(theme && ['ice','midnight','aurora'].includes(theme)){
+    document.body.classList.add('vip-theme-'+theme);
+  }
+
+  if(localStorage.getItem('snowyVipNoDecor')==='1'){
+    document.body.classList.add('vip-no-decor');
+  }
 }
 
 /* =========================
@@ -3008,7 +3347,9 @@ document.getElementById(
    INITIALISATION
 ========================= */
 
+loadVipPreferences();
 unlockPromo(1);
+unlockVIP(1);
 unlockFun(1);
 
 </script>
