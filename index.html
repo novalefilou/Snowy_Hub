@@ -712,6 +712,24 @@ button,input{font:inherit}
   font-weight:700;
 }
 
+
+/* MM2 ONGLETs */
+.mm2-tabs{max-width:1100px;margin:28px auto 0;display:flex;flex-wrap:wrap;gap:10px}
+.mm2-tab{border:1px solid #ffffff22;background:#ffffff0b;color:#dfe4f1;border-radius:14px;padding:13px 18px;font-weight:800;cursor:pointer;transition:.2s}
+.mm2-tab:hover{background:#ffffff18;transform:translateY(-2px)}
+.mm2-tab.active{background:linear-gradient(135deg,#147cff,#8b5cf6);color:#fff;border-color:#ffffff33;box-shadow:0 10px 30px #147cff33}
+.mm2-tab-content{display:none;max-width:1100px;margin:18px auto 0}
+.mm2-tab-content.active{display:block}
+.mm2-info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.mm2-info-card{background:#ffffff0b;border:1px solid #ffffff16;border-radius:20px;padding:22px;backdrop-filter:blur(10px)}
+.mm2-info-card h3{margin-bottom:9px;font-size:20px}
+.mm2-info-card p,.mm2-info-card li{color:#c9cede;line-height:1.7}
+.mm2-info-card ul{padding-left:20px;margin-top:8px}
+.mm2-timeline{display:grid;gap:12px;margin-top:16px}
+.mm2-timeline div{padding:17px 19px;border-left:4px solid #8b5cf6;background:#ffffff08;border-radius:0 14px 14px 0}
+.mm2-timeline b{color:#fff}
+@media(max-width:700px){.mm2-info-grid{grid-template-columns:1fr}.mm2-tab{flex:1 1 100%;text-align:center}}
+
 @media(max-width:800px){
   .cards,.section-grid{grid-template-columns:1fr}
   .category{min-height:350px}
@@ -910,91 +928,125 @@ button,input{font:inherit}
 
   </div>
 
-  <div class="section-grid">
-
-    <section class="panel wide">
-
-      <h2>📖 Histoire</h2>
-
-      <p><b>Créateur :</b> Nikilis</p>
-      <p><b>Début du projet :</b> janvier 2014</p>
-
-      <p style="margin-top:12px">
-        Murder Mystery est une expérience Roblox développée par Nikilis.
-        Le concept reprend le principe du murder mystery.
-      </p>
-
-      <p style="margin-top:12px">
-        Une importante refonte a donné naissance à
-        <b>Murder Mystery 2</b> à la fin de 2014.
-      </p>
-
-    </section>
-
-    <section class="panel wide">
-
-      <h2>🎭 Rôles & Gameplay</h2>
-
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px">
-
-        <div class="role-card">
-          <div class="role-icon">🔪</div>
-          <h3>Murderer</h3>
-          <p>Éliminer les autres joueurs tout en restant discret.</p>
-        </div>
-
-        <div class="role-card">
-          <div class="role-icon">🛡️</div>
-          <h3>Sheriff</h3>
-          <p>Identifier le Murderer et l'arrêter.</p>
-        </div>
-
-        <div class="role-card">
-          <div class="role-icon">👤</div>
-          <h3>Innocent</h3>
-          <p>Survivre et aider à identifier le danger.</p>
-        </div>
-
-        <div class="role-card">
-          <div class="role-icon">🗺️</div>
-          <h3>Les cartes</h3>
-          <p>Chaque map possède ses propres zones.</p>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section class="panel wide">
-
-      <h2>🎟️ Code Promo</h2>
-
-      <p>
-        Débloqué au <b>niveau 10</b>.
-      </p>
-
-      <div id="promo-lock"
-        style="margin-top:14px"
-        class="fun-status">
-        🔒 Catégorie verrouillée.
-      </div>
-
-      <div id="promo-content" class="hidden">
-
-        <div class="fun-row" style="margin-top:14px">
-          <input id="promo-input" placeholder="Entre ton code">
-          <button class="primary" onclick="redeem()">
-            Valider
-          </button>
-        </div>
-
-        <div id="promo-result" style="margin-top:12px"></div>
-
-      </div>
-
-    </section>
-
+  <div class="mm2-tabs">
+    <button class="mm2-tab active" onclick="openMM2Tab('history',this)">📖 Histoire</button>
+    <button class="mm2-tab" onclick="openMM2Tab('gameplay',this)">🎭 Rôles & Gameplay</button>
+    <button class="mm2-tab" onclick="openMM2Tab('promo',this)">🎟️ Code Promo</button>
   </div>
+
+  <section id="mm2-history" class="mm2-tab-content active">
+    <div class="mm2-info-grid">
+      <article class="mm2-info-card wide">
+        <h2>📖 L'histoire de Murder Mystery 2</h2>
+        <p style="margin-top:10px"><b>Murder Mystery 2</b> est une expérience Roblox créée par <b>Nikilis</b>. Le projet a commencé en <b>janvier 2014</b> et reprend le principe du jeu de déduction sociale « murder mystery ».</p>
+        <p style="margin-top:12px">Le but du concept est simple : plusieurs joueurs se retrouvent dans une même partie, mais certains cachent leur véritable rôle. Il faut observer les événements, faire confiance aux bonnes personnes et essayer de comprendre ce qui se passe avant la fin de la manche.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🕐 Les débuts — 2014</h3>
+        <p>Le projet débute au début de 2014. L'idée s'inspire notamment du mode <b>Murder</b> de Garry's Mod, adapté à l'univers et au fonctionnement de Roblox.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🚀 La naissance de MM2</h3>
+        <p>Une importante refonte réalisée vers la fin de 2014 donne naissance à <b>Murder Mystery 2</b>, avec une nouvelle présentation, de nouveaux systèmes et davantage de contenu.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🗺️ Une expérience qui évolue</h3>
+        <p>Au fil du temps, l'univers du jeu s'est enrichi avec différentes cartes, objets à collectionner, apparences et éléments permettant aux joueurs de personnaliser leur expérience.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🌎 Pourquoi le jeu est devenu populaire</h3>
+        <p>Les parties relativement courtes, la différence entre les rôles, les situations imprévisibles et la collection d'objets ont contribué à rendre MM2 particulièrement populaire auprès de la communauté Roblox.</p>
+      </article>
+
+      <article class="mm2-info-card wide">
+        <h3>📜 Les grandes étapes</h3>
+        <div class="mm2-timeline">
+          <div><b>Janvier 2014</b> — Début du projet.</div>
+          <div><b>2014</b> — Le concept de murder mystery prend forme sur Roblox.</div>
+          <div><b>Fin 2014</b> — Importante refonte et naissance de Murder Mystery 2.</div>
+          <div><b>Au fil des années</b> — Ajout de contenu, cartes, objets et systèmes qui renforcent l'aspect collection et déduction.</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="mm2-gameplay" class="mm2-tab-content">
+    <div class="mm2-info-grid">
+      <article class="mm2-info-card">
+        <h3>🔪 Murderer</h3>
+        <p>Le Murderer doit éliminer les autres joueurs sans révéler son identité. La discrétion, le déplacement et le choix du bon moment sont essentiels.</p>
+        <ul><li>Rester difficile à identifier.</li><li>Profiter des endroits isolés.</li><li>Éviter d'attirer inutilement l'attention.</li></ul>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🔫 Sheriff</h3>
+        <p>Le Sheriff possède une arme capable d'arrêter le Murderer. Son défi principal est de trouver le bon suspect sans tirer sur un innocent.</p>
+        <ul><li>Observer avant d'agir.</li><li>Identifier les comportements suspects.</li><li>Protéger les autres joueurs lorsque c'est possible.</li></ul>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>👤 Innocent</h3>
+        <p>Les Innocents n'ont pas d'arme permettant d'arrêter directement le Murderer. Ils doivent survivre, observer et aider le Sheriff à comprendre la situation.</p>
+        <ul><li>Rester attentif aux déplacements.</li><li>Ramasser les pièces quand la situation le permet.</li><li>Partager les informations utiles.</li></ul>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>⏱️ Déroulement d'une partie</h3>
+        <p>Une manche commence avec les rôles cachés. Les joueurs explorent la carte, puis les événements permettent progressivement de déduire qui est le Murderer.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🗺️ Les cartes</h3>
+        <p>Chaque carte possède ses propres couloirs, pièces, cachettes et lignes de vue. Connaître les passages peut aider à anticiper les déplacements des autres joueurs.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🪙 Pièces & progression</h3>
+        <p>Les pièces peuvent être récupérées pendant les parties. La progression permet également d'augmenter son niveau sur Snowy Hub et de débloquer certaines fonctionnalités du site.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🧠 La déduction</h3>
+        <p>Regarde qui était proche d'un événement, qui change soudainement de direction et qui semble éviter certaines zones. Une seule observation peut parfois changer complètement ton avis.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>👀 Observer les comportements</h3>
+        <p>Les déplacements, les réactions des joueurs et leur façon de se regrouper peuvent donner des indices. Attention toutefois : un comportement étrange ne prouve pas à lui seul qu'un joueur est le Murderer.</p>
+      </article>
+
+      <article class="mm2-info-card">
+        <h3>🤝 Communication</h3>
+        <p>Partager rapidement une information utile peut aider les Innocents et le Sheriff à réduire les possibilités et à éviter les mauvaises décisions.</p>
+      </article>
+
+      <article class="mm2-info-card wide">
+        <h3>💡 Conseils pour débuter</h3>
+        <ul><li>Apprends progressivement les cartes.</li><li>Ne fais pas confiance à un seul indice.</li><li>Observe les joueurs avant de choisir un suspect.</li><li>Si tu es Sheriff, évite de tirer sans information suffisante.</li><li>Si tu es Innocent, reste mobile et garde un œil sur les alentours.</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="mm2-promo" class="mm2-tab-content">
+    <div class="mm2-info-grid">
+      <section class="panel wide">
+        <h2>🎟️ Code Promo</h2>
+        <p style="margin-top:8px">Débloqué au <b>niveau 10</b>.</p>
+        <div id="promo-lock" style="margin-top:14px" class="fun-status">🔒 Catégorie verrouillée.</div>
+        <div id="promo-content" class="hidden">
+          <div class="fun-row" style="margin-top:14px">
+            <input id="promo-input" placeholder="Entre ton code">
+            <button class="primary" onclick="redeem()">Valider</button>
+          </div>
+          <div id="promo-result" style="margin-top:12px"></div>
+        </div>
+      </section>
+    </div>
+  </section>
 </main>
 
 <!-- SNOWY PAGE -->
@@ -1754,6 +1806,15 @@ function showPage(id){
 
 function goHome(){
   showPage('home');
+}
+
+function openMM2Tab(tab,button){
+  document.querySelectorAll('.mm2-tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.mm2-tab').forEach(el=>el.classList.remove('active'));
+  const target=document.getElementById('mm2-'+tab);
+  if(target)target.classList.add('active');
+  if(button)button.classList.add('active');
+  window.scrollTo(0,0);
 }
 
 /* =========================
