@@ -267,13 +267,8 @@ button,input{font:inherit}
   color:transparent;
 }
 
-.vip-page .page-desc{
-  background:linear-gradient(90deg,#7c3aed,#d97706,#a855f7);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent !important;
-  font-weight:900;
-}
+/* Tous les textes VIP utilisent la même palette que le titre VIP Snowy Hub */
+.vip-page .page-desc,
 .vip-page .panel p,
 .vip-page .vip-banner,
 .vip-page .vip-perk p,
@@ -281,30 +276,65 @@ button,input{font:inherit}
 .vip-page .vip-code,
 .vip-page .vip-code small,
 .vip-page .vip-code strong{
-  background:linear-gradient(90deg,#7c3aed,#d97706,#a855f7);
-  -webkit-background-clip:text;
-  background-clip:text;
+  background:linear-gradient(90deg,#a855f7,#d97706,#a855f7) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
   color:transparent !important;
-  font-weight:800;
+  font-weight:900;
 }
-.vip-page .vip-banner b,
-.vip-page .vip-perk p b{
-  background:linear-gradient(90deg,#7c3aed,#d97706,#a855f7);
-  -webkit-background-clip:text;
-  background-clip:text;
+.vip-page .panel h2,
+.vip-page .vip-perk h3,
+.vip-page .vip-actions button{
+  background:linear-gradient(90deg,#a855f7,#d97706,#a855f7) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
   color:transparent !important;
+  font-weight:900;
+}
+/* ONGLET VIP : toutes les rubriques restent visibles et bien alignées */
+.vip-page .tab-bar{
+  width:100%;
+  max-width:1150px;
+  margin:26px auto 22px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+  padding:10px;
+  border-radius:20px;
+  background:#ffffffb8;
+  border:1px solid #eadcf8;
+  box-shadow:0 14px 35px #7c3aed12;
 }
 .vip-page .tab-btn{
-  color:#6d28d9;
-  background:#f7f0ff;
-  border-color:#e9d5ff;
+  width:100%;
+  min-height:50px;
+  color:transparent !important;
+  background:linear-gradient(90deg,#7c3aed,#d97706,#a855f7) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  border:1px solid #e9d5ff;
+  border-radius:14px;
+  padding:12px 14px;
+  cursor:pointer;
+  font-weight:900;
+  transition:.2s;
 }
-.vip-page .tab-btn:hover{background:#efe3ff}
+.vip-page .tab-btn:hover{
+  transform:translateY(-2px);
+  background:linear-gradient(90deg,#6d28d9,#f59e0b,#9333ea) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+}
 .vip-page .tab-btn.active{
-  background:linear-gradient(90deg,#7c3aed,#a855f7,#f59e0b);
-  color:#fff;
-  border-color:transparent;
+  color:transparent !important;
+  background:linear-gradient(90deg,#7c3aed,#d97706,#a855f7) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  border:2px solid #c084fc;
+  box-shadow:0 10px 25px #7c3aed26;
 }
+.vip-page .tab-content{display:none !important}
+.vip-page .tab-content.active{display:block !important}
 .vip-page .panel h2,
 .vip-page .vip-perk h3{
   background:linear-gradient(90deg,#7c3aed,#d97706);
@@ -462,6 +492,12 @@ body.vip-no-decor .mm2-decor,
 body.vip-no-decor .home:before,
 body.vip-no-decor .home:after{
   display:none!important;
+}
+@media(max-width:760px){
+  .vip-page .tab-bar{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .vip-page .tab-bar{grid-template-columns:1fr;}
 }
 
 .overlay{
@@ -1442,7 +1478,7 @@ body.vip-no-decor .home:after{
 
 </main>
 
-<!-- VIP -->
+<!-- VIP / V2 CORRIGÉ -->
 
 <main id="vip" class="page vip-page hidden">
 
@@ -2353,6 +2389,10 @@ function showPage(id){
 
   if(id==='vip' && state){
     unlockVIP(state.level);
+    const vipButtons=document.querySelectorAll('#vip .tab-btn');
+    const vipTabs=document.querySelectorAll('#vip .tab-content');
+    vipTabs.forEach((el,i)=>el.classList.toggle('active',i===0));
+    vipButtons.forEach((el,i)=>el.classList.toggle('active',i===0));
   }
 
   window.scrollTo(0,0);
@@ -2489,7 +2529,10 @@ function resetVipTheme(){
     'vip-theme-aurora',
     'vip-theme-cosmic',
     'vip-theme-neon',
-    'vip-theme-ruby'
+    'vip-theme-ruby',
+    'vip-theme-ocean',
+    'vip-theme-sakura',
+    'vip-theme-volcano'
   );
   localStorage.removeItem('snowyVipTheme');
   const status=document.getElementById('vip-theme-status');
