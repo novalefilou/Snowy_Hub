@@ -2914,59 +2914,64 @@ function treasureCanvas(){return document.getElementById('treasure-canvas');}
 function treasureCtx(){const c=treasureCanvas();return c?c.getContext('2d'):null;}
 
 function treasureMakeWorld(){
+  // Parcours simplifié et réellement faisable : petites distances entre plateformes,
+  // dénivelés raisonnables et zones de repos avant les pièges.
   treasureGame.platforms=[
-    {x:0,y:475,w:650,h:65},
-    {x:760,y:420,w:260,h:32},
-    {x:1100,y:360,w:220,h:30},
-    {x:1400,y:430,w:330,h:30},
-    {x:1810,y:350,w:210,h:30},
-    {x:2090,y:440,w:360,h:30},
-    {x:2520,y:385,w:220,h:30},
-    {x:2830,y:470,w:370,h:70},
-    {x:600,y:475,w:120,h:65},
-    {x:1000,y:475,w:100,h:65},
-    {x:1320,y:475,w:80,h:65},
-    {x:1730,y:475,w:80,h:65},
-    {x:2020,y:475,w:70,h:65},
-    {x:2450,y:475,w:70,h:65},
-    {x:2740,y:475,w:90,h:65}
+    {x:0,y:475,w:760,h:65},
+    {x:780,y:420,w:260,h:32},
+    {x:1060,y:370,w:260,h:32},
+    {x:1340,y:440,w:305,h:30},
+    {x:1665,y:380,w:270,h:30},
+    {x:1955,y:440,w:340,h:30},
+    {x:2315,y:390,w:255,h:30},
+    {x:2590,y:440,w:285,h:30},
+    {x:2895,y:470,w:305,h:70}
   ];
-  treasureGame.crystalsList=[
-    {x:250,y:425,taken:false,type:'💎'},
-    {x:540,y:390,taken:false,type:'💎'},
-    {x:830,y:375,taken:false,type:'💎'},
-    {x:1160,y:315,taken:false,type:'💎'},
-    {x:1460,y:385,taken:false,type:'💎'},
-    {x:1580,y:385,taken:false,type:'💎'},
-    {x:1870,y:305,taken:false,type:'💎'},
-    {x:2170,y:395,taken:false,type:'💎'},
-    {x:2350,y:395,taken:false,type:'💎'},
-    {x:2580,y:330,taken:false,type:'💎'},
-    {x:2930,y:420,taken:false,type:'💎'},
-    {x:3050,y:420,taken:false,type:'💎'}
-  ];
+
+  // Chaque pic est posé exactement sur le dessus d'une plateforme.
+  // Les flaques d'acide sont sur d'autres endroits : elles ne se superposent pas aux pics.
   treasureGame.hazards=[
-    {x:690,y:451,w:70,h:24,type:'spikes'},
-    {x:1035,y:451,w:55,h:24,type:'spikes'},
-    {x:1328,y:451,w:52,h:24,type:'spikes'},
-    {x:1740,y:451,w:58,h:24,type:'spikes'},
-    {x:2028,y:451,w:48,h:24,type:'spikes'},
-    {x:2460,y:451,w:58,h:24,type:'spikes'},
-    {x:2738,y:451,w:72,h:24,type:'spikes'},
-    {x:950,y:398,w:58,h:22,type:'spikes'},
-    {x:1260,y:338,w:55,h:22,type:'spikes'},
-    {x:1935,y:328,w:62,h:22,type:'spikes'}
+    {x:475,y:451,w:50,h:24,type:'spikes'},
+    {x:855,y:396,w:46,h:24,type:'spikes'},
+    {x:1145,y:346,w:46,h:24,type:'spikes'},
+    {x:1435,y:416,w:48,h:24,type:'spikes'},
+    {x:1760,y:356,w:48,h:24,type:'spikes'},
+    {x:2070,y:416,w:48,h:24,type:'spikes'},
+    {x:2410,y:366,w:48,h:24,type:'spikes'},
+    {x:2670,y:416,w:48,h:24,type:'spikes'}
   ];
+
   treasureGame.acid=[
-    {x:610,y:458,w:110,h:17},
-    {x:1008,y:458,w:92,h:17},
-    {x:1320,y:458,w:80,h:17},
-    {x:1726,y:458,w:92,h:17},
-    {x:2018,y:458,w:88,h:17},
-    {x:2448,y:458,w:90,h:17},
-    {x:2730,y:458,w:102,h:17}
+    {x:625,y:458,w:58,h:17},
+    {x:955,y:403,w:52,h:17},
+    {x:1235,y:353,w:52,h:17},
+    {x:1545,y:423,w:50,h:17},
+    {x:1850,y:363,w:52,h:17},
+    {x:2180,y:423,w:54,h:17},
+    {x:2480,y:373,w:52,h:17},
+    {x:2795,y:423,w:50,h:17}
   ];
-  treasureGame.clouds=[...Array(9)].map((_,i)=>({x:220+i*380,y:95+(i%3)*42,s:0.7+(i%4)*0.1}));
+
+  treasureGame.crystalsList=[
+    {x:245,y:425,taken:false,type:'💎'},
+    {x:400,y:425,taken:false,type:'💎'},
+    {x:575,y:425,taken:false,type:'💎'},
+    {x:835,y:370,taken:false,type:'💎'},
+    {x:1115,y:320,taken:false,type:'💎'},
+    {x:1475,y:390,taken:false,type:'💎'},
+    {x:1745,y:330,taken:false,type:'💎'},
+    {x:2050,y:390,taken:false,type:'💎'},
+    {x:2225,y:390,taken:false,type:'💎'},
+    {x:2400,y:340,taken:false,type:'💎'},
+    {x:2675,y:390,taken:false,type:'💎'},
+    {x:3040,y:420,taken:false,type:'💎'}
+  ];
+
+  treasureGame.clouds=[...Array(9)].map((_,i)=>({
+    x:220+i*380,
+    y:95+(i%3)*42,
+    s:0.7+(i%4)*0.1
+  }));
 }
 
 function initTreasureGame(){
@@ -3040,21 +3045,37 @@ function treasureRectHit(a,b){
   return a.x<b.x+b.w && a.x+a.w>b.x && a.y<b.y+b.h && a.y+a.h>b.y;
 }
 
+function treasureRespawn(){
+  const checkpoints=[120,780,1060,1340,1665,1955,2315,2590,2895];
+  const p=treasureGame.player;
+  let checkpoint=120;
+  for(const x of checkpoints){
+    if(p.x>=x)checkpoint=x;
+  }
+  const tops={120:475,780:420,1060:370,1340:440,1665:380,1955:440,2315:390,2590:440,2895:470};
+  p.y=(tops[checkpoint]||475)-p.h;
+  p.vx=0;
+  p.vy=0;
+  p.onGround=false;
+  p.crouch=false;
+  treasureGame._upLatch=false;
+}
+
 function treasureUpdate(dt){
   if(treasureGame.won)return;
   const p=treasureGame.player;
-  const speed=235;
-  const accel=1700;
-  const friction=0.82;
-  const gravity=1700;
+  const speed=225;
+  const accel=1550;
+  const friction=0.80;
+  const gravity=1550;
   p.crouch=treasureGame.keys.down && p.onGround;
   const target=(treasureGame.keys.right?speed:0)-(treasureGame.keys.left?speed:0);
   p.vx += Math.max(-accel,Math.min(accel,(target-p.vx)*12))*dt;
   if(!treasureGame.keys.left && !treasureGame.keys.right)p.vx*=Math.pow(friction,dt*60);
 
   if(treasureGame.keys.up && !treasureGame._upLatch){
-    if(p.onGround){p.vy=-620;p.onGround=false;p.doubleJump=true;}
-    else if(p.doubleJump){p.vy=-560;p.doubleJump=false;}
+    if(p.onGround){p.vy=-600;p.onGround=false;p.doubleJump=true;}
+    else if(p.doubleJump){p.vy=-540;p.doubleJump=false;}
     treasureGame._upLatch=true;
   }
   if(!treasureGame.keys.up)treasureGame._upLatch=false;
@@ -3082,9 +3103,24 @@ function treasureUpdate(dt){
   }
 
   if(p.y>620){
-    p.x=Math.max(120,p.x-420);
-    p.y=250;
-    p.vy=0;
+    treasureRespawn();
+  }
+
+  // Les pièges ont une petite marge de tolérance pour que le jeu reste fun.
+  let danger=false;
+  for(const hz of treasureGame.hazards){
+    const hit={x:hz.x+6,y:hz.y+6,w:Math.max(0,hz.w-12),h:Math.max(0,hz.h-6)};
+    if(treasureRectHit(p,hit)){danger=true;break;}
+  }
+  if(!danger){
+    for(const a of treasureGame.acid){
+      const hit={x:a.x+5,y:a.y+2,w:Math.max(0,a.w-10),h:Math.max(0,a.h-3)};
+      if(treasureRectHit(p,hit)){danger=true;break;}
+    }
+  }
+  if(danger){
+    treasureRespawn();
+    return;
   }
 
   for(const c of treasureGame.crystalsList){
@@ -3096,28 +3132,8 @@ function treasureUpdate(dt){
     }
   }
 
-  // Pièges : pics et flaques d'acide -> retour au dernier départ
-  let danger=false;
-  for(const hz of treasureGame.hazards){
-    const hit={x:hz.x+4,y:hz.y+5,w:Math.max(0,hz.w-8),h:Math.max(0,hz.h-5)};
-    if(treasureRectHit(p,hit)){danger=true;break;}
-  }
-  if(!danger){
-    for(const a of treasureGame.acid){
-      const hit={x:a.x+4,y:a.y,w:Math.max(0,a.w-8),h:a.h};
-      if(treasureRectHit(p,hit)){danger=true;break;}
-    }
-  }
-  if(danger){
-    p.x=Math.max(70,p.x-250);
-    p.y=230;
-    p.vx=0;
-    p.vy=0;
-    treasureGame._upLatch=false;
-  }
-
   const finishX=2935;
-  if(p.x>finishX && p.y<510){
+  if(p.x>finishX && p.y<440){
     treasureWin();
   }
   treasureGame.cameraX=Math.max(0,Math.min(treasureGame.worldW-canvasWidth(),p.x-canvasWidth()*0.42));
