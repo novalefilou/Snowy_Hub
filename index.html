@@ -729,18 +729,15 @@ body.vip-no-decor .home:after{
 .treasure-wheel-section p{margin:7px 0;color:#aebddd}
 .wheel-area{position:relative;width:min(520px,94vw);aspect-ratio:1;margin:22px auto 12px;display:grid;place-items:center}
 .wheel-pointer{position:absolute;top:-3px;left:50%;transform:translateX(-50%);z-index:4;font-size:42px;filter:drop-shadow(0 4px 7px #000);pointer-events:none}
-.treasure-wheel{position:relative;width:100%;height:100%;border-radius:50%;border:12px solid #e7d5ff;box-shadow:0 0 0 4px #8c5cff55,0 18px 60px #000b;overflow:hidden;cursor:pointer;transform:rotate(0deg);transition:transform 4.8s cubic-bezier(.12,.68,.12,1);background:conic-gradient(#9d58ff 0 16.666%,#ffb027 16.666% 33.333%,#41d7b7 33.333% 50%,#ff5c8a 50% 66.666%,#3ea7ff 66.666% 83.333%,#ffd54f 83.333% 100%)}
-.wheel-seg{position:absolute;left:50%;top:50%;width:52%;min-height:72px;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 10px;border-radius:14px;background:#07101db8;border:1px solid #ffffff2a;box-shadow:0 8px 18px #0004;transform-origin:center;font-weight:1000;font-size:14px;line-height:1.05;text-align:center;color:#fff;pointer-events:none}
+.treasure-wheel{position:relative;width:100%;height:100%;border-radius:50%;border:12px solid #e7d5ff;box-shadow:0 0 0 4px #8c5cff55,0 18px 60px #000b;overflow:hidden;cursor:pointer;transform:rotate(0deg);transition:transform 4.8s cubic-bezier(.12,.68,.12,1);background:conic-gradient(#9d58ff 0 33.333%,#ffb027 33.333% 66.666%,#41d7b7 66.666% 100%)}
+.wheel-seg{position:absolute;left:50%;top:50%;width:58%;min-height:70px;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 8px;border-radius:14px;background:#07101dcc;border:1px solid #ffffff2a;box-shadow:0 8px 18px #0004;transform-origin:center;font-weight:1000;font-size:11px;line-height:1.08;text-align:center;color:#fff;pointer-events:none}
 .wheel-seg>div{display:flex;align-items:center;justify-content:center;gap:8px}
-.wheel-seg img{width:38px;height:38px;object-fit:contain;border-radius:10px;background:#fff;padding:3px;flex:0 0 auto}
-.wheel-seg.s1{transform:translate(-50%,-50%) translateY(-148px)}
-.wheel-seg.s2{transform:translate(-50%,-50%) translate(128px,-74px)}
-.wheel-seg.s3{transform:translate(-50%,-50%) translate(128px,74px)}
-.wheel-seg.s4{transform:translate(-50%,-50%) translateY(148px)}
-.wheel-seg.s5{transform:translate(-50%,-50%) translate(-128px,74px)}
-.wheel-seg.s6{transform:translate(-50%,-50%) translate(-128px,-74px)}
+.wheel-seg img{width:34px;height:34px;object-fit:contain;border-radius:9px;background:#fff;padding:3px;flex:0 0 auto}
+.wheel-seg.s1{transform:translate(-50%,-50%) translate(0,-145px)}
+.wheel-seg.s2{transform:translate(-50%,-50%) translate(126px,72px)}
+.wheel-seg.s3{transform:translate(-50%,-50%) translate(-126px,72px)}
 .wheel-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:#0b1120;color:#fff;border:7px solid #f1e4ff;box-shadow:0 0 0 4px #7c3aed66,0 12px 24px #0008;font-weight:1000}
-.wheel-result{min-height:56px;margin:10px auto 0;max-width:720px;padding:14px 16px;border-radius:15px;background:#ffffff09;border:1px solid #ffffff12;color:#f8fbff;font-weight:800}
+.wheel-result{min-height:50px;margin:10px auto 0;max-width:720px;padding:12px 14px;border-radius:15px;background:#ffffff09;border:1px solid #ffffff12;color:#f8fbff;font-weight:800;font-size:13px;line-height:1.25}
 .treasure-wheel-btn{margin-top:12px}
 .treasure-note{font-size:12px;color:#8699b9;margin-top:10px}
 .category.treasure{background:#07101a;}
@@ -754,14 +751,11 @@ body.vip-no-decor .home:after{
   .treasure-game-wrap{padding:12px}
   .treasure-controls{display:grid}
   .treasure-tip{font-size:12px}
-  .wheel-seg{font-size:10px;width:58%;min-height:62px}
-  .wheel-seg.s1{transform:translate(-50%,-50%) translateY(-113px)}
-  .wheel-seg.s2{transform:translate(-50%,-50%) translate(97px,-57px)}
-  .wheel-seg.s3{transform:translate(-50%,-50%) translate(97px,57px)}
-  .wheel-seg.s4{transform:translate(-50%,-50%) translateY(113px)}
-  .wheel-seg.s5{transform:translate(-50%,-50%) translate(-97px,57px)}
-  .wheel-seg.s6{transform:translate(-50%,-50%) translate(-97px,-57px)}
-  .wheel-seg img{width:27px;height:27px}
+  .wheel-seg{font-size:8.5px;width:62%;min-height:58px;padding:5px 6px;gap:5px}
+  .wheel-seg.s1{transform:translate(-50%,-50%) translate(0,-110px)}
+  .wheel-seg.s2{transform:translate(-50%,-50%) translate(94px,56px)}
+  .wheel-seg.s3{transform:translate(-50%,-50%) translate(-94px,56px)}
+  .wheel-seg img{width:25px;height:25px}
 }
 @media(max-width:700px){
   .roblox-card-grid{grid-template-columns:1fr}
@@ -1644,7 +1638,7 @@ body.vip-no-decor .home:after{
         <button class="up2" data-touch="up">↑</button>
         <button class="empty" tabindex="-1"></button>
       </div>
-      <div class="treasure-tip">PC : <b>← →</b> pour avancer • <b>↑</b> pour sauter • <b>↓</b> pour s'accroupir • à la fin, <b>E</b> lance la roue. Sur téléphone, utilise les boutons ci-dessus.</div>
+      <div class="treasure-tip">PC : <b>← →</b> pour avancer • <b>↑</b> pour sauter • <b>↓</b> pour s'accroupir • évite les <b>pics</b> et l'<b>acide</b> • à la fin, <b>E</b> lance la roue. Sur téléphone, utilise les boutons ci-dessus.</div>
 
       <div id="treasure-finish" class="treasure-finish">
         <h2>🏆 Trésor trouvé !</h2>
@@ -1661,12 +1655,9 @@ body.vip-no-decor .home:after{
         <div class="wheel-area">
           <div class="wheel-pointer">▼</div>
           <div id="treasure-wheel" class="treasure-wheel" role="button" tabindex="0" aria-label="Roue de la chance" onclick="spinTreasureWheel()">
-            <div class="wheel-seg s1"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x3"><span>x3</span></div></div>
-            <div class="wheel-seg s2"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x5"><span>x5</span></div></div>
-            <div class="wheel-seg s3"><div><span>+ 1 serveur privé<br>sur le jeu de ton choix</span></div></div>
-            <div class="wheel-seg s4"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x10"><span>x10</span></div></div>
-            <div class="wheel-seg s5"><div><span>+ 3 serveurs privés<br>sur les jeux de ton choix</span></div></div>
-            <div class="wheel-seg s6"><div><span>5 serveurs privés<br>sur le jeu de ton choix</span></div></div>
+            <div class="wheel-seg s1"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x3"><span><b>x3</b><br>+ 1 serveur privé<br>au choix</span></div></div>
+            <div class="wheel-seg s2"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x5"><span><b>x5</b><br>+ 3 serveurs privés<br>au choix</span></div></div>
+            <div class="wheel-seg s3"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x10"><span><b>x10</b><br>+ 5 serveurs privés<br>au choix</span></div></div>
             <div class="wheel-center">SPIN</div>
           </div>
         </div>
@@ -2913,7 +2904,10 @@ const treasureGame={
   cameraX:0,
   platforms:[],
   crystalsList:[],
-  clouds:[]
+  hazards:[],
+  acid:[],
+  clouds:[],
+  spawn:{x:120,y:390}
 };
 
 function treasureCanvas(){return document.getElementById('treasure-canvas');}
@@ -2951,6 +2945,27 @@ function treasureMakeWorld(){
     {x:2930,y:420,taken:false,type:'💎'},
     {x:3050,y:420,taken:false,type:'💎'}
   ];
+  treasureGame.hazards=[
+    {x:690,y:451,w:70,h:24,type:'spikes'},
+    {x:1035,y:451,w:55,h:24,type:'spikes'},
+    {x:1328,y:451,w:52,h:24,type:'spikes'},
+    {x:1740,y:451,w:58,h:24,type:'spikes'},
+    {x:2028,y:451,w:48,h:24,type:'spikes'},
+    {x:2460,y:451,w:58,h:24,type:'spikes'},
+    {x:2738,y:451,w:72,h:24,type:'spikes'},
+    {x:950,y:398,w:58,h:22,type:'spikes'},
+    {x:1260,y:338,w:55,h:22,type:'spikes'},
+    {x:1935,y:328,w:62,h:22,type:'spikes'}
+  ];
+  treasureGame.acid=[
+    {x:610,y:458,w:110,h:17},
+    {x:1008,y:458,w:92,h:17},
+    {x:1320,y:458,w:80,h:17},
+    {x:1726,y:458,w:92,h:17},
+    {x:2018,y:458,w:88,h:17},
+    {x:2448,y:458,w:90,h:17},
+    {x:2730,y:458,w:102,h:17}
+  ];
   treasureGame.clouds=[...Array(9)].map((_,i)=>({x:220+i*380,y:95+(i%3)*42,s:0.7+(i%4)*0.1}));
 }
 
@@ -2975,7 +2990,7 @@ function resetTreasureGame(){
   treasureGame.won=false;
   treasureGame.spun=false;
   treasureGame.crystals=0;
-  treasureGame.player={x:120,y:390,w:34,h:44,vx:0,vy:0,onGround:false,crouch:false,doubleJump:false};
+  treasureGame.player={x:treasureGame.spawn.x,y:treasureGame.spawn.y,w:34,h:44,vx:0,vy:0,onGround:false,crouch:false,doubleJump:false};
   treasureGame.cameraX=0;
   treasureGame.last=performance.now();
   treasureMakeWorld();
@@ -3081,6 +3096,26 @@ function treasureUpdate(dt){
     }
   }
 
+  // Pièges : pics et flaques d'acide -> retour au dernier départ
+  let danger=false;
+  for(const hz of treasureGame.hazards){
+    const hit={x:hz.x+4,y:hz.y+5,w:Math.max(0,hz.w-8),h:Math.max(0,hz.h-5)};
+    if(treasureRectHit(p,hit)){danger=true;break;}
+  }
+  if(!danger){
+    for(const a of treasureGame.acid){
+      const hit={x:a.x+4,y:a.y,w:Math.max(0,a.w-8),h:a.h};
+      if(treasureRectHit(p,hit)){danger=true;break;}
+    }
+  }
+  if(danger){
+    p.x=Math.max(70,p.x-250);
+    p.y=230;
+    p.vx=0;
+    p.vy=0;
+    treasureGame._upLatch=false;
+  }
+
   const finishX=2935;
   if(p.x>finishX && p.y<510){
     treasureWin();
@@ -3145,6 +3180,42 @@ function treasureDraw(){
       ctx.fillStyle=i%2?'#11192a':'#26314a';
       ctx.beginPath();ctx.arc(x+18+i*42,pl.y+pl.h*.55,5+(i%3)*2,0,Math.PI*2);ctx.fill();
     }
+  }
+
+  // flaques d'acide
+  for(const a of treasureGame.acid){
+    const x=a.x-cam;
+    if(x+a.w<0||x>w)continue;
+    const ag=ctx.createLinearGradient(0,a.y,0,a.y+a.h);
+    ag.addColorStop(0,'#c9ff3d');ag.addColorStop(1,'#3ca52f');
+    ctx.fillStyle=ag;
+    ctx.beginPath();
+    ctx.roundRect(x,a.y,a.w,a.h,8);
+    ctx.fill();
+    ctx.fillStyle='#efff9f';
+    for(let i=0;i<4;i++){
+      const bx=x+12+i*(a.w-24)/3;
+      const by=a.y+6+(i%2)*4;
+      ctx.beginPath();ctx.arc(bx,by,2.5,0,Math.PI*2);ctx.fill();
+    }
+  }
+
+  // pics piquants
+  for(const hz of treasureGame.hazards){
+    const x=hz.x-cam;
+    if(x+hz.w<0||x>w)continue;
+    ctx.fillStyle='#d8e0ea';
+    const count=Math.max(2,Math.floor(hz.w/14));
+    const step=hz.w/count;
+    for(let i=0;i<count;i++){
+      ctx.beginPath();
+      ctx.moveTo(x+i*step,hz.y+hz.h);
+      ctx.lineTo(x+i*step+step/2,hz.y);
+      ctx.lineTo(x+(i+1)*step,hz.y+hz.h);
+      ctx.closePath();ctx.fill();
+    }
+    ctx.fillStyle='#7d8aa1';
+    ctx.fillRect(x,hz.y+hz.h-4,hz.w,4);
   }
 
   // crystal collectibles
@@ -3225,16 +3296,13 @@ function spinTreasureWheel(){
   const wheel=document.getElementById('treasure-wheel');
   const result=document.getElementById('treasure-wheel-result');
   if(!wheel)return;
-  const index=Math.floor(Math.random()*6);
+  const index=Math.floor(Math.random()*3);
   const labels=[
-    '💎 Tu as gagné x3 !',
-    '💎 Tu as gagné x5 !',
-    '🎁 + 1 serveur privé sur le jeu de ton choix !',
-    '💎 Tu as gagné x10 !',
-    '🎁 + 3 serveurs privés sur les jeux de ton choix !',
-    '🎁 5 serveurs privés sur le jeu de ton choix !'
+    '💎 x3 + 1 serveur privé sur le jeu de ton choix !',
+    '💎 x5 + 3 serveurs privés sur les jeux de ton choix !',
+    '💎 x10 + 5 serveurs privés sur les jeux de ton choix !'
   ];
-  const segmentCenter=index*60+30;
+  const segmentCenter=index*120+60;
   const spins=6+Math.floor(Math.random()*4);
   const rotation=spins*360 + (360-segmentCenter);
   wheel.style.transform='rotate('+rotation+'deg)';
