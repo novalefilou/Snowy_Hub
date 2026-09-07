@@ -194,7 +194,7 @@ button,input{font:inherit}
   max-width:1100px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:28px;
   align-items:stretch;
 }
@@ -514,10 +514,14 @@ body.vip-no-decor .home:before,
 body.vip-no-decor .home:after{
   display:none!important;
 }
+@media(max-width:1000px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
 @media(max-width:760px){
   .vip-page .tab-bar{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:480px){
+  .cards{grid-template-columns:1fr;}
   .vip-page .tab-bar{grid-template-columns:1fr;}
 }
 
@@ -664,6 +668,101 @@ body.vip-no-decor .home:after{
 }
 .roblox-info h3{margin-bottom:7px}
 .roblox-info p{margin:0}
+
+/* =========================
+   GROTTE AUX TRÉSORS 🎮💎
+========================= */
+.treasure-page{
+  min-height:calc(100vh - 72px);
+  padding:42px 4%;
+  background:
+    radial-gradient(circle at 15% 20%,#23395d 0,transparent 24%),
+    radial-gradient(circle at 85% 15%,#5b2a86 0,transparent 26%),
+    radial-gradient(circle at 50% 100%,#0f766e 0,transparent 30%),
+    linear-gradient(160deg,#050914,#0b1020 48%,#120c20);
+  color:#f8fbff;
+  overflow:hidden;
+}
+.treasure-page .page-head{position:relative;z-index:2}
+.treasure-page .page-desc{color:#b7c6e7}
+.treasure-shell{max-width:1200px;margin:18px auto 0}
+.treasure-lock,
+.treasure-game-wrap{
+  background:#07101ddd;
+  border:1px solid #ffffff18;
+  border-radius:28px;
+  box-shadow:0 28px 80px #0008;
+  backdrop-filter:blur(12px);
+}
+.treasure-lock{padding:55px 24px;text-align:center}
+.treasure-lock .lock-icon{font-size:74px;filter:drop-shadow(0 10px 25px #0008)}
+.treasure-lock h2{font-size:34px;margin:14px 0 8px}
+.treasure-lock p{color:#b8c4dc;line-height:1.6}
+.treasure-game-wrap{padding:18px}
+.treasure-hud{display:flex;gap:12px;align-items:stretch;flex-wrap:wrap;margin-bottom:14px}
+.treasure-stat{flex:1 1 150px;min-width:140px;padding:12px 15px;border-radius:16px;background:#ffffff08;border:1px solid #ffffff14}
+.treasure-stat small{display:block;color:#8fa1c0;text-transform:uppercase;font-size:11px;letter-spacing:.08em;font-weight:900}
+.treasure-stat b{display:block;margin-top:3px;font-size:18px}
+#treasure-canvas{display:block;width:100%;height:auto;max-height:540px;border-radius:22px;border:1px solid #ffffff14;background:#06101c;touch-action:none;box-shadow:inset 0 0 80px #0008}
+.treasure-controls{display:none;margin:16px auto 2px;max-width:350px;grid-template-columns:repeat(3,1fr);gap:10px;user-select:none}
+.treasure-controls button{
+  min-height:56px;border:1px solid #ffffff1f;border-radius:17px;background:linear-gradient(180deg,#1e2e55,#111a34);color:#fff;font-size:24px;font-weight:900;box-shadow:0 10px 22px #0006;cursor:pointer;touch-action:none;-webkit-tap-highlight-color:transparent
+}
+.treasure-controls button:active{transform:translateY(2px);filter:brightness(1.15)}
+.treasure-controls .empty{visibility:hidden}
+.treasure-controls .wide-up{grid-column:2}
+.treasure-controls .left{grid-column:1;grid-row:2}
+.treasure-controls .down{grid-column:2;grid-row:2}
+.treasure-controls .right{grid-column:3;grid-row:2}
+.treasure-controls .up2{grid-column:2;grid-row:3}
+.treasure-tip{margin:12px 4px 0;color:#8fa1c0;text-align:center;font-size:13px}
+.treasure-tip b{color:#fff}
+.treasure-finish{display:none;margin:16px 0 4px;padding:20px;border-radius:22px;background:linear-gradient(135deg,#1d1235,#0c2336);border:1px solid #ffffff16;text-align:center}
+.treasure-finish.show{display:block}
+.treasure-finish h2{font-size:28px}
+.treasure-finish p{margin:8px 0 14px;color:#b9c7df}
+.treasure-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.treasure-actions button{min-width:170px}
+.treasure-wheel-section{display:none;margin-top:16px;padding:24px;border-radius:26px;background:linear-gradient(145deg,#0b1326,#170e22);border:1px solid #ffffff18;text-align:center}
+.treasure-wheel-section.show{display:block}
+.treasure-wheel-section h2{font-size:31px}
+.treasure-wheel-section p{margin:7px 0;color:#aebddd}
+.wheel-area{position:relative;width:min(520px,94vw);aspect-ratio:1;margin:22px auto 12px;display:grid;place-items:center}
+.wheel-pointer{position:absolute;top:-3px;left:50%;transform:translateX(-50%);z-index:4;font-size:42px;filter:drop-shadow(0 4px 7px #000);pointer-events:none}
+.treasure-wheel{position:relative;width:100%;height:100%;border-radius:50%;border:12px solid #e7d5ff;box-shadow:0 0 0 4px #8c5cff55,0 18px 60px #000b;overflow:hidden;cursor:pointer;transform:rotate(0deg);transition:transform 4.8s cubic-bezier(.12,.68,.12,1);background:conic-gradient(#9d58ff 0 16.666%,#ffb027 16.666% 33.333%,#41d7b7 33.333% 50%,#ff5c8a 50% 66.666%,#3ea7ff 66.666% 83.333%,#ffd54f 83.333% 100%)}
+.wheel-seg{position:absolute;left:50%;top:50%;width:52%;min-height:72px;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 10px;border-radius:14px;background:#07101db8;border:1px solid #ffffff2a;box-shadow:0 8px 18px #0004;transform-origin:center;font-weight:1000;font-size:14px;line-height:1.05;text-align:center;color:#fff;pointer-events:none}
+.wheel-seg>div{display:flex;align-items:center;justify-content:center;gap:8px}
+.wheel-seg img{width:38px;height:38px;object-fit:contain;border-radius:10px;background:#fff;padding:3px;flex:0 0 auto}
+.wheel-seg.s1{transform:translate(-50%,-50%) translateY(-148px)}
+.wheel-seg.s2{transform:translate(-50%,-50%) translate(128px,-74px)}
+.wheel-seg.s3{transform:translate(-50%,-50%) translate(128px,74px)}
+.wheel-seg.s4{transform:translate(-50%,-50%) translateY(148px)}
+.wheel-seg.s5{transform:translate(-50%,-50%) translate(-128px,74px)}
+.wheel-seg.s6{transform:translate(-50%,-50%) translate(-128px,-74px)}
+.wheel-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:#0b1120;color:#fff;border:7px solid #f1e4ff;box-shadow:0 0 0 4px #7c3aed66,0 12px 24px #0008;font-weight:1000}
+.wheel-result{min-height:56px;margin:10px auto 0;max-width:720px;padding:14px 16px;border-radius:15px;background:#ffffff09;border:1px solid #ffffff12;color:#f8fbff;font-weight:800}
+.treasure-wheel-btn{margin-top:12px}
+.treasure-note{font-size:12px;color:#8699b9;margin-top:10px}
+.category.treasure{background:#07101a;}
+.category.treasure .treasure-card-art{min-height:420px;height:100%;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 40%,#1f6a6d 0,#132b42 32%,#0a101e 72%)}
+.treasure-card-art:before{content:"💎  🪙  🟣  💎  🟡";position:absolute;inset:20% -20%;font-size:58px;opacity:.14;transform:rotate(-12deg);letter-spacing:28px}
+.treasure-card-art .treasure-logo{position:relative;font-size:120px;filter:drop-shadow(0 18px 20px #000b)}
+@keyframes treasureGlow{0%,100%{filter:drop-shadow(0 0 12px #55e6d3) drop-shadow(0 16px 20px #000)}50%{filter:drop-shadow(0 0 28px #c38cff) drop-shadow(0 16px 20px #000)}}
+.treasure-card-art .treasure-logo{animation:treasureGlow 2.8s ease-in-out infinite}
+@media(max-width:760px){
+  .treasure-page{padding:32px 3%}
+  .treasure-game-wrap{padding:12px}
+  .treasure-controls{display:grid}
+  .treasure-tip{font-size:12px}
+  .wheel-seg{font-size:10px;width:58%;min-height:62px}
+  .wheel-seg.s1{transform:translate(-50%,-50%) translateY(-113px)}
+  .wheel-seg.s2{transform:translate(-50%,-50%) translate(97px,-57px)}
+  .wheel-seg.s3{transform:translate(-50%,-50%) translate(97px,57px)}
+  .wheel-seg.s4{transform:translate(-50%,-50%) translateY(113px)}
+  .wheel-seg.s5{transform:translate(-50%,-50%) translate(-97px,57px)}
+  .wheel-seg.s6{transform:translate(-50%,-50%) translate(-97px,-57px)}
+  .wheel-seg img{width:27px;height:27px}
+}
 @media(max-width:700px){
   .roblox-card-grid{grid-template-columns:1fr}
 }
@@ -1212,7 +1311,7 @@ body.vip-no-decor .home:after{
 
   <div style="max-width:900px;margin:-25px auto 35px;text-align:center;color:#667085;line-height:1.7">
     Bienvenue sur <b>Snowy Hub</b> ❄️ — découvre Murder Mystery 2,
-    Snowy Page, Roblox et maintenant le nouveau Fun Panel 🎉
+    Snowy Page, Roblox, la Grotte Aux Trésors et le Fun Panel 🎉
   </div>
 
   <div class="cards">
@@ -1257,6 +1356,16 @@ body.vip-no-decor .home:after{
       <div class="overlay">
         <h2>🎉 Fun Panel</h2>
         <p>Débloqué au niveau 25</p>
+      </div>
+    </article>
+
+    <article class="category treasure" onclick="openTreasureFromHome()">
+      <div class="treasure-card-art">
+        <div class="treasure-logo">💎</div>
+      </div>
+      <div class="overlay">
+        <h2>💎 Grotte Aux Trésors</h2>
+        <p>Débloqué au niveau 50 • jeu de plateforme + roue de la chance</p>
       </div>
     </article>
 
@@ -1497,6 +1606,75 @@ body.vip-no-decor .home:after{
     </div>
   </div>
 
+</main>
+
+<!-- GROTTE AUX TRÉSORS -->
+<main id="treasure" class="page treasure-page hidden">
+  <div class="page-head">
+    <button class="back" onclick="goHome()">← Accueil</button>
+    <h1>💎 Grotte Aux Trésors</h1>
+    <p class="page-desc">Un petit jeu de plateforme 2D caché dans Snowy Hub. Atteins le niveau 50 pour entrer dans la grotte.</p>
+  </div>
+
+  <div class="treasure-shell">
+    <div id="treasure-locked" class="treasure-lock hidden">
+      <div class="lock-icon">🔒</div>
+      <h2>Grotte verrouillée</h2>
+      <p>Il te faut le <b>niveau 50</b> pour entrer dans la Grotte Aux Trésors.</p>
+    </div>
+
+    <div id="treasure-game" class="treasure-game-wrap hidden">
+      <div class="treasure-hud">
+        <div class="treasure-stat"><small>Niveau</small><b id="treasure-level">50+</b></div>
+        <div class="treasure-stat"><small>💎 Cristaux</small><b id="treasure-crystals">0 / 12</b></div>
+        <div class="treasure-stat"><small>🏁 Progression</small><b id="treasure-progress">0%</b></div>
+        <div class="treasure-stat"><small>🎯 Contrôles</small><b>← → ↑ ↓</b></div>
+      </div>
+
+      <canvas id="treasure-canvas" width="1200" height="540" aria-label="Jeu de plateforme 2D Grotte Aux Trésors"></canvas>
+
+      <div class="treasure-controls" aria-label="Contrôles mobiles">
+        <button class="empty" tabindex="-1"></button>
+        <button class="wide-up" data-touch="up">↑</button>
+        <button class="empty" tabindex="-1"></button>
+        <button class="left" data-touch="left">←</button>
+        <button class="down" data-touch="down">↓</button>
+        <button class="right" data-touch="right">→</button>
+        <button class="empty" tabindex="-1"></button>
+        <button class="up2" data-touch="up">↑</button>
+        <button class="empty" tabindex="-1"></button>
+      </div>
+      <div class="treasure-tip">PC : <b>← →</b> pour avancer • <b>↑</b> pour sauter • <b>↓</b> pour s'accroupir • à la fin, <b>E</b> lance la roue. Sur téléphone, utilise les boutons ci-dessus.</div>
+
+      <div id="treasure-finish" class="treasure-finish">
+        <h2>🏆 Trésor trouvé !</h2>
+        <p>Tu as traversé toute la grotte. La roue de la chance t'attend.</p>
+        <div class="treasure-actions">
+          <button class="primary treasure-wheel-btn" id="treasure-spin-top" onclick="spinTreasureWheel()">🎡 Tourner la roue</button>
+          <button class="primary" onclick="resetTreasureGame()">🔄 Rejouer</button>
+        </div>
+      </div>
+
+      <div id="treasure-wheel-section" class="treasure-wheel-section">
+        <h2>🎡 Roue de la Chance</h2>
+        <p>Clique sur la roue sur téléphone ou appuie sur <b>E</b> sur PC.</p>
+        <div class="wheel-area">
+          <div class="wheel-pointer">▼</div>
+          <div id="treasure-wheel" class="treasure-wheel" role="button" tabindex="0" aria-label="Roue de la chance" onclick="spinTreasureWheel()">
+            <div class="wheel-seg s1"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x3"><span>x3</span></div></div>
+            <div class="wheel-seg s2"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x5"><span>x5</span></div></div>
+            <div class="wheel-seg s3"><div><span>+ 1 serveur privé<br>sur le jeu de ton choix</span></div></div>
+            <div class="wheel-seg s4"><div><img src="https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&amp;width=2048" alt="Récompense x10"><span>x10</span></div></div>
+            <div class="wheel-seg s5"><div><span>+ 3 serveurs privés<br>sur les jeux de ton choix</span></div></div>
+            <div class="wheel-seg s6"><div><span>5 serveurs privés<br>sur le jeu de ton choix</span></div></div>
+            <div class="wheel-center">SPIN</div>
+          </div>
+        </div>
+        <div id="treasure-wheel-result" class="wheel-result">🎡 La roue est prête !</div>
+        <div class="treasure-note">Les récompenses affichées ici sont les résultats du mini-jeu Snowy Hub.</div>
+      </div>
+    </div>
+  </div>
 </main>
 
 <!-- VIP / V2 CORRIGÉ -->
@@ -2349,6 +2527,7 @@ function updateLevel(){
 
   unlockPromo(level);
   unlockVIP(level);
+  unlockTreasure(level);
   unlockFun(level);
 }
 
@@ -2393,6 +2572,7 @@ function showPage(id){
     'snowy',
     'roblox',
     'vip',
+    'treasure',
     'fun'
   ].forEach(x=>{
 
@@ -2422,6 +2602,29 @@ function showPage(id){
 
 function goHome(){
   showPage('home');
+}
+
+
+function openTreasureFromHome(){
+  if(!state){
+    showPage('treasure');
+    unlockTreasure(1);
+    return;
+  }
+  showPage('treasure');
+  unlockTreasure(state.level);
+}
+
+function unlockTreasure(level){
+  const locked=document.getElementById('treasure-locked');
+  const game=document.getElementById('treasure-game');
+  if(!locked || !game)return;
+  const ok=level>=50;
+  locked.classList.toggle('hidden',ok);
+  game.classList.toggle('hidden',!ok);
+  if(ok){
+    initTreasureGame();
+  }
 }
 
 function openMM2Tab(tab,button){
@@ -2695,6 +2898,348 @@ function closePromoWin(){
   document.body.style.overflow='';
 
   goHome();
+}
+
+
+/* =========================
+   GROTTE AUX TRÉSORS - JEU
+========================= */
+const TREASURE_IMAGE='https://luger.gg/cdn/shop/files/3_af462750-3108-467f-85ff-e575606b5890.png?v=1777749746&width=2048';
+const treasureGame={
+  ready:false,raf:0,last:0,won:false,spun:false,initialized:false,
+  worldW:3200,crystals:0,
+  keys:{left:false,right:false,down:false,up:false},
+  player:{x:120,y:360,w:34,h:44,vx:0,vy:0,onGround:false,crouch:false,doubleJump:false},
+  cameraX:0,
+  platforms:[],
+  crystalsList:[],
+  clouds:[]
+};
+
+function treasureCanvas(){return document.getElementById('treasure-canvas');}
+function treasureCtx(){const c=treasureCanvas();return c?c.getContext('2d'):null;}
+
+function treasureMakeWorld(){
+  treasureGame.platforms=[
+    {x:0,y:475,w:650,h:65},
+    {x:760,y:420,w:260,h:32},
+    {x:1100,y:360,w:220,h:30},
+    {x:1400,y:430,w:330,h:30},
+    {x:1810,y:350,w:210,h:30},
+    {x:2090,y:440,w:360,h:30},
+    {x:2520,y:385,w:220,h:30},
+    {x:2830,y:470,w:370,h:70},
+    {x:600,y:475,w:120,h:65},
+    {x:1000,y:475,w:100,h:65},
+    {x:1320,y:475,w:80,h:65},
+    {x:1730,y:475,w:80,h:65},
+    {x:2020,y:475,w:70,h:65},
+    {x:2450,y:475,w:70,h:65},
+    {x:2740,y:475,w:90,h:65}
+  ];
+  treasureGame.crystalsList=[
+    {x:250,y:425,taken:false,type:'💎'},
+    {x:540,y:390,taken:false,type:'💎'},
+    {x:830,y:375,taken:false,type:'💎'},
+    {x:1160,y:315,taken:false,type:'💎'},
+    {x:1460,y:385,taken:false,type:'💎'},
+    {x:1580,y:385,taken:false,type:'💎'},
+    {x:1870,y:305,taken:false,type:'💎'},
+    {x:2170,y:395,taken:false,type:'💎'},
+    {x:2350,y:395,taken:false,type:'💎'},
+    {x:2580,y:330,taken:false,type:'💎'},
+    {x:2930,y:420,taken:false,type:'💎'},
+    {x:3050,y:420,taken:false,type:'💎'}
+  ];
+  treasureGame.clouds=[...Array(9)].map((_,i)=>({x:220+i*380,y:95+(i%3)*42,s:0.7+(i%4)*0.1}));
+}
+
+function initTreasureGame(){
+  const canvas=treasureCanvas();
+  if(!canvas)return;
+  if(!treasureGame.initialized){
+    treasureMakeWorld();
+    treasureBindControls();
+    treasureGame.initialized=true;
+  }
+  if(!treasureGame.ready){
+    treasureGame.ready=true;
+    resetTreasureGame();
+  }
+}
+
+function resetTreasureGame(){
+  const canvas=treasureCanvas();
+  if(!canvas)return;
+  treasureGame.ready=true;
+  treasureGame.won=false;
+  treasureGame.spun=false;
+  treasureGame.crystals=0;
+  treasureGame.player={x:120,y:390,w:34,h:44,vx:0,vy:0,onGround:false,crouch:false,doubleJump:false};
+  treasureGame.cameraX=0;
+  treasureGame.last=performance.now();
+  treasureMakeWorld();
+  const finish=document.getElementById('treasure-finish');
+  const wheelSection=document.getElementById('treasure-wheel-section');
+  if(finish)finish.classList.remove('show');
+  if(wheelSection)wheelSection.classList.remove('show');
+  const result=document.getElementById('treasure-wheel-result');
+  if(result)result.textContent='🎡 La roue est prête !';
+  const wheel=document.getElementById('treasure-wheel');
+  if(wheel)wheel.style.transform='rotate(0deg)';
+  treasureGame.keys={left:false,right:false,down:false,up:false};
+  cancelAnimationFrame(treasureGame.raf);
+  treasureGame.raf=requestAnimationFrame(treasureLoop);
+  treasureUpdateHud();
+}
+
+function treasureBindControls(){
+  const buttons=document.querySelectorAll('[data-touch]');
+  buttons.forEach(btn=>{
+    const key=btn.dataset.touch;
+    const down=(e)=>{e.preventDefault();treasureGame.keys[key]=true;};
+    const up=(e)=>{e.preventDefault();treasureGame.keys[key]=false;};
+    btn.addEventListener('pointerdown',down);
+    btn.addEventListener('pointerup',up);
+    btn.addEventListener('pointercancel',up);
+    btn.addEventListener('pointerleave',up);
+  });
+  window.addEventListener('keydown',e=>{
+    const k=e.key;
+    if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','e','E',' '].includes(k))e.preventDefault();
+    if(k==='ArrowLeft')treasureGame.keys.left=true;
+    if(k==='ArrowRight')treasureGame.keys.right=true;
+    if(k==='ArrowDown')treasureGame.keys.down=true;
+    if(k==='ArrowUp' || k===' ')treasureGame.keys.up=true;
+    if((k==='e'||k==='E') && treasureGame.won)spinTreasureWheel();
+  });
+  window.addEventListener('keyup',e=>{
+    if(e.key==='ArrowLeft')treasureGame.keys.left=false;
+    if(e.key==='ArrowRight')treasureGame.keys.right=false;
+    if(e.key==='ArrowDown')treasureGame.keys.down=false;
+    if(e.key==='ArrowUp' || e.key===' ')treasureGame.keys.up=false;
+  });
+}
+
+function treasureRectHit(a,b){
+  return a.x<b.x+b.w && a.x+a.w>b.x && a.y<b.y+b.h && a.y+a.h>b.y;
+}
+
+function treasureUpdate(dt){
+  if(treasureGame.won)return;
+  const p=treasureGame.player;
+  const speed=235;
+  const accel=1700;
+  const friction=0.82;
+  const gravity=1700;
+  p.crouch=treasureGame.keys.down && p.onGround;
+  const target=(treasureGame.keys.right?speed:0)-(treasureGame.keys.left?speed:0);
+  p.vx += Math.max(-accel,Math.min(accel,(target-p.vx)*12))*dt;
+  if(!treasureGame.keys.left && !treasureGame.keys.right)p.vx*=Math.pow(friction,dt*60);
+
+  if(treasureGame.keys.up && !treasureGame._upLatch){
+    if(p.onGround){p.vy=-620;p.onGround=false;p.doubleJump=true;}
+    else if(p.doubleJump){p.vy=-560;p.doubleJump=false;}
+    treasureGame._upLatch=true;
+  }
+  if(!treasureGame.keys.up)treasureGame._upLatch=false;
+
+  p.vy+=gravity*dt;
+  let oldY=p.y;
+  p.x+=p.vx*dt;
+  p.x=Math.max(0,Math.min(treasureGame.worldW-p.w,p.x));
+  p.y+=p.vy*dt;
+  p.onGround=false;
+
+  for(const plat of treasureGame.platforms){
+    if(p.x+p.w<=plat.x || p.x>=plat.x+plat.w)continue;
+    const wasAbove=oldY+p.h<=plat.y+5;
+    const nowBelow=p.y+p.h>=plat.y;
+    if(p.vy>=0 && wasAbove && nowBelow){
+      p.y=plat.y-p.h;
+      p.vy=0;
+      p.onGround=true;
+      p.doubleJump=true;
+    }else if(p.vy<0 && oldY>=plat.y+plat.h && p.y<=plat.y+plat.h){
+      p.y=plat.y+plat.h;
+      p.vy=0;
+    }
+  }
+
+  if(p.y>620){
+    p.x=Math.max(120,p.x-420);
+    p.y=250;
+    p.vy=0;
+  }
+
+  for(const c of treasureGame.crystalsList){
+    if(c.taken)continue;
+    const box={x:c.x-13,y:c.y-13,w:26,h:26};
+    if(treasureRectHit(p,box)){
+      c.taken=true;
+      treasureGame.crystals++;
+    }
+  }
+
+  const finishX=2935;
+  if(p.x>finishX && p.y<510){
+    treasureWin();
+  }
+  treasureGame.cameraX=Math.max(0,Math.min(treasureGame.worldW-canvasWidth(),p.x-canvasWidth()*0.42));
+}
+
+function canvasWidth(){
+  const c=treasureCanvas();
+  return c?c.width:1200;
+}
+
+function treasureDraw(){
+  const c=treasureCanvas();
+  const ctx=treasureCtx();
+  if(!c||!ctx)return;
+  const w=c.width,h=c.height;
+  ctx.clearRect(0,0,w,h);
+  const cam=treasureGame.cameraX;
+
+  // ciel / plafond
+  const sky=ctx.createLinearGradient(0,0,0,h);
+  sky.addColorStop(0,'#07111f'); sky.addColorStop(.55,'#0c1d2c'); sky.addColorStop(1,'#071016');
+  ctx.fillStyle=sky; ctx.fillRect(0,0,w,h);
+
+  // halos / cristaux dans le décor
+  for(let i=0;i<10;i++){
+    const x=(i*370-cam*0.18)% (w+500)-150;
+    const y=70+(i%4)*90;
+    const glow=ctx.createRadialGradient(x,y,0,x,y,90);
+    glow.addColorStop(0,'#4fe9dc35');glow.addColorStop(1,'#4fe9dc00');
+    ctx.fillStyle=glow;ctx.fillRect(x-100,y-100,200,200);
+  }
+
+  // stalactites
+  ctx.fillStyle='#12213a';
+  for(let i=0;i<18;i++){
+    const x=(i*180-cam*0.65)% (w+220)-110;
+    const len=50+(i%4)*22;
+    ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x+35,-0);ctx.lineTo(x+18,len);ctx.closePath();ctx.fill();
+  }
+
+  // nuages de poussière / parallax
+  for(const cl of treasureGame.clouds){
+    const x=cl.x-cam*.25;
+    if(x<-220||x>w+220)continue;
+    ctx.globalAlpha=.13;
+    ctx.fillStyle='#c7d8ff';
+    ctx.beginPath();ctx.ellipse(x,cl.y,70*cl.s,20*cl.s,0,0,Math.PI*2);ctx.fill();
+    ctx.globalAlpha=1;
+  }
+
+  // plateformes rocheuses
+  for(const pl of treasureGame.platforms){
+    const x=pl.x-cam;
+    if(x+pl.w<0||x>w)continue;
+    const grad=ctx.createLinearGradient(0,pl.y,0,pl.y+pl.h);
+    grad.addColorStop(0,'#41506b');grad.addColorStop(1,'#1a2234');
+    ctx.fillStyle=grad;ctx.fillRect(x,pl.y,pl.w,pl.h);
+    ctx.fillStyle='#6fe6d6';ctx.globalAlpha=.18;ctx.fillRect(x,pl.y,pl.w,5);ctx.globalAlpha=1;
+    for(let i=0;i<Math.floor(pl.w/42);i++){
+      ctx.fillStyle=i%2?'#11192a':'#26314a';
+      ctx.beginPath();ctx.arc(x+18+i*42,pl.y+pl.h*.55,5+(i%3)*2,0,Math.PI*2);ctx.fill();
+    }
+  }
+
+  // crystal collectibles
+  for(const cr of treasureGame.crystalsList){
+    if(cr.taken)continue;
+    const x=cr.x-cam,y=cr.y;
+    if(x<-40||x>w+40)continue;
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.rotate(performance.now()/900);
+    ctx.shadowBlur=22;ctx.shadowColor='#77ffe8';
+    ctx.fillStyle='#6fffe8';ctx.beginPath();ctx.moveTo(0,-15);ctx.lineTo(11,-4);ctx.lineTo(7,13);ctx.lineTo(-7,13);ctx.lineTo(-11,-4);ctx.closePath();ctx.fill();
+    ctx.fillStyle='#dffff9aa';ctx.beginPath();ctx.moveTo(0,-11);ctx.lineTo(4,-3);ctx.lineTo(0,7);ctx.lineTo(-4,-3);ctx.closePath();ctx.fill();
+    ctx.restore();
+  }
+
+  // zone finale
+  const fx=2935-cam;
+  if(fx<w+100){
+    ctx.save();
+    ctx.fillStyle='#bb7cff18';ctx.shadowBlur=40;ctx.shadowColor='#d78cff';
+    ctx.fillRect(fx,300,150,175);ctx.restore();
+    ctx.fillStyle='#e0b7ff';ctx.font='900 20px Inter,Arial';ctx.textAlign='center';ctx.fillText('TRÉSOR',fx+55,280);
+    ctx.font='34px system-ui';ctx.fillText('🏆',fx+55,345);
+  }
+
+  // joueur
+  const p=treasureGame.player; const px=p.x-cam; const py=p.y;
+  ctx.save();
+  ctx.translate(px+p.w/2,py+p.h/2);
+  const bodyH=p.crouch?26:36;
+  const bodyW=p.crouch?30:32;
+  ctx.fillStyle='#64d7ff';ctx.shadowBlur=20;ctx.shadowColor='#64d7ff55';
+  ctx.beginPath();ctx.roundRect(-bodyW/2,-bodyH/2,bodyW,bodyH,10);ctx.fill();
+  ctx.shadowBlur=0;
+  ctx.fillStyle='#dff8ff';ctx.beginPath();ctx.arc(0,-bodyH/2-9,11,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#10243a';ctx.beginPath();ctx.arc(-4,-bodyH/2-9,2,0,Math.PI*2);ctx.arc(4,-bodyH/2-9,2,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#7c5cff';ctx.fillRect(-bodyW/2,-bodyH/2-1,bodyW,6);
+  ctx.restore();
+
+  // panneau de départ
+  ctx.fillStyle='#d5e5ff';ctx.font='800 15px Inter,Arial';ctx.textAlign='left';ctx.fillText('🧭 Explore la grotte',25,34);
+}
+
+function treasureUpdateHud(){
+  const crystals=document.getElementById('treasure-crystals');
+  const progress=document.getElementById('treasure-progress');
+  const level=document.getElementById('treasure-level');
+  if(crystals)crystals.textContent=treasureGame.crystals+' / '+treasureGame.crystalsList.length;
+  if(progress)progress.textContent=Math.min(100,Math.round((treasureGame.player.x/2935)*100))+'%';
+  if(level)level.textContent=state&&state.level?'Niveau '+state.level:'Niveau 50+';
+}
+
+function treasureLoop(t){
+  const dt=Math.min(.033,(t-(treasureGame.last||t))/1000);
+  treasureGame.last=t;
+  treasureUpdate(dt);
+  treasureDraw();
+  treasureUpdateHud();
+  if(treasureGame.ready)treasureGame.raf=requestAnimationFrame(treasureLoop);
+}
+
+function treasureWin(){
+  if(treasureGame.won)return;
+  treasureGame.won=true;
+  treasureGame.player.vx=0;
+  const finish=document.getElementById('treasure-finish');
+  if(finish)finish.classList.add('show');
+  const wheelSection=document.getElementById('treasure-wheel-section');
+  if(wheelSection)wheelSection.classList.add('show');
+  const result=document.getElementById('treasure-wheel-result');
+  if(result)result.textContent='🎡 Appuie sur E (PC) ou clique sur la roue pour tenter ta chance !';
+}
+
+function spinTreasureWheel(){
+  if(!treasureGame.won || treasureGame.spun)return;
+  treasureGame.spun=true;
+  const wheel=document.getElementById('treasure-wheel');
+  const result=document.getElementById('treasure-wheel-result');
+  if(!wheel)return;
+  const index=Math.floor(Math.random()*6);
+  const labels=[
+    '💎 Tu as gagné x3 !',
+    '💎 Tu as gagné x5 !',
+    '🎁 + 1 serveur privé sur le jeu de ton choix !',
+    '💎 Tu as gagné x10 !',
+    '🎁 + 3 serveurs privés sur les jeux de ton choix !',
+    '🎁 5 serveurs privés sur le jeu de ton choix !'
+  ];
+  const segmentCenter=index*60+30;
+  const spins=6+Math.floor(Math.random()*4);
+  const rotation=spins*360 + (360-segmentCenter);
+  wheel.style.transform='rotate('+rotation+'deg)';
+  if(result)result.textContent='🎰 La roue tourne...';
+  setTimeout(()=>{if(result)result.textContent='🏆 '+labels[index].replace('🏆 ','');},5000);
 }
 
 /* =========================
@@ -3610,6 +4155,7 @@ document.getElementById(
 loadVipPreferences();
 unlockPromo(1);
 unlockVIP(1);
+unlockTreasure(1);
 unlockFun(1);
 
 </script>
